@@ -56,15 +56,15 @@ class ApartmentController extends Controller
 
         $slug = Str::slug($data['title']);
         $counter = 1;
-        while(Apartment::where('slug', $slug)->first()) {
+        while (Apartment::where('slug', $slug)->first()) {
             $slug = Str::slug($data['title']) . '-' . $counter;
             $counter++;
         }
         $data['slug'] = $slug;
 
-        if(isset($data['image'])) {
-            $cover_path = Storage::put('images', $data['image']);
-            $data['image'] = $cover_path;
+        if (isset($data['image'])) {
+            $image_path = Storage::put('images', $data['image']);
+            $data['image'] = $image_path;
         }
 
         $apartment = new Apartment();
@@ -80,9 +80,9 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Apartment $apartment)
     {
-        //
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -91,9 +91,9 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Apartment $apartment)
     {
-        //
+        return view('admin.apartments.edit', compact('apartment'));
     }
 
     /**
@@ -103,9 +103,43 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apartment $apartment)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:2',
+            'description' => 'required|min:10',
+            'rooms' => 'required|numeric|min:1',
+            'beds' => 'required|numeric|min:1',
+            'bathrooms' => 'required|numeric|min:1',
+            'square_meters' => 'required|numeric|min:10',
+            'image' => 'required|image|max:2048',
+            'availability' => 'required|boolean',
+        ]);
+
+        $data = $request->all();
+
+        $slug = Str::slug($data['title']);
+
+        $counter = 1;
+
+        if ($apartment->slug != $slug) {
+            while (Apartment::where('slug', $slug)->first()) {
+                $slug = Str::slug($data['title']) . '-' . $counter;
+                $counter++;
+            }
+            $data['slug'] = $slug;
+        }
+
+        if (isset($data['image'])) {
+            $image_path = Storage::put('images', $data['image']);
+            $data['image'] = $image_path;
+        }
+
+
+        $apartment->update($data);
+        $apartment->save();
+
+        return redirect()->route('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -114,8 +148,10 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apartment $apartment)
     {
-        //
+        Storage::delete($apartment->image);
+        $apartment->delete();
+        return redirect()->route('admin.apartments.index');
     }
 }
