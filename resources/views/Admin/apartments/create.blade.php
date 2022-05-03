@@ -4,6 +4,12 @@
 
 @section('content')
     <div class="container">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p>{{$error}}</p>
+            @endforeach
+        @endif
+
         <h1>Create apartment</h1>
 
         <form method="POST" action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
@@ -21,7 +27,7 @@
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="5">{{old('description')}}</textarea>
+                <textarea class="form-control" id="description" name="description" rows="5">{{old('description')}}</textarea>
             </div>
 
             <div class="form-group">
@@ -46,12 +52,15 @@
 
             <div class="form-group">
                 <label for="availability">Already available?</label>
-                <select class="form-control" id="availability">
+                <select class="form-control" name="availability" id="availability">
                     <option value="">Select</option>
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
                 </select>
             </div>
+
+            <button type="submit" class="btn btn-primary">Create</button>
+
         </form>
     </div>
 @endsection
