@@ -26,6 +26,8 @@ Route::middleware('auth')
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::resource('apartments', 'ApartmentController');
+
+    Route::resource('amenities', 'AmenityController');
 });
 
 Route::get("{any?}", function(){
