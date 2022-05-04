@@ -6,18 +6,31 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>{{$apartment->title}}</h1>
-                <div class="card">
-                    {{-- <img src="{{asset('storage/' . $apartment->image)}}" class="card-img-top" alt="{{$apartment->title}}"> --}}
-                    <div class="card-body">
+                <div class="text-right"> 
+                    <a href="{{route('admin.apartments.index')}}" class="btn btn-primary">All the apartments</a>
+                </div>
+                <div class="card m-auto border-0" style="width: 40rem; backgroundColor: transparent;">
+                    <h1>{{$apartment->title}}</h1>
+                    <img src="{{asset('storage/'.$apartment->image)}}" class="card-img-top" alt="{{$apartment->title}}">
+                    <div class="card-body pl-1">
+                        <p class="mb-2 font-weight-bold">Description:</p>
                         <p class="card-text">{{$apartment->description}}</p>
-                        <p>Number of rooms: {{$apartment->rooms}}</p>
-                        <p>Number of beds: {{$apartment->beds}}</p>
-                        <p>Number of bathrooms: {{$apartment->bathrooms}}</p>
-                        <p>Dimension in square meters: {{$apartment->square_meters}}</p>
-                        <p>Availability: {{$apartment->availability}}</p>
+                        <p>____</p>
+                        <p>Rooms: {{$apartment->rooms}}</p>
 
-                        <a href="{{route('admin.apartments.index')}}" class="btn btn-primary">Go back</a>
+                        <p>Beds: {{$apartment->beds}}</p>
+                        
+                        <p>Bathrooms: {{$apartment->bathrooms}}</p>
+                        
+                        <p>Dimension in square meters: {{$apartment->square_meters}}</p>
+                        
+                        @if ($apartment->availability == 1)
+                            <p>Availabilty: Available</p>
+                            @else
+                            <p>Availabilty: Not Available</p>
+                        @endif
+                        
+
                     </div>
                 </div>
             </div>
