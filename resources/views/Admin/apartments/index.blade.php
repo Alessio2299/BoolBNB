@@ -4,7 +4,11 @@
 
 @section('content')
     <div class="container">
+
+        <a href="{{route('admin.apartments.create')}}" class="btn btn-warning">Add a new apartment</a>
+        
         <div class="row">
+
             @foreach ($apartments as $apartment )
             <div class="card col" style="width: 18rem;">
                 {{-- <img src="..." class="card-img-top" alt="..."> --}}
