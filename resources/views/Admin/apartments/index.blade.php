@@ -15,6 +15,8 @@
                 <div class="card-body">
                   <h5 class="card-title">{{$apartment->title}}</h5>
                   <p class="card-text">{{$apartment->description}}</p>
+                  <p>Lat: {{$apartment->lat}}</p>
+                  <p>Lon: {{$apartment->lon}}</p>
 
                   <a href="{{route('admin.apartments.show',$apartment->id)}}" class="btn btn-primary">Go to apartment</a>
                   <a href="{{route('admin.apartments.edit',$apartment->id)}}" class="btn btn-warning">Edit apartment</a>
