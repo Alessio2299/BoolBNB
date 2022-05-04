@@ -8,6 +8,7 @@
             <div class="col">
                 <h1>{{$apartment->title}}</h1>
                 <div class="card">
+                    {{-- <img src="{{asset('storage/' . $apartment->image)}}" class="card-img-top" alt="{{$apartment->title}}"> --}}
                     <div class="card-body">
                         <p class="card-text">{{$apartment->description}}</p>
                         <p>Number of rooms: {{$apartment->rooms}}</p>
