@@ -1,4 +1,4 @@
-@extends('admin.layouts.base')
+@extends('admin.layouts.dashboard')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <span>Welcome back, {{$user->name}}</span>
                 </div>
             </div>
         </div>
