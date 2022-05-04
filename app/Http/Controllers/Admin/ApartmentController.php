@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
@@ -57,7 +58,13 @@ class ApartmentController extends Controller
             'country' => 'required'
         ]);
 
+
         $data = $request->all();
+
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $data['street'] . ' ' . $data['civic_number'] . ' ' . $data['zip_code'] . ' ' . $data['city'] . '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1');
+        $dataPosition = $response->json()['results']['0']['position'];
+        $data['lat'] = $dataPosition['lat'];
+        $data['lon'] = $dataPosition['lon'];
 
         $slug = Str::slug($data['title']);
         $counter = 1;
@@ -138,6 +145,13 @@ class ApartmentController extends Controller
                 $counter++;
             }
             $data['slug'] = $slug;
+        }
+
+        if($apartment->street != $data['street'] || $apartment->civic_number != $data['civic_number'] || $apartment->zip_code != $data['zip_code'] || $apartment->city != $data['city'] || $apartment->country != $data['country']){
+            $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $data['street'] . ' ' . $data['civic_number'] . ' ' . $data['zip_code'] . ' ' . $data['city'] . '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1');
+            $dataPosition = $response->json()['results']['0']['position'];
+            $data['lat'] = $dataPosition['lat'];
+            $data['lon'] = $dataPosition['lon'];
         }
 
         if (isset($data['image'])) {

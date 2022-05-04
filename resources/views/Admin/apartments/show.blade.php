@@ -16,6 +16,7 @@
                         <p>Number of bathrooms: {{$apartment->bathrooms}}</p>
                         <p>Dimension in square meters: {{$apartment->square_meters}}</p>
                         <p>Availability: {{$apartment->availability}}</p>
+
                         <a href="{{route('admin.apartments.index')}}" class="btn btn-primary">Go back</a>
                     </div>
                 </div>
