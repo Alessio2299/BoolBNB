@@ -23,6 +23,11 @@ class CreateApartmentsTable extends Migration
             $table->unsignedSmallInteger('square_meters');
             $table->string('image');
             $table->boolean('availability');
+            $table->string('street');
+            $table->string('civic_number');
+            $table->string('zip_code');
+            $table->string('city');
+            $table->string('country');
             $table->string('slug');
             $table->timestamps();
         });
