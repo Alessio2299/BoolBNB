@@ -85,6 +85,7 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
+            <a href="{{route('admin.apartments.index')}}" class="btn btn-danger"> Cancel </a>
         </form>
     </div>
 @endsection
