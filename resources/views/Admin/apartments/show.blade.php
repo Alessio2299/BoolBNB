@@ -27,7 +27,7 @@
                         @if ($apartment->availability == 1)
                             <p>Availabilty: Available</p>
                             @else
-                            <p>Availabilty: Not Available</p>
+                            <p>Availability: Not Available</p>
                         @endif
 
                         <div>
