@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Amenity;
 use App\Apartment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
@@ -19,8 +21,9 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::all();
+        $amenities = Amenity::all();
 
-        return view('admin.apartments.index', compact('apartments'));
+        return view('admin.apartments.index', compact('apartments', 'amenities'));
     }
 
     /**
@@ -30,7 +33,8 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.apartments.create');
+        $amenities = Amenity::all();
+        return view('admin.apartments.create', compact('amenities'));
     }
 
     /**
@@ -57,7 +61,13 @@ class ApartmentController extends Controller
             'country' => 'required'
         ]);
 
+
         $data = $request->all();
+
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $data['street'] . ' ' . $data['civic_number'] . ' ' . $data['zip_code'] . ' ' . $data['city'] . '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1');
+        $dataPosition = $response->json()['results']['0']['position'];
+        $data['lat'] = $dataPosition['lat'];
+        $data['lon'] = $dataPosition['lon'];
 
         $slug = Str::slug($data['title']);
         $counter = 1;
@@ -76,6 +86,8 @@ class ApartmentController extends Controller
         $apartment->fill($data);
         $apartment->save();
 
+        $apartment->amenities()->sync($data['amenities']);
+
         return redirect()->route('admin.apartments.index');
     }
 
@@ -87,7 +99,14 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        return view('admin.apartments.show', compact('apartment'));
+        $now = Carbon::now();
+
+        $apartmentDateTime = Carbon::create($apartment->created_at);
+
+        $diffInDays = $now->diffInDays($apartmentDateTime);
+
+        $amenities = Amenity::all();
+        return view('admin.apartments.show', compact('apartment', 'amenities', 'diffInDays'));
     }
 
     /**
@@ -98,7 +117,8 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        return view('admin.apartments.edit', compact('apartment'));
+        $amenities = Amenity::all();
+        return view('admin.apartments.edit', compact('apartment', 'amenities'));
     }
 
     /**
@@ -140,6 +160,13 @@ class ApartmentController extends Controller
             $data['slug'] = $slug;
         }
 
+        if($apartment->street != $data['street'] || $apartment->civic_number != $data['civic_number'] || $apartment->zip_code != $data['zip_code'] || $apartment->city != $data['city'] || $apartment->country != $data['country']){
+            $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $data['street'] . ' ' . $data['civic_number'] . ' ' . $data['zip_code'] . ' ' . $data['city'] . '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1');
+            $dataPosition = $response->json()['results']['0']['position'];
+            $data['lat'] = $dataPosition['lat'];
+            $data['lon'] = $dataPosition['lon'];
+        }
+
         if (isset($data['image'])) {
             $image_path = Storage::put('images', $data['image']);
             $data['image'] = $image_path;
@@ -148,6 +175,8 @@ class ApartmentController extends Controller
 
         $apartment->update($data);
         $apartment->save();
+
+        $apartment->amenities()->sync($data['amenities']);
 
         return redirect()->route('admin.apartments.show', compact('apartment'));
     }

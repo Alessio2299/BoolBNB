@@ -4,28 +4,40 @@
 
 @section('content')
     <div class="container">
+        
+        
+        <div class="d-flex align-items-center mb-5 justify-content-between">
+            <h1 class=" text-center">Your Apartments</h1>
+            <a style="font-size: 2rem" href="{{route('admin.apartments.create')}}" class="btn btn-success text-right py-0"><i class="fa-regular fa-square-plus"></i></a>
+        </div>
 
-        <a href="{{route('admin.apartments.create')}}" class="btn btn-warning">Add a new apartment</a>
-
-        <div class="row">
+        
+        <div class="row ">
 
             @foreach ($apartments as $apartment )
-            <div class="card col" style="width: 18rem;">
-                {{-- <img src="{{asset('storage/' . $apartment->image)}}" class="card-img-top" alt="{{$apartment->title}}"> --}}
+            <div class="card bg-white col-3 pt-4 mx-2">
+                <img src="{{asset('storage/' . $apartment->image)}}" style="max-height: 155px;" class="img-thumbnail " alt="{{$apartment->title}}">
                 <div class="card-body">
                   <h5 class="card-title">{{$apartment->title}}</h5>
-                  <p class="card-text">{{$apartment->description}}</p>
+                  <p class="card-text text-truncate">{{$apartment->description}}</p>
 
-                  <a href="{{route('admin.apartments.show',$apartment->id)}}" class="btn btn-primary">Go to apartment</a>
-                  <a href="{{route('admin.apartments.edit',$apartment->id)}}" class="btn btn-warning">Edit apartment</a>
+                <div>
+                    @foreach ($apartment->amenities as $amenity)
+                        <span class="badge badge-primary">{{$amenity->name}}</span>
+                    @endforeach
+                </div>
 
-                    <form class="d-inline-block" method="POST" action="{{route('admin.apartments.destroy', $apartment->id)}}">
+                  <div class="text-center">
+                      <a href="{{route('admin.apartments.show',$apartment->id)}}" class="btn btn-primary"> <i class="fa-solid fa-eye"></i> </a>
+                      <a href="{{route('admin.apartments.edit',$apartment->id)}}" class="btn btn-warning mx-2"> <i class="fa-solid fa-pencil"></i> </a>
+                      <form class="d-inline-block" method="POST" action="{{route('admin.apartments.destroy', $apartment->id)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">
-                            Delete apartment
+                            <i class="fa-solid fa-trash"></i>
                         </button>
                     </form>
+                </div>
                 </div>
               </div>
             @endforeach
