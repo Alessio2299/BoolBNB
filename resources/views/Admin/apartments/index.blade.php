@@ -21,6 +21,12 @@
                   <h5 class="card-title">{{$apartment->title}}</h5>
                   <p class="card-text text-truncate">{{$apartment->description}}</p>
 
+                <div>
+                    @foreach ($apartment->amenities as $amenity)
+                        <span class="badge badge-primary">{{$amenity->name}}</span>
+                    @endforeach
+                </div>
+
                   <div class="text-center">
                       <a href="{{route('admin.apartments.show',$apartment->id)}}" class="btn btn-primary"> <i class="fa-solid fa-eye"></i> </a>
                       <a href="{{route('admin.apartments.edit',$apartment->id)}}" class="btn btn-warning mx-2"> <i class="fa-solid fa-pencil"></i> </a>

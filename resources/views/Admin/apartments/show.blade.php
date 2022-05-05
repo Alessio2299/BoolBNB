@@ -27,10 +27,17 @@
                         @if ($apartment->availability == 1)
                             <p>Availabilty: Available</p>
                             @else
-                            <p>Availabilty: Not Available</p>
+                            <p>Availability: Not Available</p>
                         @endif
-                        
 
+                        <div>
+                            @foreach ($apartment->amenities as $amenity)
+                                <span class="badge badge-primary">{{$amenity->name}}</span>
+                            @endforeach
+                        </div>
+
+                        <div>You created this apartment entry: {{$diffInDays}} days ago</div>
+                        
                     </div>
                 </div>
             </div>
