@@ -35,6 +35,8 @@
                                 <span class="badge badge-primary">{{$amenity->name}}</span>
                             @endforeach
                         </div>
+
+                        <div>You created this apartment entry: {{$diffInDays}} days ago</div>
                         
                     </div>
                 </div>
