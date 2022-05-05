@@ -99,8 +99,14 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
+        $now = Carbon::now();
+
+        $apartmentDateTime = Carbon::create($apartment->created_at);
+
+        $diffInDays = $now->diffInDays($apartmentDateTime);
+
         $amenities = Amenity::all();
-        return view('admin.apartments.show', compact('apartment', 'amenities'));
+        return view('admin.apartments.show', compact('apartment', 'amenities', 'diffInDays'));
     }
 
     /**
