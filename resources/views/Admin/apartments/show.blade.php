@@ -29,8 +29,13 @@
                             @else
                             <p>Availabilty: Not Available</p>
                         @endif
-                        
 
+                        <div>
+                            @foreach ($apartment->amenities as $amenity)
+                                <span class="badge badge-primary">{{$amenity->name}}</span>
+                            @endforeach
+                        </div>
+                        
                     </div>
                 </div>
             </div>

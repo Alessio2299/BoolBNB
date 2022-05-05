@@ -84,6 +84,29 @@
                     <option {{(old('availability', $apartment->availability) == 0) ? 'selected': ''}} value="0">No</option>
                 </select>
             </div>
+
+            @foreach ($amenities as $amenity) 
+
+            @if ($errors->any())
+
+                <div class="custom-control custom-checkbox">
+                    <input name="amenities[]" type="checkbox" class="custom-control-input" id="amenity_{{$amenity->id}}" value={{$amenity->id}} {{in_array($amenity->id, old('amenities'))?'checked':''}}>
+                    <label class="custom-control-label" for="amenity_{{$amenity->id}}">{{$amenity->name}}</label>
+                </div>
+
+            @else
+                <div class="custom-control custom-checkbox">
+                    {{-- La funzione della input deve recuperare i tags già selezionati in fase di creazione
+                        dentro $apartment->amenities non finisce un array, ma una collection (oggetto con metodi)
+                        il metodo specifico per le collection è contains --}}
+                    <input name="amenities[]" type="checkbox" class="custom-control-input" id="amenity_{{$amenity->id}}" value="{{$amenity->id}}" {{($apartment->amenities->contains($amenity))?'checked':''}}>
+                    <label class="custom-control-label" for="amenity_{{$amenity->id}}">{{$amenity->name}}</label>
+                </div>
+
+            @endif
+
+            @endforeach
+
             <button type="submit" class="btn btn-primary">Update</button>
             <a href="{{route('admin.apartments.index')}}" class="btn btn-danger"> Cancel </a>
         </form>

@@ -84,6 +84,13 @@
                 </select>
             </div>
 
+            @foreach ($amenities as $amenity) 
+                <div class="custom-control custom-checkbox">
+                    <input name="amenities[]" type="checkbox" id="amenity_{{$amenity->id}}" value="{{$amenity->id}}" {{in_array($amenity->id, old('amenities', []))?'checked':''}}>
+                    <label class="custom-control-checkbox" for="amenity_{{$amenity->id}}">{{$amenity->name}}</label>
+                </div>
+            @endforeach
+
             <button type="submit" class="btn btn-primary">Create</button>
 
         </form>

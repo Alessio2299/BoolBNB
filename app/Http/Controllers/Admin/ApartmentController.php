@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Amenity;
 use App\Apartment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,8 +21,9 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::all();
+        $amenities = Amenity::all();
 
-        return view('admin.apartments.index', compact('apartments'));
+        return view('admin.apartments.index', compact('apartments', 'amenities'));
     }
 
     /**
@@ -31,7 +33,8 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.apartments.create');
+        $amenities = Amenity::all();
+        return view('admin.apartments.create', compact('amenities'));
     }
 
     /**
@@ -83,6 +86,8 @@ class ApartmentController extends Controller
         $apartment->fill($data);
         $apartment->save();
 
+        $apartment->amenities()->sync($data['amenities']);
+
         return redirect()->route('admin.apartments.index');
     }
 
@@ -94,7 +99,8 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        return view('admin.apartments.show', compact('apartment'));
+        $amenities = Amenity::all();
+        return view('admin.apartments.show', compact('apartment', 'amenities'));
     }
 
     /**
@@ -105,7 +111,8 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        return view('admin.apartments.edit', compact('apartment'));
+        $amenities = Amenity::all();
+        return view('admin.apartments.edit', compact('apartment', 'amenities'));
     }
 
     /**
@@ -162,6 +169,8 @@ class ApartmentController extends Controller
 
         $apartment->update($data);
         $apartment->save();
+
+        $apartment->amenities()->sync($data['amenities']);
 
         return redirect()->route('admin.apartments.show', compact('apartment'));
     }
