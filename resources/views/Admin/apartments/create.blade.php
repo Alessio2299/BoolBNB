@@ -1,6 +1,6 @@
 @extends('admin.layouts.base')
 
-@section('pageTitle', 'Apartments list')
+@section('pageTitle', 'Create Apartment')
 
 @push('script')
     <script src="{{ asset('js/formApartment.js') }}" defer></script>
