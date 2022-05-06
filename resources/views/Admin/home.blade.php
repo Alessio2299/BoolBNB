@@ -1,4 +1,4 @@
-@extends('admin.layouts.dashboard')
+@extends('admin.layouts.base')
 
 @section('content')
 <div class="container">
@@ -13,8 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <span>Welcome back, {{$user->name}}</span>
+                    
+                    @if ($user->name)
+                        <span>Welcome back, {{$user->name}}</span>
+                    @else
+                        <span>Welcome back!</span>
+                    @endif
                 </div>
             </div>
         </div>

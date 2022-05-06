@@ -10962,3 +10962,19 @@ a.text-dark:focus {
   }
 }
 
+.card-body .form-group {
+  display: flex;
+  align-items: center;
+}
+
+.card-body .form-group label.required-field::before {
+  content: "* ";
+  color: #e3342f;
+}
+
+.card-body .form-group label.required-field::after {
+  content: "\ARequired";
+  white-space: pre;
+  color: #e3342f;
+}
+
