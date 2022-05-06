@@ -11,9 +11,7 @@
     <div class="container" id="app">
 
         <h1>Create apartment</h1>
-        @if (old())
-            {{dd(old())}}
-        @endif
+
         <form method="POST" action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
             @csrf
 
@@ -111,7 +109,7 @@
                 <div class="text-danger">At least one amenity is required</div>
             @enderror
 
-            <button  type="submit" class="btn btn-primary">Create</button>
+            <button @click="errors" type="submit" class="btn btn-primary">Create</button>
 
         </form>
     </div>
