@@ -48,13 +48,14 @@ class ApartmentController extends Controller
         $request->validate([
             'title' => 'required|min:2',
             'description' => 'required|min:10',
-            'rooms' => 'required|numeric|min:1',
-            'beds' => 'required|numeric|min:1',
-            'bathrooms' => 'required|numeric|min:1',
-            'square_meters' => 'required|numeric|min:10',
+            'rooms' => 'required|numeric|min:1|max:30',
+            'beds' => 'required|numeric|min:1|max:40',
+            'bathrooms' => 'required|numeric|min:1|max:20',
+            'square_meters' => 'required|numeric|min:10|max:1000',
             'image' => 'required|image|max:2048',
             'availability' => 'required|boolean',
-            'address' => 'required|min:2'
+            'address' => 'required|min:2',
+            'amenities' => 'required'
         ]);
 
 
@@ -67,6 +68,10 @@ class ApartmentController extends Controller
         }
         $data['slug'] = $slug;
 
+        $data['lat'] = 9;
+        $data['lon'] = 9;
+
+
         if (isset($data['image'])) {
             $image_path = Storage::put('images', $data['image']);
             $data['image'] = $image_path;
@@ -76,8 +81,9 @@ class ApartmentController extends Controller
         $apartment->fill($data);
         $apartment->save();
 
-        $apartment->amenities()->sync($data['amenities']);
-
+        if(isset($data['amenities']))
+            $apartment->amenities()->sync($data['amenities']);
+        
         return redirect()->route('admin.apartments.index');
     }
 
@@ -87,8 +93,10 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Apartment $apartment)
+    public function show($slug)
     {
+        $apartment = Apartment::where('slug', '=', $slug)->with(['amenities'])->first();
+
         $now = Carbon::now();
 
         $apartmentDateTime = Carbon::create($apartment->created_at);
@@ -123,10 +131,10 @@ class ApartmentController extends Controller
         $request->validate([
             'title' => 'required|min:2',
             'description' => 'required|min:10',
-            'rooms' => 'required|numeric|min:1',
-            'beds' => 'required|numeric|min:1',
-            'bathrooms' => 'required|numeric|min:1',
-            'square_meters' => 'required|numeric|min:10',
+            'rooms' => 'required|numeric|min:1|max:30',
+            'beds' => 'required|numeric|min:1|max:40',
+            'bathrooms' => 'required|numeric|min:1|max:20',
+            'square_meters' => 'required|numeric|min:10|max:1000',
             'image' => 'required|image|max:2048',
             'availability' => 'required|boolean',
             'address' => 'required|min:2'
@@ -146,18 +154,14 @@ class ApartmentController extends Controller
             $data['slug'] = $slug;
         }
 
-        if($apartment->street != $data['street'] || $apartment->civic_number != $data['civic_number'] || $apartment->zip_code != $data['zip_code'] || $apartment->city != $data['city'] || $apartment->country != $data['country']){
-            $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $data['street'] . ' ' . $data['civic_number'] . ' ' . $data['zip_code'] . ' ' . $data['city'] . '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1');
-            $dataPosition = $response->json()['results']['0']['position'];
-            $data['lat'] = $dataPosition['lat'];
-            $data['lon'] = $dataPosition['lon'];
-        }
 
         if (isset($data['image'])) {
             $image_path = Storage::put('images', $data['image']);
             $data['image'] = $image_path;
         }
 
+        $data['lat'] = 9;
+        $data['lon'] = 9;
 
         $apartment->update($data);
         $apartment->save();

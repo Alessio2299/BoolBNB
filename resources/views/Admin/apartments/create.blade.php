@@ -9,12 +9,14 @@
 @section('content')
 
     <div class="container" id="app">
-        
-        <h1>Create apartment</h1>
 
+        <h1>Create apartment</h1>
+        @if (old())
+            {{dd(old())}}
+        @endif
         <form method="POST" action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
             @csrf
-            
+
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control {{ $errors->first('title') ? 'border-danger' : ''}}" id="title" name="title" value="{{old('title')}}">
@@ -44,7 +46,7 @@
 
             <div class="form-group">
                 <label for="rooms">Rooms</label>
-                <input type="number" class="form-control {{ $errors->first('rooms') ? 'border-danger' : ''}}" id="rooms" name="rooms" value="{{old('rooms')}}">
+                <input type="number" max="20" min="1" class="form-control {{ $errors->first('rooms') ? 'border-danger' : ''}}" id="rooms" name="rooms" value="{{old('rooms')}}">
                 @error('rooms')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -53,7 +55,7 @@
 
             <div class="form-group">
                 <label for="beds">Beds</label>
-                <input type="number" class="form-control {{ $errors->first('beds') ? 'border-danger' : ''}}" id="beds" name="beds" value="{{old('beds')}}">
+                <input type="number" min="1" class="form-control {{ $errors->first('beds') ? 'border-danger' : ''}}" id="beds" name="beds" value="{{old('beds')}}">
                 @error('beds')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -62,7 +64,7 @@
 
             <div class="form-group">
                 <label for="bathrooms">Bathrooms</label>
-                <input type="number" class="form-control {{ $errors->first('bathrooms') ? 'border-danger' : ''}}" id="bathrooms" name="bathrooms" value="{{old('bathrooms')}}">
+                <input type="number" min="1" class="form-control {{ $errors->first('bathrooms') ? 'border-danger' : ''}}" id="bathrooms" name="bathrooms" value="{{old('bathrooms')}}">
                 @error('bathrooms')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -71,7 +73,7 @@
 
             <div class="form-group">
                 <label for="square_meters">Square Meters</label>
-                <input type="number" class="form-control {{ $errors->first('square_meters') ? 'border-danger' : ''}}" id="square_meters" name="square_meters" value="{{old('square_meters')}}">
+                <input type="number" min="1" class="form-control {{ $errors->first('square_meters') ? 'border-danger' : ''}}" id="square_meters" name="square_meters" value="{{old('square_meters')}}">
                 @error('square_meters')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -84,8 +86,8 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
                 <div class="mt-1">
-                    <div @click="clickAddress(index)" class="bg-white hover-overlay p-3" v-for="(address,index) in listAddress">
-                        @{{address.address.freeformAddress}} @{{address.address.country}} @{{address.address.countryCode}}  
+                    <div @click="clickAddress(index)" class="bg-white my_hover p-3" v-for="(address,index) in listAddress">
+                        <i class="mr-2 fas fa-map-marker-alt"></i> @{{address.address.freeformAddress}} @{{address.address.country}} @{{address.address.countryCode}}  
                     </div>
                 </div>  
             </div>
@@ -105,8 +107,11 @@
                     <label class="custom-control-checkbox" for="amenity_{{$amenity->id}}">{{$amenity->name}}</label>
                 </div>
             @endforeach
+            @error('amenities')
+                <div class="text-danger">At least one amenity is required</div>
+            @enderror
 
-            <button @click="sendForm" type="submit" class="btn btn-primary">Create</button>
+            <button  type="submit" class="btn btn-primary">Create</button>
 
         </form>
     </div>
