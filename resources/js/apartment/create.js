@@ -7,8 +7,9 @@ var app = new Vue({
   data: {
     addressInput: '',
     listAddress: [],
-    AddressLat: '',
-    AddressLon: '',
+    addressLat: '',
+    addressLon: '',
+    success: true,
   },
   methods:{
     autoComplete(){
@@ -25,16 +26,31 @@ var app = new Vue({
     clickAddress(index){
       this.addressInput = this.listAddress[index].address.freeformAddress + ' ' + this.listAddress[index].address.country + ' ' + this.listAddress[index].address.countryCode;
       this.listAddress = [];
-    },
-    sendForm(event){
-      event.preventDefault();
-      Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1')
-      .then( resp => {
-        this.AddressLat = resp.data.results[0].position.lat;
-        this.AddressLon = resp.data.results[0].position.lon;
-        console.log(this.AddressLat);
-        console.log(this.AddressLon);
-      })
     }
+
+    // Test per prendere latitudine e longitudine attraverso le chiamate axios, con get per prendere i parametri lat e lon, mentre con post per
+    // inviarli al controller Apartment 
+
+
+    // sendForm(event){
+    //   event.preventDefault();
+    //   Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1')
+    //   .then( resp => {
+    //     this.addressLat = resp.data.results[0].position.lat;
+    //     this.addressLon = resp.data.results[0].position.lon;
+    //   })
+    // },
+    // sendLatLon(){
+    //   Axios.post('/api/apartments',{
+    //     'lat': '9',
+    //     'lon': '9'
+    //   })
+    //   .then(resp => {
+    //     console.log(resp);
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
+    // }
   }
 })

@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ApartmentController extends Controller
 {
@@ -45,18 +46,19 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|min:2',
-            'description' => 'required|min:10',
-            'rooms' => 'required|numeric|min:1|max:30',
-            'beds' => 'required|numeric|min:1|max:40',
-            'bathrooms' => 'required|numeric|min:1|max:20',
-            'square_meters' => 'required|numeric|min:10|max:1000',
-            'image' => 'required|image|max:2048',
-            'availability' => 'required|boolean',
-            'address' => 'required|min:2',
-            'amenities' => 'required'
-        ]);
+
+        // $request->validate([
+        //     'title' => 'required|min:2',
+        //     'description' => 'required|min:10',
+        //     'rooms' => 'required|numeric|min:1|max:30',
+        //     'beds' => 'required|numeric|min:1|max:40',
+        //     'bathrooms' => 'required|numeric|min:1|max:20',
+        //     'square_meters' => 'required|numeric|min:10|max:1000',
+        //     'image' => 'required|image|max:2048',
+        //     'availability' => 'required|boolean',
+        //     'address' => 'required|min:2',
+        //     'amenities' => 'required'
+        // ]);
 
 
         $data = $request->all();
@@ -71,6 +73,12 @@ class ApartmentController extends Controller
         $data['lat'] = 9;
         $data['lon'] = 9;
 
+        
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $data['address'] . '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1');
+
+        $dataPosition = $response->json()['results']['0']['position'];
+        $data['lat'] = $dataPosition['lat'];
+        $data['lon'] = $dataPosition['lon'];
 
         if (isset($data['image'])) {
             $image_path = Storage::put('images', $data['image']);
