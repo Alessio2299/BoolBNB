@@ -54,21 +54,11 @@ class ApartmentController extends Controller
             'square_meters' => 'required|numeric|min:10',
             'image' => 'required|image|max:2048',
             'availability' => 'required|boolean',
-            'street' => 'required|min:2',
-            'civic_number' => 'required',
-            'zip_code' => 'required|max:6|min:3',
-            'city' => 'required',
-            'country' => 'required'
+            'address' => 'required|min:2'
         ]);
 
 
         $data = $request->all();
-
-        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $data['street'] . ' ' . $data['civic_number'] . ' ' . $data['zip_code'] . ' ' . $data['city'] . '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1');
-        $dataPosition = $response->json()['results']['0']['position'];
-        $data['lat'] = $dataPosition['lat'];
-        $data['lon'] = $dataPosition['lon'];
-
         $slug = Str::slug($data['title']);
         $counter = 1;
         while (Apartment::where('slug', $slug)->first()) {
@@ -97,17 +87,16 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Apartment $apartment)
     {
-        $apartment = Apartment::where('slug', '=', $slug)->with(['amenities'])->first();
-
         $now = Carbon::now();
 
         $apartmentDateTime = Carbon::create($apartment->created_at);
 
         $diffInDays = $now->diffInDays($apartmentDateTime);
 
-        return view('admin.apartments.show', compact('apartment', 'diffInDays'));
+        $amenities = Amenity::all();
+        return view('admin.apartments.show', compact('apartment', 'amenities', 'diffInDays'));
     }
 
     /**
