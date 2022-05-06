@@ -28,8 +28,8 @@
                 </div>
 
                   <div class="text-center">
-                      <a href="{{route('admin.apartments.show',$apartment->id)}}" class="btn btn-primary"> <i class="fa-solid fa-eye"></i> </a>
-                      <a href="{{route('admin.apartments.edit',$apartment->id)}}" class="btn btn-warning mx-2"> <i class="fa-solid fa-pencil"></i> </a>
+                      <a href="{{route('admin.apartments.show',$apartment->slug)}}" class="btn btn-primary"> <i class="fa-solid fa-eye"></i> </a>
+                      <a href="{{route('admin.apartments.edit',$apartment->slug)}}" class="btn btn-warning mx-2"> <i class="fa-solid fa-pencil"></i> </a>
                       <form class="d-inline-block" method="POST" action="{{route('admin.apartments.destroy', $apartment->id)}}">
                         @csrf
                         @method('DELETE')
