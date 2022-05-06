@@ -13015,7 +13015,6 @@ var app = new Vue({
       if (this.addressInput.length > 2) {
         Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA').then(function (resp) {
           _this.listAddress = resp.data.results;
-          console.log(_this.listAddress[0]);
         });
       }
 

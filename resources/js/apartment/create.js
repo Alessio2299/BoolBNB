@@ -5,10 +5,10 @@ const { event } = require("jquery");
 var app = new Vue({
   el: '#app',
   data: {
-    addressInput:'',
+    addressInput: '',
     listAddress: [],
     AddressLat: '',
-    AddressLon: ''
+    AddressLon: '',
   },
   methods:{
     autoComplete(){
@@ -16,7 +16,6 @@ var app = new Vue({
         Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA')
         .then(resp => {
           this.listAddress = resp.data.results;
-          console.log(this.listAddress[0])
         })
       }
       if(this.addressInput.length <= 2){

@@ -21,6 +21,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .my_hover:hover{
+            background-color: rgb(228, 228, 228) !important;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
