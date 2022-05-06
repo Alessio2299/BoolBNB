@@ -129,11 +129,7 @@ class ApartmentController extends Controller
             'square_meters' => 'required|numeric|min:10',
             'image' => 'required|image|max:2048',
             'availability' => 'required|boolean',
-            'street' => 'required|min:2',
-            'civic_number' => 'required',
-            'zip_code' => 'required|max:6|min:3',
-            'city' => 'required',
-            'country' => 'required'
+            'address' => 'required|min:2';
         ]);
 
         $data = $request->all();
