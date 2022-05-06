@@ -106,7 +106,7 @@
                 </div>
             @endforeach
 
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button @click="sendForm" type="submit" class="btn btn-primary">Create</button>
 
         </form>
     </div>
