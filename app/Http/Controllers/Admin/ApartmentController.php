@@ -129,7 +129,7 @@ class ApartmentController extends Controller
             'square_meters' => 'required|numeric|min:10',
             'image' => 'required|image|max:2048',
             'availability' => 'required|boolean',
-            'address' => 'required|min:2';
+            'address' => 'required|min:2'
         ]);
 
         $data = $request->all();
