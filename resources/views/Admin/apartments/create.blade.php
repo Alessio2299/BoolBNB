@@ -2,83 +2,98 @@
 
 @section('pageTitle', 'Apartments list')
 
-@section('content')
-    <div class="container">
-        @if ($errors->any())
-            @foreach ($errors->all() as $error)
-                <p>{{$error}}</p>
-            @endforeach
-        @endif
+@push('script')
+    <script src="{{ asset('js/formApartment.js') }}" defer></script>
+@endpush
 
+@section('content')
+
+    <div class="container" id="app">
+        
         <h1>Create apartment</h1>
 
         <form method="POST" action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
             @csrf
-
+            
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}">
+                <input type="text" class="form-control {{ $errors->first('title') ? 'border-danger' : ''}}" id="title" name="title" value="{{old('title')}}">
+                @error('title')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
+            
 
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" class="form-control" id="image" name="image">
+                <input type="file" class="form-control h-25 {{ $errors->first('image') ? 'border-danger' : ''}}" id="image" name="image">
+                @error('image')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
+            
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="5">{{old('description')}}</textarea>
+                <textarea class="form-control {{ $errors->first('description') ? 'border-danger' : ''}}" id="description" name="description" rows="5">{{old('description')}}</textarea>
+                @error('description')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
+            
 
             <div class="form-group">
                 <label for="rooms">Rooms</label>
-                <input type="number" class="form-control" id="rooms" name="rooms" value="{{old('rooms')}}">
+                <input type="number" class="form-control {{ $errors->first('rooms') ? 'border-danger' : ''}}" id="rooms" name="rooms" value="{{old('rooms')}}">
+                @error('rooms')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
+            
 
             <div class="form-group">
                 <label for="beds">Beds</label>
-                <input type="number" class="form-control" id="beds" name="beds" value="{{old('beds')}}">
+                <input type="number" class="form-control {{ $errors->first('beds') ? 'border-danger' : ''}}" id="beds" name="beds" value="{{old('beds')}}">
+                @error('beds')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
+            
 
             <div class="form-group">
                 <label for="bathrooms">Bathrooms</label>
-                <input type="number" class="form-control" id="bathrooms" name="bathrooms" value="{{old('bathrooms')}}">
+                <input type="number" class="form-control {{ $errors->first('bathrooms') ? 'border-danger' : ''}}" id="bathrooms" name="bathrooms" value="{{old('bathrooms')}}">
+                @error('bathrooms')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
+            
 
             <div class="form-group">
                 <label for="square_meters">Square Meters</label>
-                <input type="number" class="form-control" id="square_meters" name="square_meters" value="{{old('square_meters')}}">
+                <input type="number" class="form-control {{ $errors->first('square_meters') ? 'border-danger' : ''}}" id="square_meters" name="square_meters" value="{{old('square_meters')}}">
+                @error('square_meters')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input @keyup="autoComplete" type="text" class="form-control {{ $errors->first('address') ? 'border-danger' : ''}}" v-model="addressInput" id="address" name="address" value="{{old('address')}}">
+                @error('address')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <div class="mt-1">
+                    <div @click="clickAddress(index)" class="bg-white hover-overlay p-3" v-for="(address,index) in listAddress">
+                        @{{address.address.freeformAddress}} @{{address.address.country}} @{{address.address.countryCode}}  
+                    </div>
+                </div>  
             </div>
 
-            <div class="form-group">
-                <label for="street">Street</label>
-                <input type="text" class="form-control" id="street" name="street" value="{{old('street')}}">
-            </div>
-
-            <div class="form-group">
-                <label for="civic_number">Civic Number</label>
-                <input type="text" class="form-control" id="civic_number" name="civic_number" value="{{old('civic_number')}}">
-            </div>
-
-            <div class="form-group">
-                <label for="zip_code">Zip Code</label>
-                <input type="text" class="form-control" id="zip_code" name="zip_code" value="{{old('zip_code')}}">
-            </div>
-
-            <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" class="form-control" id="city" name="city" value="{{old('city')}}">
-            </div>
-
-            <div class="form-group">
-                <label for="country">Country</label>
-                <input type="text" class="form-control" id="country" name="country" value="{{old('country')}}">
-            </div>
 
             <div class="form-group">
                 <label for="availability">Already available?</label>
                 <select class="form-control" name="availability" id="availability">
-                    <option value="">Select</option>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
