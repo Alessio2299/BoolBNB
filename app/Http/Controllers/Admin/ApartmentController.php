@@ -97,16 +97,17 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Apartment $apartment)
+    public function show($slug)
     {
+        $apartment = Apartment::where('slug', '=', $slug)->with(['amenities'])->first();
+
         $now = Carbon::now();
 
         $apartmentDateTime = Carbon::create($apartment->created_at);
 
         $diffInDays = $now->diffInDays($apartmentDateTime);
 
-        $amenities = Amenity::all();
-        return view('admin.apartments.show', compact('apartment', 'amenities', 'diffInDays'));
+        return view('admin.apartments.show', compact('apartment', 'diffInDays'));
     }
 
     /**
