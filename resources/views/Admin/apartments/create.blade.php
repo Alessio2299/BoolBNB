@@ -109,7 +109,7 @@
                 <div class="text-danger">At least one amenity is required</div>
             @enderror
 
-            <button @click="errors" type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Create</button>
 
         </form>
     </div>
