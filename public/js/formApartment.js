@@ -13013,42 +13013,37 @@ var app = new Vue({
     autoComplete: function autoComplete() {
       var _this = this;
 
-      if (this.addressInput.length > 2) {
-        Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA').then(function (resp) {
-          _this.listAddress = resp.data.results;
-        });
-      }
+      this.interval = setInterval(function () {
+        if (_this.addressInput.length > 3) {
+          Axios.get('https://api.tomtom.com/search/2/search/' + _this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA').then(function (resp) {
+            _this.listAddress = resp.data.results;
+          });
+        }
 
-      if (this.addressInput.length <= 2) {
-        this.listAddress = [];
-      }
+        if (_this.addressInput.length <= 2) {
+          _this.listAddress = [];
+        }
+      }, 1000);
     },
     clickAddress: function clickAddress(index) {
       this.addressInput = this.listAddress[index].address.freeformAddress + ' ' + this.listAddress[index].address.country + ' ' + this.listAddress[index].address.countryCode;
       this.listAddress = [];
-    } // Test per prendere latitudine e longitudine attraverso le chiamate axios, con get per prendere i parametri lat e lon, mentre con post per
-    // inviarli al controller Apartment 
-    // sendForm(event){
-    //   event.preventDefault();
-    //   Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1')
-    //   .then( resp => {
-    //     this.addressLat = resp.data.results[0].position.lat;
-    //     this.addressLon = resp.data.results[0].position.lon;
-    //   })
-    // },
-    // sendLatLon(){
-    //   Axios.post('/api/apartments',{
-    //     'lat': '9',
-    //     'lon': '9'
-    //   })
-    //   .then(resp => {
-    //     console.log(resp);
-    //   })
-    //   .catch(err => {
-    //     console.log(err)
-    //   })
-    // }
+      clearInterval(this.interval);
+    },
+    sendForm: function sendForm(event) {
+      var _this2 = this;
 
+      event.preventDefault();
+      Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
+        if (resp.data.results.length == 0) {
+          _this2.success = false;
+        } else {
+          _this2.addressLat = resp.data.results[0].position.lat;
+          _this2.addressLon = resp.data.results[0].position.lon;
+          event.submit();
+        }
+      });
+    }
   }
 });
 
