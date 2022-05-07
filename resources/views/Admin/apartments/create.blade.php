@@ -79,7 +79,7 @@
         
             <div class="form-group">
                 <label for="address">Address</label>
-                <input @keyup="autoComplete" type="text" class="form-control {{ $errors->first('address') ? 'border-danger' : ''}}" v-model="addressInput" id="address" name="address" value="{{old('address')}}">
+                <input @focus="autoComplete" type="text" class="form-control {{ $errors->first('address') ? 'border-danger' : ''}}" v-model="addressInput" id="address" name="address" value="{{old('address')}}">
                 @error('address')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
