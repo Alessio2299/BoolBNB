@@ -13007,7 +13007,7 @@ var app = new Vue({
     listAddress: [],
     addressLat: '',
     addressLon: '',
-    success: true
+    success: null
   },
   methods: {
     autoComplete: function autoComplete() {
@@ -13033,16 +13033,28 @@ var app = new Vue({
     sendForm: function sendForm(event) {
       var _this2 = this;
 
-      event.preventDefault();
-      Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
-        if (resp.data.results.length == 0) {
-          _this2.success = false;
-        } else {
-          _this2.addressLat = resp.data.results[0].position.lat;
-          _this2.addressLon = resp.data.results[0].position.lon;
-          event.submit();
-        }
-      });
+      console.log('test');
+      this.success = true;
+
+      if (this.addressInput.length != 0) {
+        event.preventDefault();
+        var form = document.getElementById('form');
+        Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
+          if (resp.data.results.length == 0) {
+            _this2.success = false;
+          } else {
+            _this2.addressLat = resp.data.results[0].position.lat;
+            console.log(resp.data.results[0].position.lat);
+            console.log(_this2.addressLat);
+            _this2.addressLon = resp.data.results[0].position.lon;
+            console.log(resp.data.results[0].position.lon);
+            console.log(_this2.addressLon);
+            setTimeout(function () {
+              form.submit();
+            }, 200);
+          }
+        });
+      }
     }
   }
 });

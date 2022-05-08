@@ -12,7 +12,7 @@
 
         <h1>Create apartment</h1>
 
-        <form method="POST" action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
+        <form id="form" method="POST" action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
@@ -80,6 +80,7 @@
             <div class="form-group">
                 <label for="address">Address</label>
                 <input @focus="autoComplete" type="text" class="form-control {{ $errors->first('address') ? 'border-danger' : ''}}" v-model="addressInput" id="address" name="address" value="{{old('address')}}">
+                <div v-if="success == false" class="text-danger">This street address is not valid</div>
                 @error('address')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -89,6 +90,10 @@
                     </div>
                 </div>  
             </div>
+
+            <input hidden type="text" class="form-control" v-model="addressLat" id="lat" name="lat">
+
+            <input hidden type="text" class="form-control" v-model="addressLon" id="lon" name="lon">
 
 
             <div class="form-group">
@@ -109,7 +114,7 @@
                 <div class="text-danger">At least one amenity is required</div>
             @enderror
 
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button @click="sendForm" type="submit" class="btn btn-primary">Create</button>
 
         </form>
     </div>
