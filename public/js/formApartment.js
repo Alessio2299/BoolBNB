@@ -13009,7 +13009,14 @@ var app = new Vue({
     addressLon: '',
     success: null
   },
+  mounted: function mounted() {
+    this.oldAddress();
+  },
   methods: {
+    oldAddress: function oldAddress() {
+      var old = document.getElementById('old-address').value;
+      this.addressInput = old;
+    },
     autoComplete: function autoComplete() {
       var _this = this;
 
@@ -13064,7 +13071,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/mari/Desktop/BoolBnb/resources/js/apartment/create.js */"./resources/js/apartment/create.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/apartment/create.js */"./resources/js/apartment/create.js");
 
 
 /***/ })
