@@ -46,7 +46,9 @@ var app = new Vue({
         let form = document.getElementById('form');
         Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1')
         .then( resp => {
-          if(resp.data.results.length == 0){
+          let exampleAdress = resp.data.results['0'].address.freeformAddress + ' ' + resp.data.results['0'].address.country + ' ' + resp.data.results['0'].address.countryCode;
+          console.log(exampleAdress);
+          if(resp.data.results.length == 0 || exampleAdress != this.addressInput){
             this.success = false;
           } else{
             this.addressLat = resp.data.results[0].position.lat;
