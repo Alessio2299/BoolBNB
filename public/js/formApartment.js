@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -13040,14 +13040,13 @@ var app = new Vue({
     sendForm: function sendForm(event) {
       var _this2 = this;
 
-      console.log('test');
       this.success = true;
 
       if (this.addressInput.length != 0) {
         event.preventDefault();
         var form = document.getElementById('form');
         Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
-          if (resp.data.results.length == 0) {
+          if (resp.data.results.length == 0 || resp.data.results[0].address.freeformAddress + ' ' + resp.data.results[0].address.country + ' ' + resp.data.results['0'].address.countryCode != _this2.addressInput) {
             _this2.success = false;
           } else {
             _this2.addressLat = resp.data.results[0].position.lat;
@@ -13064,14 +13063,26 @@ var app = new Vue({
 
 /***/ }),
 
-/***/ 1:
-/*!************************************************!*\
-  !*** multi ./resources/js/apartment/create.js ***!
-  \************************************************/
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!**************************************************************************!*\
+  !*** multi ./resources/js/apartment/create.js ./resources/sass/app.scss ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/apartment/create.js */"./resources/js/apartment/create.js");
+__webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/apartment/create.js */"./resources/js/apartment/create.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
