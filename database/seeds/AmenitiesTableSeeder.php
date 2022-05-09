@@ -12,7 +12,7 @@ class AmenitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        $amenities = ['Wi-Fi', 'Posto macchina', 'Portineria', 'Sauna', 'Vista mare'];
+        $amenities = ['Wi-Fi', 'Car parking', 'Reception', 'Sauna', 'Sea view'];
         
         foreach($amenities as $amenity){
             $newAmenity = new Amenity();
