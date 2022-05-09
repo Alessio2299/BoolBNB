@@ -12,6 +12,7 @@
 
         <h1>Create apartment</h1>
 
+
         <form id="form" method="POST" action="{{ route('admin.apartments.store') }}" enctype="multipart/form-data">
             @csrf
 
@@ -44,7 +45,7 @@
 
             <div class="form-group">
                 <label for="rooms">Rooms</label>
-                <input type="number" max="20" min="1" class="form-control {{ $errors->first('rooms') ? 'border-danger' : ''}}" id="rooms" name="rooms" value="{{old('rooms')}}">
+                <input type="number" max="10" min="1" class="form-control {{ $errors->first('rooms') ? 'border-danger' : ''}}" id="rooms" name="rooms" value="{{old('rooms')}}">
                 @error('rooms')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -53,7 +54,7 @@
 
             <div class="form-group">
                 <label for="beds">Beds</label>
-                <input type="number" min="1" class="form-control {{ $errors->first('beds') ? 'border-danger' : ''}}" id="beds" name="beds" value="{{old('beds')}}">
+                <input type="number" max="15" min="1" class="form-control {{ $errors->first('beds') ? 'border-danger' : ''}}" id="beds" name="beds" value="{{old('beds')}}">
                 @error('beds')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -62,7 +63,7 @@
 
             <div class="form-group">
                 <label for="bathrooms">Bathrooms</label>
-                <input type="number" min="1" class="form-control {{ $errors->first('bathrooms') ? 'border-danger' : ''}}" id="bathrooms" name="bathrooms" value="{{old('bathrooms')}}">
+                <input type="number" max="4" min="1" class="form-control {{ $errors->first('bathrooms') ? 'border-danger' : ''}}" id="bathrooms" name="bathrooms" value="{{old('bathrooms')}}">
                 @error('bathrooms')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -71,7 +72,7 @@
 
             <div class="form-group">
                 <label for="square_meters">Square Meters</label>
-                <input type="number" min="1" class="form-control {{ $errors->first('square_meters') ? 'border-danger' : ''}}" id="square_meters" name="square_meters" value="{{old('square_meters')}}">
+                <input type="number" max="300" min="1" class="form-control {{ $errors->first('square_meters') ? 'border-danger' : ''}}" id="square_meters" name="square_meters" value="{{old('square_meters')}}">
                 @error('square_meters')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -79,7 +80,7 @@
         
             <div class="form-group">
                 <label for="address">Address</label>
-                <input @focus="autoComplete" type="text" class="form-control {{ $errors->first('address') ? 'border-danger' : ''}}" v-model="addressInput" id="address" name="address" value="{{old('address')}}">
+                <input @focus="autoComplete" type="text" class="form-control {{ $errors->first('address') ? 'border-danger' : ''}}" v-model="addressInput" id="address" name="address">
                 <div v-if="success == false" class="text-danger">This street address is not valid</div>
                 @error('address')
                     <div class="text-danger">{{ $message }}</div>
@@ -90,6 +91,8 @@
                     </div>
                 </div>  
             </div>
+
+            <input hidden type="text" class="form-control" id="old-address" name="old-address" value="{{old('address')}}">
 
             <input hidden type="text" class="form-control" v-model="addressLat" id="lat" name="lat">
 

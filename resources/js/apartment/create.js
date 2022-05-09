@@ -11,7 +11,14 @@ var app = new Vue({
     addressLon: '',
     success: null,
   },
+  mounted(){
+    this.oldAddress();
+  },
   methods:{
+    oldAddress(){
+      let old = document.getElementById('old-address').value;
+      this.addressInput = old;
+    },
     autoComplete(){
       this.interval = setInterval(() => {
         if(this.addressInput.length > 3){
