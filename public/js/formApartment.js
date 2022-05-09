@@ -13064,7 +13064,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/apartment/create.js */"./resources/js/apartment/create.js");
+module.exports = __webpack_require__(/*! /Users/mari/Desktop/BoolBnb/resources/js/apartment/create.js */"./resources/js/apartment/create.js");
 
 
 /***/ })

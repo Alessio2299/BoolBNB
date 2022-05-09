@@ -13,6 +13,7 @@
     @stack('script')
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -92,5 +93,6 @@
             @yield('content')
         </main>
     </div>
+    
 </body>
 </html>
