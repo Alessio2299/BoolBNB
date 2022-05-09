@@ -90,7 +90,7 @@
                 </div>  
             </div>
 
-            <input hidden type="text" class="form-control" id="old-address" name="old-address" value="{{$apartment->address}}">
+            <input hidden type="text" class="form-control" id="old-address" name="old-address" value="{{old('address', $apartment->address)}}">
 
             <input hidden type="text" class="form-control" v-model="addressLat" id="lat" name="lat">
 
