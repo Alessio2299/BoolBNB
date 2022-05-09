@@ -13044,11 +13044,7 @@ var app = new Vue({
             _this2.success = false;
           } else {
             _this2.addressLat = resp.data.results[0].position.lat;
-            console.log(resp.data.results[0].position.lat);
-            console.log(_this2.addressLat);
             _this2.addressLon = resp.data.results[0].position.lon;
-            console.log(resp.data.results[0].position.lon);
-            console.log(_this2.addressLon);
             setTimeout(function () {
               form.submit();
             }, 200);
