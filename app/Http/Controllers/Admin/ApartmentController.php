@@ -62,6 +62,7 @@ class ApartmentController extends Controller
 
 
         $data = $request->all();
+
         $slug = Str::slug($data['title']);
         $counter = 1;
         while (Apartment::where('slug', $slug)->first()) {
@@ -69,19 +70,6 @@ class ApartmentController extends Controller
             $counter++;
         }
         $data['slug'] = $slug;
-
-        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $data['address'] . '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1');
-
-        if ($response->json()['results'] == []) {
-            $request->validate(
-                ['address' => 'max:0'],
-                ['address.max' => 'Inserire un indirizzo valido']
-            );
-        } else {
-            $dataPosition = $response->json()['results']['0']['position'];
-            $data['lat'] = $dataPosition['lat'];
-            $data['lon'] = $dataPosition['lon'];
-        }
 
         if (isset($data['image'])) {
             $image_path = Storage::put('images', $data['image']);
@@ -166,33 +154,10 @@ class ApartmentController extends Controller
             $data['slug'] = $slug;
         }
 
-        // if ($apartment->address != $data['address']) {
-
-        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $data['address'] . '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1');
-
-        // dd($response->json()['results']);
-
-        if ($response->json()['results'] == []) {
-            $request->validate(
-                ['address' => 'max:0'],
-                ['address.max' => 'Inserire un indirizzo valido']
-            );
-        } else {
-            $dataPosition = $response->json()['results']['0']['position'];
-            $data['lat'] = $dataPosition['lat'];
-            $data['lon'] = $dataPosition['lon'];
-        }
-        // }
-
-
-
         if (isset($data['image'])) {
             $image_path = Storage::put('images', $data['image']);
             $data['image'] = $image_path;
         }
-
-        $data['lat'] = 9;
-        $data['lon'] = 9;
 
         $apartment->update($data);
         $apartment->save();
@@ -201,8 +166,7 @@ class ApartmentController extends Controller
             $apartment->amenities()->sync($data['amenities']);
         }
 
-
-        return redirect()->route('admin.apartments.show', compact('apartment'));
+        return redirect()->route('admin.apartments.index', compact('apartment'));
     }
 
     /**
