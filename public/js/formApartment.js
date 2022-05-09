@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -13063,14 +13063,26 @@ var app = new Vue({
 
 /***/ }),
 
-/***/ 1:
-/*!************************************************!*\
-  !*** multi ./resources/js/apartment/create.js ***!
-  \************************************************/
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!**************************************************************************!*\
+  !*** multi ./resources/js/apartment/create.js ./resources/sass/app.scss ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/apartment/create.js */"./resources/js/apartment/create.js");
+__webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/apartment/create.js */"./resources/js/apartment/create.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
