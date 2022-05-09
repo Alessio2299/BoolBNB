@@ -12,5 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/apartment/create.js', 'public/js/formApartment.js')
+    .js('resources/js/front.js', 'public/js')
     .js('resources/js/apartment/index.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
