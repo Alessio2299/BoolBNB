@@ -43,11 +43,7 @@ var app = new Vue({
             this.success = false;
           } else{
             this.addressLat = resp.data.results[0].position.lat;
-            console.log(resp.data.results[0].position.lat)
-            console.log(this.addressLat)
             this.addressLon = resp.data.results[0].position.lon;
-            console.log(resp.data.results[0].position.lon)
-            console.log(this.addressLon)
             setTimeout(() => {
               form.submit()
             },200)
