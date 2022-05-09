@@ -12,9 +12,13 @@
 
         <form method="POST" action="{{ route('admin.apartments.update', $apartment->id) }}" enctype="multipart/form-data">
             @csrf
-
-
             @method('PUT')
+
+            <div class="mb-3">
+                <p class="mb-1">Previous image</p>
+                <img src="{{asset('storage/'.$apartment->image)}}" class="thumb img-responsive" alt="{{$apartment->title}}">
+            </div>
+
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" value="{{old('title', $apartment->title) }}">

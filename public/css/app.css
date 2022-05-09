@@ -10978,3 +10978,8 @@ a.text-dark:focus {
   color: #e3342f;
 }
 
+img.thumb {
+  width: 600px;
+  height: auto;
+}
+
