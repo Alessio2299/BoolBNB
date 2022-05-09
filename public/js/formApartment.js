@@ -13047,7 +13047,10 @@ var app = new Vue({
         event.preventDefault();
         var form = document.getElementById('form');
         Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
-          if (resp.data.results.length == 0) {
+          var exampleAdress = resp.data.results['0'].address.freeformAddress + ' ' + resp.data.results['0'].address.country + ' ' + resp.data.results['0'].address.countryCode;
+          console.log(exampleAdress);
+
+          if (resp.data.results.length == 0 || exampleAdress != _this2.addressInput) {
             _this2.success = false;
           } else {
             _this2.addressLat = resp.data.results[0].position.lat;
