@@ -13040,17 +13040,13 @@ var app = new Vue({
     sendForm: function sendForm(event) {
       var _this2 = this;
 
-      console.log('test');
       this.success = true;
 
       if (this.addressInput.length != 0) {
         event.preventDefault();
         var form = document.getElementById('form');
         Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
-          var exampleAdress = resp.data.results['0'].address.freeformAddress + ' ' + resp.data.results['0'].address.country + ' ' + resp.data.results['0'].address.countryCode;
-          console.log(exampleAdress);
-
-          if (resp.data.results.length == 0 || exampleAdress != _this2.addressInput) {
+          if (resp.data.results.length == 0 || resp.data.results[0].address.freeformAddress + ' ' + resp.data.results[0].address.country + ' ' + resp.data.results['0'].address.countryCode != _this2.addressInput) {
             _this2.success = false;
           } else {
             _this2.addressLat = resp.data.results[0].position.lat;
