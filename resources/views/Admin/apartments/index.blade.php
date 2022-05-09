@@ -2,6 +2,10 @@
 
 @section('pageTitle', 'Apartments list')
 
+@push('script')
+    <script src="{{ asset('js/index.js') }}" defer></script>
+@endpush
+
 @section('content')
     <div class="container">
         
@@ -33,7 +37,7 @@
                       <form class="d-inline-block" method="POST" action="{{route('admin.apartments.destroy', $apartment->id)}}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">
+                        <button type="submit" class="btn btn-danger" id="delete-btn">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </form>
