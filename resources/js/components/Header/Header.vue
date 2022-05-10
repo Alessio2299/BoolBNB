@@ -43,10 +43,6 @@
     
     .nav_header{
         background-color: $nav_bg;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
         border-bottom: 1px solid rgb(196, 196, 196) ;
     }
 

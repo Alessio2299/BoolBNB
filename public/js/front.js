@@ -2173,6 +2173,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
   data: function data() {
@@ -2295,7 +2296,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".nav_header[data-v-770cded8] {\n  background-color: #1e2227;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  border-bottom: 1px solid rgb(196, 196, 196);\n}\n.nav_text[data-v-770cded8] {\n  color: #fff;\n}\n.navbar-nav li a[data-v-770cded8] {\n  margin: 0 1rem;\n  border-bottom: 2px solid transparent;\n}\n.navbar-nav li a[data-v-770cded8]:hover {\n  border-bottom: 2px solid #fff;\n  transition: 0.5s;\n}", ""]);
+exports.push([module.i, ".nav_header[data-v-770cded8] {\n  background-color: #1e2227;\n  border-bottom: 1px solid rgb(196, 196, 196);\n}\n.nav_text[data-v-770cded8] {\n  color: #fff;\n}\n.navbar-nav li a[data-v-770cded8] {\n  margin: 0 1rem;\n  border-bottom: 2px solid transparent;\n}\n.navbar-nav li a[data-v-770cded8]:hover {\n  border-bottom: 2px solid #fff;\n  transition: 0.5s;\n}", ""]);
 
 // exports
 
@@ -3973,6 +3974,7 @@ var render = function () {
     _vm._m(4),
     _vm._v(" "),
     _vm._m(5),
+    _vm._v("    \n\n\n>>>>>>> create-home-page\n  "),
   ])
 }
 var staticRenderFns = [
@@ -19579,7 +19581,7 @@ var map = {
 	"./Christian D'Agostino.jpeg": "./public/img/Christian D'Agostino.jpeg",
 	"./Dario La Tegola.jpeg": "./public/img/Dario La Tegola.jpeg",
 	"./Edoardo Lai.jpeg": "./public/img/Edoardo Lai.jpeg",
-	"./Marianna Galuppi.jpeg": "./public/img/Marianna Galuppi.jpeg",
+	"./Marianna galuppi.jpeg": "./public/img/Marianna galuppi.jpeg",
 	"./slider.jpg": "./public/img/slider.jpg"
 };
 
@@ -19660,14 +19662,14 @@ module.exports = "/images/Edoardo Lai.jpeg?0e77a072dea2333174634890b5473d05";
 
 /***/ }),
 
-/***/ "./public/img/Marianna Galuppi.jpeg":
+/***/ "./public/img/Marianna galuppi.jpeg":
 /*!******************************************!*\
-  !*** ./public/img/Marianna Galuppi.jpeg ***!
+  !*** ./public/img/Marianna galuppi.jpeg ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Marianna Galuppi.jpeg?55ad5c4344f510ed90f75e0e36aa45c7";
+module.exports = "/images/Marianna galuppi.jpeg?55ad5c4344f510ed90f75e0e36aa45c7";
 
 /***/ }),
 
