@@ -21,22 +21,22 @@
           linkGitHub="https://github.com/EdoardoLai96"
         />
         <CardTeam 
-          name="Dario La tegola"
-          image="Alessio Napoli.jpg"
+          name="Dario La Tegola"
+          image="Dario La Tegola.jpeg"
           job="Full Stack Web Developer"
           linkGitHub="https://github.com/Afrodario"
+        />
+        <CardTeam 
+          name="Christian D'Agostino"
+          image="Christian D'Agostino.jpeg"
+          job="Full Stack Web Developer"
+          linkGitHub="https://github.com/Chris-dagostino"
         />
         <CardTeam 
           name="Marianna Galuppi"
           image="Marianna Galuppi.jpeg"
           job="Full Stack Web Developer"
           linkGitHub="https://github.com/FloatIndex"
-        />
-        <CardTeam 
-          name="Christian D'Agostino"
-          image="Alessio Napoli.jpg"
-          job="Full Stack Web Developer"
-          linkGitHub="https://github.com/Chris-dagostino"
         />
       </div>
     </div>

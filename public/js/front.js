@@ -3724,10 +3724,19 @@ var render = function () {
           _vm._v(" "),
           _c("CardTeam", {
             attrs: {
-              name: "Dario La tegola",
-              image: "Alessio Napoli.jpg",
+              name: "Dario La Tegola",
+              image: "Dario La Tegola.jpeg",
               job: "Full Stack Web Developer",
               linkGitHub: "https://github.com/Afrodario",
+            },
+          }),
+          _vm._v(" "),
+          _c("CardTeam", {
+            attrs: {
+              name: "Christian D'Agostino",
+              image: "Christian D'Agostino.jpeg",
+              job: "Full Stack Web Developer",
+              linkGitHub: "https://github.com/Chris-dagostino",
             },
           }),
           _vm._v(" "),
@@ -3737,15 +3746,6 @@ var render = function () {
               image: "Marianna Galuppi.jpeg",
               job: "Full Stack Web Developer",
               linkGitHub: "https://github.com/FloatIndex",
-            },
-          }),
-          _vm._v(" "),
-          _c("CardTeam", {
-            attrs: {
-              name: "Christian D'Agostino",
-              image: "Alessio Napoli.jpg",
-              job: "Full Stack Web Developer",
-              linkGitHub: "https://github.com/Chris-dagostino",
             },
           }),
         ],
@@ -3825,7 +3825,7 @@ var render = function () {
       _c("div", { staticClass: "team-box-image" }, [
         _c("img", {
           attrs: {
-            src: __webpack_require__("./public/images sync recursive ^\\.\\/.*$")("./" + _vm.image),
+            src: __webpack_require__("./public/img sync recursive ^\\.\\/.*$")("./" + _vm.image),
             alt: _vm.name,
           },
         }),
@@ -19226,20 +19226,21 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./public/images sync recursive ^\\.\\/.*$":
-/*!*************************************!*\
-  !*** ./public/images sync ^\.\/.*$ ***!
-  \*************************************/
+/***/ "./public/img sync recursive ^\\.\\/.*$":
+/*!**********************************!*\
+  !*** ./public/img sync ^\.\/.*$ ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./Alessio Napoli.jpg": "./public/images/Alessio Napoli.jpg",
-	"./BoolBnb.logo.png": "./public/images/BoolBnb.logo.png",
-	"./Christian D'Agostino.jpeg": "./public/images/Christian D'Agostino.jpeg",
-	"./Edoardo Lai.jpeg": "./public/images/Edoardo Lai.jpeg",
-	"./Marianna Galuppi.jpeg": "./public/images/Marianna Galuppi.jpeg",
-	"./slider.jpg": "./public/images/slider.jpg"
+	"./Alessio Napoli.jpg": "./public/img/Alessio Napoli.jpg",
+	"./BoolBnb.logo.png": "./public/img/BoolBnb.logo.png",
+	"./Christian D'Agostino.jpeg": "./public/img/Christian D'Agostino.jpeg",
+	"./Dario La Tegola.jpeg": "./public/img/Dario La Tegola.jpeg",
+	"./Edoardo Lai.jpeg": "./public/img/Edoardo Lai.jpeg",
+	"./Marianna Galuppi.jpeg": "./public/img/Marianna Galuppi.jpeg",
+	"./slider.jpg": "./public/img/slider.jpg"
 };
 
 
@@ -19260,73 +19261,18 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = "./public/images sync recursive ^\\.\\/.*$";
+webpackContext.id = "./public/img sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
-/***/ "./public/images/Alessio Napoli.jpg":
-/*!******************************************!*\
-  !*** ./public/images/Alessio Napoli.jpg ***!
-  \******************************************/
+/***/ "./public/img/Alessio Napoli.jpg":
+/*!***************************************!*\
+  !*** ./public/img/Alessio Napoli.jpg ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 module.exports = "/images/Alessio Napoli.jpg?da60efc53641f5e2e9465a56b8d29ba1";
-
-/***/ }),
-
-/***/ "./public/images/BoolBnb.logo.png":
-/*!****************************************!*\
-  !*** ./public/images/BoolBnb.logo.png ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/BoolBnb.logo.png?33e8e756d7f31737bc5f540158e41b93";
-
-/***/ }),
-
-/***/ "./public/images/Christian D'Agostino.jpeg":
-/*!*************************************************!*\
-  !*** ./public/images/Christian D'Agostino.jpeg ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Christian D'Agostino.jpeg?adb0512118cd9baffdd27a2fb2ced3fc";
-
-/***/ }),
-
-/***/ "./public/images/Edoardo Lai.jpeg":
-/*!****************************************!*\
-  !*** ./public/images/Edoardo Lai.jpeg ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Edoardo Lai.jpeg?0e77a072dea2333174634890b5473d05";
-
-/***/ }),
-
-/***/ "./public/images/Marianna Galuppi.jpeg":
-/*!*********************************************!*\
-  !*** ./public/images/Marianna Galuppi.jpeg ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Marianna Galuppi.jpeg?55ad5c4344f510ed90f75e0e36aa45c7";
-
-/***/ }),
-
-/***/ "./public/images/slider.jpg":
-/*!**********************************!*\
-  !*** ./public/images/slider.jpg ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/slider.jpg?bce8b3205e1104ccc1bc7e7fe795de94";
 
 /***/ }),
 
@@ -19338,6 +19284,50 @@ module.exports = "/images/slider.jpg?bce8b3205e1104ccc1bc7e7fe795de94";
 /***/ (function(module, exports) {
 
 module.exports = "/images/BoolBnb.logo.png?33e8e756d7f31737bc5f540158e41b93";
+
+/***/ }),
+
+/***/ "./public/img/Christian D'Agostino.jpeg":
+/*!**********************************************!*\
+  !*** ./public/img/Christian D'Agostino.jpeg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Christian D'Agostino.jpeg?adb0512118cd9baffdd27a2fb2ced3fc";
+
+/***/ }),
+
+/***/ "./public/img/Dario La Tegola.jpeg":
+/*!*****************************************!*\
+  !*** ./public/img/Dario La Tegola.jpeg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Dario La Tegola.jpeg?61a7da5630fc4e96115c0d5b0e895b03";
+
+/***/ }),
+
+/***/ "./public/img/Edoardo Lai.jpeg":
+/*!*************************************!*\
+  !*** ./public/img/Edoardo Lai.jpeg ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Edoardo Lai.jpeg?0e77a072dea2333174634890b5473d05";
+
+/***/ }),
+
+/***/ "./public/img/Marianna Galuppi.jpeg":
+/*!******************************************!*\
+  !*** ./public/img/Marianna Galuppi.jpeg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Marianna Galuppi.jpeg?55ad5c4344f510ed90f75e0e36aa45c7";
 
 /***/ }),
 
