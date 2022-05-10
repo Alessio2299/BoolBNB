@@ -2081,8 +2081,112 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home'
+  name: 'Home',
+  data: function data() {
+    return {
+      guests_num: null
+    };
+  },
+  methods: {
+    removeGuest: function removeGuest() {
+      if (this.guests_num > 0) {
+        this.guests_num--;
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -3787,16 +3891,252 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "main main_container" }, [
+    _c("h1", { staticClass: "text-center mb-3" }, [_vm._v("Home")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "container-fluid py-4 py-4",
+        staticStyle: { backgroundColor: "yellowgreen" },
+        attrs: { id: "jumbotron" },
+      },
+      [
+        _c("h1", { staticClass: "text-center " }, [_vm._v("Search/Filters")]),
+        _vm._v(" "),
+        _c("form", {}, [
+          _c("div", { staticClass: "row debug mx-5 justify-content-center " }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-2  text-center form-group" }, [
+              _c("label", { attrs: { for: "guests" } }, [_vm._v("Guests")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row row" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "col btn btn-danger",
+                    attrs: { type: "button" },
+                    on: { click: _vm.removeGuest },
+                  },
+                  [_vm._v("-")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.guests_num,
+                      expression: "guests_num",
+                    },
+                  ],
+                  staticClass: "col-8 text-center",
+                  attrs: { type: "number", name: "guests", id: "guests" },
+                  domProps: { value: _vm.guests_num },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.guests_num = $event.target.value
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "col btn btn-danger",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function ($event) {
+                        _vm.guests_num++
+                      },
+                    },
+                  },
+                  [_vm._v("+")]
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _vm._m(1),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _vm._m(5),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "main" }, [
-      _c("div", { staticClass: "container" }, [_c("h1", [_vm._v("Home")])]),
+    return _c(
+      "div",
+      {
+        staticClass:
+          "col-8 text-center d-flex flex-column form-group align-content-center",
+      },
+      [
+        _c("label", { attrs: { for: "address text-center d-block" } }, [
+          _vm._v("Address"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "text-cente d-block",
+          attrs: { type: "text", name: "address", id: "address" },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center col-12" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-danger my-4", attrs: { type: "submit" } },
+        [_vm._v("Search")]
+      ),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "container-fluid py-4",
+        staticStyle: { backgroundColor: "cornflowerblue" },
+        attrs: { id: "jumbotron" },
+      },
+      [
+        _c("div", { staticClass: "row debug mx-5" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "col debug text-center d-flex flex-column justify-content-around",
+            },
+            [
+              _c("h1", { staticClass: "text-center" }, [_vm._v("Carousel")]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-dark",
+                    attrs: { type: "button" },
+                  },
+                  [_vm._v("Bottone per azione")]
+                ),
+              ]),
+            ]
+          ),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "container-fluid py-4",
+        staticStyle: { backgroundColor: "violet" },
+        attrs: { id: "section_01" },
+      },
+      [
+        _c("h2", { staticClass: "text-center text-white" }, [
+          _vm._v("Hot deals"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row row-cols-4 debug mx-5" }, [
+          _c("div", { staticClass: "col debug text-center" }, [
+            _c("h4", { staticClass: "text-center" }, [_vm._v("hot deal 1")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col debug text-center" }, [
+            _c("h4", { staticClass: "text-center" }, [_vm._v("hot deal 2")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col debug text-center" }, [
+            _c("h4", { staticClass: "text-center" }, [_vm._v("hot deal 3")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col debug text-center" }, [
+            _c("h4", { staticClass: "text-center" }, [_vm._v("hot deal 4")]),
+          ]),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "container-fluid py-4",
+        staticStyle: { backgroundColor: "turquoise" },
+        attrs: { id: "section_02" },
+      },
+      [
+        _c("div", { staticClass: "row debug mx-5" }, [
+          _c("div", { staticClass: "col debug text-center" }, [
+            _c("h1", { staticClass: "text-center" }, [
+              _vm._v("Slider con recensione clienti"),
+            ]),
+          ]),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "container-fluid py-4",
+        staticStyle: { backgroundColor: "antiquewhite" },
+        attrs: { id: "section_03" },
+      },
+      [
+        _c("h2", { staticClass: "text-center " }, [
+          _vm._v("Popular destinations (by country)"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row row-cols-3 debug mx-5" }, [
+          _c("div", { staticClass: "col debug text-center" }, [
+            _c("h4", { staticClass: "text-center" }, [_vm._v("destination 1")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col debug text-center" }, [
+            _c("h4", { staticClass: "text-center" }, [_vm._v("destination 2")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col debug text-center" }, [
+            _c("h4", { staticClass: "text-center" }, [_vm._v("destination 3")]),
+          ]),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true
@@ -19992,7 +20332,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
