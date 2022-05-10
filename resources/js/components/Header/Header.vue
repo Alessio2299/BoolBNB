@@ -9,10 +9,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-            <router-link class="nav-link nav_text" :to="{name:''}">Home <span class="sr-only">(current)</span></router-link>
+            <router-link class="nav-link nav_text" :to="{name:'home'}">Home <span class="sr-only">(current)</span></router-link>
             </li>
             <li class="nav-item active">
-            <router-link class="nav-link nav_text" :to="{name:''}">About <span class="sr-only">(current)</span></router-link>
+            <router-link class="nav-link nav_text" :to="{name:'about'}">About <span class="sr-only">(current)</span></router-link>
             </li>
             <li class="nav-item dropdown">
             <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -43,6 +43,11 @@
     
     .nav_header{
         background-color: $nav_bg;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid rgb(196, 196, 196) ;
     }
 
     .nav_text{
