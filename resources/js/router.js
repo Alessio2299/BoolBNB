@@ -4,8 +4,8 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import Home from './pages/Home';
+import About from './pages/About';
 // import Contact from './pages/Contact';
-// import About from './pages/About';
 // import Posts from './pages/Posts';
 // import SinglePost from './pages/SinglePost';
 // import PageError from './pages/PageError';
@@ -18,11 +18,11 @@ const router = new VueRouter({
       name: 'home',
       component: Home
     },
-    // {
-    //   path: '/posts',
-    //   name: 'posts',
-    //   component: Posts
-    // },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
+    },
     // {
     //   path: '/contacts',
     //   name: 'contacts',
