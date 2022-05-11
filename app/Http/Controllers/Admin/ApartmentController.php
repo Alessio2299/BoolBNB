@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -21,7 +22,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $apartments = Apartment::where('user_id', Auth::id())->get();
         $amenities = Amenity::all();
 
         return view('admin.apartments.index', compact('apartments', 'amenities'));
@@ -50,10 +51,10 @@ class ApartmentController extends Controller
         $request->validate([
             'title' => 'required|min:2',
             'description' => 'required|min:10',
-            'rooms' => 'required|numeric|min:1|max:30',
-            'beds' => 'required|numeric|min:1|max:40',
-            'bathrooms' => 'required|numeric|min:1|max:20',
-            'square_meters' => 'required|numeric|min:10|max:1000',
+            'rooms' => 'required|numeric|min:1|max:10',
+            'beds' => 'required|numeric|min:1|max:15',
+            'bathrooms' => 'required|numeric|min:1|max:4',
+            'square_meters' => 'required|numeric|min:10|max:300',
             'image' => 'required|image|max:2048',
             'availability' => 'required|boolean',
             'address' => 'required|min:2',
@@ -77,6 +78,7 @@ class ApartmentController extends Controller
         }
 
         $apartment = new Apartment();
+        $apartment->user_id = Auth::id();
         $apartment->fill($data);
         $apartment->save();
 
@@ -96,6 +98,10 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::where('slug', '=', $slug)->with(['amenities'])->first();
 
+        if ($apartment->user_id !== Auth::id()) {
+            abort(404);
+        };
+        
         $now = Carbon::now();
 
         $apartmentDateTime = Carbon::create($apartment->created_at);
@@ -115,6 +121,11 @@ class ApartmentController extends Controller
     public function edit($slug)
     {
         $apartment = Apartment::where('slug', '=', $slug)->with(['amenities'])->first();
+
+        if ($apartment->user_id !== Auth::id()) {
+            abort(404);
+        };
+
         $amenities = Amenity::all();
         return view('admin.apartments.edit', compact('apartment', 'amenities'));
     }
@@ -140,6 +151,7 @@ class ApartmentController extends Controller
             'address' => 'required|min:2'
         ]);
 
+        $userId = Auth::user()->id;
         $data = $request->all();
 
         $slug = Str::slug($data['title']);
@@ -178,6 +190,11 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         Storage::delete($apartment->image);
+
+        if ($apartment->user_id !== Auth::id()) {
+            abort(404);
+        };
+        
         $apartment->delete();
         return redirect()->route('admin.apartments.index');
     }

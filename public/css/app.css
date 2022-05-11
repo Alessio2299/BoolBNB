@@ -8310,7 +8310,6 @@ button.bg-dark:focus {
 }
 
 .position-sticky {
-  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -8330,9 +8329,8 @@ button.bg-dark:focus {
   z-index: 1030;
 }
 
-@supports ((position: -webkit-sticky) or (position: sticky)) {
+@supports (position: sticky) {
   .sticky-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -10976,5 +10974,29 @@ a.text-dark:focus {
   content: "\ARequired";
   white-space: pre;
   color: #e3342f;
+}
+
+.row.debug {
+  background-color: rgb(255, 196, 0);
+  padding: 1rem;
+  border: 1px solid red;
+}
+
+.col.debug,
+.col-2.debug,
+.col-3.debug,
+.col-4.debug,
+.col-2.debug,
+.col-5.debug,
+.col-6.debug,
+.col-7.debug,
+.col-8.debug,
+.col-9.debug,
+.col-10.debug,
+.col-11.debug,
+.col-12.debug {
+  background-color: rgb(56, 199, 224);
+  height: 300px;
+  border: 1px solid black;
 }
 

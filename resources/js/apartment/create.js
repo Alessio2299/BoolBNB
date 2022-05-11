@@ -11,7 +11,14 @@ var app = new Vue({
     addressLon: '',
     success: null,
   },
+  mounted(){
+    this.oldAddress();
+  },
   methods:{
+    oldAddress(){
+      let old = document.getElementById('old-address').value;
+      this.addressInput = old;
+    },
     autoComplete(){
       this.interval = setInterval(() => {
         if(this.addressInput.length > 3){
@@ -32,14 +39,13 @@ var app = new Vue({
     },
 
     sendForm(event){
-      console.log('test')
       this.success = true;
       if(this.addressInput.length != 0){
         event.preventDefault();
         let form = document.getElementById('form');
         Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1')
         .then( resp => {
-          if(resp.data.results.length == 0){
+          if(resp.data.results.length == 0 || resp.data.results[0].address.freeformAddress + ' ' + resp.data.results[0].address.country + ' ' + resp.data.results['0'].address.countryCode != this.addressInput){
             this.success = false;
           } else{
             this.addressLat = resp.data.results[0].position.lat;

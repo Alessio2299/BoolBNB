@@ -46,7 +46,7 @@
 
             <div class="form-group">
                 <label for="rooms">Rooms</label>
-                <input type="number" class="form-control" id="rooms" name="rooms" value="{{old('rooms', $apartment->rooms)}}">
+                <input type="number" max="10" min="1" class="form-control" id="rooms" name="rooms" value="{{old('rooms', $apartment->rooms)}}">
                 @error('rooms')
                       <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -54,7 +54,7 @@
 
             <div class="form-group">
                 <label for="beds">Beds</label>
-                <input type="number" class="form-control" id="beds" name="beds" value="{{old('beds', $apartment->beds)}}">
+                <input type="number" max="15" min="1" class="form-control" id="beds" name="beds" value="{{old('beds', $apartment->beds)}}">
                 @error('beds')
                       <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -62,7 +62,7 @@
 
             <div class="form-group">
                 <label for="bathrooms">Bathrooms</label>
-                <input type="number" class="form-control" id="bathrooms" name="bathrooms" value="{{old('bathrooms', $apartment->bathrooms)}}">
+                <input type="number" max="4" min="1" class="form-control" id="bathrooms" name="bathrooms" value="{{old('bathrooms', $apartment->bathrooms)}}">
                 @error('bathrooms')
                       <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -70,7 +70,7 @@
 
             <div class="form-group">
                 <label for="square_meters">Square Meters</label>
-                <input type="number" class="form-control" id="square_meters" name="square_meters" value="{{old('square_meters', $apartment->square_meters)}}">
+                <input type="number" max="300" min="1" class="form-control" id="square_meters" name="square_meters" value="{{old('square_meters', $apartment->square_meters)}}">
                 @error('square_meters')
                       <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -89,6 +89,8 @@
                     </div>
                 </div>  
             </div>
+
+            <input hidden type="text" class="form-control" id="old-address" name="old-address" value="{{old('address', $apartment->address)}}">
 
             <input hidden type="text" class="form-control" v-model="addressLat" id="lat" name="lat">
 
