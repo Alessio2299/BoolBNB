@@ -2131,9 +2131,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
+
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    Axios = _require["default"];
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
@@ -2145,7 +2154,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      guests_num: null
+      guests_num: null,
+      addressInput: '',
+      addressLat: '',
+      addressLong: '',
+      success: null,
+      listAddress: []
     };
   },
   methods: {
@@ -2153,6 +2167,26 @@ __webpack_require__.r(__webpack_exports__);
       if (this.guests_num > 0) {
         this.guests_num--;
       }
+    },
+    autoComplete: function autoComplete() {
+      var _this = this;
+
+      this.interval = setInterval(function () {
+        if (_this.addressInput.length > 3) {
+          Axios.get('https://api.tomtom.com/search/2/search/' + _this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA').then(function (resp) {
+            _this.listAddress = resp.data.results;
+          });
+        }
+
+        if (_this.addressInput.length <= 2) {
+          _this.listAddress = [];
+        }
+      }, 1000);
+    },
+    clickAddress: function clickAddress(index) {
+      this.addressInput = this.listAddress[index].address.freeformAddress + ' ' + this.listAddress[index].address.country + ' ' + this.listAddress[index].address.countryCode;
+      this.listAddress = [];
+      clearInterval(this.interval);
     }
   }
 });
@@ -4026,12 +4060,80 @@ var render = function () {
         [
           _c("h1", { staticClass: "text-center " }, [_vm._v("Search/Filters")]),
           _vm._v(" "),
-          _c("form", {}, [
+          _c("form", { attrs: { id: "searchForm" } }, [
             _c(
               "div",
               { staticClass: "row debug mx-5 justify-content-center " },
               [
-                _vm._m(0),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-8 text-center d-flex flex-column form-group align-content-center",
+                  },
+                  [
+                    _c("label", { attrs: { for: "address" } }, [
+                      _vm._v("Address"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.addressInput,
+                          expression: "addressInput",
+                        },
+                      ],
+                      staticClass: "d-block",
+                      attrs: { type: "text", name: "address", id: "address" },
+                      domProps: { value: _vm.addressInput },
+                      on: {
+                        focus: _vm.autoComplete,
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.addressInput = $event.target.value
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "mt-1" },
+                      _vm._l(_vm.listAddress, function (address, index) {
+                        return _c(
+                          "div",
+                          {
+                            key: index,
+                            staticClass: "text-left bg-white my_hover p-3",
+                            on: {
+                              click: function ($event) {
+                                return _vm.clickAddress(index)
+                              },
+                            },
+                          },
+                          [
+                            _c("i", {
+                              staticClass: "mr-2 fas fa-map-marker-alt",
+                            }),
+                            _vm._v(
+                              " @" +
+                                _vm._s(address.address.freeformAddress) +
+                                " @" +
+                                _vm._s(address.address.country) +
+                                " @" +
+                                _vm._s(address.address.countryCode) +
+                                "  \n            "
+                            ),
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                  ]
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-2  text-center form-group" }, [
                   _c("label", { attrs: { for: "guests" } }, [_vm._v("Guests")]),
@@ -4085,7 +4187,7 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _vm._m(1),
+                _vm._m(0),
               ]
             ),
           ]),
@@ -4104,28 +4206,6 @@ var render = function () {
   )
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "col-8 text-center d-flex flex-column form-group align-content-center",
-      },
-      [
-        _c("label", { attrs: { for: "address text-center d-block" } }, [
-          _vm._v("Address"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "text-cente d-block",
-          attrs: { type: "text", name: "address", id: "address" },
-        }),
-      ]
-    )
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -20198,8 +20278,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"); // window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 
 
 
@@ -20304,14 +20384,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************!*\
   !*** ./resources/js/pages/Home.vue ***!
   \*************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Home_vue_vue_type_template_id_b3c5cf30_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=b3c5cf30&scoped=true& */ "./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&scoped=true&");
 /* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/pages/Home.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -20341,7 +20422,7 @@ component.options.__file = "resources/js/pages/Home.vue"
 /*!**************************************************************!*\
   !*** ./resources/js/pages/Home.vue?vue&type=script&lang=js& ***!
   \**************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

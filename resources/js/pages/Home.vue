@@ -6,13 +6,18 @@
     <div class="container-fluid py-4 py-4" id="jumbotron" style="backgroundColor: yellowgreen">
         <h1 class="text-center ">Search/Filters</h1>
 
-      <form class="">
+      <form id="searchForm">
         <div class="row debug mx-5 justify-content-center ">
 
        
         <div class="col-8 text-center d-flex flex-column form-group align-content-center">
-            <label for="address text-center d-block">Address</label>
-            <input class="text-cente d-block" type="text" name="address" id="address">
+            <label for="address">Address</label>
+            <input @focus="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput">
+            <div class="mt-1">
+              <div @click="clickAddress(index)" class="text-left bg-white my_hover p-3" v-for="(address,index) in listAddress" :key="index">
+                <i class="mr-2 fas fa-map-marker-alt"></i> @{{address.address.freeformAddress}} @{{address.address.country}} @{{address.address.countryCode}}  
+              </div>
+            </div>
         </div>
         
         <div class="col-2  text-center form-group">
@@ -58,6 +63,9 @@
   import AppFeatures from './partials/Appfeatures'
   import PopularDestinations from './partials/PopularDestinations'
 
+  const { default: Axios } = require("axios");
+
+
   export default {
     name : 'Home',
     components:{
@@ -68,7 +76,13 @@
     },
     data(){
       return{
-        guests_num: null,
+      guests_num: null,
+      addressInput: '',
+      addressLat: '',
+      addressLong: '',
+      success: null,
+      listAddress: []
+
       }
     },
     methods:{
@@ -77,6 +91,25 @@
           this.guests_num--
         }
       },
+      autoComplete(){
+        this.interval = setInterval(() => {
+          if(this.addressInput.length > 3){
+            Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA')
+            .then(resp => {
+              this.listAddress = resp.data.results;
+            })
+          }
+          if(this.addressInput.length <= 2){
+            this.listAddress = []
+          }
+        },1000)
+      },
+      clickAddress(index){
+      this.addressInput = this.listAddress[index].address.freeformAddress + ' ' + this.listAddress[index].address.country + ' ' + this.listAddress[index].address.countryCode;
+      this.listAddress = [];
+      clearInterval(this.interval);
+    },
+
     },
   }
 </script>
