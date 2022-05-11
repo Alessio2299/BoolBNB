@@ -4119,11 +4119,11 @@ var render = function () {
                               staticClass: "mr-2 fas fa-map-marker-alt",
                             }),
                             _vm._v(
-                              " @" +
+                              " " +
                                 _vm._s(address.address.freeformAddress) +
-                                " @" +
+                                " " +
                                 _vm._s(address.address.country) +
-                                " @" +
+                                " " +
                                 _vm._s(address.address.countryCode) +
                                 "  \n            "
                             ),

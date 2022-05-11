@@ -15,7 +15,7 @@
             <input @focus="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput">
             <div class="mt-1">
               <div @click="clickAddress(index)" class="text-left bg-white my_hover p-3" v-for="(address,index) in listAddress" :key="index">
-                <i class="mr-2 fas fa-map-marker-alt"></i> @{{address.address.freeformAddress}} @{{address.address.country}} @{{address.address.countryCode}}  
+                <i class="mr-2 fas fa-map-marker-alt"></i> {{address.address.freeformAddress}} {{address.address.country}} {{address.address.countryCode}}  
               </div>
             </div>
         </div>
