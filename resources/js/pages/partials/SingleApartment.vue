@@ -87,7 +87,11 @@ export default {
 <style scoped lang="scss">
     @import '../../../sass/variables.scss';
 
-    div {
-        border: 1px solid black;
+    .container {
+        border: 1px solid red;
+
+        .col {
+            border: 1px solid black;
+        }
     }
 </style>
