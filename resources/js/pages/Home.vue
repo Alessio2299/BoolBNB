@@ -95,7 +95,6 @@
     </div>    
 
 
->>>>>>> create-home-page
   </div>
 </template>
 
