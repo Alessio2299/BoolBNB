@@ -29,78 +29,43 @@
         </div>
          </div>
       </form>
-      
     </div>
 
 
     <!-- Carosello con immagini che scorrono in automatico + eventuali scritte -->
-    <div class="container-fluid py-4" id="jumbotron" style="backgroundColor: cornflowerblue">
-      <div class="row debug mx-5">
-        <div class="col debug text-center d-flex flex-column justify-content-around">
-          <h1 class="text-center">Carousel</h1>
 
-          <div>
-            <button type="button" class="btn btn-outline-dark">Bottone per azione</button>
-          </div>
+    <Carousel/>
 
-        </div>
-      </div>
-    </div>
+    <!-- Sezione Appartamenti Sponsorizzati -->
+    
+    <TrendingNow/>
 
+    <!-- Altro carosello/slider che dovrebbe andare in automatico a mostrare recensioni di clienti/testimonial -->
 
-      <!-- Sezione per apartamenti in offerta (dovrebbe reindirizzare al singolo appartamento) -->
-    <div class="container-fluid py-4" id="section_01" style="backgroundColor: violet">
-        <h2 class="text-center text-white">Hot deals</h2>
-      <div class="row row-cols-4 debug mx-5">
-        <div class="col debug text-center">
-          <h4 class="text-center">hot deal 1</h4>
-        </div>
-        <div class="col debug text-center">
-          <h4 class="text-center">hot deal 2</h4>
-        </div>
-        <div class="col debug text-center">
-          <h4 class="text-center">hot deal 3</h4>
-        </div>
-        <div class="col debug text-center">
-          <h4 class="text-center">hot deal 4</h4>
-        </div>
-      </div>
-    </div>    
-
-
-      <!-- Altro carosello/slider che dovrebbe andare in automatico a mostrare recensioni di clienti/testimonial -->
-    <div class="container-fluid py-4" id="section_02" style="backgroundColor: turquoise">
-      <div class="row debug mx-5">
-        <div class="col debug text-center">
-          <h1 class="text-center">Slider con recensione clienti</h1>
-        </div>
-      </div>
-    </div>
-
+    <AppFeatures/>
 
     <!-- Sezione "Nostre proposte"/Mete del momento, dovrebbe reindirizzare alla pagina della ricerca, per paese -->
-    <div class="container-fluid py-4" id="section_03" style="backgroundColor: antiquewhite">
-        <h2 class="text-center ">Popular destinations (by country)</h2>
-      <div class="row row-cols-3 debug mx-5">
-        <div class="col debug text-center">
-          <h4 class="text-center">destination 1</h4>
-        </div>
-        <div class="col debug text-center">
-          <h4 class="text-center">destination 2</h4>
-        </div>
-        <div class="col debug text-center">
-          <h4 class="text-center">destination 3</h4>
-        </div>
-      </div>
-    </div>    
+    <PopularDestinations/>
+    
 
 
   </div>
 </template>
 
 <script>
+  import Carousel from './partials/Carousel'
+  import TrendingNow from './partials/TrendingNow'
+  import AppFeatures from './partials/Appfeatures'
+  import PopularDestinations from './partials/PopularDestinations'
+
   export default {
     name : 'Home',
+    components:{
+      Carousel,
+      TrendingNow,
+      AppFeatures,
+      PopularDestinations
+    },
     data(){
       return{
         guests_num: null,
