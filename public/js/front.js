@@ -2136,6 +2136,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2159,15 +2163,17 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       addressLat: '',
       addressLong: '',
       success: null,
-      listAddress: []
+      listAddress: [],
+      errors: {},
+      isSending: false
     };
   },
   methods: {
-    removeGuest: function removeGuest() {
-      if (this.guests_num > 0) {
-        this.guests_num--;
-      }
-    },
+    // removeGuest(){
+    //   if(this.guests_num > 0){
+    //     this.guests_num--
+    //   }
+    // },
     autoComplete: function autoComplete() {
       var _this = this;
 
@@ -2188,14 +2194,15 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       this.listAddress = [];
       clearInterval(this.interval);
     },
-    sendForm: function sendForm(event) {
+    getLongLat: function getLongLat(event) {
       var _this2 = this;
 
-      this.success = true;
+      this.success = true; // var data = {
+      //   address: this.addressInput
+      // }
 
       if (this.addressInput.length != 0) {
         event.preventDefault();
-        var form = document.getElementById('form');
         Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
           if (resp.data.results.length == 0 || resp.data.results[0].address.freeformAddress + ' ' + resp.data.results[0].address.country + ' ' + resp.data.results['0'].address.countryCode != _this2.addressInput) {
             _this2.success = false;
@@ -2203,7 +2210,24 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
             _this2.addressLat = resp.data.results[0].position.lat;
             _this2.addressLon = resp.data.results[0].position.lon;
             setTimeout(function () {
-              form.submit();
+              _this2.isSending = true;
+              axios.post("/api/apartments", {
+                "address": _this2.addressInput
+              }).then(function (response) {
+                _this2.isSending = false;
+
+                if (response.data.errors) {
+                  _this2.errors = response.data.errors;
+                  _this2.success = false;
+                } else {
+                  console.log(_this2.addressInput);
+                  _this2.success = true;
+                  _this2.addressInput = '';
+                  _this2.errors = {};
+                }
+
+                console.log(response);
+              });
             }, 200);
           }
         });
@@ -4294,137 +4318,113 @@ var render = function () {
         [
           _c("h1", { staticClass: "text-center " }, [_vm._v("Search/Filters")]),
           _vm._v(" "),
-          _c("form", { attrs: { id: "searchForm" } }, [
-            _c(
-              "div",
-              { staticClass: "row debug mx-5 justify-content-center " },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-8 text-center d-flex flex-column form-group align-content-center",
-                  },
-                  [
-                    _c("label", { attrs: { for: "address" } }, [
-                      _vm._v("Address"),
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.addressInput,
-                          expression: "addressInput",
-                        },
-                      ],
-                      staticClass: "d-block",
-                      attrs: { type: "text", name: "address", id: "address" },
-                      domProps: { value: _vm.addressInput },
-                      on: {
-                        focus: _vm.autoComplete,
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.addressInput = $event.target.value
-                        },
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "mt-1" },
-                      _vm._l(_vm.listAddress, function (address, index) {
-                        return _c(
-                          "div",
+          _c(
+            "form",
+            {
+              attrs: { id: "searchForm" },
+              on: {
+                submit: function ($event) {
+                  $event.preventDefault()
+                  return _vm.getLongLat.apply(null, arguments)
+                },
+              },
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "row debug mx-5 justify-content-center " },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "col-8 text-center d-flex flex-column form-group align-content-center",
+                    },
+                    [
+                      _c("label", { attrs: { for: "address" } }, [
+                        _vm._v("Address"),
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
                           {
-                            key: index,
-                            staticClass: "text-left bg-white my_hover p-3",
-                            on: {
-                              click: function ($event) {
-                                return _vm.clickAddress(index)
-                              },
-                            },
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.addressInput,
+                            expression: "addressInput",
+                          },
+                        ],
+                        staticClass: "d-block",
+                        attrs: { type: "text", name: "address", id: "address" },
+                        domProps: { value: _vm.addressInput },
+                        on: {
+                          focus: _vm.autoComplete,
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.addressInput = $event.target.value
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _vm._l(_vm.errors.name, function (error, index) {
+                        return _c(
+                          "p",
+                          {
+                            key: "error_name" + index,
+                            staticClass: "invalid-feedback",
                           },
                           [
-                            _c("i", {
-                              staticClass: "mr-2 fas fa-map-marker-alt",
-                            }),
                             _vm._v(
-                              " " +
-                                _vm._s(address.address.freeformAddress) +
-                                " " +
-                                _vm._s(address.address.country) +
-                                " " +
-                                _vm._s(address.address.countryCode) +
-                                "  \n            "
+                              "\n            " + _vm._s(error) + "\n          "
                             ),
                           ]
                         )
                       }),
-                      0
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-2  text-center form-group" }, [
-                  _c("label", { attrs: { for: "guests" } }, [_vm._v("Guests")]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "mt-1" },
+                        _vm._l(_vm.listAddress, function (address, index) {
+                          return _c(
+                            "div",
+                            {
+                              key: index,
+                              staticClass: "text-left bg-white my_hover p-3",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.clickAddress(index)
+                                },
+                              },
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "mr-2 fas fa-map-marker-alt",
+                              }),
+                              _vm._v(
+                                " " +
+                                  _vm._s(address.address.freeformAddress) +
+                                  " " +
+                                  _vm._s(address.address.country) +
+                                  " " +
+                                  _vm._s(address.address.countryCode) +
+                                  "  \n            "
+                              ),
+                            ]
+                          )
+                        }),
+                        0
+                      ),
+                    ],
+                    2
+                  ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "row row" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "col btn btn-danger",
-                        attrs: { type: "button" },
-                        on: { click: _vm.removeGuest },
-                      },
-                      [_vm._v("-")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.guests_num,
-                          expression: "guests_num",
-                        },
-                      ],
-                      staticClass: "col-8 text-center",
-                      attrs: { type: "number", name: "guests", id: "guests" },
-                      domProps: { value: _vm.guests_num },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.guests_num = $event.target.value
-                        },
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "col btn btn-danger",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function ($event) {
-                            _vm.guests_num++
-                          },
-                        },
-                      },
-                      [_vm._v("+")]
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _vm._m(0),
-              ]
-            ),
-          ]),
+                  _vm._m(0),
+                ]
+              ),
+            ]
+          ),
         ]
       ),
       _vm._v(" "),
@@ -20865,15 +20865,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************!*\
   !*** ./resources/js/pages/Home.vue ***!
   \*************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Home_vue_vue_type_template_id_b3c5cf30_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=b3c5cf30&scoped=true& */ "./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&scoped=true&");
 /* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/pages/Home.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -20903,7 +20902,7 @@ component.options.__file = "resources/js/pages/Home.vue"
 /*!**************************************************************!*\
   !*** ./resources/js/pages/Home.vue?vue&type=script&lang=js& ***!
   \**************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21540,7 +21539,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\chris\OneDrive\Desktop\BOOL BNB\BoolBnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
