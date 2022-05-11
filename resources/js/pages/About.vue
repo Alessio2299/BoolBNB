@@ -48,7 +48,7 @@
   export default {
     name : 'Home',
     components:{
-      CardTeam
+      CardTeam,
     }
   }
 </script>
