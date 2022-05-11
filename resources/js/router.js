@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 import Home from './pages/Home';
 import About from './pages/About';
+import SingleApartment from './pages/partials/SingleApartment.vue';
 // import Contact from './pages/Contact';
 // import Posts from './pages/Posts';
 // import SinglePost from './pages/SinglePost';
@@ -22,6 +23,11 @@ const router = new VueRouter({
       path: '/about',
       name: 'about',
       component: About
+    },
+    {
+      path: '/apartment',
+      name: 'apartment',
+      component: SingleApartment
     },
     // {
     //   path: '/contacts',
