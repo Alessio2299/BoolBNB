@@ -29,6 +29,11 @@ const router = new VueRouter({
       name: 'apartment',
       component: SingleApartment
     },
+    {
+      path: '/apartments/:address',
+      name: 'apartments',
+      component: AdvancedSearch
+    },
     // {
     //   path: '/contacts',
     //   name: 'contacts',
