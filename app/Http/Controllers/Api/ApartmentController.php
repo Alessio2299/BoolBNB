@@ -15,24 +15,6 @@ class ApartmentController extends Controller
      */
     public function index(Request $request)
     {
-
-        $data = $request->all();
-
-        dd($data);
-
-        $apartments = Apartment::where('address', 'like', $data['address'])->with(['amenities'])->get();
-
-
-        foreach ($apartments as $apartment) {
-            $apartment->image = url('storage/' . $apartment->image);
-        }
-
-        return response()->json(
-            [
-                'results' => $apartments,
-                'success' => true
-            ]
-        );
     }
 
     /**
@@ -53,7 +35,22 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+
+        $apartments = Apartment::where('address', 'like', $data['address'])->with(['amenities'])->get();
+
+
+        foreach ($apartments as $apartment) {
+            $apartment->image = url('storage/' . $apartment->image);
+        }
+
+        return response()->json(
+            [
+                'results' => $apartments,
+                'success' => true
+            ]
+        );
     }
 
     /**
