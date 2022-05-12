@@ -22185,7 +22185,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'apartment',
     component: _pages_partials_SingleApartment_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/apartments/map/:address',
+    path: '/apartments/search/:address',
     name: 'advancedSearch',
     component: _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   } // {
