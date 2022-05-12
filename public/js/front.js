@@ -2227,6 +2227,10 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
                 }
 
                 console.log(response);
+
+                _this2.$router.push({
+                  name: "about"
+                });
               });
             }, 200);
           }
@@ -20438,7 +20442,7 @@ var map = {
 	"./Dario La Tegola.jpeg": "./public/img/Dario La Tegola.jpeg",
 	"./Edoardo Lai.jpeg": "./public/img/Edoardo Lai.jpeg",
 	"./Florence.png": "./public/img/Florence.png",
-	"./Marianna galuppi.jpeg": "./public/img/Marianna galuppi.jpeg",
+	"./Marianna Galuppi.jpeg": "./public/img/Marianna Galuppi.jpeg",
 	"./Milan.png": "./public/img/Milan.png",
 	"./Neworleans.png": "./public/img/Neworleans.png",
 	"./Paris.png": "./public/img/Paris.png",
@@ -20534,14 +20538,14 @@ module.exports = "/images/Florence.png?32e2de873e3916981b56a81b5351ba69";
 
 /***/ }),
 
-/***/ "./public/img/Marianna galuppi.jpeg":
+/***/ "./public/img/Marianna Galuppi.jpeg":
 /*!******************************************!*\
-  !*** ./public/img/Marianna galuppi.jpeg ***!
+  !*** ./public/img/Marianna Galuppi.jpeg ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Marianna galuppi.jpeg?55ad5c4344f510ed90f75e0e36aa45c7";
+module.exports = "/images/Marianna Galuppi.jpeg?55ad5c4344f510ed90f75e0e36aa45c7";
 
 /***/ }),
 
@@ -21655,7 +21659,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
