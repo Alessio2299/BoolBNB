@@ -107,7 +107,7 @@ class ApartmentController extends Controller
         $diffInDays = $now->diffInDays($apartmentDateTime);
 
         $amenities = Amenity::all();
-        
+
         return view('admin.apartments.show', compact('apartment', 'amenities', 'diffInDays'));
     }
 
@@ -120,7 +120,7 @@ class ApartmentController extends Controller
     public function edit($slug)
     {
         $apartment = Apartment::where('slug', '=', $slug)->with(['amenities'])->first();
-        
+
         if ($apartment->user_id !== Auth::id()) {
             abort(404);
         };
@@ -148,7 +148,7 @@ class ApartmentController extends Controller
             'availability' => 'required|boolean',
             'address' => 'required|min:2'
         ]);
-        
+
         $userId = Auth::user()->id;
         $data = $request->all();
 
@@ -181,7 +181,7 @@ class ApartmentController extends Controller
 
         return redirect()->route('admin.apartments.index', compact('apartment'));
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
