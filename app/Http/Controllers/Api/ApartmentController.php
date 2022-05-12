@@ -20,7 +20,7 @@ class ApartmentController extends Controller
 
         dd($data);
 
-        $apartments = Apartment::where('address', 'like', $data['address'])->with(['amenties'])->get();
+        $apartments = Apartment::where('address', 'like', $data['address'])->with(['amenities'])->get();
 
 
         foreach ($apartments as $apartment) {
