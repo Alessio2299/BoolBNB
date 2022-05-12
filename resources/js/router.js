@@ -32,7 +32,7 @@ const router = new VueRouter({
       component: SingleApartment
     },
     {
-      path: '/apartments/map/:address',
+      path: '/apartments/search/:address',
       name: 'advancedSearch',
       component: AdvancedSearch
     },

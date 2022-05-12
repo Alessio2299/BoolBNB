@@ -2334,6 +2334,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2414,17 +2415,16 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
                   _this2.errors = response.data.errors;
                   _this2.success = false;
                 } else {
-                  console.log(_this2.addressInput);
                   _this2.success = true;
-                  _this2.addressInput = '';
                   _this2.errors = {};
+
+                  _this2.$router.push({
+                    name: 'advancedSearch',
+                    params: {
+                      address: _this2.addressInput
+                    }
+                  });
                 }
-
-                console.log(response);
-
-                _this2.$router.push({
-                  name: "advancedSearch"
-                });
               });
             }, 200);
           }
@@ -4916,7 +4916,9 @@ var render = function () {
                           },
                           [
                             _vm._v(
-                              "\n            " + _vm._s(error) + "\n          "
+                              "\n              " +
+                                _vm._s(error) +
+                                "\n            "
                             ),
                           ]
                         )
@@ -4948,7 +4950,7 @@ var render = function () {
                                   _vm._s(address.address.country) +
                                   " " +
                                   _vm._s(address.address.countryCode) +
-                                  "  \n            "
+                                  "  \n              "
                               ),
                             ]
                           )
@@ -4960,7 +4962,22 @@ var render = function () {
                   ),
                   _vm._v(" "),
                   _vm._m(0),
-                ]
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "text",
+                      attrs: {
+                        to: {
+                          name: "advancedSearch",
+                          params: { address: this.addressInput },
+                        },
+                      },
+                    },
+                    [_vm._v("Test")]
+                  ),
+                ],
+                1
               ),
             ]
           ),
@@ -20912,7 +20929,7 @@ var map = {
 	"./Dario La Tegola.jpeg": "./public/img/Dario La Tegola.jpeg",
 	"./Edoardo Lai.jpeg": "./public/img/Edoardo Lai.jpeg",
 	"./Florence.png": "./public/img/Florence.png",
-	"./Marianna galuppi.jpeg": "./public/img/Marianna galuppi.jpeg",
+	"./Marianna Galuppi.jpeg": "./public/img/Marianna Galuppi.jpeg",
 	"./Milan.png": "./public/img/Milan.png",
 	"./Neworleans.png": "./public/img/Neworleans.png",
 	"./Paris.png": "./public/img/Paris.png",
@@ -21008,14 +21025,14 @@ module.exports = "/images/Florence.png?32e2de873e3916981b56a81b5351ba69";
 
 /***/ }),
 
-/***/ "./public/img/Marianna galuppi.jpeg":
+/***/ "./public/img/Marianna Galuppi.jpeg":
 /*!******************************************!*\
-  !*** ./public/img/Marianna galuppi.jpeg ***!
+  !*** ./public/img/Marianna Galuppi.jpeg ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Marianna galuppi.jpeg?55ad5c4344f510ed90f75e0e36aa45c7";
+module.exports = "/images/Marianna Galuppi.jpeg?55ad5c4344f510ed90f75e0e36aa45c7";
 
 /***/ }),
 
@@ -22168,7 +22185,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'apartment',
     component: _pages_partials_SingleApartment_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/apartments/map/:address',
+    path: '/apartments/search/:address',
     name: 'advancedSearch',
     component: _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   } // {
@@ -22273,7 +22290,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
