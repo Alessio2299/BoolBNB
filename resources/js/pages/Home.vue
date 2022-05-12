@@ -145,6 +145,7 @@
                     this.errors = {};
                   }
                   console.log(response)
+                  this.$router.push({ name: "about"})
                 });
             },200)
           }
