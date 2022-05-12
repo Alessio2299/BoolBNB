@@ -73,15 +73,15 @@
             <div class="row">
                 <div class="col-6">
                     <Apartment
-                        v-for="filteredApartment in filteredApartments" :key="filteredApartment.id"
-                        :image="filteredApartment.image"
-                        :title="filteredApartment.title"
-                        :description="filteredApartment.description"
+                        v-for="apartment in apartments" :key="apartment.id"
+                        :image="apartment.image"
+                        :title="apartment.title"
+                        :description="apartment.description"
                     />
                 </div>
 
                 <div class="col-6 d-flex align-items-center justify-content-center">
-                    <h1>MAPPA</h1>
+                    <MapFeature />
                 </div>
             </div>
 
@@ -91,12 +91,15 @@
 
 <script>
 import Apartment from '../components/Apartment';
+import MapFeature from './partials/MapFeature.vue';
+
 
 export default {
     name: 'AdvancedSearch',
 
     components: {
-        Apartment
+        Apartment,
+        MapFeature
     },
 
     data() {
@@ -120,8 +123,10 @@ export default {
 
     methods: {
         getApartments() {
-            axios.get('/api/apartments')
+          let address = this.$route.params.address
+            axios.get(`/api/apartments/${address}`)
             .then((response) => {
+              console.log(response)
                 this.apartments = response.data.results;
             });
         },
@@ -129,6 +134,7 @@ export default {
         getAmenities() {
             axios.get('/api/amenities')
             .then((response) => {
+              console.log(response)
                 this.amenities = response.data.results;
             });
         },
