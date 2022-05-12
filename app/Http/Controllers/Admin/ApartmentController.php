@@ -120,6 +120,10 @@ class ApartmentController extends Controller
     public function edit($slug)
     {
         $apartment = Apartment::where('slug', '=', $slug)->with(['amenities'])->first();
+        
+        if ($apartment->user_id !== Auth::id()) {
+            abort(404);
+        };
         $amenities = Amenity::all();
         return view('admin.apartments.edit', compact('apartment', 'amenities'));
     }
