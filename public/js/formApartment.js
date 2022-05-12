@@ -13081,8 +13081,8 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\chris\OneDrive\Desktop\BOOL BNB\BoolBnb\resources\js\apartment\create.js */"./resources/js/apartment/create.js");
-module.exports = __webpack_require__(/*! C:\Users\chris\OneDrive\Desktop\BOOL BNB\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/apartment/create.js */"./resources/js/apartment/create.js");
+module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
