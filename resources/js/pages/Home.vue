@@ -132,20 +132,7 @@
             this.addressLon = resp.data.results[0].position.lon;
             setTimeout(() => {
               this.isSending = true;
-              axios.post("/api/apartments",{
-                  "address" : this.addressInput
-                  }).then(response =>{
-                  this.isSending = false;
-                  if(response.data.errors){
-                      this.errors = response.data.errors;
-                      this.success = false;
-                  }else{
-                    this.success = true;
-                    this.errors = {};
-                    this.$router.push({ name: 'advancedSearch' , params: { address: this.addressInput}})
-                  }
-                  
-                });
+              this.$router.push({ name: 'advancedSearch' , params: { address: this.addressInput}})
             },200)
           }
         })
