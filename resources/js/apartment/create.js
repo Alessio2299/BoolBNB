@@ -22,7 +22,7 @@ var app = new Vue({
     autoComplete(){
       this.interval = setInterval(() => {
         if(this.addressInput.length > 3){
-          Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA')
+          Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap')
           .then(resp => {
             this.listAddress = resp.data.results;
           })
@@ -43,7 +43,7 @@ var app = new Vue({
       if(this.addressInput.length != 0){
         event.preventDefault();
         let form = document.getElementById('form');
-        Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1')
+        Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap&limit=1')
         .then( resp => {
           if(resp.data.results.length == 0 || resp.data.results[0].address.freeformAddress + ' ' + resp.data.results[0].address.country + ' ' + resp.data.results['0'].address.countryCode != this.addressInput){
             this.success = false;
