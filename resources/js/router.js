@@ -6,6 +6,8 @@ Vue.use(VueRouter);
 import Home from './pages/Home';
 import About from './pages/About';
 import SingleApartment from './pages/partials/SingleApartment.vue';
+import AdvancedSearch from './pages/AdvancedSearch.vue';
+
 // import Contact from './pages/Contact';
 // import Posts from './pages/Posts';
 // import SinglePost from './pages/SinglePost';
@@ -30,8 +32,8 @@ const router = new VueRouter({
       component: SingleApartment
     },
     {
-      path: '/apartments/:address',
-      name: 'apartments',
+      path: '/apartments/map/:address',
+      name: 'advancedSearch',
       component: AdvancedSearch
     },
     // {
