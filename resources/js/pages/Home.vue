@@ -145,7 +145,7 @@
                     this.errors = {};
                   }
                   console.log(response)
-                  this.$router.push({ name: "about"})
+                  this.$router.push({ name: "advancedSearch"})
                 });
             },200)
           }
