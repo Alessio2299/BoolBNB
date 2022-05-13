@@ -81,37 +81,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/apartment/index.js":
-/*!*****************************************!*\
-  !*** ./resources/js/apartment/index.js ***!
-  \*****************************************/
+/***/ "./resources/js/messages/index.js":
+/*!****************************************!*\
+  !*** ./resources/js/messages/index.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var delete_btn = document.getElementById("delete-btn");
-delete_btn.addEventListener("click", function (event) {
-  if (confirm('Are you sure you want to delete this apartment?')) {
-    return true;
-  } else {
-    event.preventDefault();
-  }
-});
+console.log("test");
 
 /***/ }),
 
-/***/ 2:
-/*!***********************************************!*\
-  !*** multi ./resources/js/apartment/index.js ***!
-  \***********************************************/
+/***/ 3:
+/*!**********************************************!*\
+  !*** multi ./resources/js/messages/index.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/apartment/index.js */"./resources/js/apartment/index.js");
+module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/messages/index.js */"./resources/js/messages/index.js");
 
 
 /***/ })

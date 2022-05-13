@@ -46,6 +46,7 @@
 
                         <li class="mx-3"><a href="{{route('admin.home')}}">Dashboard</a></li>
                         <li class="mx-3"><a href="{{route('admin.apartments.index')}}">Your Apartments</a></li>
+                        <li class="mx-3"><a href="{{route('admin.messages.index')}}">Your Messages</a></li>
 
                     </ul>
 
