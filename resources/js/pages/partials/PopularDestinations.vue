@@ -1,21 +1,15 @@
 <template>
-   <div class="container-fluid py-4" id="section_03" style="backgroundColor: antiquewhite">
-        <h2 class="text-center ">Popular destinations</i></h2>
-      <div class="row row-cols-5 debug mx-5 ">
-        <a class="col debug text-center box" href="">
-          <img src="../../../../public/img/Neworleans.png" alt="">
-        </a>
-        <a class="col debug text-center box" href="">
+   <div class="container-fluid py-4" id="section_03" >
+        <h2 class="text-center ">Popular destinations</h2>
+      <div class="row row-cols-3 mx-5 ">
+        <a class="col text-center box" href="">
           <img src="../../../../public/img/Paris.png" alt="">
         </a>
-        <a class="col debug text-center box" href="">
-          <img src="../../../../public/img/Milan.png" alt="">
+        <a class="col text-center box" href="">
+          <img src="../../../../public/img/Greece.png" alt="">
         </a>
-        <a class="col debug text-center box" href="">
-          <img src="../../../../public/img/Sandiego.png" alt="">
-        </a>
-        <a class="col debug text-center box" href="">
-          <img src="../../../../public/img/Florence.png" alt="">
+        <a class="col text-center box" href="">
+          <img src="../../../../public/img/Italy.png" alt="">
         </a>
       </div>
     </div>
@@ -37,15 +31,28 @@
 </script>
 
 <style>
+
+  .box{
+    border-radius: 50%;
+  }
+
   .box:hover{
-    background-color: #72f3e4;
     transition: 1s;
   }
 
   img {
-    width: auto;
+    width: 90%;
     height: 90%;
     object-fit: contain;
+  }
+
+  img:hover{
+    transform: scale(1.5);
+    transition: 1s ;
+  }
+
+  a:hover{
+    transform: scale(1);
   }
 
   

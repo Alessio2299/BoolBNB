@@ -7,7 +7,7 @@
     <li data-target="#demo" data-slide-to="2"></li>
   </ul>
 
-  <div class="carousel-inner">
+  <div class="carousel-inner" style="backgroundColor: black">
     <div class="carousel-item active">
       <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/76109618.jpg?k=ba537b048279407e0241cbd138c6dced32572a4f864bdaf5dbb60c314c3003b0&o=" alt="Flat-1">
     </div>
@@ -46,12 +46,15 @@
 
 <style scoped lang="scss">
 
+
+
 .carousel-item {
-  background-color: yellowgreen;
+  object-fit: contain;
   height: 500px;
   img {
     width: 100%;
   }
 }
+
 
 </style>
