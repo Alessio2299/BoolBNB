@@ -48,6 +48,8 @@
         var marker = new tt.Marker().setLngLat(apartmentLatLon).addTo(this.map);
         var popup = new tt.Popup({ anchor: 'top' }).setText('test')
         marker.setPopup(popup).togglePopup()
+        this.map.addControl(new tt.FullscreenControl());
+        this.map.addControl(new tt.NavigationControl());
       }
     }    
   }

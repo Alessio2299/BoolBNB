@@ -52,12 +52,16 @@
                     <div class="col-12">
                         <form id="message-form" @submit.prevent="sendMessage">
                             <div class="form-group">
-                                <label for="email" class="required-field">Email address</label>
-                                <input type="email" class="form-control" id="email" name="email" v-model="form.email" placeholder="name@example.com" required>
+                                <label class="required-field">Name</label>
+                                <input type="text" class="form-control" id="name" v-model="form.name" placeholder="name" required>
                             </div>
                             <div class="form-group">
-                                <label for="message" class="required-field">Your message</label>
-                                <textarea class="form-control" id="message" name="message" v-model="form.message" rows="5"></textarea>
+                                <label class="required-field">Email address</label>
+                                <input type="email" class="form-control" id="email" v-model="form.email" placeholder="name@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="required-field">Your message</label>
+                                <textarea class="form-control" id="message" v-model="form.message" rows="5"></textarea>
                             </div>
                             <button class="btn btn-dark" type="submit">Send</button>
                         </form>
@@ -78,6 +82,7 @@ export default {
         return {
             apartment: null,
             form: {
+                name: "",
                 email: "",
                 message: "",
             }
@@ -102,9 +107,15 @@ export default {
         },
 
         sendMessage() {
-            axios.post('/', this.form)
+            console.log(this.form.name)
+            axios.post(`/api/messages/apartment/${this.apartment.slug}`, {
+                'apartment_id': this.apartment.id,
+                'sender_name': this.form.name,
+                'sender_email': this.form.email,
+                'message': this.form.message
+            })
             .then(response => {
-                
+                console.log(response)
             });
         }
     }
