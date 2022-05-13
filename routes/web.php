@@ -21,15 +21,19 @@ Route::middleware('auth')
     ->namespace('Admin')
     ->name('admin.')
     ->prefix('admin')
-    ->group(function() {
+    ->group(function () {
 
-    Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/', 'HomeController@index')->name('home');
 
-    Route::resource('apartments', 'ApartmentController');
+        Route::resource('apartments', 'ApartmentController');
 
-    Route::get('/apartments/{slug}', 'ApartmentController@show');
-});
+        Route::get('/apartments/{slug}', 'ApartmentController@show');
 
-Route::get("{any?}", function(){
+        Route::get('/messages', 'MessageController@index')->name('messages.index');
+
+        Route::get('/messages/{apartment}/{message}', 'MessageController@show');
+    });
+
+Route::get("{any?}", function () {
     return view('guests.home');
-})->where("any",".*");
+})->where("any", ".*");
