@@ -10,33 +10,34 @@
         <div class="row debug mx-5 justify-content-center ">
 
        
-        <div class="col-8 text-center d-flex flex-column form-group align-content-center">
-            <label for="address">Address</label>
-            <input @focus="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput">
-            <p v-for="(error, index) in errors.name" :key="'error_name'+index" class="invalid-feedback">
-              {{error}}
-            </p>                    
+          <div class="col-8 text-center d-flex flex-column form-group align-content-center">
+              <label for="address">Address</label>
+              <input @focus="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput">
+              <p v-for="(error, index) in errors.name" :key="'error_name'+index" class="invalid-feedback">
+                {{error}}
+              </p>                    
 
-            <div class="mt-1">
-              <div @click="clickAddress(index)" class="text-left bg-white my_hover p-3" v-for="(address,index) in listAddress" :key="index">
-                <i class="mr-2 fas fa-map-marker-alt"></i> {{address.address.freeformAddress}} {{address.address.country}} {{address.address.countryCode}}  
+              <div class="mt-1">
+                <div @click="clickAddress(index)" class="text-left bg-white my_hover p-3" v-for="(address,index) in listAddress" :key="index">
+                  <i class="mr-2 fas fa-map-marker-alt"></i> {{address.address.freeformAddress}} {{address.address.country}} {{address.address.countryCode}}  
+                </div>
               </div>
-            </div>
-        </div>
-        
-        <!-- <div class="col-2  text-center form-group">
-          <label for="guests">Guests</label>
-          <div class="row row">
-            <button type="button" class="col btn btn-danger" @click="removeGuest">-</button>
-             <input class="col-8 text-center" type="number" name="guests" id="guests" v-model="guests_num">
-            <button type="button" class="col btn btn-danger" @click="guests_num++">+</button>
           </div>
-        </div> -->
+          
+          <!-- <div class="col-2  text-center form-group">
+            <label for="guests">Guests</label>
+            <div class="row row">
+              <button type="button" class="col btn btn-danger" @click="removeGuest">-</button>
+              <input class="col-8 text-center" type="number" name="guests" id="guests" v-model="guests_num">
+              <button type="button" class="col btn btn-danger" @click="guests_num++">+</button>
+            </div>
+          </div> -->
 
-        <div class="text-center col-12">
-          <button class="btn btn-danger my-4" type="submit">Search</button>
+          <div class="text-center col-12">
+            <button class="btn btn-danger my-4" type="submit">Search</button>
+          </div>
+          <router-link class="text" :to="{ name: 'advancedSearch' , params: { address: this.addressInput}}">Test</router-link>  
         </div>
-         </div>
       </form>
     </div>
 
@@ -131,22 +132,7 @@
             this.addressLon = resp.data.results[0].position.lon;
             setTimeout(() => {
               this.isSending = true;
-              axios.post("/api/apartments",{
-                  "address" : this.addressInput
-                  }).then(response =>{
-                  this.isSending = false;
-                  if(response.data.errors){
-                      this.errors = response.data.errors;
-                      this.success = false;
-                  }else{
-                    console.log(this.addressInput)
-                    this.success = true;
-                    this.addressInput = '';
-                    this.errors = {};
-                  }
-                  console.log(response)
-                  this.$router.push({ name: "about"})
-                });
+              this.$router.push({ name: 'advancedSearch' , params: { address: this.addressInput}})
             },200)
           }
         })

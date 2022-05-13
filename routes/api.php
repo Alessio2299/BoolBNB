@@ -19,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::resource('/apartments', 'Api\ApartmentController');
+// Route::resource('/apartments', 'Api\ApartmentController');
+Route::get('/apartments/{address}', 'Api\ApartmentController@index');
