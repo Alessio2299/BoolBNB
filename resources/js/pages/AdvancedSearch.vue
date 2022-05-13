@@ -9,17 +9,29 @@
                 <div class="col-12 d-flex justify-content-around my-3">
                     <div>
                         <label for="rooms">Rooms</label>
-                        <input type="number" min=1 name="rooms" id="rooms" v-model="rooms_num">
+                        <select v-model="rooms_num">
+                            <option value="All">All</option>
+                            <option v-for="index in 9" :key="index" :value="index" >{{index}}</option>
+                            <option value="10+">10+</option>
+                        </select>
                     </div>
 
                     <div>
                         <label for="beds">Beds</label>
-                        <input type="number" min=1 name="beds" id="beds" v-model="beds_num">
+                        <select v-model="beds_num">
+                            <option value="All">All</option>
+                            <option v-for="index in 9" :key="index" :value="index">{{index}}</option>
+                            <option value="10+">10+</option>
+                        </select>
                     </div>
 
                     <div>
                         <label for="bathrooms">Bathrooms</label>
-                        <input type="number" min=1 name="bathrooms" id="bathrooms" v-model="bathrooms_num">
+                        <select v-model="bathrooms_num">
+                            <option value="All">All</option>
+                            <option v-for="index in 9" :key="index" :value="index">{{index}}</option>
+                            <option value="10+">10+</option>
+                        </select>
                     </div>
                 </div>
 
@@ -31,42 +43,13 @@
                 </div>
 
                 <div class="col-12 text-center">
-                    <button class="btn btn-dark" @click="filterApartments()">Cerca</button>
+                    <button class="btn btn-dark" @click="sendParams()">Cerca</button>
                 </div>
             </div>
 
-            <!-- <form action="">
-                <div class="d-flex justify-content-around my-3">
-                    <div class="form-group">
-                        <label for="rooms">Rooms</label>
-                        <input type="number" min=1 name="rooms" id="rooms" v-model="rooms_num">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="beds">Beds</label>
-                        <input type="number" min=1 name="beds" id="beds" v-model="beds_num">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="bathrooms">Bathrooms</label>
-                        <input type="number" min=1 name="bathrooms" id="bathrooms" v-model="bathrooms_num">
-                    </div>
-                </div>
-                
-
-                <div class="d-flex justify-content-around my-3">
-                    <div class="form-check" v-for="amenity in amenities" :key="amenity.id">
-                        <label :for="amenity.name">{{amenity.name}}</label>
-                        <input type="checkbox" :id="amenity.name" :value="amenity.name" v-model="checked_amenities">
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-dark" @click="filterApartments()">Cerca</button>
-            </form> -->
-
             <div class="row">
                 <div class="col-12 my-3">
-                    <p>{{filteredApartments.length}} alloggi a {{city}} per {{guests}} persone</p>
+                    
                 </div>
             </div>
             
@@ -80,8 +63,12 @@
                     />
                 </div>
 
-                <div class="col-6 d-flex align-items-center justify-content-center">
-                    <MapFeature />
+                <div v-if="flag && flagApartment" class="col-6 d-flex align-items-center justify-content-center">
+                    <MapFeature
+                        :lat= 'addressLat'
+                        :lon= 'addressLon'
+                        :apartment= "apartments[0]"
+                    />
                 </div>
             </div>
 
@@ -105,54 +92,70 @@ export default {
     data() {
         return {
             apartments: [],
-            filteredApartments: [],
             amenities: [],
-            rooms_num: "",
-            beds_num: "",
-            bathrooms_num: "",
+            rooms_num: 'All',
+            beds_num: 'All',
+            bathrooms_num: 'All',
             checked_amenities: [],
             city: this.$route.params.address,
-            guests: this.$route.params.guests,
+            addressLat: '',
+            addressLon: '',
+            flag: false,
+            flagApartment: false
         }
     },
 
     mounted() {
         this.getApartments();
         this.getAmenities();
+        this.getLatlong();
     },
-
-    methods: {
+    methods:{ 
         getApartments() {
           let address = this.$route.params.address
             axios.get(`/api/apartments/${address}`)
             .then((response) => {
-              console.log(response)
                 this.apartments = response.data.results;
+                this.flagApartment = true
             });
         },
 
         getAmenities() {
             axios.get('/api/amenities')
             .then((response) => {
-              console.log(response)
                 this.amenities = response.data.results;
             });
         },
-
-        filterApartments() {
-            this.filteredApartments = this.apartments.filter(apartment => {
-                return apartment.rooms >= this.rooms_num;
+        getLatlong(){
+            axios.get('https://api.tomtom.com/search/2/geocode/' + this.$route.params.address + '.json?key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap&limit=1')
+            .then( resp => {
+                if(resp.data.results.length == 0){
+                    this.success = false;
+                } else{
+                    this.addressLat = resp.data.results[0].position.lat;
+                    this.addressLon = resp.data.results[0].position.lon;
+                    this.flag = true
+                }
             })
-            .filter(apartment => {
-                return apartment.beds >= this.beds_num
+        },
+        sendParams(){
+            axios.post('/api/apartments/filter',{
+                'rooms' : this.rooms_num,
+                'bathrooms' : this.bathrooms_num,
+                'beds' : this.beds_num,
+                'address' : this.city,
+                'lat': this.addressLat,
+                'lon': this.addressLon
             })
-            .filter(apartment => {
-                return apartment.bathrooms >= this.bathrooms_num
-            });
-
-            if(checked_amenities.length > 0) {
-
-            }
+            .then(resp => {
+                if(!resp.data.success){
+                    this.errors = resp.data.errors;
+                } else{
+                    console.log(resp)
+                    this.apartments = resp.data.results
+                    this.error = false
+                }
+            })
         }
     }
 }
