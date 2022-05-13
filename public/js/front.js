@@ -2752,11 +2752,21 @@ __webpack_require__.r(__webpack_exports__);
         lat: this.lat,
         lon: this.lon
       };
-      console.log(this.apartment);
-      var apartmentLatLon = {
-        lat: this.apartment.lat,
-        lon: this.apartment.lon
-      };
+
+      if (this.apartment) {
+        console.log('sono dentro if');
+        var apartmentLatLon = {
+          lat: this.apartment.lat,
+          lon: this.apartment.lon
+        };
+      } else {
+        console.log('sono dentro else');
+        var apartmentLatLon = {
+          lat: '9.0000',
+          lon: '9.0000'
+        };
+      }
+
       this.map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
         container: 'map',
@@ -2766,7 +2776,7 @@ __webpack_require__.r(__webpack_exports__);
       var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(apartmentLatLon).addTo(this.map);
       var popup = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Popup({
         anchor: 'top'
-      }).setText(this.apartment.title);
+      }).setText('test');
       marker.setPopup(popup).togglePopup();
     }
   }
@@ -22865,7 +22875,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/mari/Desktop/Boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
