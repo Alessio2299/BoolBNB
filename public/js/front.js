@@ -2202,19 +2202,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2226,19 +2213,22 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       apartments: [],
-      filteredApartments: [],
       amenities: [],
-      rooms_num: "",
-      beds_num: "",
-      bathrooms_num: "",
+      rooms_num: 'All',
+      beds_num: 'All',
+      bathrooms_num: 'All',
       checked_amenities: [],
       city: this.$route.params.address,
-      guests: this.$route.params.guests
+      addressLat: '',
+      addressLon: '',
+      flag: false,
+      flagApartment: false
     };
   },
   mounted: function mounted() {
     this.getApartments();
     this.getAmenities();
+    this.getLatlong();
   },
   methods: {
     getApartments: function getApartments() {
@@ -2246,30 +2236,49 @@ __webpack_require__.r(__webpack_exports__);
 
       var address = this.$route.params.address;
       axios.get("/api/apartments/".concat(address)).then(function (response) {
-        console.log(response);
         _this.apartments = response.data.results;
+        _this.flagApartment = true;
       });
     },
     getAmenities: function getAmenities() {
       var _this2 = this;
 
       axios.get('/api/amenities').then(function (response) {
-        console.log(response);
         _this2.amenities = response.data.results;
       });
     },
-    filterApartments: function filterApartments() {
+    getLatlong: function getLatlong() {
       var _this3 = this;
 
-      this.filteredApartments = this.apartments.filter(function (apartment) {
-        return apartment.rooms >= _this3.rooms_num;
-      }).filter(function (apartment) {
-        return apartment.beds >= _this3.beds_num;
-      }).filter(function (apartment) {
-        return apartment.bathrooms >= _this3.bathrooms_num;
+      axios.get('https://api.tomtom.com/search/2/geocode/' + this.$route.params.address + '.json?key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap&limit=1').then(function (resp) {
+        if (resp.data.results.length == 0) {
+          _this3.success = false;
+        } else {
+          _this3.addressLat = resp.data.results[0].position.lat;
+          _this3.addressLon = resp.data.results[0].position.lon;
+          _this3.flag = true;
+        }
       });
+    },
+    sendParams: function sendParams() {
+      var _this4 = this;
 
-      if (checked_amenities.length > 0) {}
+      axios.post('/api/apartments/filter', {
+        'rooms': this.rooms_num,
+        'bathrooms': this.bathrooms_num,
+        'beds': this.beds_num,
+        'address': this.city,
+        'lat': this.addressLat,
+        'lon': this.addressLon
+      }).then(function (resp) {
+        if (!resp.data.success) {
+          _this4.errors = resp.data.errors;
+        } else {
+          console.log(resp);
+          _this4.apartments = resp.data.results;
+          _this4.error = false;
+        }
+      });
     }
   }
 });
@@ -2590,14 +2599,26 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
+  props: {
+    lat: Number,
+    lon: Number,
+    apartment: Object
+  },
   mounted: function mounted() {
     this.initializeMap();
   },
   methods: {
     initializeMap: function initializeMap() {
+      console.log(this.lat);
+      console.log(this.lon);
       var latlon = {
-        lat: 9.0548,
-        lon: 7.4856
+        lat: this.lat,
+        lon: this.lon
+      };
+      console.log(this.apartment);
+      var apartmentLatLon = {
+        lat: this.apartment.lat,
+        lon: this.apartment.lon
       };
       this.map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
@@ -2605,10 +2626,10 @@ __webpack_require__.r(__webpack_exports__);
         zoom: 15,
         center: latlon
       });
-      var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(latlon).addTo(this.map);
+      var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(apartmentLatLon).addTo(this.map);
       var popup = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Popup({
         anchor: 'top'
-      }).setText('Ciao');
+      }).setText(this.apartment.title);
       marker.setPopup(popup).togglePopup();
     }
   }
@@ -4715,51 +4736,95 @@ var render = function () {
             _c("div", [
               _c("label", { attrs: { for: "rooms" } }, [_vm._v("Rooms")]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.rooms_num,
-                    expression: "rooms_num",
-                  },
-                ],
-                attrs: { type: "number", min: "1", name: "rooms", id: "rooms" },
-                domProps: { value: _vm.rooms_num },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.rooms_num = $event.target.value
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.rooms_num,
+                      expression: "rooms_num",
+                    },
+                  ],
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.rooms_num = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
                   },
                 },
-              }),
+                [
+                  _c("option", { attrs: { value: "All" } }, [_vm._v("All")]),
+                  _vm._v(" "),
+                  _vm._l(9, function (index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: index } },
+                      [_vm._v(_vm._s(index))]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "10+" } }, [_vm._v("10+")]),
+                ],
+                2
+              ),
             ]),
             _vm._v(" "),
             _c("div", [
               _c("label", { attrs: { for: "beds" } }, [_vm._v("Beds")]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.beds_num,
-                    expression: "beds_num",
-                  },
-                ],
-                attrs: { type: "number", min: "1", name: "beds", id: "beds" },
-                domProps: { value: _vm.beds_num },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.beds_num = $event.target.value
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.beds_num,
+                      expression: "beds_num",
+                    },
+                  ],
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.beds_num = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
                   },
                 },
-              }),
+                [
+                  _c("option", { attrs: { value: "All" } }, [_vm._v("All")]),
+                  _vm._v(" "),
+                  _vm._l(9, function (index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: index } },
+                      [_vm._v(_vm._s(index))]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "10+" } }, [_vm._v("10+")]),
+                ],
+                2
+              ),
             ]),
             _vm._v(" "),
             _c("div", [
@@ -4767,31 +4832,48 @@ var render = function () {
                 _vm._v("Bathrooms"),
               ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.bathrooms_num,
-                    expression: "bathrooms_num",
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.bathrooms_num,
+                      expression: "bathrooms_num",
+                    },
+                  ],
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.bathrooms_num = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
                   },
+                },
+                [
+                  _c("option", { attrs: { value: "All" } }, [_vm._v("All")]),
+                  _vm._v(" "),
+                  _vm._l(9, function (index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: index } },
+                      [_vm._v(_vm._s(index))]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "10+" } }, [_vm._v("10+")]),
                 ],
-                attrs: {
-                  type: "number",
-                  min: "1",
-                  name: "bathrooms",
-                  id: "bathrooms",
-                },
-                domProps: { value: _vm.bathrooms_num },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.bathrooms_num = $event.target.value
-                  },
-                },
-              }),
+                2
+              ),
             ]),
           ]
         ),
@@ -4855,7 +4937,7 @@ var render = function () {
               staticClass: "btn btn-dark",
               on: {
                 click: function ($event) {
-                  return _vm.filterApartments()
+                  return _vm.sendParams()
                 },
               },
             },
@@ -4864,20 +4946,7 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 my-3" }, [
-          _c("p", [
-            _vm._v(
-              _vm._s(_vm.filteredApartments.length) +
-                " alloggi a " +
-                _vm._s(_vm.city) +
-                " per " +
-                _vm._s(_vm.guests) +
-                " persone"
-            ),
-          ]),
-        ]),
-      ]),
+      _vm._m(1),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c(
@@ -4896,15 +4965,25 @@ var render = function () {
           1
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "col-6 d-flex align-items-center justify-content-center",
-          },
-          [_c("MapFeature")],
-          1
-        ),
+        _vm.flag && _vm.flagApartment
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "col-6 d-flex align-items-center justify-content-center",
+              },
+              [
+                _c("MapFeature", {
+                  attrs: {
+                    lat: _vm.addressLat,
+                    lon: _vm.addressLon,
+                    apartment: _vm.apartments[0],
+                  },
+                }),
+              ],
+              1
+            )
+          : _vm._e(),
       ]),
     ]),
   ])
@@ -4916,6 +4995,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 my-3" }, [
       _c("h1", { staticClass: "text-center" }, [_vm._v("Ricerca avanzata")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-12 my-3" }),
     ])
   },
 ]
