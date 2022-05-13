@@ -111,12 +111,12 @@
 
             @if ($errors->any())
                 <div class="custom-control custom-checkbox">
-                    <input name="amenities[]" type="checkbox" class="custom-control-input" id="amenity_{{$amenity->id}}" value={{$amenity->id}} {{in_array($amenity->id, old('amenities'))?'checked':''}}>
+                    <input name="amenities[]" type="checkbox" class="custom-control-input" required id="amenity_{{$amenity->id}}" value="{{$amenity->id}}" {{in_array($amenity->id, old('amenities'))?'checked':''}}>
                     <label class="custom-control-label" for="amenity_{{$amenity->id}}">{{$amenity->name}}</label>
                 </div>
             @else
                 <div class="custom-control custom-checkbox">
-                    <input name="amenities[]" type="checkbox" class="custom-control-input" id="amenity_{{$amenity->id}}" value="{{$amenity->id}}" {{($apartment->amenities->contains($amenity))?'checked':''}}>
+                    <input name="amenities[]" type="checkbox" class="custom-control-input" required id="amenity_{{$amenity->id}}" value="{{$amenity->id}}" {{($apartment->amenities->contains($amenity))?'checked':''}}>
                     <label class="custom-control-label" for="amenity_{{$amenity->id}}">{{$amenity->name}}</label>
                 </div>
             @endif

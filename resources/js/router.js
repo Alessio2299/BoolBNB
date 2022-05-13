@@ -5,13 +5,12 @@ Vue.use(VueRouter);
 
 import Home from './pages/Home';
 import About from './pages/About';
-import SingleApartment from './pages/partials/SingleApartment.vue';
 import AdvancedSearch from './pages/AdvancedSearch.vue';
+import SingleApartment from './pages/SingleApartment.vue';
+import PageNotFound from './pages/PageNotFound.vue';
 
 // import Contact from './pages/Contact';
 // import Posts from './pages/Posts';
-// import SinglePost from './pages/SinglePost';
-// import PageError from './pages/PageError';
 
 const router = new VueRouter({
   mode: 'history',
@@ -27,14 +26,14 @@ const router = new VueRouter({
       component: About
     },
     {
-      path: '/apartment',
-      name: 'apartment',
-      component: SingleApartment
-    },
-    {
       path: '/apartments/search/:address',
       name: 'advancedSearch',
       component: AdvancedSearch
+    },
+    {
+      path: '/apartments/single-apartment/:slug',
+      name: 'single-apartment',
+      component: SingleApartment
     },
     // {
     //   path: '/contacts',
@@ -51,11 +50,11 @@ const router = new VueRouter({
     //   name: 'singlePost',
     //   component: SinglePost
     // },
-    // {
-    //   path: '/:patchMatch(.*)*',
-    //   name: 'page-error',
-    //   component: PageError
-    // }
+    {
+      path: '/:patchMatch(.*)*',
+      name: 'page-not-found',
+      component: PageNotFound
+    }
   ]
 });
 

@@ -17,6 +17,9 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::where('address', 'like', '%' . $address . '%')->with(['amenities'])->get();
 
+        $apartments->each(function($apartment) {
+            $apartment->image = url('storage/' . $apartment->image);
+        });
 
         return response()->json(
             [
@@ -26,6 +29,7 @@ class ApartmentController extends Controller
         );
     }
 
+<<<<<<< HEAD
     public function filterApartments(Request $request){
             
         $data = $request->all();
@@ -189,4 +193,34 @@ class ApartmentController extends Controller
             );
         }
     }
+=======
+
+    public function show($slug)
+    {
+        $apartment = Apartment::where('slug', $slug)->with(['amenities'])->first();
+        
+        if($apartment) {
+            $apartment->image = url('storage/' . $apartment->image);
+        }
+
+        if($apartment) {
+           return response()->json(
+                [
+                    'results' => $apartment,
+                    'success' => true
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'results' => 'No apartment found',
+                    'success' => false
+                ]
+            );
+        }
+        
+    }
+
+    
+>>>>>>> new-single-apartment-page
 }
