@@ -29,7 +29,6 @@ class ApartmentController extends Controller
         );
     }
 
-<<<<<<< HEAD
     public function filterApartments(Request $request){
             
         $data = $request->all();
@@ -193,7 +192,6 @@ class ApartmentController extends Controller
             );
         }
     }
-=======
 
     public function show($slug)
     {
@@ -221,6 +219,4 @@ class ApartmentController extends Controller
         
     }
 
-    
->>>>>>> new-single-apartment-page
 }

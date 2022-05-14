@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 
 // Route::resource('/apartments', 'Api\ApartmentController');
 Route::get('/apartments/{address}', 'Api\ApartmentController@index');
-<<<<<<< HEAD
+
 Route::post('/apartments/filter', 'Api\ApartmentController@filterApartments');
-=======
 
 Route::get('/apartments/single-apartment/{slug}', 'Api\ApartmentController@show');
->>>>>>> new-single-apartment-page
+
+Route::post('/messages/apartment/{slug}', 'Api\MessageController@store')->name('messages.apartment');

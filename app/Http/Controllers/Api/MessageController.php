@@ -42,12 +42,18 @@ class MessageController extends Controller
         $request->validate([
             'sender_name' => 'required|min:2',
             'sender_email' => 'required|string|email|max:255',
-            'description' => 'required|min:10',
+            'message' => 'required|min:10',
         ]);
 
         $message = new Message();
         $message->fill($data);
         $message->save();
+        
+        return response()->json(
+            [
+                'success' => true
+            ]
+        );
     }
 
     /**

@@ -2550,12 +2550,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SingleApartment',
   data: function data() {
     return {
       apartment: null,
       form: {
+        name: "",
         email: "",
         message: ""
       }
@@ -2580,7 +2585,15 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     sendMessage: function sendMessage() {
-      axios.post('/', this.form).then(function (response) {});
+      console.log(this.form.name);
+      axios.post("/api/messages/apartment/".concat(this.apartment.slug), {
+        'apartment_id': this.apartment.id,
+        'sender_name': this.form.name,
+        'sender_email': this.form.email,
+        'message': this.form.message
+      }).then(function (response) {
+        console.log(response);
+      });
     }
   }
 });
@@ -2778,6 +2791,8 @@ __webpack_require__.r(__webpack_exports__);
         anchor: 'top'
       }).setText('test');
       marker.setPopup(popup).togglePopup();
+      this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.FullscreenControl());
+      this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.NavigationControl());
     }
   }
 });
@@ -5407,14 +5422,42 @@ var render = function () {
                   },
                   [
                     _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "required-field",
-                          attrs: { for: "email" },
+                      _c("label", { staticClass: "required-field" }, [
+                        _vm._v("Name"),
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.name,
+                            expression: "form.name",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "name",
+                          placeholder: "name",
+                          required: "",
                         },
-                        [_vm._v("Email address")]
-                      ),
+                        domProps: { value: _vm.form.name },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "name", $event.target.value)
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { staticClass: "required-field" }, [
+                        _vm._v("Email address"),
+                      ]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -5429,7 +5472,6 @@ var render = function () {
                         attrs: {
                           type: "email",
                           id: "email",
-                          name: "email",
                           placeholder: "name@example.com",
                           required: "",
                         },
@@ -5446,14 +5488,9 @@ var render = function () {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "required-field",
-                          attrs: { for: "message" },
-                        },
-                        [_vm._v("Your message")]
-                      ),
+                      _c("label", { staticClass: "required-field" }, [
+                        _vm._v("Your message"),
+                      ]),
                       _vm._v(" "),
                       _c("textarea", {
                         directives: [
@@ -5465,7 +5502,7 @@ var render = function () {
                           },
                         ],
                         staticClass: "form-control",
-                        attrs: { id: "message", name: "message", rows: "5" },
+                        attrs: { id: "message", rows: "5" },
                         domProps: { value: _vm.form.message },
                         on: {
                           input: function ($event) {
