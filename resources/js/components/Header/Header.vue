@@ -1,7 +1,8 @@
 <template>
   <header class="nav_header">
     <nav class="navbar navbar-expand-lg navbar-dark mx-5">
-        <a class="navbar-brand nav_text" href="#">BoolBnb</a>
+        <img class="my_img" src="../../../../public/img/BoolBnb.logo.png" alt="Logo BoolBnb">
+        <router-link class="navbar-brand nav_text" :to="{name:'home'}">BoolBNB</router-link>
         <button class="navbar-toggler nav_text" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon nav_text"></span>
         </button>
@@ -53,7 +54,11 @@
             transition: 0.5s;
         }
     }
-
+    .my_img{
+        width: 40px;
+        filter: grayscale(1);
+        margin-right: 10px;
+      }
 
 
 </style>

@@ -2024,6 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header'
 });
@@ -3032,7 +3033,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".nav_header[data-v-770cded8] {\n  background-color: #1e2227;\n  border-bottom: 1px solid rgb(196, 196, 196);\n}\n.nav_text[data-v-770cded8] {\n  color: #fff;\n}\n.navbar-nav li a[data-v-770cded8] {\n  margin: 0 1rem;\n  border-bottom: 2px solid transparent;\n}\n.navbar-nav li a[data-v-770cded8]:hover {\n  border-bottom: 2px solid #fff;\n  transition: 0.5s;\n}", ""]);
+exports.push([module.i, ".nav_header[data-v-770cded8] {\n  background-color: #1e2227;\n  border-bottom: 1px solid rgb(196, 196, 196);\n}\n.nav_text[data-v-770cded8] {\n  color: #fff;\n}\n.navbar-nav li a[data-v-770cded8] {\n  margin: 0 1rem;\n  border-bottom: 2px solid transparent;\n}\n.navbar-nav li a[data-v-770cded8]:hover {\n  border-bottom: 2px solid #fff;\n  transition: 0.5s;\n}\n.my_img[data-v-770cded8] {\n  width: 40px;\n  filter: grayscale(1);\n  margin-right: 10px;\n}", ""]);
 
 // exports
 
@@ -4779,102 +4780,123 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("header", { staticClass: "nav_header" }, [
-    _c("nav", { staticClass: "navbar navbar-expand-lg navbar-dark mx-5" }, [
-      _c("a", { staticClass: "navbar-brand nav_text", attrs: { href: "#" } }, [
-        _vm._v("BoolBnb"),
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "collapse navbar-collapse",
-          attrs: { id: "navbarSupportedContent" },
-        },
-        [
-          _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-            _c(
-              "li",
-              { staticClass: "nav-item active" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link nav_text",
-                    attrs: { to: { name: "home" } },
-                  },
-                  [
-                    _vm._v("Home "),
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("(current)"),
-                    ]),
-                  ]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item active" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link nav_text",
-                    attrs: { to: { name: "about" } },
-                  },
-                  [
-                    _vm._v("About "),
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("(current)"),
-                    ]),
-                  ]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item active" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "nav-link nav_text", attrs: { to: "/admin" } },
-                  [
-                    _vm._v("Login "),
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("(current)"),
-                    ]),
-                  ]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item active" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "nav-link nav_text", attrs: { to: "" } },
-                  [
-                    _vm._v("Register "),
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("(current)"),
-                    ]),
-                  ]
-                ),
-              ],
-              1
-            ),
-          ]),
-        ]
-      ),
-    ]),
+    _c(
+      "nav",
+      { staticClass: "navbar navbar-expand-lg navbar-dark mx-5" },
+      [
+        _c("img", {
+          staticClass: "my_img",
+          attrs: {
+            src: __webpack_require__(/*! ../../../../public/img/BoolBnb.logo.png */ "./public/img/BoolBnb.logo.png"),
+            alt: "Logo BoolBnb",
+          },
+        }),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "navbar-brand nav_text",
+            attrs: { to: { name: "home" } },
+          },
+          [_vm._v("BoolBNB")]
+        ),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse navbar-collapse",
+            attrs: { id: "navbarSupportedContent" },
+          },
+          [
+            _c("ul", { staticClass: "navbar-nav ml-auto" }, [
+              _c(
+                "li",
+                { staticClass: "nav-item active" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link nav_text",
+                      attrs: { to: { name: "home" } },
+                    },
+                    [
+                      _vm._v("Home "),
+                      _c("span", { staticClass: "sr-only" }, [
+                        _vm._v("(current)"),
+                      ]),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item active" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link nav_text",
+                      attrs: { to: { name: "about" } },
+                    },
+                    [
+                      _vm._v("About "),
+                      _c("span", { staticClass: "sr-only" }, [
+                        _vm._v("(current)"),
+                      ]),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item active" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link nav_text",
+                      attrs: { to: "/admin" },
+                    },
+                    [
+                      _vm._v("Login "),
+                      _c("span", { staticClass: "sr-only" }, [
+                        _vm._v("(current)"),
+                      ]),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item active" },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "nav-link nav_text", attrs: { to: "" } },
+                    [
+                      _vm._v("Register "),
+                      _c("span", { staticClass: "sr-only" }, [
+                        _vm._v("(current)"),
+                      ]),
+                    ]
+                  ),
+                ],
+                1
+              ),
+            ]),
+          ]
+        ),
+      ],
+      1
+    ),
   ])
 }
 var staticRenderFns = [
@@ -4948,7 +4970,7 @@ var render = function () {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
-      _c("h2", { staticClass: "text-center pt-3" }, [_vm._v("Meet Our Team")]),
+      _c("h2", { staticClass: "text-center pt-3" }, [_vm._v("Our Team")]),
       _vm._v(" "),
       _c(
         "div",
@@ -4993,7 +5015,7 @@ var render = function () {
           _c("CardTeam", {
             attrs: {
               name: "Marianna Galuppi",
-              image: "Marianna Galuppi.jpeg",
+              image: "Marianna galuppi.jpeg",
               job: "Full Stack Web Developer",
               linkGitHub: "https://github.com/FloatIndex",
             },
