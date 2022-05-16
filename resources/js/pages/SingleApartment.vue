@@ -1,27 +1,27 @@
 <template>
     <section class="container" v-if="apartment">
 
-        <div class="row">
-            <div class="col-12 py-3">
+        <div class="row row-cols-1">
+            <div class="col py-3">
                 <h1 class="text-center">{{apartment.title}}</h1>
                 <h2 class="text-center">{{apartment.address}}</h2>
             </div>
         </div>
 
-        <div class="row row-img">
-            <div class="col-10 py-3">
+        <div class="row row-cols-1 row-img">
+            <div class="col py-3">
                 <img class="img-fluid text-center" :src="apartment.image" :alt="apartment.title">
             </div>
         </div>
 
         <div class="row">
-            <div class="col-8">
+            <div class="col-lg-8">
                 <div class="row section">
                     <div class="col-12 py-3">
                         <ul class="facilities">
-                            <li>{{apartment.rooms}} bedrooms</li>
-                            <li><font-awesome-icon icon="fa-solid fa-bed" />{{apartment.beds}} beds</li>
-                            <li><font-awesome-icon icon="fa-solid fa-toilet" />{{apartment.bathrooms}} bathrooms</li>
+                            <li class="text-center"><br>{{apartment.rooms}} bedrooms</li>
+                            <li class="text-center"><font-awesome-icon icon="fa-solid fa-bed" /><br>{{apartment.beds}} beds</li>
+                            <li class="text-center"><font-awesome-icon icon="fa-solid fa-toilet" /><br>{{apartment.bathrooms}} bathrooms</li>
                         </ul>
                     </div>
                 </div>
@@ -33,15 +33,18 @@
 
                 <div class="row section">
                     <div class="col-12 py-3">
-                        <h5><strong>All the additional services</strong></h5>
-                        <ul class="amenities flex">
-                            <li v-for="amenity in apartment.amenities" :key="amenity.id">
+                        <h5 class="p-3 text-center"><strong>Here you will find these additional services</strong></h5>
+                        <ul class="amenities d-flex justify-content-center">
+                            <li class="btn btn-primary" v-for="amenity in apartment.amenities" :key="amenity.id">
+                                <font-awesome-icon icon="fa-solid fa-wifi" v-if="amenity.id == 1" />
+                                <font-awesome-icon icon="fa-solid fa-square-parking" v-if="amenity.id == 2" />
                                 {{amenity.name}}
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="row mb-3">
+                <h5 class="p-3 text-center"><strong>This is where you will find your apartment</strong></h5>
+                <div class="row mb-3 map-container">
                     <MiniMap 
                         :lat= 'apartment.lat'
                         :lon= 'apartment.lon'
@@ -50,10 +53,10 @@
                 </div>
             </div>
             
-            <div class="col-4 pb-3">
+            <div class="col-lg-4 pb-3">
                 <div class="row">
                     <div class="col-12 py-3">
-                        <h4>Contact the host</h4>
+                        <h4 class="text-center">Contact the host</h4>
                         <div v-if="success == true" class="text-success">Your message has been successfully submitted</div>
                     </div>
                 </div>
@@ -193,6 +196,15 @@
             list-style: none;
             padding: 0;
             margin: 0;
+
+            li {
+                margin: 0 10px;
+            }
+        }
+
+        .map-container {
+            border: 1px solid black;
+            padding: 15px;
         }
 
         form {
