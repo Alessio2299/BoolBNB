@@ -37,6 +37,10 @@ class ApartmentController extends Controller
             $apartments = Apartment::where('address', 'like', '%' . $data['address'] . '%')
             ->with(['amenities'])
             ->get();
+
+            $apartments->each(function($apartment) {
+                $apartment->image = url('storage/' . $apartment->image);
+            });
             
             return response()->json(
                 [
@@ -63,6 +67,12 @@ class ApartmentController extends Controller
                 ->get();
             }
 
+            $apartments->each(function($apartment) {
+                $apartment->image = url('storage/' . $apartment->image);
+            });
+
+            
+
             return response()->json(
                 [
                     'results' => $apartments,
@@ -79,6 +89,10 @@ class ApartmentController extends Controller
                 $apartments = Apartment::where('address', 'like', '%' . $data['address'] . '%')
                 ->where('bathrooms',$data['bathrooms'])->with(['amenities'])->get();
             }
+            
+            $apartments->each(function($apartment) {
+                $apartment->image = url('storage/' . $apartment->image);
+            });
             
 
             return response()->json(
@@ -98,6 +112,10 @@ class ApartmentController extends Controller
                 ->where('beds',$data['beds'])->with(['amenities'])->get();
             }
             
+            $apartments->each(function($apartment) {
+                $apartment->image = url('storage/' . $apartment->image);
+            });
+            
             return response()->json(
                 [
                     'results' => $apartments,
@@ -114,6 +132,10 @@ class ApartmentController extends Controller
                 $apartments = Apartment::where('address', 'like', '%' . $data['address'] . '%')
                 ->where('rooms',$data['rooms'])->with(['amenities'])->get();
             }
+            
+            $apartments->each(function($apartment) {
+                $apartment->image = url('storage/' . $apartment->image);
+            });
             
             return response()->json(
                 [
@@ -138,6 +160,10 @@ class ApartmentController extends Controller
                 ->get();
             }
             
+            $apartments->each(function($apartment) {
+                $apartment->image = url('storage/' . $apartment->image);
+            });
+            
             return response()->json(
                 [
                     'results' => $apartments,
@@ -161,6 +187,10 @@ class ApartmentController extends Controller
                 ->get();
             }
             
+            $apartments->each(function($apartment) {
+                $apartment->image = url('storage/' . $apartment->image);
+            });
+            
             return response()->json(
                 [
                     'results' => $apartments,
@@ -183,6 +213,10 @@ class ApartmentController extends Controller
                 ->with(['amenities'])
                 ->get();
             }
+            
+            $apartments->each(function($apartment) {
+                $apartment->image = url('storage/' . $apartment->image);
+            });
             
             return response()->json(
                 [

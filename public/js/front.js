@@ -2259,7 +2259,7 @@ __webpack_require__.r(__webpack_exports__);
     getLatlong: function getLatlong() {
       var _this3 = this;
 
-      axios.get('https://api.tomtom.com/search/2/geocode/' + this.$route.params.address + '.json?key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap&limit=1').then(function (resp) {
+      axios.get('https://api.tomtom.com/search/2/geocode/' + this.$route.params.address + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
         if (resp.data.results.length == 0) {
           _this3.success = false;
         } else {
@@ -2398,7 +2398,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 
       this.interval = setInterval(function () {
         if (_this.addressInput.length > 3) {
-          Axios.get('https://api.tomtom.com/search/2/search/' + _this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Geo%2CStr&view=Unified&relatedPois=off&key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap').then(function (resp) {
+          Axios.get('https://api.tomtom.com/search/2/search/' + _this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Geo%2CStr&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA').then(function (resp) {
             _this.listAddress = resp.data.results;
           });
         }
@@ -2422,7 +2422,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 
       if (this.addressInput.length != 0) {
         event.preventDefault();
-        Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap&limit=1').then(function (resp) {
+        Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
           if (resp.data.results.length == 0 || resp.data.results[0].address.freeformAddress + ' ' + resp.data.results[0].address.country + ' ' + resp.data.results['0'].address.countryCode != _this2.addressInput) {
             _this2.success = false;
           } else {
@@ -23083,7 +23083,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
