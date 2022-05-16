@@ -5245,7 +5245,7 @@ var render = function () {
                         type: "text",
                         name: "address",
                         id: "address",
-                        placeholder: "where we go?...",
+                        placeholder: "Where to?",
                       },
                       domProps: { value: _vm.addressInput },
                       on: {
