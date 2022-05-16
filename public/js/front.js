@@ -2016,11 +2016,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header'
 });
@@ -2741,34 +2736,21 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     lat: Number,
     lon: Number,
-    apartment: Object
+    apartments: Array
   },
   mounted: function mounted() {
     this.initializeMap();
   },
   methods: {
     initializeMap: function initializeMap() {
+      var _this = this;
+
       console.log(this.lat);
       console.log(this.lon);
       var latlon = {
         lat: this.lat,
         lon: this.lon
       };
-
-      if (this.apartment) {
-        console.log('sono dentro if');
-        var apartmentLatLon = {
-          lat: this.apartment.lat,
-          lon: this.apartment.lon
-        };
-      } else {
-        console.log('sono dentro else');
-        var apartmentLatLon = {
-          lat: '9.0000',
-          lon: '9.0000'
-        };
-      }
-
       this.map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
         container: 'map',
@@ -2776,11 +2758,21 @@ __webpack_require__.r(__webpack_exports__);
         center: latlon,
         style: 'https://api.tomtom.com/style/1/style/20.4.5-*/?map=basic_night&poi=poi_main'
       });
-      var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(apartmentLatLon).addTo(this.map);
-      var popup = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Popup({
-        anchor: 'top'
-      }).setText('test');
-      marker.setPopup(popup).togglePopup();
+
+      if (this.apartments) {
+        var apartmentsMarker = [];
+        this.apartments.forEach(function (apartment) {
+          var latLng = {
+            lat: apartment.lat,
+            lng: apartment.lon
+          };
+          apartmentsMarker.push(latLng);
+        });
+        apartmentsMarker.forEach(function (apartmentMarker) {
+          new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(apartmentMarker).addTo(_this.map);
+        });
+      }
+
       this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.FullscreenControl());
       this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.NavigationControl());
     }
@@ -4649,7 +4641,41 @@ var render = function () {
               1
             ),
             _vm._v(" "),
-            _vm._m(1),
+            _c(
+              "li",
+              { staticClass: "nav-item active" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "nav-link nav_text", attrs: { to: "/admin" } },
+                  [
+                    _vm._v("Login "),
+                    _c("span", { staticClass: "sr-only" }, [
+                      _vm._v("(current)"),
+                    ]),
+                  ]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "nav-item active" },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "nav-link nav_text", attrs: { to: "" } },
+                  [
+                    _vm._v("Register "),
+                    _c("span", { staticClass: "sr-only" }, [
+                      _vm._v("(current)"),
+                    ]),
+                  ]
+                ),
+              ],
+              1
+            ),
           ]),
         ]
       ),
@@ -4676,50 +4702,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon nav_text" })]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item dropdown" }, [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link nav_text dropdown-toggle",
-          attrs: {
-            href: "#",
-            id: "navbarDropdown",
-            role: "button",
-            "data-toggle": "dropdown",
-            "aria-expanded": "false",
-          },
-        },
-        [_vm._v("\n              Dropdown\n          ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "dropdown-menu nav_text",
-          attrs: { "aria-labelledby": "navbarDropdown" },
-        },
-        [
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Action"),
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Another action"),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "dropdown-divider" }),
-          _vm._v(" "),
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Something else here"),
-          ]),
-        ]
-      ),
-    ])
   },
 ]
 render._withStripped = true
@@ -5150,7 +5132,7 @@ var render = function () {
                   attrs: {
                     lat: _vm.addressLat,
                     lon: _vm.addressLon,
-                    apartment: _vm.apartments[0],
+                    apartments: _vm.apartments,
                   },
                 }),
               ],
@@ -22979,7 +22961,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })

@@ -9,21 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-            <router-link class="nav-link nav_text" :to="{name:'home'}">Home <span class="sr-only">(current)</span></router-link>
+                <router-link class="nav-link nav_text" :to="{name:'home'}">Home <span class="sr-only">(current)</span></router-link>
             </li>
             <li class="nav-item active">
-            <router-link class="nav-link nav_text" :to="{name:'about'}">About <span class="sr-only">(current)</span></router-link>
+                <router-link class="nav-link nav_text" :to="{name:'about'}">About <span class="sr-only">(current)</span></router-link>
             </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                Dropdown
-            </a>
-            <div class="dropdown-menu nav_text" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+            <li class="nav-item active">
+                <router-link class="nav-link nav_text" to="/admin">Login <span class="sr-only">(current)</span></router-link>
+            </li>
+            <li class="nav-item active">
+                <router-link class="nav-link nav_text" to="">Register <span class="sr-only">(current)</span></router-link>
             </li>
         </ul>
         </div>
