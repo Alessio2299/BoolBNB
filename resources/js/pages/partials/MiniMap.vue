@@ -4,16 +4,15 @@
 
 <script>
   import tt from '@tomtom-international/web-sdk-maps';
-
   export default {
-    name : 'MapFueture',
+    name : 'MiniMap',
     data() {
       return {
       }
     },props:{
-      lat: Number,
-      lon: Number,
-      apartments: Array
+      lat: String,
+      lon: String,
+      apartment: Object
     },
     mounted(){
       this.initializeMap()
@@ -23,7 +22,7 @@
         var latlon = {
           lat: this.lat,
           lon: this.lon
-        }
+        }        
         this.map = tt.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
         container: 'map',
@@ -31,16 +30,10 @@
         center: latlon,
         style: 'https://api.tomtom.com/style/1/style/20.4.5-*/?map=basic_night&poi=poi_main'
         });
-        if(this.apartments){
-          var apartmentsMarker = [];
-          this.apartments.forEach(apartment => {
-            var latLng = {lat: apartment.lat, lng: apartment.lon}
-            apartmentsMarker.push(latLng)
-          })
-            apartmentsMarker.forEach(apartmentMarker => {
-              new tt.Marker().setLngLat(apartmentMarker).addTo(this.map);
-            })
-        }
+        var marker = new tt.Marker().setLngLat(latlon).addTo(this.map);
+        var popup = new tt.Popup({ anchor: 'top' }).setText(this.apartment.title)
+        marker.setPopup(popup).togglePopup();
+
         this.map.addControl(new tt.FullscreenControl());
         this.map.addControl(new tt.NavigationControl());
       }
