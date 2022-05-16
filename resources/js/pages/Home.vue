@@ -1,10 +1,16 @@
 <template>
   <div class="main main_container">
-    <h1 class="text-center my-4">Home</h1>    
-
     <!-- Barra per la ricerca -->
-    <div class="container-fluid py-4 py-4" id="jumbotron">
-      <div class="row  align-items-center justify-content-center" id="row_jumbo">
+    <div class="container-fluid py-4 px-0" id="jumbotron">
+    <div class="overlay"></div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="img_box">
+          <img src="../../../public/img/BoolBnb.png" alt="Logo" id="logo">
+        </div>
+      </div>
+    </div>
+      <div class="row align-items-end justify-content-center" id="row_jumbo">
         <div class="col-8">
 
           <form id="searchForm" @submit.prevent="getLongLat">
@@ -131,8 +137,25 @@
   background-image: url("../../../public/img/jumbotron.jpg");
   background-size: cover;
   background-position: center;
+  position: relative;
+  .img_box{
+    width: min-content;
+    margin: auto;
+    #logo{
+      transform: scale(0.8);
+      }
+    }
+
+  .overlay{
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    background-color: black;
+    opacity: 0.4;
+  }
     #row_jumbo{
-      height: 300px;
+      flex-basis: 100%;
     }
     #address{
       outline: none;
