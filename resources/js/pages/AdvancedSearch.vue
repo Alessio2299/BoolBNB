@@ -71,7 +71,7 @@
                     <MapFeature
                         :lat= 'addressLat'
                         :lon= 'addressLon'
-                        :apartment= "apartments[0]"
+                        :apartments= "apartments"
                     />
                 </div>
             </div>
