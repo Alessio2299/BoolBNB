@@ -3,13 +3,14 @@
 
         <div class="row">
             <div class="col-12 py-3">
-                <h1>{{apartment.title}}</h1>
+                <h1 class="text-center">{{apartment.title}}</h1>
+                <h2 class="text-center">{{apartment.address}}</h2>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row row-img">
             <div class="col-10 py-3">
-                <img class="img-fluid" :src="apartment.image" :alt="apartment.title">
+                <img class="img-fluid text-center" :src="apartment.image" :alt="apartment.title">
             </div>
         </div>
 
@@ -19,8 +20,8 @@
                     <div class="col-12 py-3">
                         <ul class="facilities">
                             <li>{{apartment.rooms}} bedrooms</li>
-                            <li>{{apartment.beds}} beds</li>
-                            <li>{{apartment.bathrooms}} bathrooms</li>
+                            <li><font-awesome-icon icon="fa-solid fa-bed" />{{apartment.beds}} beds</li>
+                            <li><font-awesome-icon icon="fa-solid fa-toilet" />{{apartment.bathrooms}} bathrooms</li>
                         </ul>
                     </div>
                 </div>
@@ -32,8 +33,8 @@
 
                 <div class="row section">
                     <div class="col-12 py-3">
-                        <h5>Amenities</h5>
-                        <ul class="amenities">
+                        <h5><strong>All the additional services</strong></h5>
+                        <ul class="amenities flex">
                             <li v-for="amenity in apartment.amenities" :key="amenity.id">
                                 {{amenity.name}}
                             </li>
@@ -150,6 +151,11 @@
     @import "../../sass/variables.scss";
 
     .container {
+
+        .row-img {
+            justify-content: center;
+        }
+
         .section:after {
             content: "";
             width: 100%;
@@ -171,11 +177,15 @@
 
             li {
                 display: inline-block;
+                border: 1px solid black;
+                border-radius: 10%;
+                padding: 20px;
+                margin: 5px;
 
-                &:not(:last-child):after {
-                    content: '\2219';
-                    padding-left: 5px;
-                }
+                // &:not(:last-child):after {
+                //     content: '\2219';
+                //     padding-left: 5px;
+                // }
             }
         }
 

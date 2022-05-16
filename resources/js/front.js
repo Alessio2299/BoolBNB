@@ -9,6 +9,23 @@ import Vue from 'vue';
 import App from './views/App';
 import router from './router';
 
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+/* import specific icons */
+import { faBed } from '@fortawesome/free-solid-svg-icons';
+import { faToilet } from '@fortawesome/free-solid-svg-icons';
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+/* add icons to the library */
+library.add(faBed);
+library.add(faToilet);
+
+/* add font awesome icon component */
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
 const app = new Vue({
 
     el: '#root',
