@@ -19,7 +19,7 @@
       <div class="row even row-cols-2 px-5">
         <div class="col text-center d-flex flex-column justify-content-around">
           <div class="img_box">
-            <img class="img-fluid" src="../../../../public/img/Comfort_1.png" id="comfort_icon" alt="Map">
+            <img class="img-fluid" src="../../../../public/img/Comfort_Pink.png" id="comfort_icon" alt="Map">
           </div>
         </div>
         <div class="col even text-center d-flex flex-column justify-content-around text-white">
@@ -80,9 +80,9 @@
   .row.even{
     background-color: #FFCEAF;
     h1{
-    color: #EF9273;
+    color: #E7717D;
     font-weight: bolder;
-    text-shadow: 3px 3px #E7717D;
+    text-shadow: 3px 3px #EF9273;
     line-height: 6rem;
     padding-right: 1rem;
     }
@@ -91,7 +91,7 @@
 
   #comfort_icon{
     height: 350px;
-    box-shadow: 10px 10px #EF9273;
+    box-shadow: 10px 10px #E7717D;
   }
 
   #map_icon, #host_icon{

@@ -18217,7 +18217,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#app_features[data-v-43286bac] {\n  background-color: #E7717D;\n}\n.row.odd .col-7.odd h1[data-v-43286bac] {\n  color: #FFCEAF;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 5rem;\n  padding-right: 1rem;\n}\n.row.even[data-v-43286bac] {\n  background-color: #FFCEAF;\n}\n.row.even h1[data-v-43286bac] {\n  color: #EF9273;\n  font-weight: bolder;\n  text-shadow: 3px 3px #E7717D;\n  line-height: 6rem;\n  padding-right: 1rem;\n}\n#comfort_icon[data-v-43286bac] {\n  height: 350px;\n  box-shadow: 10px 10px #EF9273;\n}\n#map_icon[data-v-43286bac], #host_icon[data-v-43286bac] {\n  height: 350px;\n  box-shadow: -10px 10px #FFCEAF;\n}", ""]);
+exports.push([module.i, "#app_features[data-v-43286bac] {\n  background-color: #E7717D;\n}\n.row.odd .col-7.odd h1[data-v-43286bac] {\n  color: #FFCEAF;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 5rem;\n  padding-right: 1rem;\n}\n.row.even[data-v-43286bac] {\n  background-color: #FFCEAF;\n}\n.row.even h1[data-v-43286bac] {\n  color: #E7717D;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 6rem;\n  padding-right: 1rem;\n}\n#comfort_icon[data-v-43286bac] {\n  height: 350px;\n  box-shadow: 10px 10px #E7717D;\n}\n#map_icon[data-v-43286bac], #host_icon[data-v-43286bac] {\n  height: 350px;\n  box-shadow: -10px 10px #FFCEAF;\n}", ""]);
 
 // exports
 
@@ -20226,7 +20226,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("div", { staticClass: "container my-3" }, [
+    _c("div", { staticClass: "container " }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12 my-3" }, [
           _c("h1", { staticClass: "text-center" }, [
@@ -21253,7 +21253,7 @@ var staticRenderFns = [
             _c("img", {
               staticClass: "img-fluid",
               attrs: {
-                src: __webpack_require__(/*! ../../../../public/img/Comfort_1.png */ "./public/img/Comfort_1.png"),
+                src: __webpack_require__(/*! ../../../../public/img/Comfort_Pink.png */ "./public/img/Comfort_Pink.png"),
                 id: "comfort_icon",
                 alt: "Map",
               },
