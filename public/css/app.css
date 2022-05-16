@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Montserrat:700);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
@@ -10974,6 +10974,11 @@ a.text-dark:focus {
   content: "\ARequired";
   white-space: pre;
   color: #e3342f;
+}
+
+html body {
+  overflow-x: hidden;
+  width: 100vw;
 }
 
 .row.debug {
