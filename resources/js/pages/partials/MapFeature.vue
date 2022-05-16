@@ -25,11 +25,20 @@
           lat: this.lat,
           lon: this.lon
         }
-        console.log(this.apartment)
-        var apartmentLatLon = {
-          lat: this.apartment.lat,
-          lon: this.apartment.lon,
+        if(this.apartment){
+          console.log('sono dentro if')
+          var apartmentLatLon = {
+            lat: this.apartment.lat,
+            lon: this.apartment.lon,
+          }
+        }else{
+          console.log('sono dentro else')
+          var apartmentLatLon = {
+            lat: '9.0000',
+            lon: '9.0000',
+          }
         }
+        
         this.map = tt.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
         container: 'map',
@@ -37,8 +46,10 @@
         center: latlon
         });
         var marker = new tt.Marker().setLngLat(apartmentLatLon).addTo(this.map);
-        var popup = new tt.Popup({ anchor: 'top' }).setText(this.apartment.title)
+        var popup = new tt.Popup({ anchor: 'top' }).setText('test')
         marker.setPopup(popup).togglePopup()
+        this.map.addControl(new tt.FullscreenControl());
+        this.map.addControl(new tt.NavigationControl());
       }
     }    
   }
