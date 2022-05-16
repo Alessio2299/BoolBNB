@@ -4,6 +4,10 @@
             <div class="row">
                 <div class="col-12 my-3">
                     <h1 class="text-center">Ricerca avanzata</h1>
+                    <div class="text-center">
+                        <label for="radius" class="d-block form-label">Radius: {{radius}} km</label>
+                        <input type="range" min="0" max="200" value="20" id="radius" name="radius" v-model="radius">
+                    </div>
                 </div>
 
                 <div class="col-12 d-flex justify-content-around my-3">
@@ -71,7 +75,6 @@
                     />
                 </div>
             </div>
-
         </div>
     </section>
 </template>
@@ -91,6 +94,7 @@ export default {
 
     data() {
         return {
+            radius: 20,
             apartments: [],
             amenities: [],
             rooms_num: 'All',
@@ -123,6 +127,7 @@ export default {
         getAmenities() {
             axios.get('/api/amenities')
             .then((response) => {
+                console.log(response)
                 this.amenities = response.data.results;
             });
         },
@@ -161,6 +166,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+    #radius{
+        width: 300px;
+    }
 </style>

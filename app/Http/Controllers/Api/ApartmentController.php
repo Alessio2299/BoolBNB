@@ -54,7 +54,7 @@ class ApartmentController extends Controller
                 ->where('rooms','>=',$data['rooms'])
                 ->with(['amenities'])
                 ->get();
-            } else{
+            }else{
                 $apartments = Apartment::where('address', 'like', '%' . $data['address'] . '%')
                 ->where('bathrooms',$data['bathrooms'])
                 ->where('beds',$data['beds'])

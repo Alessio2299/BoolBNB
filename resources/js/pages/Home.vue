@@ -23,20 +23,9 @@
                 </div>
               </div>
           </div>
-          
-          <!-- <div class="col-2  text-center form-group">
-            <label for="guests">Guests</label>
-            <div class="row row">
-              <button type="button" class="col btn btn-danger" @click="removeGuest">-</button>
-              <input class="col-8 text-center" type="number" name="guests" id="guests" v-model="guests_num">
-              <button type="button" class="col btn btn-danger" @click="guests_num++">+</button>
-            </div>
-          </div> -->
-
           <div class="text-center col-12">
             <button class="btn btn-danger my-4" type="submit">Search</button>
           </div>
-          <router-link class="text" :to="{ name: 'advancedSearch' , params: { address: this.addressInput}}">Test</router-link>  
         </div>
       </form>
     </div>
@@ -93,11 +82,7 @@
       }
     },
     methods:{
-      // removeGuest(){
-      //   if(this.guests_num > 0){
-      //     this.guests_num--
-      //   }
-      // },
+
       autoComplete(){
         this.interval = setInterval(() => {
           if(this.addressInput.length > 3){
