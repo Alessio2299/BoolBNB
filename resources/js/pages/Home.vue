@@ -12,7 +12,7 @@
        
         <div class="col-8 text-center d-flex flex-column form-group align-content-center">
             <label for="address">Address</label>
-            <input @focus="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput" placeholder="where we go?...">
+            <input @focus="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput" placeholder="Where to?">
             <p v-for="(error, index) in errors.name" :key="'error_name'+index" class="invalid-feedback">
               {{error}}
             </p>                    
