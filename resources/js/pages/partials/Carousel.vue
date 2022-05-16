@@ -48,12 +48,18 @@
 
 #carousel{
   background-color: #E7717D;
+
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(100%);
+  }
   
   .carousel-item {
-    object-fit: contain;
     height: 500px;
+
     img {
       width: 100%;
+      object-fit: cover;
+      height: 100%;
     }
   }
   
