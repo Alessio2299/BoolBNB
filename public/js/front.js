@@ -2021,9 +2021,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header'
 });
@@ -4711,41 +4708,7 @@ var render = function () {
               1
             ),
             _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item active" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "nav-link nav_text", attrs: { to: "/admin" } },
-                  [
-                    _vm._v("Login "),
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("(current)"),
-                    ]),
-                  ]
-                ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item active" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "nav-link nav_text", attrs: { to: "" } },
-                  [
-                    _vm._v("Register "),
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("(current)"),
-                    ]),
-                  ]
-                ),
-              ],
-              1
-            ),
+            _vm._m(1),
           ]),
         ]
       ),
@@ -4772,6 +4735,17 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon nav_text" })]
     )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item active" }, [
+      _c("a", { staticClass: "nav-link nav_text", attrs: { href: "/admin" } }, [
+        _vm._v(" I'm a Host "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")]),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
