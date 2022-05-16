@@ -43,7 +43,8 @@
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
         container: 'map',
         zoom: 15,
-        center: latlon
+        center: latlon,
+        style: 'https://api.tomtom.com/style/1/style/20.4.5-*/?map=basic_night&poi=poi_main'
         });
         var marker = new tt.Marker().setLngLat(apartmentLatLon).addTo(this.map);
         var popup = new tt.Popup({ anchor: 'top' }).setText('test')
