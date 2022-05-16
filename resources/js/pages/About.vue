@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="container">
-      <h2 class="text-center pt-3">Meet Our Team</h2>
+      <h2 class="text-center pt-3">Our Team</h2>
       <div class="row row-30 justify-content-center">
         <CardTeam 
           name="Alessio Napoli"
@@ -34,7 +34,7 @@
         />
         <CardTeam 
           name="Marianna Galuppi"
-          image="Marianna Galuppi.jpeg"
+          image="Marianna galuppi.jpeg"
           job="Full Stack Web Developer"
           linkGitHub="https://github.com/FloatIndex"
         />

@@ -1,7 +1,8 @@
 <template>
   <header class="nav_header">
     <nav class="navbar navbar-expand-lg navbar-dark mx-5">
-        <a class="navbar-brand nav_text" href="#">BoolBnb</a>
+        <img class="my_img" src="../../../../public/img/BoolBnb.logo.png" alt="Logo BoolBnb">
+        <router-link class="navbar-brand nav_text" :to="{name:'home'}">BoolBNB</router-link>
         <button class="navbar-toggler nav_text" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon nav_text"></span>
         </button>
@@ -9,21 +10,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-            <router-link class="nav-link nav_text" :to="{name:'home'}">Home <span class="sr-only">(current)</span></router-link>
+                <router-link class="nav-link nav_text" :to="{name:'home'}">Home <span class="sr-only">(current)</span></router-link>
             </li>
             <li class="nav-item active">
-            <router-link class="nav-link nav_text" :to="{name:'about'}">About <span class="sr-only">(current)</span></router-link>
+                <router-link class="nav-link nav_text" :to="{name:'about'}">About <span class="sr-only">(current)</span></router-link>
             </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                Dropdown
-            </a>
-            <div class="dropdown-menu nav_text" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+            <li class="nav-item active">
+                <a class="nav-link nav_text" href="/admin"> I'm a Host <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         </div>
@@ -58,7 +51,11 @@
             transition: 0.5s;
         }
     }
-
+    .my_img{
+        width: 40px;
+        filter: grayscale(1);
+        margin-right: 10px;
+      }
 
 
 </style>

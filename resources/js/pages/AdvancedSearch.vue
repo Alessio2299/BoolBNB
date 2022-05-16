@@ -4,6 +4,10 @@
             <div class="row">
                 <div class="col-12 my-3">
                     <h1 class="text-center">Ricerca avanzata</h1>
+                    <div class="text-center">
+                        <label for="radius" class="d-block form-label">Radius: {{radius}} km</label>
+                        <input type="range" min="0" max="30" value="10" id="radius" name="radius" v-model="radius">
+                    </div>
                 </div>
 
                 <div class="col-12 d-flex justify-content-around my-3">
@@ -55,11 +59,13 @@
             
             <div class="row">
                 <div class="col-6">
+                    <p class="my_text" v-if="apartments.length == 0">No apartment was found</p>
                     <Apartment
                         v-for="apartment in apartments" :key="apartment.id"
                         :image="apartment.image"
                         :title="apartment.title"
                         :description="apartment.description"
+                        :slug="apartment.slug"
                     />
                 </div>
 
@@ -67,11 +73,10 @@
                     <MapFeature
                         :lat= 'addressLat'
                         :lon= 'addressLon'
-                        :apartment= "apartments[0]"
+                        :apartments= "apartments"
                     />
                 </div>
             </div>
-
         </div>
     </section>
 </template>
@@ -91,6 +96,7 @@ export default {
 
     data() {
         return {
+            radius: 20,
             apartments: [],
             amenities: [],
             rooms_num: 'All',
@@ -123,11 +129,12 @@ export default {
         getAmenities() {
             axios.get('/api/amenities')
             .then((response) => {
+                console.log(response)
                 this.amenities = response.data.results;
             });
         },
         getLatlong(){
-            axios.get('https://api.tomtom.com/search/2/geocode/' + this.$route.params.address + '.json?key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap&limit=1')
+            axios.get('https://api.tomtom.com/search/2/geocode/' + this.$route.params.address + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1')
             .then( resp => {
                 if(resp.data.results.length == 0){
                     this.success = false;
@@ -161,6 +168,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+    #radius{
+        width: 300px;
+    }
+    .my_text{
+        font-size: 40px;
+    }
 </style>

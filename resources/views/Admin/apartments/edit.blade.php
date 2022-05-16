@@ -129,7 +129,7 @@
 
 
             <button @click="sendForm" type="submit" class="btn btn-primary">Update</button>
-            <a href="{{route('admin.apartments.index')}}" class="btn btn-danger"> Cancel </a>
+            <a href="{{route('admin.apartments.index')}}" id="delete-btn" class="btn btn-danger"> Cancel </a>
         </form>
     </div>
 @endsection
