@@ -18256,7 +18256,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#carousel[data-v-54527178] {\n  background-color: #E7717D;\n}\n#carousel ul[data-v-54527178] {\n  visibility: hidden;\n}\n#carousel .carousel-control-prev-icon[data-v-54527178], #carousel .carousel-control-next-icon[data-v-54527178] {\n  filter: invert(100%);\n}\n#carousel .carousel-item[data-v-54527178] {\n  height: 500px;\n}\n#carousel .carousel-item img[data-v-54527178] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n}", ""]);
+exports.push([module.i, "#carousel[data-v-54527178] {\n  background-color: #E7717D;\n}\n#carousel ul[data-v-54527178] {\n  visibility: hidden;\n}\n#carousel .carousel-control-prev-icon[data-v-54527178], #carousel .carousel-control-next-icon[data-v-54527178] {\n  filter: invert(100%);\n}\n#carousel .carousel-inner[data-v-54527178] {\n  border: 6px solid #FFCEAF;\n}\n#carousel .carousel-item[data-v-54527178] {\n  height: 500px;\n}\n#carousel .carousel-item img[data-v-54527178] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n}", ""]);
 
 // exports
 
@@ -21558,7 +21558,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row row-cols-3 mx-5" },
+        { staticClass: "row row-cols-3 mx-5 mb-5" },
         _vm._l(_vm.destinations, function (destination) {
           return _c(
             "router-link",

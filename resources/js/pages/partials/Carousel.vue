@@ -55,7 +55,10 @@
   .carousel-control-prev-icon, .carousel-control-next-icon {
     filter: invert(100%);
   }
-  
+  .carousel-inner{
+    border: 6px solid #FFCEAF;
+  }
+
   .carousel-item {
     height: 500px;
 
