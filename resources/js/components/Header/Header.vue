@@ -16,10 +16,7 @@
                 <router-link class="nav-link nav_text" :to="{name:'about'}">About <span class="sr-only">(current)</span></router-link>
             </li>
             <li class="nav-item active">
-                <router-link class="nav-link nav_text" to="/admin">Login <span class="sr-only">(current)</span></router-link>
-            </li>
-            <li class="nav-item active">
-                <router-link class="nav-link nav_text" to="">Register <span class="sr-only">(current)</span></router-link>
+                <a class="nav-link nav_text" href="/admin"> I'm a Host <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         </div>
