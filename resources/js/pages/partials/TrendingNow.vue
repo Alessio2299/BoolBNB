@@ -6,6 +6,13 @@
         </div>
       </div>
 
+      
+      <div class="row justify-content-center mb-5">
+        <div class="col-4">
+            <img class="img-fluid" src="../../../../public/img/Trending.png" alt="">
+        </div>
+      </div>
+
       <div class="row row-cols-4 mx-5">
         <a href="">
         <div class="col text-center">

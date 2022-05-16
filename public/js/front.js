@@ -18023,6 +18023,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TrendingNow',
   data: function data() {
@@ -21642,6 +21649,18 @@ var staticRenderFns = [
       "div",
       { staticClass: "container-fluid py-4", attrs: { id: "section_01" } },
       [
+        _c("div", { staticClass: "row justify-content-center mb-5" }, [
+          _c("div", { staticClass: "col-4" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: {
+                src: __webpack_require__(/*! ../../../../public/img/Trending.png */ "./public/img/Trending.png"),
+                alt: "",
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "row justify-content-center mb-5" }, [
           _c("div", { staticClass: "col-4" }, [
             _c("img", {
