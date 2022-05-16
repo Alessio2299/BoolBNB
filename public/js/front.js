@@ -2397,17 +2397,15 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     autoComplete: function autoComplete() {
       var _this = this;
 
-      this.interval = setInterval(function () {
-        if (_this.addressInput.length > 3) {
-          Axios.get('https://api.tomtom.com/search/2/search/' + _this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Geo%2CStr&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA').then(function (resp) {
-            _this.listAddress = resp.data.results;
-          });
-        }
+      if (this.addressInput.length > 3) {
+        Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Geo%2CStr&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA').then(function (resp) {
+          _this.listAddress = resp.data.results;
+        });
+      }
 
-        if (_this.addressInput.length <= 2) {
-          _this.listAddress = [];
-        }
-      }, 1000);
+      if (this.addressInput.length <= 2) {
+        this.listAddress = [];
+      }
     },
     clickAddress: function clickAddress(index) {
       this.addressInput = this.listAddress[index].address.freeformAddress + ' ' + this.listAddress[index].address.country + ' ' + this.listAddress[index].address.countryCode;
@@ -2417,9 +2415,7 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     getLongLat: function getLongLat(event) {
       var _this2 = this;
 
-      this.success = true; // var data = {
-      //   address: this.addressInput
-      // }
+      this.success = true;
 
       if (this.addressInput.length != 0) {
         event.preventDefault();
@@ -2608,8 +2604,6 @@ __webpack_require__.r(__webpack_exports__);
         'sender_email': this.form.email,
         'message': this.form.message
       }).then(function (response) {
-        console.log(response.data.success);
-
         if (response.data.success === true) {
           _this2.success = true;
           _this2.form.name = '';
@@ -5448,7 +5442,7 @@ var render = function () {
                               },
                               domProps: { value: _vm.addressInput },
                               on: {
-                                focus: _vm.autoComplete,
+                                keyup: _vm.autoComplete,
                                 input: function ($event) {
                                   if ($event.target.composing) {
                                     return
@@ -23358,7 +23352,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })

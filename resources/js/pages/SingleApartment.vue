@@ -131,7 +131,6 @@
                     'message': this.form.message
                 })
                 .then(response => {
-                    console.log(response.data.success)
                     if(response.data.success === true){
                         this.success = true
                         this.form.name = ''
