@@ -30,7 +30,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
 
   .box{
     border-radius: 50%;
@@ -46,14 +46,7 @@
     object-fit: contain;
   }
 
-  img:hover{
-    transform: scale(1.5);
-    transition: 1s ;
-  }
 
-  a:hover{
-    transform: scale(1);
-  }
 
   
 </style>
