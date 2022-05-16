@@ -6,7 +6,7 @@
                     <h1 class="text-center">Ricerca avanzata</h1>
                     <div class="text-center">
                         <label for="radius" class="d-block form-label">Radius: {{radius}} km</label>
-                        <input type="range" min="0" max="200" value="20" id="radius" name="radius" v-model="radius">
+                        <input type="range" min="0" max="30" value="10" id="radius" name="radius" v-model="radius">
                     </div>
                 </div>
 
@@ -59,6 +59,7 @@
             
             <div class="row">
                 <div class="col-6">
+                    <p class="my_text" v-if="apartments.length == 0">No apartment was found</p>
                     <Apartment
                         v-for="apartment in apartments" :key="apartment.id"
                         :image="apartment.image"
@@ -170,5 +171,8 @@ export default {
 <style lang="scss" scoped>
     #radius{
         width: 300px;
+    }
+    .my_text{
+        font-size: 40px;
     }
 </style>

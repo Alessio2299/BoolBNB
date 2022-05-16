@@ -13,7 +13,7 @@
           
             <div class="col-8 text-center d-flex flex-column form-group align-content-center">
                 <label for="address"></label>
-                <input @focus="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput" placeholder="Where to?">
+                <input @keyup="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput" placeholder="Where to?">
                 <p v-for="(error, index) in errors.name" :key="'error_name'+index" class="invalid-feedback">
                   {{error}}
                 </p>                    
@@ -63,7 +63,6 @@
 
   const { default: Axios } = require("axios");
 
-
   export default {
     name : 'Home',
     components:{
@@ -88,17 +87,15 @@
     methods:{
 
       autoComplete(){
-        this.interval = setInterval(() => {
-          if(this.addressInput.length > 3){
-            Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Geo%2CStr&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA')
-            .then(resp => {
-              this.listAddress = resp.data.results;
-            })
-          }
-          if(this.addressInput.length <= 2){
-            this.listAddress = []
-          }
-        },1000)
+        if(this.addressInput.length > 3){
+          Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Geo%2CStr&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA')
+          .then(resp => {
+            this.listAddress = resp.data.results;
+          })
+        }
+        if(this.addressInput.length <= 2){
+          this.listAddress = []
+        }
       },
       clickAddress(index){
       this.addressInput = this.listAddress[index].address.freeformAddress + ' ' + this.listAddress[index].address.country + ' ' + this.listAddress[index].address.countryCode;
@@ -107,9 +104,6 @@
     },
     getLongLat(event){
       this.success = true;
-      // var data = {
-      //   address: this.addressInput
-      // }
       if(this.addressInput.length != 0){
         event.preventDefault();
         Axios.get('https://api.tomtom.com/search/2/geocode/' + this.addressInput + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1')

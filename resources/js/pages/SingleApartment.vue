@@ -40,12 +40,20 @@
                         </ul>
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <MiniMap 
+                        :lat= 'apartment.lat'
+                        :lon= 'apartment.lon'
+                        :apartment= "apartment"
+                    />
+                </div>
             </div>
             
             <div class="col-4 pb-3">
                 <div class="row">
                     <div class="col-12 py-3">
                         <h4>Contact the host</h4>
+                        <div v-if="success == true" class="text-success">Your message has been successfully submitted</div>
                     </div>
                 </div>
                 <div class="row">
@@ -63,63 +71,79 @@
                                 <label class="required-field">Your message</label>
                                 <textarea class="form-control" id="message" v-model="form.message" rows="5"></textarea>
                             </div>
-                            <button class="btn btn-dark" type="submit">Send</button>
+                            <button class="btn btn-dark" type="submit">
+                                    <span v-if="success == null || success == true">Send</span>
+                                <div v-if="success == false" class="spinner-border" role="status">
+                                </div>
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </section>
 </template>
 
 <script>
-export default {
-    name: 'SingleApartment',
+    import MiniMap from './partials/MiniMap.vue';
 
-    data() {
-        return {
-            apartment: null,
-            form: {
-                name: "",
-                email: "",
-                message: "",
-            }
-        }
-    },
+    export default {
+        name: 'SingleApartment',
 
-    mounted() {
-        this.getApartment();
-    },
-
-    methods: {
-        getApartment() {
-            const slug = this.$route.params.slug;
-            axios.get('/api/apartments/single-apartment/' + slug)
-            .then(response => {
-                if(response.data.success == true) {
-                    this.apartment = response.data.results;
-                } else {
-                    this.$router.push({name: 'page-not-found'})
+        data() {
+            return {
+                apartment: null,
+                success: null,
+                form: {
+                    name: "",
+                    email: "",
+                    message: "",
                 }
-            });
+            }
+        },
+        components:{
+            MiniMap
         },
 
-        sendMessage() {
-            console.log(this.form.name)
-            axios.post(`/api/messages/apartment/${this.apartment.slug}`, {
-                'apartment_id': this.apartment.id,
-                'sender_name': this.form.name,
-                'sender_email': this.form.email,
-                'message': this.form.message
-            })
-            .then(response => {
-                console.log(response)
-            });
+        mounted() {
+            this.getApartment();
+        },
+
+        methods: {
+            getApartment() {
+                const slug = this.$route.params.slug;
+                axios.get('/api/apartments/single-apartment/' + slug)
+                .then(response => {
+                    if(response.data.success == true) {
+                        this.apartment = response.data.results;
+                    } else {
+                        this.$router.push({name: 'page-not-found'})
+                    }
+                });
+            },
+
+            sendMessage() {
+                this.success = false
+                axios.post(`/api/messages/apartment/${this.apartment.slug}`, {
+                    'apartment_id': this.apartment.id,
+                    'sender_name': this.form.name,
+                    'sender_email': this.form.email,
+                    'message': this.form.message
+                })
+                .then(response => {
+                    if(response.data.success === true){
+                        this.success = true
+                        this.form.name = ''
+                        this.form.email = ''
+                        this.form.message = ''
+                        setTimeout(() => {
+                            this.success = null;
+                        },5000)
+                    }
+                });
+            }
         }
     }
-}
 </script>
 
 <style lang="scss" scoped>
