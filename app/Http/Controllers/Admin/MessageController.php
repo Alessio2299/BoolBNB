@@ -27,19 +27,15 @@ class MessageController extends Controller
             $apartment_id = $apartment['id'];
 
             array_push($apartments_id, $apartment_id);
-            $tests = Message::where('apartment_id', $apartment_id)->get();
+            $tests = Message::where('apartment_id', $apartment_id)->orderBy('created_at', 'desc')->get();
 
             foreach ($tests as $test) {
                 if ($test != null) {
                     array_push($messages, $test);
                 }
             }
-
-            // if ($message != null) {
-            //     array_push($messages, $message);
-            // }
-
         }
+
 
 
         return view('admin.messages.index', compact('messages', 'apartments'));
