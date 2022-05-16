@@ -133,10 +133,6 @@ export default {
             background-color: #ddd;
         }
 
-        // div[class*='col'] {
-            
-        // }
-
         img {
             width: 100%;
             height: auto;
@@ -172,12 +168,6 @@ export default {
                     color: $red;
                 }
             }
-
-            // &::after {
-            //     content: '\a All the fields marked with * are required';
-            //     white-space: pre;
-            //     color: $red;
-            // }
         }
     }
 </style>

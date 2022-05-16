@@ -1,11 +1,11 @@
 <template>
-    <div class="card my-3">
-        <div class="card-body">
-            <img class="card-img-top" :src="image" :alt="title">
-            <h5 class="card-title">{{title}}</h5>
-            <p class="card-text">{{truncateText(description)}}</p>
+        <div @click="push" class="card my-3" id="apartment_card">
+            <div class="card-body">
+                <img class="card-img-top" :src="image" :alt="title">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{truncateText(description)}}</p>
+            </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -23,11 +23,16 @@ export default {
                 return text;
             }
             
+        },
+        push(){
+            this.$router.push({name:'single-apartment' , params:{slug: this.slug}})
         }
     }
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+    #apartment_card{
+        cursor: pointer;
+    }
 </style>

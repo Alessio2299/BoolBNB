@@ -1,33 +1,37 @@
 <template>
   <div class="main main_container">
-    <h1 class="text-center mb-3">Home</h1>    
+    <h1 class="text-center my-4">Home</h1>    
 
     <!-- Barra per la ricerca -->
     <div class="container-fluid py-4 py-4" id="jumbotron">
-        <h1 class="text-center ">Search/Filters</h1>
+      <div class="row  align-items-center justify-content-center" id="row_jumbo">
+        <div class="col-8">
 
-      <form id="searchForm" @submit.prevent="getLongLat">
-        <div class="row mx-5 justify-content-center ">
+          <form id="searchForm" @submit.prevent="getLongLat">
+            <div class="row mx-5 justify-content-center ">
 
-       
-        <div class="col-8 text-center d-flex flex-column form-group align-content-center">
-            <label for="address">Address</label>
-            <input @focus="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput" placeholder="Where to?">
-            <p v-for="(error, index) in errors.name" :key="'error_name'+index" class="invalid-feedback">
-              {{error}}
-            </p>                    
+          
+            <div class="col-8 text-center d-flex flex-column form-group align-content-center">
+                <label for="address"></label>
+                <input @focus="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput" placeholder="Where to?">
+                <p v-for="(error, index) in errors.name" :key="'error_name'+index" class="invalid-feedback">
+                  {{error}}
+                </p>                    
 
-              <div class="mt-1">
-                <div @click="clickAddress(index)" class="text-left bg-white my_hover p-3" v-for="(address,index) in listAddress" :key="index">
-                  <i class="mr-2 fas fa-map-marker-alt"></i> {{address.address.freeformAddress}} {{address.address.country}} {{address.address.countryCode}}  
-                </div>
+                  <div class="mt-1">
+                    <div @click="clickAddress(index)" class="text-left bg-white my_hover p-3" v-for="(address,index) in listAddress" :key="index">
+                      <i class="mr-2 fas fa-map-marker-alt"></i> {{address.address.freeformAddress}} {{address.address.country}} {{address.address.countryCode}}  
+                    </div>
+                  </div>
               </div>
-          </div>
-          <div class="text-center col-12">
-            <button class="btn btn-danger my-4" type="submit">Search</button>
-          </div>
+              <div class="text-center col-12">
+                <button class="btn btn-danger my-4" type="submit">Search</button>
+              </div>
+            </div>
+          </form>
+
         </div>
-      </form>
+      </div>
     </div>
 
 
@@ -130,8 +134,18 @@
 <style lang="scss" scoped>
 
 #jumbotron{
-  background-image: url("../../../public/img/jumbo.jpg");
+  background-image: url("../../../public/img/jumbotron.jpg");
   background-size: cover;
+  background-position: center;
+    #row_jumbo{
+      height: 300px;
+    }
+    #address{
+      outline: none;
+      border-radius: 10px;
+      border: 0;
+      padding: 0.5rem;
+    }
 }
 
 </style>>

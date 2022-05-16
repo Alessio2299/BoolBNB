@@ -64,6 +64,7 @@
                         :image="apartment.image"
                         :title="apartment.title"
                         :description="apartment.description"
+                        :slug="apartment.slug"
                     />
                 </div>
 
