@@ -17093,6 +17093,103 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
@@ -18180,7 +18277,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".main[data-v-520b5d54] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/slider.jpg */ "./storage/app/public/img/slider.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  height: 200px;\n  width: 100%;\n}\n.main h1[data-v-520b5d54] {\n  font-weight: 600;\n  padding-top: 120px;\n  font-family: \"Cormorant\", serif;\n}\n.container h2[data-v-520b5d54] {\n  font-weight: 600;\n  font-family: \"Cormorant\", serif;\n}", ""]);
+exports.push([module.i, ".title[data-v-520b5d54] {\n  margin: 0;\n  font-weight: 600;\n  text-transform: uppercase;\n}\n#head[data-v-520b5d54] {\n  height: 770px;\n  text-align: center;\n  background-color: #EF9273;\n  display: flex;\n  align-items: center;\n  position: relative;\n}\n#head .title.up[data-v-520b5d54] {\n  color: #0D0D0D;\n}\n#head .title.down[data-v-520b5d54] {\n  font-family: \"Brush Script MT\", cursive;\n  font-size: 4rem;\n  font-weight: 400;\n  color: #FEF9F8;\n  text-transform: lowercase;\n}\n#head .go-to-wrap[data-v-520b5d54] {\n  position: absolute;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 50px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#head .go-to-wrap span[data-v-520b5d54] {\n  text-transform: uppercase;\n  margin-bottom: 10px;\n}\n#head .go-to-wrap .go-to-mission[data-v-520b5d54] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  border: 1px solid #0D0D0D;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 1.2rem;\n  text-decoration: none;\n  color: #0D0D0D;\n}\n#head .go-to-wrap .go-to-mission[data-v-520b5d54]:hover {\n  color: #FFCEAF;\n}\n#mission[data-v-520b5d54] {\n  padding-top: 120px;\n  padding-bottom: 90px;\n  background-color: #FEF9F8;\n}\n#mission .col-4[data-v-520b5d54] {\n  padding: 0px 25px;\n}\n#mission .col-4 .img-wrap[data-v-520b5d54] {\n  width: 100%;\n  height: 250px;\n  background-color: #EF9273;\n  border-radius: 20px;\n  overflow: hidden;\n}\n#mission .col-4 .img-wrap img[data-v-520b5d54] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#mission .col-4 .text-wrap[data-v-520b5d54] {\n  color: #0D0D0D;\n}\n#mission .col-4 .text-wrap h3[data-v-520b5d54] {\n  margin-top: 40px;\n  font-weight: 600;\n}\n#mission .col-4 .text-wrap p[data-v-520b5d54] {\n  margin-top: 30px;\n}\n#story[data-v-520b5d54] {\n  background-color: #A5C7D8;\n  color: #FEF9F8;\n  position: relative;\n}\n#story .background-wrap[data-v-520b5d54] {\n  width: 50%;\n  height: 100%;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/waterfall.jpg */ "./storage/app/public/img/waterfall.jpg")) + ");\n  background-position: right bottom;\n  background-size: cover;\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n#story .background-wrap[data-v-520b5d54]:before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 100%, rgb(0, 212, 255) 100%);\n  opacity: 0.6;\n}\n#story .container[data-v-520b5d54] {\n  padding: 80px 0px;\n  height: 100%;\n}\n#story .container .row[data-v-520b5d54] {\n  display: flex;\n  justify-content: center;\n  text-align: center;\n  text-shadow: 1px 1px #0D0D0D;\n}\n#story .container .row p[data-v-520b5d54] {\n  margin-top: 50px;\n}\n#founders[data-v-520b5d54] {\n  padding-top: 120px;\n  padding-bottom: 90px;\n  background-color: #FEF9F8;\n}\n#founders .row[data-v-520b5d54] {\n  display: flex;\n  justify-content: center;\n}\n#founders .row .col-5[data-v-520b5d54] {\n  display: flex;\n  flex-direction: column;\n  padding: 0px 40px;\n}\n#founders .row .img-wrap[data-v-520b5d54] {\n  height: 150px;\n  width: 150px;\n  border-radius: 50%;\n  background-color: #E2E4E3;\n  align-self: center;\n  overflow: hidden;\n}\n#founders .row .img-wrap img[data-v-520b5d54] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#founders .row .text-wrap h3[data-v-520b5d54] {\n  margin-top: 30px;\n  font-weight: 600;\n  text-align: center;\n}\n#founders .row .text-wrap p[data-v-520b5d54] {\n  margin-top: 20px;\n}", ""]);
 
 // exports
 
@@ -20266,74 +20363,165 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("h2", { staticClass: "text-center pt-3" }, [_vm._v("Our Team")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row row-30 justify-content-center" },
-        [
-          _c("CardTeam", {
-            attrs: {
-              name: "Alessio Napoli",
-              image: "Alessio Napoli.jpg",
-              job: "Full Stack Web Developer",
-              linkGitHub: "https://github.com/Alessio2299",
-            },
-          }),
-          _vm._v(" "),
-          _c("CardTeam", {
-            attrs: {
-              name: "Edoardo Lai",
-              image: "Edoardo Lai.jpeg",
-              job: "Full Stack Web Developer",
-              linkGitHub: "https://github.com/EdoardoLai96",
-            },
-          }),
-          _vm._v(" "),
-          _c("CardTeam", {
-            attrs: {
-              name: "Dario La Tegola",
-              image: "Dario La Tegola.jpeg",
-              job: "Full Stack Web Developer",
-              linkGitHub: "https://github.com/Afrodario",
-            },
-          }),
-          _vm._v(" "),
-          _c("CardTeam", {
-            attrs: {
-              name: "Christian D'Agostino",
-              image: "Christian D'Agostino.jpeg",
-              job: "Full Stack Web Developer",
-              linkGitHub: "https://github.com/Chris-dagostino",
-            },
-          }),
-          _vm._v(" "),
-          _c("CardTeam", {
-            attrs: {
-              name: "Marianna Galuppi",
-              image: "Marianna galuppi.jpeg",
-              job: "Full Stack Web Developer",
-              linkGitHub: "https://github.com/FloatIndex",
-            },
-          }),
-        ],
-        1
-      ),
-    ]),
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "main" }, [
-      _c("div", { staticClass: "container text-center" }, [
-        _c("h1", { staticClass: "text-uppercase" }, [_vm._v("About")]),
+    return _c("div", [
+      _c("section", { attrs: { id: "head" } }, [
+        _c("div", { staticClass: "container" }, [
+          _c("h1", { staticClass: "title up" }, [_vm._v("made by travellers")]),
+          _vm._v(" "),
+          _c("h1", { staticClass: "title down" }, [_vm._v("for travellers")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "go-to-wrap" }, [
+            _c("span", [_vm._v("about us")]),
+            _vm._v(" "),
+            _c(
+              "a",
+              { staticClass: "go-to-mission", attrs: { href: "#mission" } },
+              [_c("i", { staticClass: "fas fa-chevron-down" })]
+            ),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("section", { attrs: { id: "mission" } }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-4" }, [
+              _c("div", { staticClass: "img-wrap" }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../storage/app/public/img/time.jpg */ "./storage/app/public/img/time.jpg"),
+                    alt: "time illustration",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-wrap" }, [
+                _c("h3", [_vm._v("It's about time.")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Time is our most precious, non-renewable resource. By helping you to handle bookings, we are giving you the time and headspace to be their greatest self in the greatest spots."
+                  ),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4" }, [
+              _c("div", { staticClass: "img-wrap" }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../storage/app/public/img/choices.jpg */ "./storage/app/public/img/choices.jpg"),
+                    alt: "choices illustration",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-wrap" }, [
+                _c("h3", [_vm._v("It’s about choice.")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "We give you our best choices, you choose the place that suits you the most. We all need help to live meaningful experiences: whether it is for work or for fun, we are here for you."
+                  ),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-4" }, [
+              _c("div", { staticClass: "img-wrap" }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../storage/app/public/img/connectivity.jpg */ "./storage/app/public/img/connectivity.jpg"),
+                    alt: "connectivity illustration",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-wrap" }, [
+                _c("h3", [_vm._v("It’s about connectivity.")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Hospitality is about building relationships of trust. Relationships are the foundation for community, which gives meaning to the places we call home."
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("section", { attrs: { id: "story" } }, [
+        _c("div", { staticClass: "background-wrap" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-7" }, [
+              _c("h2", { staticClass: "title" }, [_vm._v("our story")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non sodales neque sodales ut etiam. Eleifend donec pretium vulputate sapien nec. Arcu risus quis varius quam quisque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Vehicula ipsum a arcu cursus vitae congue mauris. Duis tristique sollicitudin nibh sit amet commodo nulla. Facilisis volutpat est velit egestas dui id ornare arcu odio. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Sapien eget mi proin sed libero enim. Euismod lacinia at quis risus sed vulputate odio. Tempus egestas sed sed risus pretium quam vulputate. Id diam vel quam elementum. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Fermentum et sollicitudin ac orci phasellus. Justo donec enim diam vulputate ut. Sagittis purus sit amet volutpat consequat. Et egestas quis ipsum suspendisse. Bibendum neque egestas congue quisque egestas diam in arcu. Nibh sit amet commodo nulla facilisi nullam. Nulla facilisi etiam dignissim diam quis enim lobortis. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Vel pretium lectus quam id leo in vitae."
+                ),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("section", { attrs: { id: "founders" } }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-5" }, [
+              _c("div", { staticClass: "img-wrap" }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../storage/app/public/img/founder-m.jpg */ "./storage/app/public/img/founder-m.jpg"),
+                    alt: "founder",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-wrap" }, [
+                _c("h3", [_vm._v("Founder A")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non sodales neque sodales ut etiam. Eleifend donec pretium vulputate sapien nec. Arcu risus quis varius quam quisque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Vehicula ipsum a arcu cursus vitae congue mauris. Duis tristique sollicitudin nibh sit amet commodo nulla. Facilisis volutpat est velit egestas dui id ornare arcu odio. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Sapien eget mi proin sed libero enim. Euismod lacinia at quis risus sed vulputate odio. Tempus egestas sed sed risus pretium quam vulputate. Id diam vel quam elementum. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur."
+                  ),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-5" }, [
+              _c("div", { staticClass: "img-wrap" }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../storage/app/public/img/founder-f.jpg */ "./storage/app/public/img/founder-f.jpg"),
+                    alt: "founder",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-wrap" }, [
+                _c("h3", [_vm._v("Founder B")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non sodales neque sodales ut etiam. Eleifend donec pretium vulputate sapien nec. Arcu risus quis varius quam quisque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Vehicula ipsum a arcu cursus vitae congue mauris. Duis tristique sollicitudin nibh sit amet commodo nulla. Facilisis volutpat est velit egestas dui id ornare arcu odio. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Sapien eget mi proin sed libero enim. Euismod lacinia at quis risus sed vulputate odio. Tempus egestas sed sed risus pretium quam vulputate. Id diam vel quam elementum. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur."
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
       ]),
     ])
   },
@@ -38901,7 +39089,7 @@ var map = {
 	"./Italy.png": "./storage/app/public/img/Italy.png",
 	"./Map.png": "./storage/app/public/img/Map.png",
 	"./Map_Light.png": "./storage/app/public/img/Map_Light.png",
-	"./Marianna Galuppi.jpeg": "./storage/app/public/img/Marianna Galuppi.jpeg",
+	"./Marianna galuppi.jpeg": "./storage/app/public/img/Marianna galuppi.jpeg",
 	"./Morocco.jpg": "./storage/app/public/img/Morocco.jpg",
 	"./Norway.jpg": "./storage/app/public/img/Norway.jpg",
 	"./Paris.png": "./storage/app/public/img/Paris.png",
@@ -38913,6 +39101,10 @@ var map = {
 	"./Slide_2_.jpg": "./storage/app/public/img/Slide_2_.jpg",
 	"./Slide_3_.jpg": "./storage/app/public/img/Slide_3_.jpg",
 	"./Trending.png": "./storage/app/public/img/Trending.png",
+	"./choices.jpg": "./storage/app/public/img/choices.jpg",
+	"./connectivity.jpg": "./storage/app/public/img/connectivity.jpg",
+	"./founder-f.jpg": "./storage/app/public/img/founder-f.jpg",
+	"./founder-m.jpg": "./storage/app/public/img/founder-m.jpg",
 	"./jumbo.jpg": "./storage/app/public/img/jumbo.jpg",
 	"./jumbotron.jpg": "./storage/app/public/img/jumbotron.jpg",
 	"./recensione1.jpg": "./storage/app/public/img/recensione1.jpg",
@@ -38920,10 +39112,12 @@ var map = {
 	"./slide_2.jpg": "./storage/app/public/img/slide_2.jpg",
 	"./slide_3.jpg": "./storage/app/public/img/slide_3.jpg",
 	"./slider.jpg": "./storage/app/public/img/slider.jpg",
+	"./time.jpg": "./storage/app/public/img/time.jpg",
 	"./trending1.jpg": "./storage/app/public/img/trending1.jpg",
 	"./trending2.jpg": "./storage/app/public/img/trending2.jpg",
 	"./trending3.jpg": "./storage/app/public/img/trending3.jpg",
 	"./trending4.jpg": "./storage/app/public/img/trending4.jpg",
+	"./waterfall.jpg": "./storage/app/public/img/waterfall.jpg",
 	"./wave1.svg": "./storage/app/public/img/wave1.svg"
 };
 
@@ -39103,14 +39297,14 @@ module.exports = "/images/Map_Light.png?c0cd12e153ab1294795af028a0bf56d3";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Marianna Galuppi.jpeg":
+/***/ "./storage/app/public/img/Marianna galuppi.jpeg":
 /*!******************************************************!*\
-  !*** ./storage/app/public/img/Marianna Galuppi.jpeg ***!
+  !*** ./storage/app/public/img/Marianna galuppi.jpeg ***!
   \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Marianna Galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
+module.exports = "/images/Marianna galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
 
 /***/ }),
 
@@ -39235,6 +39429,50 @@ module.exports = "/images/Trending.png?1f4b8f428e6fe12f50fd432d0471d7fb";
 
 /***/ }),
 
+/***/ "./storage/app/public/img/choices.jpg":
+/*!********************************************!*\
+  !*** ./storage/app/public/img/choices.jpg ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/choices.jpg?7615bb8453664952724ce0ce24235d5a";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/connectivity.jpg":
+/*!*************************************************!*\
+  !*** ./storage/app/public/img/connectivity.jpg ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/connectivity.jpg?45306b13d2946110d23cb533ae16f27c";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/founder-f.jpg":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/founder-f.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/founder-f.jpg?d02ac0c47e5e11b4e28e312b38f1003a";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/founder-m.jpg":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/founder-m.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/founder-m.jpg?4ea50a4a0fdb1b6fcf945b0c2967688c";
+
+/***/ }),
+
 /***/ "./storage/app/public/img/jumbo.jpg":
 /*!******************************************!*\
   !*** ./storage/app/public/img/jumbo.jpg ***!
@@ -39312,6 +39550,17 @@ module.exports = "/images/slider.jpg?bce8b3205e1104ccc1bc7e7fe795de94";
 
 /***/ }),
 
+/***/ "./storage/app/public/img/time.jpg":
+/*!*****************************************!*\
+  !*** ./storage/app/public/img/time.jpg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/time.jpg?4a2722fd3ddc3e99d514b7d2aaf09634";
+
+/***/ }),
+
 /***/ "./storage/app/public/img/trending1.jpg":
 /*!**********************************************!*\
   !*** ./storage/app/public/img/trending1.jpg ***!
@@ -39356,6 +39605,17 @@ module.exports = "/images/trending4.jpg?5e7e397a86b0dbbf972489d57f0aa4a8";
 
 /***/ }),
 
+/***/ "./storage/app/public/img/waterfall.jpg":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/waterfall.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/waterfall.jpg?6fbc91f4a72d966677c420f6bb9fb4d0";
+
+/***/ }),
+
 /***/ "./storage/app/public/img/wave1.svg":
 /*!******************************************!*\
   !*** ./storage/app/public/img/wave1.svg ***!
@@ -39374,7 +39634,7 @@ module.exports = "/images/wave1.svg?5145523a05c552d9220b6a8eb9923fe2";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/mari/Desktop/Boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
