@@ -30,9 +30,16 @@
     },
     methods:{
       initializeMap() { 
-        var latlon = {
-          lat: this.lat,
-          lon: this.lon
+        if(this.apartments.length == 1){
+          var latlon = {
+            lat: this.apartments[0].lat,
+            lon: this.apartments[0].lon
+          }
+        }else{
+          var latlon = {
+            lat: this.lat,
+            lon: this.lon
+          }
         }
         this.map = tt.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
@@ -54,6 +61,21 @@
         this.map.addControl(new tt.FullscreenControl());
         this.map.addControl(new tt.NavigationControl());
       },
+      zoom(){
+        if(this.radius == 10){
+          this.myZoom = 13
+        } else if(this.radius == 9){
+          this.myZoom = 14
+        } else if(this.radius == 8){
+          this.myZoom = 15
+        } else if(this.radius == 7){
+          this.myZoom = 16
+        } else if(this.radius <= 6 && this.radius >= 3){
+          this.myZoom = 17
+        } else{
+          this.myZoom = 20
+        }
+      }
     }    
   }
 </script>

@@ -17212,7 +17212,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      radius: '20',
+      radius: '5',
       apartments: [],
       amenities: [],
       rooms_num: 'All',
@@ -17302,7 +17302,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_TrendingNow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/TrendingNow */ "./resources/js/pages/partials/TrendingNow.vue");
 /* harmony import */ var _partials_Appfeatures__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/Appfeatures */ "./resources/js/pages/partials/Appfeatures.vue");
 /* harmony import */ var _partials_PopularDestinations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/PopularDestinations */ "./resources/js/pages/partials/PopularDestinations.vue");
-//
 //
 //
 //
@@ -17836,10 +17835,18 @@ __webpack_require__.r(__webpack_exports__);
     initializeMap: function initializeMap() {
       var _this = this;
 
-      var latlon = {
-        lat: this.lat,
-        lon: this.lon
-      };
+      if (this.apartments.length == 1) {
+        var latlon = {
+          lat: this.apartments[0].lat,
+          lon: this.apartments[0].lon
+        };
+      } else {
+        var latlon = {
+          lat: this.lat,
+          lon: this.lon
+        };
+      }
+
       this.map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
         container: 'map',
@@ -17864,6 +17871,21 @@ __webpack_require__.r(__webpack_exports__);
 
       this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.FullscreenControl());
       this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.NavigationControl());
+    },
+    zoom: function zoom() {
+      if (this.radius == 10) {
+        this.myZoom = 13;
+      } else if (this.radius == 9) {
+        this.myZoom = 14;
+      } else if (this.radius == 8) {
+        this.myZoom = 15;
+      } else if (this.radius == 7) {
+        this.myZoom = 16;
+      } else if (this.radius <= 6 && this.radius >= 3) {
+        this.myZoom = 17;
+      } else {
+        this.myZoom = 20;
+      }
     }
   }
 });
@@ -20383,9 +20405,8 @@ var render = function () {
               ],
               attrs: {
                 type: "range",
-                min: "0",
-                max: "30",
-                value: "10",
+                min: "1",
+                max: "10",
                 id: "radius",
                 name: "radius",
               },
