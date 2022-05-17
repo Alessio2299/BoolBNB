@@ -2,11 +2,11 @@
    <div class="container-fluid py-4" id="section_03" >
      <div class="row justify-content-center mb-5">
         <div class="col-4">
-            <img class="img-fluid" src="../../../../public/img/Popular_Destinations.png" alt="">
+            <img class="img-fluid" src="../../../../storage/app/public/img/Popular_Destinations.png" alt="">
         </div>
       </div>
       <div class="row row-cols-3 mx-5 mb-5">
-        <router-link :to="{name: 'advancedSearch', params :{address: destination.country}}" v-for="destination in destinations" :key="destination.name">
+        <router-link :to="{name: 'advancedSearch', params :{address: destination.uri}}" v-for="destination in destinations" :key="destination.name">
         <div class="col text-center ">
           <div class="card d-flex align-items-center" >
             <h1 class="card-title text-white">{{destination.country}}</h1>
@@ -28,16 +28,19 @@
         destinations:[
           {
             country: 'Morocco',
-            path: require('../../../../public/img/Morocco.jpg')
+            uri: 'Morocco',
+            path: require('../../../../storage/app/public/img/Morocco.jpg')
           },
           {
             country: 'Italy',
-            path: require('../../../../public/img/Italy.jpg')
+            uri: 'Italia',
+            path: require('../../../../storage/app/public/img/Italy.jpg')
 
           },
           {
             country: 'Norway',
-            path: require('../../../../public/img/Norway.jpg')
+            uri: 'Norway',
+            path: require('../../../../storage/app/public/img/Norway.jpg')
 
           },
         ]

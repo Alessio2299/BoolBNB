@@ -3,7 +3,7 @@
         <div class="container ">
             <div class="row">
                 <div class="col-12 my-3">
-                    <h1 class="text-center">Ricerca avanzata</h1>
+                    <h1 class="text-center">Advanced Search</h1>
                     <div class="text-center">
                         <label for="radius" class="d-block form-label">Radius: {{radius}} km</label>
                         <input type="range" min="0" max="30" value="10" id="radius" name="radius" v-model="radius">
@@ -42,7 +42,7 @@
                 <div class="col-12 d-flex justify-content-around my-3">
                     <div v-for="amenity in amenities" :key="amenity.id">
                         <label :for="amenity.name">{{amenity.name}}</label>
-                        <input type="checkbox" :id="amenity.name" :value="amenity.name" v-model="checked_amenities">
+                        <input type="checkbox" :id="amenity.name" :value="amenity.id" v-model="checked_amenities">
                     </div>
                 </div>
 
@@ -66,6 +66,10 @@
                         :title="apartment.title"
                         :description="apartment.description"
                         :slug="apartment.slug"
+                        :rooms="apartment.rooms"
+                        :bathrooms="apartment.bathrooms"
+                        :beds="apartment.beds"
+                        :address="apartment.address"
                     />
                 </div>
 
@@ -74,6 +78,7 @@
                         :lat= 'addressLat'
                         :lon= 'addressLon'
                         :apartments= "apartments"
+                        :radius="radius"
                     />
                 </div>
             </div>
@@ -96,7 +101,7 @@ export default {
 
     data() {
         return {
-            radius: 20,
+            radius: '20',
             apartments: [],
             amenities: [],
             rooms_num: 'All',
@@ -107,7 +112,8 @@ export default {
             addressLat: '',
             addressLon: '',
             flag: false,
-            flagApartment: false
+            flagApartment: false,
+            update: null
         }
     },
 
@@ -129,7 +135,7 @@ export default {
         getAmenities() {
             axios.get('/api/amenities')
             .then((response) => {
-                console.log(response)
+
                 this.amenities = response.data.results;
             });
         },
@@ -146,19 +152,21 @@ export default {
             })
         },
         sendParams(){
+            console.log(this.radius)
             axios.post('/api/apartments/filter',{
                 'rooms' : this.rooms_num,
                 'bathrooms' : this.bathrooms_num,
                 'beds' : this.beds_num,
                 'address' : this.city,
                 'lat': this.addressLat,
-                'lon': this.addressLon
+                'lon': this.addressLon,
+                'amenities': this.checked_amenities,
+                'radius' : this.radius
             })
             .then(resp => {
                 if(!resp.data.success){
                     this.errors = resp.data.errors;
                 } else{
-                    console.log(resp)
                     this.apartments = resp.data.results
                     this.error = false
                 }

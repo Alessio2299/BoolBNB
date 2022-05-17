@@ -2,7 +2,7 @@
   <div class="col-lg-4 col-sm-6">
     <div class="team-box mb-3">
       <div class="team-box-image">
-        <img :src="require (`../../../../public/img/${image}`)" :alt="name">
+        <img :src="require (`../../../../storage/app/public/img/${image}`)" :alt="name">
       </div>
       <div class="team-box-caption text-center">
         <h4>{{name}}</h4>

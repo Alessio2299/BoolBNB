@@ -17,6 +17,10 @@ import { faBed } from '@fortawesome/free-solid-svg-icons';
 import { faToilet } from '@fortawesome/free-solid-svg-icons';
 import { faWifi } from '@fortawesome/free-solid-svg-icons';
 import { faSquareParking } from '@fortawesome/free-solid-svg-icons';
+import { faPeopleRoof } from '@fortawesome/free-solid-svg-icons';
+import { faBellConcierge } from '@fortawesome/free-solid-svg-icons';
+import { faHotTubPerson } from '@fortawesome/free-solid-svg-icons';
+import { faWater } from '@fortawesome/free-solid-svg-icons';
 
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -26,6 +30,10 @@ library.add(faBed);
 library.add(faToilet);
 library.add(faWifi);
 library.add(faSquareParking);
+library.add(faPeopleRoof);
+library.add(faBellConcierge);
+library.add(faHotTubPerson);
+library.add(faWater);
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon);
