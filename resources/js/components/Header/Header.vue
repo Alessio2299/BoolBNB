@@ -40,7 +40,6 @@
             }else{
                 this.nav_transparent = false
             }
-            console.log(this.nav_transparent)
         }
     },
     mounted() {

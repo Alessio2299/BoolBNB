@@ -78,6 +78,7 @@
                         :lat= 'addressLat'
                         :lon= 'addressLon'
                         :apartments= "apartments"
+                        :radius="radius"
                     />
                 </div>
             </div>
@@ -100,7 +101,7 @@ export default {
 
     data() {
         return {
-            radius: 20,
+            radius: '20',
             apartments: [],
             amenities: [],
             rooms_num: 'All',
