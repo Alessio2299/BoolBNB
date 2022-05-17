@@ -34,8 +34,8 @@
                 <div class="row section">
                     <div class="col-12 py-3">
                         <h5 class="p-3 text-center"><strong>Here you will find these additional services</strong></h5>
-                        <ul class="amenities d-flex justify-content-center">
-                            <li class="btn btn-primary" v-for="amenity in apartment.amenities" :key="amenity.id">
+                        <ul class="amenities d-flex justify-content-center flex-wrap">
+                            <li class="btn btn-primary m-1" v-for="amenity in apartment.amenities" :key="amenity.id">
                                 <font-awesome-icon icon="fa-solid fa-wifi" v-if="amenity.id == 1" />
                                 <font-awesome-icon icon="fa-solid fa-square-parking" v-if="amenity.id == 2" />
                                 <font-awesome-icon icon="fa-solid fa-bell-concierge" v-if="amenity.id == 3" />
