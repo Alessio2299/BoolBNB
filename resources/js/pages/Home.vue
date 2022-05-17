@@ -6,7 +6,7 @@
     <div class="row justify-content-center mx-0">
       <div class="col-6">
         <div class="img_box">
-          <img src="../../../public/img/BoolBnb.png" alt="Logo" id="logo">
+          <img src="../../../storage/app/public/img/BoolBnb.png" alt="Logo" id="logo">
         </div>
       </div>
     </div>
@@ -41,7 +41,6 @@
       <div class="row"> 
         <div class="col">
           <svg class="w-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#E7717D" fill-opacity="1" d="M0,224L120,197.3C240,171,480,117,720,122.7C960,128,1200,192,1320,224L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>     
-
         </div>
       </div>
 
@@ -136,7 +135,7 @@
 <style lang="scss" scoped>
 
 #jumbotron{
-  background-image: url("../../../public/img/jumbotron.jpg");
+  background-image: url("../../../storage/app/public/img/jumbotron.jpg");
   background-size: cover;
   background-position: center;
   position: relative;

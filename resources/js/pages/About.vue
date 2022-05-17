@@ -57,7 +57,7 @@
   @import '../../sass/variables.scss';
 
   .main{
-    background-image: url('../../../public/img/slider.jpg');
+    background-image: url('../../../storage/app/public/img/slider.jpg');
     background-position: center;
     background-size: cover;
     height: 200px;

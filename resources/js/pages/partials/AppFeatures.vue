@@ -7,7 +7,7 @@
         </div>
         <div class="col-5  text-center d-flex flex-column justify-content-end">
           <div class="img_box">
-            <img class="img-fluid" src="../../../../public/img/Map_Light.png" id="map_icon" alt="Map">
+            <img class="img-fluid" src="../../../../storage/app/public/img/Map_Light.png" id="map_icon" alt="Map">
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
       <div class="row even row-cols-2 px-5">
         <div class="col text-center d-flex flex-column justify-content-around">
           <div class="img_box">
-            <img class="img-fluid" src="../../../../public/img/Comfort_Pink.png" id="comfort_icon" alt="Map">
+            <img class="img-fluid" src="../../../../storage/app/public/img/Comfort_Pink.png" id="comfort_icon" alt="Map">
           </div>
         </div>
         <div class="col even text-center d-flex flex-column justify-content-around text-white">
@@ -37,7 +37,7 @@
         </div>
         <div class="col-5  text-center d-flex flex-column justify-content-around">
           <div class="img_box">
-            <img class="img-fluid" src="../../../../public/img/Hos_Light.png" id="host_icon" alt="Map">
+            <img class="img-fluid" src="../../../../storage/app/public/img/Hos_Light.png" id="host_icon" alt="Map">
           </div>
         </div>
       </div>
