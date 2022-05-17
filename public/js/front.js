@@ -38922,7 +38922,7 @@ var map = {
 	"./Italy.png": "./storage/app/public/img/Italy.png",
 	"./Map.png": "./storage/app/public/img/Map.png",
 	"./Map_Light.png": "./storage/app/public/img/Map_Light.png",
-	"./Marianna galuppi.jpeg": "./storage/app/public/img/Marianna galuppi.jpeg",
+	"./Marianna Galuppi.jpeg": "./storage/app/public/img/Marianna Galuppi.jpeg",
 	"./Morocco.jpg": "./storage/app/public/img/Morocco.jpg",
 	"./Norway.jpg": "./storage/app/public/img/Norway.jpg",
 	"./Paris.png": "./storage/app/public/img/Paris.png",
@@ -39124,14 +39124,14 @@ module.exports = "/images/Map_Light.png?c0cd12e153ab1294795af028a0bf56d3";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Marianna galuppi.jpeg":
+/***/ "./storage/app/public/img/Marianna Galuppi.jpeg":
 /*!******************************************************!*\
-  !*** ./storage/app/public/img/Marianna galuppi.jpeg ***!
+  !*** ./storage/app/public/img/Marianna Galuppi.jpeg ***!
   \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Marianna galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
+module.exports = "/images/Marianna Galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
 
 /***/ }),
 
@@ -39395,7 +39395,7 @@ module.exports = "/images/wave1.svg?5145523a05c552d9220b6a8eb9923fe2";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
