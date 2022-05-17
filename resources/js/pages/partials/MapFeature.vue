@@ -18,6 +18,11 @@
     mounted(){
       this.initializeMap()
     },
+    watch:{
+      apartments(){
+        this.initializeMap()
+      }
+    },
     methods:{
       initializeMap() { 
         var latlon = {
