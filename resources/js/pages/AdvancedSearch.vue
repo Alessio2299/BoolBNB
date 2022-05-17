@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="container my-3">
+        <div class="container ">
             <div class="row">
                 <div class="col-12 my-3">
                     <h1 class="text-center">Ricerca avanzata</h1>

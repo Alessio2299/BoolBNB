@@ -1,11 +1,8 @@
 <template>
   <footer>
-      <div class="my_footer m-auto d-flex flex-column flex-md-row">
+      <div class="my_footer m-auto d-flex justify-content-end  flex-md-row">
         <div class="logo">
-          <img class="my_img" src="../../../../public/img/BoolBnb.logo.png" alt="Logo BoolBnb">
-          <div class="logo_text">
-            <span>Bool B&B</span>
-          </div>
+          <img class="my_img" src="../../../../public/img/BoolBnb.png" alt="Logo BoolBnb">
         </div>
         <div class="copyright">
          <span>Copyright © 2022 All Rights Reserved</span>

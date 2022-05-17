@@ -1,10 +1,16 @@
 <template>
   <div class="main main_container">
-    <h1 class="text-center my-4">Home</h1>    
-
     <!-- Barra per la ricerca -->
-    <div class="container-fluid py-4 py-4" id="jumbotron">
-      <div class="row  align-items-center justify-content-center" id="row_jumbo">
+    <div class="container-fluid pt-4 px-0" id="jumbotron">
+    <div class="overlay"></div>
+    <div class="row justify-content-center mx-0">
+      <div class="col-6">
+        <div class="img_box">
+          <img src="../../../public/img/BoolBnb.png" alt="Logo" id="logo">
+        </div>
+      </div>
+    </div>
+      <div class="row align-items-end justify-content-center mx-0" id="row_jumbo">
         <div class="col-8">
 
           <form id="searchForm" @submit.prevent="getLongLat">
@@ -32,22 +38,24 @@
 
         </div>
       </div>
+      <div class="row"> 
+        <div class="col">
+          <svg class="w-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#E7717D" fill-opacity="1" d="M0,224L120,197.3C240,171,480,117,720,122.7C960,128,1200,192,1320,224L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>     
+
+        </div>
+      </div>
+
     </div>
 
 
-    <!-- Carosello con immagini che scorrono in automatico + eventuali scritte -->
+    <AppFeatures/>
 
-    <Carousel/>
-
-    <!-- Sezione Appartamenti Sponsorizzati -->
     
     <TrendingNow/>
 
-    <!-- Altro carosello/slider che dovrebbe andare in automatico a mostrare recensioni di clienti/testimonial -->
+    <Carousel/>
 
-    <AppFeatures/>
 
-    <!-- Sezione "Nostre proposte"/Mete del momento, dovrebbe reindirizzare alla pagina della ricerca, per paese -->
     <PopularDestinations/>
     
 
@@ -131,14 +139,35 @@
   background-image: url("../../../public/img/jumbotron.jpg");
   background-size: cover;
   background-position: center;
+  position: relative;
+  .img_box{
+    width: min-content;
+    margin: auto;
+    #logo{
+      transform: scale(0.8);
+      }
+    }
+
+  .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: black;
+    opacity: 0.4;
+  }
     #row_jumbo{
-      height: 300px;
+      flex-basis: 100%;
     }
     #address{
       outline: none;
       border-radius: 10px;
       border: 0;
       padding: 0.5rem;
+    }
+
+    svg{
+      z-index: 99;
     }
 }
 
