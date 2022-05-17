@@ -111,7 +111,8 @@ export default {
             addressLat: '',
             addressLon: '',
             flag: false,
-            flagApartment: false
+            flagApartment: false,
+            update: null
         }
     },
 
@@ -133,7 +134,7 @@ export default {
         getAmenities() {
             axios.get('/api/amenities')
             .then((response) => {
-                console.log(response)
+
                 this.amenities = response.data.results;
             });
         },
@@ -150,6 +151,7 @@ export default {
             })
         },
         sendParams(){
+            console.log(this.radius)
             axios.post('/api/apartments/filter',{
                 'rooms' : this.rooms_num,
                 'bathrooms' : this.bathrooms_num,
@@ -157,13 +159,13 @@ export default {
                 'address' : this.city,
                 'lat': this.addressLat,
                 'lon': this.addressLon,
-                'amenities': this.checked_amenities
+                'amenities': this.checked_amenities,
+                'radius' : this.radius
             })
             .then(resp => {
                 if(!resp.data.success){
                     this.errors = resp.data.errors;
                 } else{
-                    console.log(resp)
                     this.apartments = resp.data.results
                     this.error = false
                 }

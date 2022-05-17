@@ -2,7 +2,7 @@
   <header class="nav_header" @scroll="test" :class="nav_transparent == true ? 'transparent' : 'nav_bg' ">
     <nav class="navbar navbar-expand-lg navbar-dark mx-5">
         <router-link class="navbar-brand nav_text" :to="{name:'home'}">
-         <img class="my_img" src="../../../../public/img/BoolBnb.png" alt="Logo BoolBnb">
+         <img class="my_img" src="../../../../storage/app/public/img/BoolBnb.png" alt="Logo BoolBnb">
         </router-link>
         <button class="navbar-toggler nav_text" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon nav_text"></span>

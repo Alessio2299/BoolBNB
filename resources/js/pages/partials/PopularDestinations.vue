@@ -2,7 +2,7 @@
    <div class="container-fluid py-4" id="section_03" >
      <div class="row justify-content-center mb-5">
         <div class="col-4">
-            <img class="img-fluid" src="../../../../public/img/Popular_Destinations.png" alt="">
+            <img class="img-fluid" src="../../../../storage/app/public/img/Popular_Destinations.png" alt="">
         </div>
       </div>
       <div class="row row-cols-3 mx-5 mb-5">
@@ -28,16 +28,16 @@
         destinations:[
           {
             country: 'Morocco',
-            path: require('../../../../public/img/Morocco.jpg')
+            path: require('../../../../storage/app/public/img/Morocco.jpg')
           },
           {
             country: 'Italy',
-            path: require('../../../../public/img/Italy.jpg')
+            path: require('../../../../storage/app/public/img/Italy.jpg')
 
           },
           {
             country: 'Norway',
-            path: require('../../../../public/img/Norway.jpg')
+            path: require('../../../../storage/app/public/img/Norway.jpg')
 
           },
         ]
