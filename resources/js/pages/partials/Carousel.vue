@@ -1,21 +1,20 @@
 <template>
-<div id="carousel" class="carousel slide py-5" data-ride="carousel">
-  <h1 class="text-center text-white mb-5">What's waiting for you</h1>
-  <ul class="carousel-indicators">
-    <li data-target="#carousel" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel" data-slide-to="1"></li>
-    <li data-target="#carousel" data-slide-to="2"></li>
+<div id="carousel" class="carousel slide p-5" data-ride="carousel">
+  <ul class="carousel-indicators ">
+    <li data-target="#carousel" data-slide-to="0" data-intervall="1000" class="active"></li>
+    <li data-target="#carousel" data-slide-to="1" data-intervall="1000"></li>
+    <li data-target="#carousel" data-slide-to="2" data-intervall="1000"></li>
   </ul>
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/76109618.jpg?k=ba537b048279407e0241cbd138c6dced32572a4f864bdaf5dbb60c314c3003b0&o=" alt="Flat-1">
+      <img src="../../../../public/img/Slide_1_.jpg" alt="Flat-1">
     </div>
     <div class="carousel-item">
-      <img src="https://real-estate.tornode.org/media/listings/4.jpeg" alt="Flat-2">
+      <img src="../../../../public/img/Slide_2_.jpg" alt="Flat-2">
     </div>
     <div class="carousel-item">
-      <img src="https://bigsee.eu/wp-content/uploads/2019/09/00_attic-flat.jpg" alt="Flat-3">
+      <img src="../../../../public/img/Slide_3_.jpg" alt="Flat-3">
     </div>
   </div>
 
@@ -49,10 +48,17 @@
 #carousel{
   background-color: #E7717D;
 
+  ul{
+    visibility: hidden;
+  }
+
   .carousel-control-prev-icon, .carousel-control-next-icon {
     filter: invert(100%);
   }
-  
+  .carousel-inner{
+    border: 6px solid #FFCEAF;
+  }
+
   .carousel-item {
     height: 500px;
 

@@ -1,5 +1,11 @@
 //Classi di debug per costruire il layout
 
+html body{
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+
 .row.debug{
     background-color: rgb(255, 196, 0);
     padding: 1rem;
