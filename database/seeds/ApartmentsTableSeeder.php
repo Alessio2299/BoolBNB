@@ -47,7 +47,7 @@ class ApartmentsTableSeeder extends Seeder
         for ($i = 0; $i < count($address); $i++) {
 
             $apartment = new Apartment();
-            $apartment->user_id = $faker->randomNumber(1, 30);
+            $apartment->user_id = $faker->randomNumber(1, count($address));
             $apartment->title = 'apartment ' . $faker->word();
             $apartment->description = $faker->sentence(20);
             $apartment->rooms = $faker->numberBetween(1, 30);
