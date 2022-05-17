@@ -62,18 +62,24 @@
         this.map.addControl(new tt.NavigationControl());
       },
       zoom(){
-        if(this.radius == 10){
-          this.myZoom = 13
-        } else if(this.radius == 9){
-          this.myZoom = 14
-        } else if(this.radius == 8){
-          this.myZoom = 15
-        } else if(this.radius == 7){
-          this.myZoom = 16
-        } else if(this.radius <= 6 && this.radius >= 3){
-          this.myZoom = 17
-        } else{
-          this.myZoom = 20
+        switch (this.radius) {
+          case '10':
+            this.myZoom = 13
+            break;
+          case '9':
+            this.myZoom = 14
+            break;
+          case '8':
+            this.myZoom = 15
+            break;
+          case '7':
+            this.myZoom = 16
+            break;
+          case '6':
+            this.myZoom = 17
+            break;
+          default:
+            this.myZoom = 20
         }
       }
     }    
