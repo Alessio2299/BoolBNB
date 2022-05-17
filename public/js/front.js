@@ -17008,8 +17008,6 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.nav_transparent = false;
       }
-
-      console.log(this.nav_transparent);
     }
   },
   mounted: function mounted() {
@@ -17203,6 +17201,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17213,7 +17212,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      radius: 20,
+      radius: '20',
       apartments: [],
       amenities: [],
       rooms_num: 'All',
@@ -17812,12 +17811,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MapFueture',
   data: function data() {
-    return {};
+    return {
+      myZoom: 20
+    };
   },
   props: {
     lat: Number,
     lon: Number,
-    apartments: Array
+    apartments: Array,
+    radius: String
   },
   mounted: function mounted() {
     this.initializeMap();
@@ -17825,6 +17827,9 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     apartments: function apartments() {
       this.initializeMap();
+    },
+    radius: function radius() {
+      this.zoom();
     }
   },
   methods: {
@@ -17838,7 +17843,7 @@ __webpack_require__.r(__webpack_exports__);
       this.map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
         container: 'map',
-        zoom: 15,
+        zoom: this.myZoom,
         center: latlon,
         style: 'https://api.tomtom.com/style/1/style/20.4.5-*/?map=basic_night&poi=poi_main'
       });
@@ -17956,12 +17961,15 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destinations: [{
         country: 'Morocco',
+        uri: 'Morocco',
         path: __webpack_require__(/*! ../../../../storage/app/public/img/Morocco.jpg */ "./storage/app/public/img/Morocco.jpg")
       }, {
         country: 'Italy',
+        uri: 'Italia',
         path: __webpack_require__(/*! ../../../../storage/app/public/img/Italy.jpg */ "./storage/app/public/img/Italy.jpg")
       }, {
         country: 'Norway',
+        uri: 'Norway',
         path: __webpack_require__(/*! ../../../../storage/app/public/img/Norway.jpg */ "./storage/app/public/img/Norway.jpg")
       }]
     };
@@ -18212,25 +18220,6 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/jumbotron.jpg */ "./storage/app/public/img/jumbotron.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron .img_box[data-v-b3c5cf30] {\n  width: -webkit-min-content;\n  width: -moz-min-content;\n  width: min-content;\n  margin: auto;\n}\n#jumbotron .img_box #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/PageNotFound.vue?vue&type=style&index=0&id=a99009b2&lang=scss&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/PageNotFound.vue?vue&type=style&index=0&id=a99009b2&lang=scss&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".container[data-v-a99009b2] {\n  height: 100vh;\n}\n.container .row[data-v-a99009b2] {\n  padding-top: 200px;\n}\n.container .row .bool-logo[data-v-a99009b2] {\n  width: 500px;\n  margin: 0 auto;\n}", ""]);
 
 // exports
 
@@ -20672,6 +20661,7 @@ var render = function () {
                     lat: _vm.addressLat,
                     lon: _vm.addressLon,
                     apartments: _vm.apartments,
+                    radius: _vm.radius,
                   },
                 }),
               ],
@@ -21765,7 +21755,7 @@ var render = function () {
               attrs: {
                 to: {
                   name: "advancedSearch",
-                  params: { address: destination.country },
+                  params: { address: destination.uri },
                 },
               },
             },
@@ -39384,7 +39374,7 @@ module.exports = "/images/wave1.svg?5145523a05c552d9220b6a8eb9923fe2";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })

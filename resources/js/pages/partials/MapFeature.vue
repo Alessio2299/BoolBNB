@@ -9,11 +9,13 @@
     name : 'MapFueture',
     data() {
       return {
+        myZoom : 20
       }
     },props:{
       lat: Number,
       lon: Number,
-      apartments: Array
+      apartments: Array,
+      radius: String
     },
     mounted(){
       this.initializeMap()
@@ -21,6 +23,9 @@
     watch:{
       apartments(){
         this.initializeMap()
+      },
+      radius(){
+        this.zoom()
       }
     },
     methods:{
@@ -32,7 +37,7 @@
         this.map = tt.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
         container: 'map',
-        zoom: 15,
+        zoom: this.myZoom,
         center: latlon,
         style: 'https://api.tomtom.com/style/1/style/20.4.5-*/?map=basic_night&poi=poi_main'
         });
@@ -48,7 +53,7 @@
         }
         this.map.addControl(new tt.FullscreenControl());
         this.map.addControl(new tt.NavigationControl());
-      }
+      },
     }    
   }
 </script>
