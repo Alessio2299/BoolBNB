@@ -3,7 +3,7 @@
         <div class="container ">
             <div class="row">
                 <div class="col-12 my-3">
-                    <h1 class="text-center">Ricerca avanzata</h1>
+                    <h1 class="text-center">Advanced Search</h1>
                     <div class="text-center">
                         <label for="radius" class="d-block form-label">Radius: {{radius}} km</label>
                         <input type="range" min="0" max="30" value="10" id="radius" name="radius" v-model="radius">
@@ -66,6 +66,10 @@
                         :title="apartment.title"
                         :description="apartment.description"
                         :slug="apartment.slug"
+                        :rooms="apartment.rooms"
+                        :bathrooms="apartment.bathrooms"
+                        :beds="apartment.beds"
+                        :address="apartment.address"
                     />
                 </div>
 

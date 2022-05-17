@@ -19,7 +19,7 @@
                 <div class="row section">
                     <div class="col-12 py-3">
                         <ul class="facilities">
-                            <li class="text-center"><br>{{apartment.rooms}} bedrooms</li>
+                            <li class="text-center"><font-awesome-icon icon="fa-solid fa-people-roof" /><br>{{apartment.rooms}} rooms</li>
                             <li class="text-center"><font-awesome-icon icon="fa-solid fa-bed" /><br>{{apartment.beds}} beds</li>
                             <li class="text-center"><font-awesome-icon icon="fa-solid fa-toilet" /><br>{{apartment.bathrooms}} bathrooms</li>
                         </ul>
@@ -34,10 +34,13 @@
                 <div class="row section">
                     <div class="col-12 py-3">
                         <h5 class="p-3 text-center"><strong>Here you will find these additional services</strong></h5>
-                        <ul class="amenities d-flex justify-content-center">
-                            <li class="btn btn-primary" v-for="amenity in apartment.amenities" :key="amenity.id">
+                        <ul class="amenities d-flex justify-content-center flex-wrap">
+                            <li class="btn btn-primary m-1" v-for="amenity in apartment.amenities" :key="amenity.id">
                                 <font-awesome-icon icon="fa-solid fa-wifi" v-if="amenity.id == 1" />
                                 <font-awesome-icon icon="fa-solid fa-square-parking" v-if="amenity.id == 2" />
+                                <font-awesome-icon icon="fa-solid fa-bell-concierge" v-if="amenity.id == 3" />
+                                <font-awesome-icon icon="fa-solid fa-hot-tub-person" v-if="amenity.id == 4"/>
+                                <font-awesome-icon icon="fa-solid fa-water" v-if="amenity.id == 5"/>
                                 {{amenity.name}}
                             </li>
                         </ul>
@@ -170,7 +173,7 @@
             width: 100%;
             height: auto;
             border-radius: 20px;
-            border: 2px solid black;
+            border: 2px solid $orange_secondary;
         }
 
         .facilities {
@@ -180,7 +183,7 @@
 
             li {
                 display: inline-block;
-                border: 1px solid black;
+                border: 1px solid $orange_secondary;
                 border-radius: 10%;
                 padding: 20px;
                 margin: 5px;
@@ -203,7 +206,7 @@
         }
 
         .map-container {
-            border: 1px solid black;
+            border: 1px solid $orange_secondary;
             padding: 15px;
         }
 
