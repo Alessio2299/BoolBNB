@@ -42,7 +42,7 @@
                 <div class="col-12 d-flex justify-content-around my-3">
                     <div v-for="amenity in amenities" :key="amenity.id">
                         <label :for="amenity.name">{{amenity.name}}</label>
-                        <input type="checkbox" :id="amenity.name" :value="amenity.name" v-model="checked_amenities">
+                        <input type="checkbox" :id="amenity.name" :value="amenity.id" v-model="checked_amenities">
                     </div>
                 </div>
 
@@ -156,7 +156,8 @@ export default {
                 'beds' : this.beds_num,
                 'address' : this.city,
                 'lat': this.addressLat,
-                'lon': this.addressLon
+                'lon': this.addressLon,
+                'amenities': this.checked_amenities
             })
             .then(resp => {
                 if(!resp.data.success){
