@@ -8,13 +8,13 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="../../../../public/img/Slide_1_.jpg" alt="Flat-1">
+      <img src="../../../../storage/app/public/img/Slide_1_.jpg" alt="Flat-1">
     </div>
     <div class="carousel-item">
-      <img src="../../../../public/img/Slide_2_.jpg" alt="Flat-2">
+      <img src="../../../../storage/app/public/img/Slide_2_.jpg" alt="Flat-2">
     </div>
     <div class="carousel-item">
-      <img src="../../../../public/img/Slide_3_.jpg" alt="Flat-3">
+      <img src="../../../../storage/app/public/img/Slide_3_.jpg" alt="Flat-3">
     </div>
   </div>
 

@@ -2,7 +2,7 @@
   <footer>
       <div class="my_footer m-auto d-flex justify-content-end  flex-md-row">
         <div class="logo">
-          <img class="my_img" src="../../../../public/img/BoolBnb.png" alt="Logo BoolBnb">
+          <img class="my_img" src="../../../../storage/app/public/img/BoolBnb.png" alt="Logo BoolBnb">
         </div>
         <div class="copyright">
          <span>Copyright © 2022 All Rights Reserved</span>

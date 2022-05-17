@@ -17367,7 +17367,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -17957,13 +17956,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       destinations: [{
         country: 'Morocco',
-        path: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Morocco.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+        path: __webpack_require__(/*! ../../../../storage/app/public/img/Morocco.jpg */ "./storage/app/public/img/Morocco.jpg")
       }, {
         country: 'Italy',
-        path: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Italy.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+        path: __webpack_require__(/*! ../../../../storage/app/public/img/Italy.jpg */ "./storage/app/public/img/Italy.jpg")
       }, {
         country: 'Norway',
-        path: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Norway.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+        path: __webpack_require__(/*! ../../../../storage/app/public/img/Norway.jpg */ "./storage/app/public/img/Norway.jpg")
       }]
     };
   },
@@ -18173,7 +18172,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".main[data-v-520b5d54] {\n  background-image: url(" + escape(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../public/img/slider.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))) + ");\n  background-position: center;\n  background-size: cover;\n  height: 200px;\n  width: 100%;\n}\n.main h1[data-v-520b5d54] {\n  font-weight: 600;\n  padding-top: 120px;\n  font-family: \"Cormorant\", serif;\n}\n.container h2[data-v-520b5d54] {\n  font-weight: 600;\n  font-family: \"Cormorant\", serif;\n}", ""]);
+exports.push([module.i, ".main[data-v-520b5d54] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/slider.jpg */ "./storage/app/public/img/slider.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  height: 200px;\n  width: 100%;\n}\n.main h1[data-v-520b5d54] {\n  font-weight: 600;\n  padding-top: 120px;\n  font-family: \"Cormorant\", serif;\n}\n.container h2[data-v-520b5d54] {\n  font-weight: 600;\n  font-family: \"Cormorant\", serif;\n}", ""]);
 
 // exports
 
@@ -18212,7 +18211,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../public/img/jumbotron.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron .img_box[data-v-b3c5cf30] {\n  width: -webkit-min-content;\n  width: -moz-min-content;\n  width: min-content;\n  margin: auto;\n}\n#jumbotron .img_box #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}", ""]);
+exports.push([module.i, "#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/jumbotron.jpg */ "./storage/app/public/img/jumbotron.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron .img_box[data-v-b3c5cf30] {\n  width: -webkit-min-content;\n  width: -moz-min-content;\n  width: min-content;\n  margin: auto;\n}\n#jumbotron .img_box #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}", ""]);
 
 // exports
 
@@ -20055,7 +20054,7 @@ var staticRenderFns = [
             _c("img", {
               staticClass: "my_img",
               attrs: {
-                src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/BoolBnb.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                src: __webpack_require__(/*! ../../../../storage/app/public/img/BoolBnb.png */ "./storage/app/public/img/BoolBnb.png"),
                 alt: "Logo BoolBnb",
               },
             }),
@@ -20112,7 +20111,7 @@ var render = function () {
               _c("img", {
                 staticClass: "my_img",
                 attrs: {
-                  src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/BoolBnb.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                  src: __webpack_require__(/*! ../../../../storage/app/public/img/BoolBnb.png */ "./storage/app/public/img/BoolBnb.png"),
                   alt: "Logo BoolBnb",
                 },
               }),
@@ -20888,7 +20887,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "img_box" }, [
           _c("img", {
             attrs: {
-              src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../public/img/BoolBnb.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+              src: __webpack_require__(/*! ../../../storage/app/public/img/BoolBnb.png */ "./storage/app/public/img/BoolBnb.png"),
               alt: "Logo",
               id: "logo",
             },
@@ -20944,7 +20943,7 @@ var staticRenderFns = [
           _c("img", {
             staticClass: "bool-logo",
             attrs: {
-              src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../public/images/BoolBnb.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+              src: __webpack_require__(/*! ../../../storage/app/public/img/BoolBnb.png */ "./storage/app/public/img/BoolBnb.png"),
               alt: "Logo BoolBnb",
             },
           }),
@@ -21408,7 +21407,7 @@ var staticRenderFns = [
             _c("img", {
               staticClass: "img-fluid",
               attrs: {
-                src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Map_Light.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                src: __webpack_require__(/*! ../../../../storage/app/public/img/Map_Light.png */ "./storage/app/public/img/Map_Light.png"),
                 id: "map_icon",
                 alt: "Map",
               },
@@ -21434,7 +21433,7 @@ var staticRenderFns = [
             _c("img", {
               staticClass: "img-fluid",
               attrs: {
-                src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Comfort_Pink.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                src: __webpack_require__(/*! ../../../../storage/app/public/img/Comfort_Pink.png */ "./storage/app/public/img/Comfort_Pink.png"),
                 id: "comfort_icon",
                 alt: "Map",
               },
@@ -21488,7 +21487,7 @@ var staticRenderFns = [
             _c("img", {
               staticClass: "img-fluid",
               attrs: {
-                src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Hos_Light.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                src: __webpack_require__(/*! ../../../../storage/app/public/img/Hos_Light.png */ "./storage/app/public/img/Hos_Light.png"),
                 id: "host_icon",
                 alt: "Map",
               },
@@ -21525,7 +21524,7 @@ var render = function () {
       _c("div", { staticClass: "team-box-image" }, [
         _c("img", {
           attrs: {
-            src: !(function webpackMissingModule() { var e = new Error("Cannot find module 'undefined'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+            src: __webpack_require__("./storage/app/public/img sync recursive ^\\.\\/.*$")("./" + _vm.image),
             alt: _vm.name,
           },
         }),
@@ -21615,7 +21614,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "carousel-item active" }, [
             _c("img", {
               attrs: {
-                src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Slide_1_.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                src: __webpack_require__(/*! ../../../../storage/app/public/img/Slide_1_.jpg */ "./storage/app/public/img/Slide_1_.jpg"),
                 alt: "Flat-1",
               },
             }),
@@ -21624,7 +21623,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "carousel-item" }, [
             _c("img", {
               attrs: {
-                src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Slide_2_.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                src: __webpack_require__(/*! ../../../../storage/app/public/img/Slide_2_.jpg */ "./storage/app/public/img/Slide_2_.jpg"),
                 alt: "Flat-2",
               },
             }),
@@ -21633,7 +21632,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "carousel-item" }, [
             _c("img", {
               attrs: {
-                src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Slide_3_.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                src: __webpack_require__(/*! ../../../../storage/app/public/img/Slide_3_.jpg */ "./storage/app/public/img/Slide_3_.jpg"),
                 alt: "Flat-3",
               },
             }),
@@ -21783,7 +21782,7 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "img-fluid",
           attrs: {
-            src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Popular_Destinations.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+            src: __webpack_require__(/*! ../../../../storage/app/public/img/Popular_Destinations.png */ "./storage/app/public/img/Popular_Destinations.png"),
             alt: "",
           },
         }),
@@ -21828,7 +21827,7 @@ var staticRenderFns = [
             _c("img", {
               staticClass: "img-fluid",
               attrs: {
-                src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/Trending.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                src: __webpack_require__(/*! ../../../../storage/app/public/img/Trending.png */ "./storage/app/public/img/Trending.png"),
                 alt: "",
               },
             }),
@@ -21842,7 +21841,7 @@ var staticRenderFns = [
                 _c("img", {
                   staticClass: "card-img-top ",
                   attrs: {
-                    src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/trending1.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending1.jpg */ "./storage/app/public/img/trending1.jpg"),
                     alt: "Card image cap",
                   },
                 }),
@@ -21862,7 +21861,7 @@ var staticRenderFns = [
                 _c("img", {
                   staticClass: "card-img-top ",
                   attrs: {
-                    src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/trending2.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending2.jpg */ "./storage/app/public/img/trending2.jpg"),
                     alt: "Card image cap",
                   },
                 }),
@@ -21882,7 +21881,7 @@ var staticRenderFns = [
                 _c("img", {
                   staticClass: "card-img-top ",
                   attrs: {
-                    src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/trending3.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending3.jpg */ "./storage/app/public/img/trending3.jpg"),
                     alt: "Card image cap",
                   },
                 }),
@@ -21902,7 +21901,7 @@ var staticRenderFns = [
                 _c("img", {
                   staticClass: "card-img-top ",
                   attrs: {
-                    src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../public/img/trending4.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending4.jpg */ "./storage/app/public/img/trending4.jpg"),
                     alt: "Card image cap",
                   },
                 }),
@@ -38868,6 +38867,494 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_91ac6b5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./storage/app/public/img sync recursive ^\\.\\/.*$":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img sync ^\.\/.*$ ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./Alessio Napoli.jpg": "./storage/app/public/img/Alessio Napoli.jpg",
+	"./BoolBnb.logo.png": "./storage/app/public/img/BoolBnb.logo.png",
+	"./BoolBnb.png": "./storage/app/public/img/BoolBnb.png",
+	"./Christian D'Agostino.jpeg": "./storage/app/public/img/Christian D'Agostino.jpeg",
+	"./Comfort_1.png": "./storage/app/public/img/Comfort_1.png",
+	"./Comfort_Pink.png": "./storage/app/public/img/Comfort_Pink.png",
+	"./Dario La Tegola.jpeg": "./storage/app/public/img/Dario La Tegola.jpeg",
+	"./Edoardo Lai.jpeg": "./storage/app/public/img/Edoardo Lai.jpeg",
+	"./Greece.png": "./storage/app/public/img/Greece.png",
+	"./Hos_Light.png": "./storage/app/public/img/Hos_Light.png",
+	"./Italy.jpg": "./storage/app/public/img/Italy.jpg",
+	"./Italy.png": "./storage/app/public/img/Italy.png",
+	"./Map.png": "./storage/app/public/img/Map.png",
+	"./Map_Light.png": "./storage/app/public/img/Map_Light.png",
+	"./Marianna galuppi.jpeg": "./storage/app/public/img/Marianna galuppi.jpeg",
+	"./Morocco.jpg": "./storage/app/public/img/Morocco.jpg",
+	"./Norway.jpg": "./storage/app/public/img/Norway.jpg",
+	"./Paris.png": "./storage/app/public/img/Paris.png",
+	"./Popular_Destinations.png": "./storage/app/public/img/Popular_Destinations.png",
+	"./Recensione2.jpg": "./storage/app/public/img/Recensione2.jpg",
+	"./Recensione3.jpg": "./storage/app/public/img/Recensione3.jpg",
+	"./Recensione5.jpg": "./storage/app/public/img/Recensione5.jpg",
+	"./Slide_1_.jpg": "./storage/app/public/img/Slide_1_.jpg",
+	"./Slide_2_.jpg": "./storage/app/public/img/Slide_2_.jpg",
+	"./Slide_3_.jpg": "./storage/app/public/img/Slide_3_.jpg",
+	"./Trending.png": "./storage/app/public/img/Trending.png",
+	"./jumbo.jpg": "./storage/app/public/img/jumbo.jpg",
+	"./jumbotron.jpg": "./storage/app/public/img/jumbotron.jpg",
+	"./recensione1.jpg": "./storage/app/public/img/recensione1.jpg",
+	"./slide_1.jpg": "./storage/app/public/img/slide_1.jpg",
+	"./slide_2.jpg": "./storage/app/public/img/slide_2.jpg",
+	"./slide_3.jpg": "./storage/app/public/img/slide_3.jpg",
+	"./slider.jpg": "./storage/app/public/img/slider.jpg",
+	"./trending1.jpg": "./storage/app/public/img/trending1.jpg",
+	"./trending2.jpg": "./storage/app/public/img/trending2.jpg",
+	"./trending3.jpg": "./storage/app/public/img/trending3.jpg",
+	"./trending4.jpg": "./storage/app/public/img/trending4.jpg",
+	"./wave1.svg": "./storage/app/public/img/wave1.svg"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./storage/app/public/img sync recursive ^\\.\\/.*$";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Alessio Napoli.jpg":
+/*!***************************************************!*\
+  !*** ./storage/app/public/img/Alessio Napoli.jpg ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Alessio Napoli.jpg?2e2ec6651e85f68d84f36c4314182d85";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/BoolBnb.logo.png":
+/*!*************************************************!*\
+  !*** ./storage/app/public/img/BoolBnb.logo.png ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/BoolBnb.logo.png?33e8e756d7f31737bc5f540158e41b93";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/BoolBnb.png":
+/*!********************************************!*\
+  !*** ./storage/app/public/img/BoolBnb.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/BoolBnb.png?984981497bb09ace02bc91c45e14aadc";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Christian D'Agostino.jpeg":
+/*!**********************************************************!*\
+  !*** ./storage/app/public/img/Christian D'Agostino.jpeg ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Christian D'Agostino.jpeg?bc778a62522c4022e0a6bb0965d5e862";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Comfort_1.png":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/Comfort_1.png ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Comfort_1.png?7aa73ae6d621025ece0f750eb03ea717";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Comfort_Pink.png":
+/*!*************************************************!*\
+  !*** ./storage/app/public/img/Comfort_Pink.png ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Comfort_Pink.png?27a14cc3f8f67f38368573c885c87c81";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Dario La Tegola.jpeg":
+/*!*****************************************************!*\
+  !*** ./storage/app/public/img/Dario La Tegola.jpeg ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Dario La Tegola.jpeg?68cd80d29d9420a2cb72d88bb0388ead";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Edoardo Lai.jpeg":
+/*!*************************************************!*\
+  !*** ./storage/app/public/img/Edoardo Lai.jpeg ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Edoardo Lai.jpeg?f7c963547fa416707a6ad213563b2d29";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Greece.png":
+/*!*******************************************!*\
+  !*** ./storage/app/public/img/Greece.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Greece.png?a8356c80c8038b70b249a6d4641c1ad6";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Hos_Light.png":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/Hos_Light.png ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Hos_Light.png?07e039ec344ec22d3b1e9929b09af3a4";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Italy.jpg":
+/*!******************************************!*\
+  !*** ./storage/app/public/img/Italy.jpg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Italy.jpg?04b44d89be58b6c94ff8ac3bf65ee7f2";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Italy.png":
+/*!******************************************!*\
+  !*** ./storage/app/public/img/Italy.png ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Italy.png?e6db75b6c6bc92083ffa3217a6d9f033";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Map.png":
+/*!****************************************!*\
+  !*** ./storage/app/public/img/Map.png ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Map.png?2c9ae2e9138cdb3abc8ee73ad34eb49e";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Map_Light.png":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/Map_Light.png ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Map_Light.png?c0cd12e153ab1294795af028a0bf56d3";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Marianna galuppi.jpeg":
+/*!******************************************************!*\
+  !*** ./storage/app/public/img/Marianna galuppi.jpeg ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Marianna galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Morocco.jpg":
+/*!********************************************!*\
+  !*** ./storage/app/public/img/Morocco.jpg ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Morocco.jpg?45b943d31c0421104590017495a496f7";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Norway.jpg":
+/*!*******************************************!*\
+  !*** ./storage/app/public/img/Norway.jpg ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Norway.jpg?61594923ca294f717da4d522ff196d5d";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Paris.png":
+/*!******************************************!*\
+  !*** ./storage/app/public/img/Paris.png ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Paris.png?581992aa765cc0fb9bf332fd19ab8f8c";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Popular_Destinations.png":
+/*!*********************************************************!*\
+  !*** ./storage/app/public/img/Popular_Destinations.png ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Popular_Destinations.png?7092be59456c84172c3696538bb34726";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Recensione2.jpg":
+/*!************************************************!*\
+  !*** ./storage/app/public/img/Recensione2.jpg ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Recensione2.jpg?3c6e6efd29e3cb76d8915980cd6dc99b";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Recensione3.jpg":
+/*!************************************************!*\
+  !*** ./storage/app/public/img/Recensione3.jpg ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Recensione3.jpg?1e85df0c6bd3634b4a64c5339987a08f";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Recensione5.jpg":
+/*!************************************************!*\
+  !*** ./storage/app/public/img/Recensione5.jpg ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Recensione5.jpg?e9265cf25e70fa253220045d7170d671";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Slide_1_.jpg":
+/*!*********************************************!*\
+  !*** ./storage/app/public/img/Slide_1_.jpg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Slide_1_.jpg?d1ba0e293746c1fc314c3f9707c6af0e";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Slide_2_.jpg":
+/*!*********************************************!*\
+  !*** ./storage/app/public/img/Slide_2_.jpg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Slide_2_.jpg?b5c33eb61753a1dd15d4dd97c4c03bde";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Slide_3_.jpg":
+/*!*********************************************!*\
+  !*** ./storage/app/public/img/Slide_3_.jpg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Slide_3_.jpg?8f11ae6eb40be00f6395d83c821d6fc6";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Trending.png":
+/*!*********************************************!*\
+  !*** ./storage/app/public/img/Trending.png ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Trending.png?1f4b8f428e6fe12f50fd432d0471d7fb";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/jumbo.jpg":
+/*!******************************************!*\
+  !*** ./storage/app/public/img/jumbo.jpg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/jumbo.jpg?3374f3360195f6c22c717d50023e2868";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/jumbotron.jpg":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/jumbotron.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/jumbotron.jpg?6e88e6fe4cfaac65d5df4dfe1629693e";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/recensione1.jpg":
+/*!************************************************!*\
+  !*** ./storage/app/public/img/recensione1.jpg ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/recensione1.jpg?a47b87b50a961270ca228230c33252df";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/slide_1.jpg":
+/*!********************************************!*\
+  !*** ./storage/app/public/img/slide_1.jpg ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/slide_1.jpg?7887a85f7b94daabd9475d04e947ae53";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/slide_2.jpg":
+/*!********************************************!*\
+  !*** ./storage/app/public/img/slide_2.jpg ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/slide_2.jpg?a748f592b12ed11241e3679daa438478";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/slide_3.jpg":
+/*!********************************************!*\
+  !*** ./storage/app/public/img/slide_3.jpg ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/slide_3.jpg?8ab4cd63c4f8c004d271b69c94afda1b";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/slider.jpg":
+/*!*******************************************!*\
+  !*** ./storage/app/public/img/slider.jpg ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/slider.jpg?bce8b3205e1104ccc1bc7e7fe795de94";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/trending1.jpg":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/trending1.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/trending1.jpg?7106926c30bda651b5df134cb71a0757";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/trending2.jpg":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/trending2.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/trending2.jpg?be5b7e236e81a0ea140219489e2eb57f";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/trending3.jpg":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/trending3.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/trending3.jpg?e0e09ab6e216209db2964cac4762fa97";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/trending4.jpg":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/trending4.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/trending4.jpg?5e7e397a86b0dbbf972489d57f0aa4a8";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/wave1.svg":
+/*!******************************************!*\
+  !*** ./storage/app/public/img/wave1.svg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/wave1.svg?5145523a05c552d9220b6a8eb9923fe2";
 
 /***/ }),
 
