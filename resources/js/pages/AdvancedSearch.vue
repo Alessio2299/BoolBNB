@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="col-12 text-center">
-                    <button class="btn btn-dark" @click="sendParams()">Cerca</button>
+                    <button class="btn btn-dark" @click="sendParams()">Search now!</button>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@
             
             <div class="row">
                 <div class="col-6">
-                    <p class="my_text" v-if="apartments.length == 0">No apartment was found</p>
+                    <p class="text-center my_text" v-if="apartments.length == 0">Sorry, we could not find an apartment matching your requirments!</p>
                     <Apartment
                         v-for="apartment in apartments" :key="apartment.id"
                         :image="apartment.image"
@@ -73,7 +73,7 @@
                     />
                 </div>
 
-                <div v-if="flag && flagApartment" class="col-6 d-flex align-items-center justify-content-center">
+                <div v-if="flag && flagApartment" class="search-map col-6 d-flex align-items-center justify-content-center">
                     <MapFeature
                         :lat= 'addressLat'
                         :lon= 'addressLon'
@@ -177,10 +177,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    @import "../../sass/variables.scss";
+    section {
+        background-color: $orange_primary;
+
+        .card-body {
+            background-color: $blue_primary;
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 150px;
+            margin: 0 15px;
+        }
+
+        #map {
+            border: 3px solid $orange_secondary;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    }
     #radius{
         width: 300px;
     }
     .my_text{
         font-size: 40px;
+    }
+
+    input[type='range'] {
+        accent-color: $orange_secondary;
     }
 </style>
