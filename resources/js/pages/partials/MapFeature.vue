@@ -96,7 +96,13 @@
 <style lang="scss" scoped>
   #map{
     width: 60vw;
-    height: 60vh;
+    height: 40vh;
     overflow: hidden;
+  }
+
+  @media only screen and (min-width: 992px) {
+  #map {
+  height: 60vh;
+  }
   }
 </style>>
