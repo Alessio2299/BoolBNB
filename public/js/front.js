@@ -18243,7 +18243,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#radius[data-v-0312e533] {\n  width: 300px;\n}\n.my_text[data-v-0312e533] {\n  font-size: 40px;\n}", ""]);
+exports.push([module.i, "section[data-v-0312e533] {\n  background-color: #EF9273;\n}\nsection .card-body[data-v-0312e533] {\n  background-color: #A5C7D8;\n}\nsection label[data-v-0312e533] {\n  font-size: 20px;\n  font-weight: bold;\n}\nsection select[data-v-0312e533] {\n  width: 150px;\n  margin: 0 15px;\n}\nsection #map[data-v-0312e533] {\n  border: 3px solid #FFCEAF;\n  padding: 10px;\n  border-radius: 10px;\n}\n#radius[data-v-0312e533] {\n  width: 300px;\n}\n.my_text[data-v-0312e533] {\n  font-size: 40px;\n}\ninput[type=range][data-v-0312e533] {\n  accent-color: #FFCEAF;\n}", ""]);
 
 // exports
 
@@ -20665,7 +20665,7 @@ var render = function () {
                 },
               },
             },
-            [_vm._v("Cerca")]
+            [_vm._v("Search now!")]
           ),
         ]),
       ]),
@@ -20678,8 +20678,10 @@ var render = function () {
           { staticClass: "col-6" },
           [
             _vm.apartments.length == 0
-              ? _c("p", { staticClass: "my_text" }, [
-                  _vm._v("No apartment was found"),
+              ? _c("p", { staticClass: "text-center my_text" }, [
+                  _vm._v(
+                    "Sorry, we could not find an apartment matching your requirments!"
+                  ),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -20707,7 +20709,7 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  "col-6 d-flex align-items-center justify-content-center",
+                  "search-map col-6 d-flex align-items-center justify-content-center",
               },
               [
                 _c("MapFeature", {
