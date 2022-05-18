@@ -1,91 +1,95 @@
 <template>
     <section class="mx-auto">
-        <div class="container-fluid px-5 py-5">
-            <div class="row">
-                <div class="col-12 my-3">
-                    <h1 class="text-center">Advanced Search</h1>
-                    <div class="text-center">
-                        <label for="radius" class="d-block form-label">Radius: {{radius}} km</label>
-                        <input type="range" min="1" max="30" id="radius" name="radius" v-model="radius">
+        <div class="container-fluid my_index px-5 py-5 position-relative">
+            <div class="container my_container position-relative my_pb">
+                <div class="row filters p-4 justify-content-center">
+                    <div class="col-12 my-3">
+                        <h1 class="text-center my_title">Advanced Search</h1>
+                    </div>
+
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-3 h-100 text-center d-flex justify-content-around my-3 align-items-center">
+                            <div class="text-center">
+                                <label for="rooms"><font-awesome-icon icon="fa-solid fa-people-roof" class="mr-2" /> Rooms</label>
+                                <select v-model="rooms_num">
+                                    <option value="All">All</option>
+                                    <option v-for="index in 9" :key="index" :value="index" >{{index}}</option>
+                                    <option value="10+">10+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-3 h-100 text-center d-flex justify-content-around my-3 align-items-center">
+                            <div class="text-center">
+                                <label for="beds"><font-awesome-icon icon="fa-solid fa-bed" class="mr-2" /> Beds</label>
+                                <select v-model="beds_num">
+                                    <option value="All">All</option>
+                                    <option v-for="index in 9" :key="index" :value="index">{{index}}</option>
+                                    <option value="10+">10+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-3 h-100 text-center d-flex justify-content-around my-3 align-items-center">
+                            <div class="text-center">
+                                <label for="bathrooms"><font-awesome-icon icon="fa-solid fa-toilet" class="mr-2" /> Bathrooms</label>
+                                <select v-model="bathrooms_num">
+                                    <option value="All">All</option>
+                                    <option v-for="index in 9" :key="index" :value="index">{{index}}</option>
+                                    <option value="10+">10+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-3 h-100 text-center d-flex justify-content-around my-3 align-items-center">
+                            <div @click="viewMore()" class="text-center more-search">
+                                <span class="label">More 
+                                    <i v-if="!more" class="ml-1 fas fa-chevron-down"></i>
+                                    <i v-if="more" class="ml-1 fas fa-chevron-up"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-if="more" class="col-12 d-flex flex-column my_amenity mb-4">
+                        <div class="d-flex my-3 align-items-center justify-content-around">
+                            <div class="my_width justify-content-center d-flex align-items-center" v-for="amenity in amenities" :key="amenity.id">
+                                <div class="justify-content-center align-items-center d-flex flex-column flex-md-row">
+                                    <label class="mr-2" :for="amenity.name">{{amenity.name}}</label>
+                                    <input type="checkbox" :id="amenity.name" :value="amenity.id" v-model="checked_amenities">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="linee"></div>
+                        <div class="text-center d-flex justify-content-center align-items-center py-3">
+                            <label for="radius" class="d-block form-label my_padding">Radius: {{radius}} km</label>
+                            <input type="range" min="1" max="30" id="radius" name="radius" v-model="radius">
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="btn my-btn" @click="sendParams()">Search now!</button>
                     </div>
                 </div>
-
-                <div class="col-12 d-flex justify-content-around my-3 align-items-center">
-                    <div>
-                        <label for="rooms"><font-awesome-icon icon="fa-solid fa-people-roof" class="mr-2" /> Rooms</label>
-                        <select v-model="rooms_num">
-                            <option value="All">All</option>
-                            <option v-for="index in 9" :key="index" :value="index" >{{index}}</option>
-                            <option value="10+">10+</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="beds"><font-awesome-icon icon="fa-solid fa-bed" class="mr-2" /> Beds</label>
-                        <select v-model="beds_num">
-                            <option value="All">All</option>
-                            <option v-for="index in 9" :key="index" :value="index">{{index}}</option>
-                            <option value="10+">10+</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="bathrooms"><font-awesome-icon icon="fa-solid fa-toilet" class="mr-2" /> Bathrooms</label>
-                        <select v-model="bathrooms_num">
-                            <option value="All">All</option>
-                            <option v-for="index in 9" :key="index" :value="index">{{index}}</option>
-                            <option value="10+">10+</option>
-                        </select>
-                    </div>
-
-                    <div @click="viewMore()" class="more-search">
-                        <span class="label">More 
-                            <i v-if="!more" class="ml-1 fas fa-chevron-down"></i>
-                            <i v-if="more" class="ml-1 fas fa-chevron-up"></i>
-                        </span>
-                    </div>
-                </div>
-
-                <div v-if="more" class="col-12 d-flex justify-content-around my-3">
-                    <div v-for="amenity in amenities" :key="amenity.id">
-                        <label :for="amenity.name">{{amenity.name}}</label>
-                        <input type="checkbox" :id="amenity.name" :value="amenity.id" v-model="checked_amenities">
-                    </div>
-                </div>
-
-                <div class="col-12 text-center">
-                    <button class="btn btn-dark" @click="sendParams()">Search now!</button>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 my-3">
-                    
-                </div>
-            </div>
-            
-            <div class="row results">
-                <div class="col apart_container">
+            </div>         
+            <div class="row results mt-4">
+                <div class="col apart_container mb-3">
                     <div class="row">
-
-                                <!-- <div class="col-4"> -->
-                                    <p class="text-center my_text" v-if="apartments.length == 0">Sorry, we could not find an apartment matching your requirments!</p>
-                                    <Apartment
-                                        v-for="apartment in apartments" :key="apartment.id"
-                                        :image="apartment.image"
-                                        :title="apartment.title"
-                                        :description="apartment.description"
-                                        :slug="apartment.slug"
-                                        :rooms="apartment.rooms"
-                                        :bathrooms="apartment.bathrooms"
-                                        :beds="apartment.beds"
-                                        :address="apartment.address"
-                                    />
-                                <!-- </div> -->
-
+                        <p class="text-center my_text" v-if="apartments.length == 0">Sorry, we could not find an apartment matching your requirments!</p>
+                        <Apartment
+                            v-for="apartment in apartments" :key="apartment.id"
+                            :image="apartment.image"
+                            :title="apartment.title"
+                            :description="apartment.description"
+                            :slug="apartment.slug"
+                            :rooms="apartment.rooms"
+                            :bathrooms="apartment.bathrooms"
+                            :beds="apartment.beds"
+                            :address="apartment.address"
+                        />
                     </div>
                 </div>
-                <div v-if="flag && flagApartment" class="search-map mt-4 col-lg-6 col-md-12  d-flex  justify-content-center">
+
+                <div v-if="flag && flagApartment" class="search-map col-lg-6 col-md-12  d-flex  justify-content-center">
                     <MapFeature
                         :lat= 'addressLat'
                         :lon= 'addressLon'
@@ -182,6 +186,7 @@ export default {
                 } else{
                     this.apartments = resp.data.results
                     this.error = false
+                    this.more = false
                 }
             })
         },
@@ -199,37 +204,50 @@ export default {
 
 <style lang="scss" scoped>
     @import "../../sass/variables.scss";
+    .my_title{
+        font-size: 5rem;
+        text-transform: uppercase;
+        text-shadow: 4px 4px #e7707d;
+        color: #f5deb3;
+    }
+    .my_width{
+        width: 20%;
+    }
     section {
-        background-color: $orange_primary;
+        background-color: #feceaf;
+        font-family: Montserrat, sans-serif;
+
 
         .apart_container{
             overflow-y: auto;
-            height: 500px;
+            height: 60vh;
             padding: 50px;
-            background-color: wheat;
+            background-color: #ef9073;
             border-radius: 10px;
         }
-
-        
 
         .card-body {
             background-color: $blue_primary;
         }
+        .row.filters{
+            background-color: #ef9173;
+            border-radius: 10px;
+            box-shadow: 10px 10px #e7717d;
 
-        label {
-            font-size: 20px;
-            font-weight: bold;
         }
-
-        select {
-            width: 150px;
-            margin: 0 15px;
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
         #map {
-            border: 3px solid $orange_secondary;
+            border: 3px solid #ef9173;
             padding: 10px;
             border-radius: 10px;
+        }
+        select{
+            width: 100%;
         }
     }
     #radius{
@@ -243,9 +261,34 @@ export default {
         accent-color: $orange_secondary;
     }
     .label{
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
         cursor: pointer;
     }
-
+    .my_amenity{
+        background-color: #E7717D;
+        border-radius: 10px;
+        padding-top: 5px;
+        box-shadow: 10px 10px #aa535b;
+        color: #fff;
+        .linee{
+            height: 1px;
+            width: 100%;
+            background-color: black;
+        }
+        .my_padding{
+            padding-top: 5px;
+            padding-right: 10px;
+        }
+    }
+    input[type='checkbox']{
+        filter: grayscale(1);
+        width: 20px;
+        height: 20px;
+        margin-bottom: 0.5rem;
+    }
+    .my-btn{
+        color: #fff;
+        background-color: #aa535b;
+    }
 </style>

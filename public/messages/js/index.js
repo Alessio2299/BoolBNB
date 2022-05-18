@@ -104,7 +104,7 @@ console.log("test");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/messages/index.js */"./resources/js/messages/index.js");
+module.exports = __webpack_require__(/*! /Users/mari/Desktop/Boolean/BoolBnb/resources/js/messages/index.js */"./resources/js/messages/index.js");
 
 
 /***/ })
