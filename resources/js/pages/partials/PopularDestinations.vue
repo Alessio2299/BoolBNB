@@ -5,7 +5,7 @@
             <img class="img-fluid" src="../../../../storage/app/public/img/Popular_Destinations.png" alt="">
         </div>
       </div>
-      <div class="row row-cols-md-3 row-cols-sm-1  mx-5 mb-5">
+      <div class="row row-cols-lg-3 row-cols-md-1  mx-5 mb-5">
         <router-link :to="{name: 'advancedSearch', params :{address: destination.uri}}" v-for="destination in destinations" :key="destination.name">
         <div class="col text-center ">
           <div class="card d-flex align-items-center my-4" >

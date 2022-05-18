@@ -60,8 +60,6 @@
   }
 
   .carousel-item {
-    height: 500px;
-
     img {
       width: 100%;
       object-fit: cover;
@@ -71,6 +69,30 @@
   
 }
 
+  
+
+  @media only screen and (max-width: 576px) {
+ .carousel-control-prev,.carousel-control-next{
+    display: none;
+  }
+  .carousel-item{
+    max-height: 300px;
+  }
+}
+  @media only screen and (max-width: 992px) and (min-width: 576px ) {
+  .carousel-control-prev,.carousel-control-next{
+    display: none;
+  }
+  .carousel-item{
+    max-height: 400px;
+  }
+}
+
+  @media only screen and (min-width: 993px) {
+  .carousel-item{
+    height: 500px;
+  }
+}
 
 
 </style>
