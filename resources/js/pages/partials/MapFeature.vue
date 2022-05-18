@@ -95,8 +95,8 @@
 
 <style lang="scss" scoped>
   #map{
-    width: 60vw;
-    height: 40vh;
+    width: 100%;
+    height: 60vh;
     overflow: hidden;
   }
 

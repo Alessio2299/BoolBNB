@@ -18265,7 +18265,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".my_width[data-v-0312e533] {\n  width: 20%;\n}\nsection[data-v-0312e533] {\n  background-color: #EF9273;\n}\nsection .apart_container[data-v-0312e533] {\n  overflow-y: auto;\n  height: 500px;\n  padding: 50px;\n  background-color: wheat;\n  border-radius: 10px;\n}\nsection .card-body[data-v-0312e533] {\n  background-color: #A5C7D8;\n}\nsection .row.filters[data-v-0312e533] {\n  background-color: #FFCEAF;\n  border-radius: 10px;\n  box-shadow: 10px 10px #E7717D;\n  width: 95%;\n  margin: auto;\n}\nsection label[data-v-0312e533] {\n  font-size: 20px;\n  font-weight: bold;\n  white-space: nowrap;\n}\nsection #map[data-v-0312e533] {\n  border: 3px solid #FFCEAF;\n  padding: 10px;\n  border-radius: 10px;\n}\nsection select[data-v-0312e533] {\n  width: 100%;\n}\n#radius[data-v-0312e533] {\n  width: 300px;\n}\n.my_text[data-v-0312e533] {\n  font-size: 40px;\n}\ninput[type=range][data-v-0312e533] {\n  accent-color: #FFCEAF;\n}\n.label[data-v-0312e533] {\n  font-size: 20px;\n  font-weight: bold;\n  cursor: pointer;\n}\n.my_amenity[data-v-0312e533] {\n  background-color: #E7717D;\n  border-radius: 10px;\n  padding-top: 5px;\n  box-shadow: 10px 10px #aa535b;\n  color: #fff;\n}\n.my_amenity .linee[data-v-0312e533] {\n  height: 1px;\n  width: 100%;\n  background-color: black;\n}\n.my_amenity .my_padding[data-v-0312e533] {\n  padding-top: 5px;\n  padding-right: 10px;\n}\ninput[type=checkbox][data-v-0312e533] {\n  filter: grayscale(1);\n  width: 20px;\n  height: 20px;\n  margin-bottom: 0.5rem;\n}\n.my-btn[data-v-0312e533] {\n  color: #fff;\n  background-color: #aa535b;\n}", ""]);
+exports.push([module.i, ".my_title[data-v-0312e533] {\n  font-size: 5rem;\n  text-transform: uppercase;\n  text-shadow: 4px 4px #e7707d;\n  color: #f5deb3;\n}\n.my_width[data-v-0312e533] {\n  width: 20%;\n}\nsection[data-v-0312e533] {\n  background-color: #feceaf;\n  font-family: Montserrat, sans-serif;\n}\nsection .apart_container[data-v-0312e533] {\n  overflow-y: auto;\n  height: 60vh;\n  padding: 50px;\n  background-color: #ef9073;\n  border-radius: 10px;\n}\nsection .card-body[data-v-0312e533] {\n  background-color: #A5C7D8;\n}\nsection .row.filters[data-v-0312e533] {\n  background-color: #ef9173;\n  border-radius: 10px;\n  box-shadow: 10px 10px #e7717d;\n}\nsection label[data-v-0312e533] {\n  font-size: 18px;\n  font-weight: bold;\n  white-space: nowrap;\n}\nsection #map[data-v-0312e533] {\n  border: 3px solid #ef9173;\n  padding: 10px;\n  border-radius: 10px;\n}\nsection select[data-v-0312e533] {\n  width: 100%;\n}\n#radius[data-v-0312e533] {\n  width: 300px;\n}\n.my_text[data-v-0312e533] {\n  font-size: 40px;\n}\ninput[type=range][data-v-0312e533] {\n  accent-color: #FFCEAF;\n}\n.label[data-v-0312e533] {\n  font-size: 18px;\n  font-weight: bold;\n  cursor: pointer;\n}\n.my_amenity[data-v-0312e533] {\n  background-color: #E7717D;\n  border-radius: 10px;\n  padding-top: 5px;\n  box-shadow: 10px 10px #aa535b;\n  color: #fff;\n}\n.my_amenity .linee[data-v-0312e533] {\n  height: 1px;\n  width: 100%;\n  background-color: black;\n}\n.my_amenity .my_padding[data-v-0312e533] {\n  padding-top: 5px;\n  padding-right: 10px;\n}\ninput[type=checkbox][data-v-0312e533] {\n  filter: grayscale(1);\n  width: 20px;\n  height: 20px;\n  margin-bottom: 0.5rem;\n}\n.my-btn[data-v-0312e533] {\n  color: #fff;\n  background-color: #aa535b;\n}", ""]);
 
 // exports
 
@@ -18399,7 +18399,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#map[data-v-59c4d3de] {\n  width: 60vw;\n  height: 40vh;\n  overflow: hidden;\n}\n@media only screen and (min-width: 992px) {\n#map[data-v-59c4d3de] {\n    height: 60vh;\n}\n}", ""]);
+exports.push([module.i, "#map[data-v-59c4d3de] {\n  width: 100%;\n  height: 60vh;\n  overflow: hidden;\n}\n@media only screen and (min-width: 992px) {\n#map[data-v-59c4d3de] {\n    height: 60vh;\n}\n}", ""]);
 
 // exports
 
@@ -20441,10 +20441,10 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
+  return _c("section", { staticClass: "mx-auto" }, [
     _c(
       "div",
-      { staticClass: "container-fluid my_index px-0 py-5 position-relative" },
+      { staticClass: "container-fluid my_index px-5 py-5 position-relative" },
       [
         _c(
           "div",
@@ -20869,61 +20869,63 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col-6" },
-            [
-              _vm.apartments.length == 0
-                ? _c("p", { staticClass: "text-center my_text" }, [
-                    _vm._v(
-                      "Sorry, we could not find an apartment matching your requirments!"
-                    ),
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm._l(_vm.apartments, function (apartment) {
-                return _c("Apartment", {
-                  key: apartment.id,
-                  attrs: {
-                    image: apartment.image,
-                    title: apartment.title,
-                    description: apartment.description,
-                    slug: apartment.slug,
-                    rooms: apartment.rooms,
-                    bathrooms: apartment.bathrooms,
-                    beds: apartment.beds,
-                    address: apartment.address,
-                  },
-                })
-              }),
-            ],
-            2
-          ),
+        _c("div", { staticClass: "row results mt-4" }, [
+          _c("div", { staticClass: "col apart_container mb-3" }, [
+            _c(
+              "div",
+              { staticClass: "row" },
+              [
+                _vm.apartments.length == 0
+                  ? _c("p", { staticClass: "text-center my_text" }, [
+                      _vm._v(
+                        "Sorry, we could not find an apartment matching your requirments!"
+                      ),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._l(_vm.apartments, function (apartment) {
+                  return _c("Apartment", {
+                    key: apartment.id,
+                    attrs: {
+                      image: apartment.image,
+                      title: apartment.title,
+                      description: apartment.description,
+                      slug: apartment.slug,
+                      rooms: apartment.rooms,
+                      bathrooms: apartment.bathrooms,
+                      beds: apartment.beds,
+                      address: apartment.address,
+                    },
+                  })
+                }),
+              ],
+              2
+            ),
+          ]),
+          _vm._v(" "),
+          _vm.flag && _vm.flagApartment
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "search-map col-lg-6 col-md-12  d-flex  justify-content-center",
+                },
+                [
+                  _c("MapFeature", {
+                    attrs: {
+                      lat: _vm.addressLat,
+                      lon: _vm.addressLon,
+                      apartments: _vm.apartments,
+                      radius: _vm.radius,
+                    },
+                  }),
+                ],
+                1
+              )
+            : _vm._e(),
         ]),
       ]
     ),
-    _vm._v(" "),
-    _vm.flag && _vm.flagApartment
-      ? _c(
-          "div",
-          {
-            staticClass:
-              "search-map mt-4 col-lg-6 col-md-12  d-flex  justify-content-center",
-          },
-          [
-            _c("MapFeature", {
-              attrs: {
-                lat: _vm.addressLat,
-                lon: _vm.addressLon,
-                apartments: _vm.apartments,
-                radius: _vm.radius,
-              },
-            }),
-          ],
-          1
-        )
-      : _vm._e(),
   ])
 }
 var staticRenderFns = [
@@ -20932,7 +20934,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 my-3" }, [
-      _c("h1", { staticClass: "text-center" }, [_vm._v("Advanced Search")]),
+      _c("h1", { staticClass: "text-center my_title" }, [
+        _vm._v("Advanced Search"),
+      ]),
     ])
   },
 ]

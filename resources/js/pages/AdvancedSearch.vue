@@ -1,10 +1,10 @@
 <template>
-    <section>
-        <div class="container-fluid my_index px-0 py-5 position-relative">
+    <section class="mx-auto">
+        <div class="container-fluid my_index px-5 py-5 position-relative">
             <div class="container my_container position-relative my_pb">
                 <div class="row filters p-4 justify-content-center">
                     <div class="col-12 my-3">
-                        <h1 class="text-center">Advanced Search</h1>
+                        <h1 class="text-center my_title">Advanced Search</h1>
                     </div>
 
                     <div class="row justify-content-center mb-4">
@@ -70,26 +70,26 @@
                         <button class="btn my-btn" @click="sendParams()">Search now!</button>
                     </div>
                 </div>
-            </div>           
-            <div class="row">
-                <div class="col-6">
-                    <p class="text-center my_text" v-if="apartments.length == 0">Sorry, we could not find an apartment matching your requirments!</p>
-                    <Apartment
-                        v-for="apartment in apartments" :key="apartment.id"
-                        :image="apartment.image"
-                        :title="apartment.title"
-                        :description="apartment.description"
-                        :slug="apartment.slug"
-                        :rooms="apartment.rooms"
-                        :bathrooms="apartment.bathrooms"
-                        :beds="apartment.beds"
-                        :address="apartment.address"
-                    />
-                </div>
-
+            </div>         
+            <div class="row results mt-4">
+                <div class="col apart_container mb-3">
+                    <div class="row">
+                        <p class="text-center my_text" v-if="apartments.length == 0">Sorry, we could not find an apartment matching your requirments!</p>
+                        <Apartment
+                            v-for="apartment in apartments" :key="apartment.id"
+                            :image="apartment.image"
+                            :title="apartment.title"
+                            :description="apartment.description"
+                            :slug="apartment.slug"
+                            :rooms="apartment.rooms"
+                            :bathrooms="apartment.bathrooms"
+                            :beds="apartment.beds"
+                            :address="apartment.address"
+                        />
                     </div>
                 </div>
-                <div v-if="flag && flagApartment" class="search-map mt-4 col-lg-6 col-md-12  d-flex  justify-content-center">
+
+                <div v-if="flag && flagApartment" class="search-map col-lg-6 col-md-12  d-flex  justify-content-center">
                     <MapFeature
                         :lat= 'addressLat'
                         :lon= 'addressLon'
@@ -204,40 +204,45 @@ export default {
 
 <style lang="scss" scoped>
     @import "../../sass/variables.scss";
+    .my_title{
+        font-size: 5rem;
+        text-transform: uppercase;
+        text-shadow: 4px 4px #e7707d;
+        color: #f5deb3;
+    }
     .my_width{
         width: 20%;
     }
     section {
-        background-color: $orange_primary;
+        background-color: #feceaf;
+        font-family: Montserrat, sans-serif;
+
 
         .apart_container{
             overflow-y: auto;
-            height: 500px;
+            height: 60vh;
             padding: 50px;
-            background-color: wheat;
+            background-color: #ef9073;
             border-radius: 10px;
         }
-
-        
 
         .card-body {
             background-color: $blue_primary;
         }
         .row.filters{
-            background-color: #FFCEAF;
+            background-color: #ef9173;
             border-radius: 10px;
-            box-shadow: 10px 10px #E7717D;
-            width: 95%;
-            margin: auto;
+            box-shadow: 10px 10px #e7717d;
+
         }
         label {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             white-space: nowrap;
         }
 
         #map {
-            border: 3px solid $orange_secondary;
+            border: 3px solid #ef9173;
             padding: 10px;
             border-radius: 10px;
         }
@@ -256,7 +261,7 @@ export default {
         accent-color: $orange_secondary;
     }
     .label{
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
         cursor: pointer;
     }
