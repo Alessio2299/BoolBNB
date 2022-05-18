@@ -17365,6 +17365,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -17390,8 +17407,12 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       success: null,
       listAddress: [],
       errors: {},
-      isSending: false
+      isSending: false,
+      apartments: []
     };
+  },
+  mounted: function mounted() {
+    this.getApartments();
   },
   methods: {
     autoComplete: function autoComplete() {
@@ -17438,6 +17459,15 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
           }
         });
       }
+    },
+    getApartments: function getApartments() {
+      var _this3 = this;
+
+      Axios.get('/api/all/apartments').then(function (resp) {
+        for (var i = 0; i < 4; i++) {
+          _this3.apartments.push(resp.data.results[i]);
+        }
+      });
     }
   }
 });
@@ -17988,26 +18018,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+var dayjs = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PopularDestinations',
   data: function data() {
     return {
-      destinations: [{
-        country: 'Morocco',
-        uri: 'Morocco',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Cropped_Morocco.jpg */ "./storage/app/public/img/Cropped_Morocco.jpg")
-      }, {
-        country: 'Italy',
-        uri: 'Italia',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Italy.jpg */ "./storage/app/public/img/Italy.jpg")
-      }, {
-        country: 'Norway',
-        uri: 'Norway',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Cropped_Norway.jpg */ "./storage/app/public/img/Cropped_Norway.jpg")
-      }]
+      dateNow: dayjs().format('D-MM-YYYY').split('-').slice(1, 2).join(''),
+      destinations: []
     };
   },
-  components: {},
+  mounted: function mounted() {
+    this.getDestination();
+  },
   methods: {
     getLatlong: function getLatlong() {
       var _this = this;
@@ -18021,6 +18044,37 @@ __webpack_require__.r(__webpack_exports__);
           _this.flag = true;
         }
       });
+    },
+    getDestination: function getDestination() {
+      if (this.dateNow >= '07' && this.dateNow <= '09') {
+        this.destinations = [{
+          country: 'Morocco',
+          uri: 'Morocco',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Morocco.jpg */ "./storage/app/public/img/Morocco.jpg")
+        }, {
+          country: 'Italy',
+          uri: 'Italia',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Italy.jpg */ "./storage/app/public/img/Italy.jpg")
+        }, {
+          country: 'Greece',
+          uri: 'Greece',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/grecia.jpeg */ "./storage/app/public/img/grecia.jpeg")
+        }];
+      } else {
+        this.destinations = [{
+          country: 'Austria',
+          uri: 'Austria',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Austria.jpeg */ "./storage/app/public/img/Austria.jpeg")
+        }, {
+          country: 'Germany',
+          uri: 'Germany',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Germany-landscape.jpg */ "./storage/app/public/img/Germany-landscape.jpg")
+        }, {
+          country: 'Norway',
+          uri: 'Norway',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Norway.jpg */ "./storage/app/public/img/Norway.jpg")
+        }];
+      }
     }
   }
 });
@@ -18049,59 +18103,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TrendingNow',
   data: function data() {
     return {};
   },
-  components: {}
+  props: {
+    title: String,
+    image: String,
+    slug: String
+  }
 });
 
 /***/ }),
@@ -18252,7 +18263,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/jumbotron.jpg */ "./storage/app/public/img/jumbotron.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron .img_box[data-v-b3c5cf30] {\n  width: -webkit-min-content;\n  width: -moz-min-content;\n  width: min-content;\n  margin: auto;\n}\n#jumbotron .img_box #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}", ""]);
+exports.push([module.i, ".main_container[data-v-b3c5cf30] {\n  overflow-x: hidden;\n}\n#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/jumbotron.jpg */ "./storage/app/public/img/jumbotron.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron .img_box[data-v-b3c5cf30] {\n  width: -webkit-min-content;\n  width: -moz-min-content;\n  width: min-content;\n  margin: auto;\n}\n#jumbotron .img_box #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}\n#section_01[data-v-b3c5cf30] {\n  background-color: #E7717D;\n}\n#section_01 h2[data-v-b3c5cf30] {\n  color: #FFCEAF;\n}", ""]);
 
 // exports
 
@@ -18423,7 +18434,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#section_01[data-v-5c7f2a86] {\n  background-color: #E7717D;\n}\n#section_01 h2[data-v-5c7f2a86] {\n  color: #FFCEAF;\n}\n#section_01 a[data-v-5c7f2a86] {\n  text-decoration: none;\n}\n#section_01 a .col .card[data-v-5c7f2a86] {\n  background-color: #E7717D;\n  border: 6px solid #FFCEAF;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n}\n#section_01 a .col .card a[data-v-5c7f2a86] {\n  background-color: #EF9273;\n  border: 0;\n}\n#section_01 a .col .card[data-v-5c7f2a86]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
+exports.push([module.i, "a[data-v-5c7f2a86] {\n  text-decoration: none;\n}\na .col .card[data-v-5c7f2a86] {\n  background-color: #E7717D;\n  border: 6px solid #FFCEAF;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n  height: 400px;\n}\na .col .card img[data-v-5c7f2a86] {\n  width: 100%;\n  height: 300px;\n}\na .col .card a[data-v-5c7f2a86] {\n  background-color: #EF9273;\n  border: 0;\n}\na .col .card[data-v-5c7f2a86]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
 
 // exports
 
@@ -18541,6 +18552,17 @@ module.exports = function escape(url) {
     return url
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/dayjs/dayjs.min.js":
+/*!*****************************************!*\
+  !*** ./node_modules/dayjs/dayjs.min.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():undefined}(this,(function(){"use strict";var t=1e3,e=6e4,n=36e5,r="millisecond",i="second",s="minute",u="hour",a="day",o="week",f="month",h="quarter",c="year",d="date",$="Invalid Date",l=/^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,y=/\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,M={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_")},m=function(t,e,n){var r=String(t);return!r||r.length>=e?t:""+Array(e+1-r.length).join(n)+t},g={s:m,z:function(t){var e=-t.utcOffset(),n=Math.abs(e),r=Math.floor(n/60),i=n%60;return(e<=0?"+":"-")+m(r,2,"0")+":"+m(i,2,"0")},m:function t(e,n){if(e.date()<n.date())return-t(n,e);var r=12*(n.year()-e.year())+(n.month()-e.month()),i=e.clone().add(r,f),s=n-i<0,u=e.clone().add(r+(s?-1:1),f);return+(-(r+(n-i)/(s?i-u:u-i))||0)},a:function(t){return t<0?Math.ceil(t)||0:Math.floor(t)},p:function(t){return{M:f,y:c,w:o,d:a,D:d,h:u,m:s,s:i,ms:r,Q:h}[t]||String(t||"").toLowerCase().replace(/s$/,"")},u:function(t){return void 0===t}},v="en",D={};D[v]=M;var p=function(t){return t instanceof _},S=function t(e,n,r){var i;if(!e)return v;if("string"==typeof e){var s=e.toLowerCase();D[s]&&(i=s),n&&(D[s]=n,i=s);var u=e.split("-");if(!i&&u.length>1)return t(u[0])}else{var a=e.name;D[a]=e,i=a}return!r&&i&&(v=i),i||!r&&v},w=function(t,e){if(p(t))return t.clone();var n="object"==typeof e?e:{};return n.date=t,n.args=arguments,new _(n)},O=g;O.l=S,O.i=p,O.w=function(t,e){return w(t,{locale:e.$L,utc:e.$u,x:e.$x,$offset:e.$offset})};var _=function(){function M(t){this.$L=S(t.locale,null,!0),this.parse(t)}var m=M.prototype;return m.parse=function(t){this.$d=function(t){var e=t.date,n=t.utc;if(null===e)return new Date(NaN);if(O.u(e))return new Date;if(e instanceof Date)return new Date(e);if("string"==typeof e&&!/Z$/i.test(e)){var r=e.match(l);if(r){var i=r[2]-1||0,s=(r[7]||"0").substring(0,3);return n?new Date(Date.UTC(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)):new Date(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)}}return new Date(e)}(t),this.$x=t.x||{},this.init()},m.init=function(){var t=this.$d;this.$y=t.getFullYear(),this.$M=t.getMonth(),this.$D=t.getDate(),this.$W=t.getDay(),this.$H=t.getHours(),this.$m=t.getMinutes(),this.$s=t.getSeconds(),this.$ms=t.getMilliseconds()},m.$utils=function(){return O},m.isValid=function(){return!(this.$d.toString()===$)},m.isSame=function(t,e){var n=w(t);return this.startOf(e)<=n&&n<=this.endOf(e)},m.isAfter=function(t,e){return w(t)<this.startOf(e)},m.isBefore=function(t,e){return this.endOf(e)<w(t)},m.$g=function(t,e,n){return O.u(t)?this[e]:this.set(n,t)},m.unix=function(){return Math.floor(this.valueOf()/1e3)},m.valueOf=function(){return this.$d.getTime()},m.startOf=function(t,e){var n=this,r=!!O.u(e)||e,h=O.p(t),$=function(t,e){var i=O.w(n.$u?Date.UTC(n.$y,e,t):new Date(n.$y,e,t),n);return r?i:i.endOf(a)},l=function(t,e){return O.w(n.toDate()[t].apply(n.toDate("s"),(r?[0,0,0,0]:[23,59,59,999]).slice(e)),n)},y=this.$W,M=this.$M,m=this.$D,g="set"+(this.$u?"UTC":"");switch(h){case c:return r?$(1,0):$(31,11);case f:return r?$(1,M):$(0,M+1);case o:var v=this.$locale().weekStart||0,D=(y<v?y+7:y)-v;return $(r?m-D:m+(6-D),M);case a:case d:return l(g+"Hours",0);case u:return l(g+"Minutes",1);case s:return l(g+"Seconds",2);case i:return l(g+"Milliseconds",3);default:return this.clone()}},m.endOf=function(t){return this.startOf(t,!1)},m.$set=function(t,e){var n,o=O.p(t),h="set"+(this.$u?"UTC":""),$=(n={},n[a]=h+"Date",n[d]=h+"Date",n[f]=h+"Month",n[c]=h+"FullYear",n[u]=h+"Hours",n[s]=h+"Minutes",n[i]=h+"Seconds",n[r]=h+"Milliseconds",n)[o],l=o===a?this.$D+(e-this.$W):e;if(o===f||o===c){var y=this.clone().set(d,1);y.$d[$](l),y.init(),this.$d=y.set(d,Math.min(this.$D,y.daysInMonth())).$d}else $&&this.$d[$](l);return this.init(),this},m.set=function(t,e){return this.clone().$set(t,e)},m.get=function(t){return this[O.p(t)]()},m.add=function(r,h){var d,$=this;r=Number(r);var l=O.p(h),y=function(t){var e=w($);return O.w(e.date(e.date()+Math.round(t*r)),$)};if(l===f)return this.set(f,this.$M+r);if(l===c)return this.set(c,this.$y+r);if(l===a)return y(1);if(l===o)return y(7);var M=(d={},d[s]=e,d[u]=n,d[i]=t,d)[l]||1,m=this.$d.getTime()+r*M;return O.w(m,this)},m.subtract=function(t,e){return this.add(-1*t,e)},m.format=function(t){var e=this,n=this.$locale();if(!this.isValid())return n.invalidDate||$;var r=t||"YYYY-MM-DDTHH:mm:ssZ",i=O.z(this),s=this.$H,u=this.$m,a=this.$M,o=n.weekdays,f=n.months,h=function(t,n,i,s){return t&&(t[n]||t(e,r))||i[n].slice(0,s)},c=function(t){return O.s(s%12||12,t,"0")},d=n.meridiem||function(t,e,n){var r=t<12?"AM":"PM";return n?r.toLowerCase():r},l={YY:String(this.$y).slice(-2),YYYY:this.$y,M:a+1,MM:O.s(a+1,2,"0"),MMM:h(n.monthsShort,a,f,3),MMMM:h(f,a),D:this.$D,DD:O.s(this.$D,2,"0"),d:String(this.$W),dd:h(n.weekdaysMin,this.$W,o,2),ddd:h(n.weekdaysShort,this.$W,o,3),dddd:o[this.$W],H:String(s),HH:O.s(s,2,"0"),h:c(1),hh:c(2),a:d(s,u,!0),A:d(s,u,!1),m:String(u),mm:O.s(u,2,"0"),s:String(this.$s),ss:O.s(this.$s,2,"0"),SSS:O.s(this.$ms,3,"0"),Z:i};return r.replace(y,(function(t,e){return e||l[t]||i.replace(":","")}))},m.utcOffset=function(){return 15*-Math.round(this.$d.getTimezoneOffset()/15)},m.diff=function(r,d,$){var l,y=O.p(d),M=w(r),m=(M.utcOffset()-this.utcOffset())*e,g=this-M,v=O.m(this,M);return v=(l={},l[c]=v/12,l[f]=v,l[h]=v/3,l[o]=(g-m)/6048e5,l[a]=(g-m)/864e5,l[u]=g/n,l[s]=g/e,l[i]=g/t,l)[y]||g,$?v:O.a(v)},m.daysInMonth=function(){return this.endOf(f).$D},m.$locale=function(){return D[this.$L]},m.locale=function(t,e){if(!t)return this.$L;var n=this.clone(),r=S(t,e,!0);return r&&(n.$L=r),n},m.clone=function(){return O.w(this.$d,this)},m.toDate=function(){return new Date(this.valueOf())},m.toJSON=function(){return this.isValid()?this.toISOString():null},m.toISOString=function(){return this.$d.toISOString()},m.toString=function(){return this.$d.toUTCString()},M}(),T=_.prototype;return w.prototype=T,[["$ms",r],["$s",i],["$m",s],["$H",u],["$W",a],["$M",f],["$y",c],["$D",d]].forEach((function(t){T[t[1]]=function(e){return this.$g(e,t[0],t[1])}})),w.extend=function(t,e){return t.$i||(t(e,_,w),t.$i=!0),w},w.locale=S,w.isDayjs=p,w.unix=function(t){return w(1e3*t)},w.en=D[v],w.Ls=D,w.p={},w}));
 
 /***/ }),
 
@@ -20909,7 +20931,29 @@ var render = function () {
       _vm._v(" "),
       _c("AppFeatures"),
       _vm._v(" "),
-      _c("TrendingNow"),
+      _c(
+        "div",
+        { staticClass: "container-fluid py-4", attrs: { id: "section_01" } },
+        [
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row row-cols-lg-4 row-cols-md-1 mx-5" },
+            _vm._l(_vm.apartments, function (apartment) {
+              return _c("TrendingNow", {
+                key: apartment.id,
+                attrs: {
+                  title: apartment.title,
+                  image: apartment.image,
+                  slug: apartment.slug,
+                },
+              })
+            }),
+            1
+          ),
+        ]
+      ),
       _vm._v(" "),
       _c("Carousel"),
       _vm._v(" "),
@@ -20947,6 +20991,22 @@ var staticRenderFns = [
         { staticClass: "btn btn-danger my-4", attrs: { type: "submit" } },
         [_vm._v("Search")]
       ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-center mb-5" }, [
+      _c("div", { staticClass: "col-4" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: {
+            src: __webpack_require__(/*! ../../../storage/app/public/img/Trending.png */ "./storage/app/public/img/Trending.png"),
+            alt: "",
+          },
+        }),
+      ]),
     ])
   },
 ]
@@ -21855,114 +21915,28 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "a",
+    { attrs: { href: "/apartments/single-apartment/" + _vm.slug } },
+    [
+      _c("div", { staticClass: "col text-center" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("img", {
+            staticClass: "card-img-top ",
+            attrs: { src: _vm.image, alt: "Card image cap" },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title text-white" }, [
+              _vm._v(_vm._s(_vm.title)),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "container-fluid py-4", attrs: { id: "section_01" } },
-      [
-        _c("div", { staticClass: "row justify-content-center mb-5" }, [
-          _c("div", { staticClass: "col-4" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: {
-                src: __webpack_require__(/*! ../../../../storage/app/public/img/Trending.png */ "./storage/app/public/img/Trending.png"),
-                alt: "",
-              },
-            }),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row row-cols-4 mx-5" }, [
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending1.jpg */ "./storage/app/public/img/trending1.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending2.jpg */ "./storage/app/public/img/trending2.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending3.jpg */ "./storage/app/public/img/trending3.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending4.jpg */ "./storage/app/public/img/trending4.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38923,22 +38897,22 @@ __webpack_require__.r(__webpack_exports__);
 
 var map = {
 	"./Alessio Napoli.jpg": "./storage/app/public/img/Alessio Napoli.jpg",
+	"./Austria.jpeg": "./storage/app/public/img/Austria.jpeg",
 	"./BoolBnb.logo.png": "./storage/app/public/img/BoolBnb.logo.png",
 	"./BoolBnb.png": "./storage/app/public/img/BoolBnb.png",
 	"./Christian D'Agostino.jpeg": "./storage/app/public/img/Christian D'Agostino.jpeg",
 	"./Comfort_1.png": "./storage/app/public/img/Comfort_1.png",
 	"./Comfort_Pink.png": "./storage/app/public/img/Comfort_Pink.png",
-	"./Cropped_Morocco.jpg": "./storage/app/public/img/Cropped_Morocco.jpg",
-	"./Cropped_Norway.jpg": "./storage/app/public/img/Cropped_Norway.jpg",
 	"./Dario La Tegola.jpeg": "./storage/app/public/img/Dario La Tegola.jpeg",
 	"./Edoardo Lai.jpeg": "./storage/app/public/img/Edoardo Lai.jpeg",
+	"./Germany-landscape.jpg": "./storage/app/public/img/Germany-landscape.jpg",
 	"./Greece.png": "./storage/app/public/img/Greece.png",
 	"./Hos_Light.png": "./storage/app/public/img/Hos_Light.png",
 	"./Italy.jpg": "./storage/app/public/img/Italy.jpg",
 	"./Italy.png": "./storage/app/public/img/Italy.png",
 	"./Map.png": "./storage/app/public/img/Map.png",
 	"./Map_Light.png": "./storage/app/public/img/Map_Light.png",
-	"./Marianna Galuppi.jpeg": "./storage/app/public/img/Marianna Galuppi.jpeg",
+	"./Marianna galuppi.jpeg": "./storage/app/public/img/Marianna galuppi.jpeg",
 	"./Morocco.jpg": "./storage/app/public/img/Morocco.jpg",
 	"./Norway.jpg": "./storage/app/public/img/Norway.jpg",
 	"./Paris.png": "./storage/app/public/img/Paris.png",
@@ -38946,16 +38920,13 @@ var map = {
 	"./Recensione2.jpg": "./storage/app/public/img/Recensione2.jpg",
 	"./Recensione3.jpg": "./storage/app/public/img/Recensione3.jpg",
 	"./Recensione5.jpg": "./storage/app/public/img/Recensione5.jpg",
-	"./Shiny_Overlay.svg": "./storage/app/public/img/Shiny_Overlay.svg",
 	"./Slide_1_.jpg": "./storage/app/public/img/Slide_1_.jpg",
 	"./Slide_2_.jpg": "./storage/app/public/img/Slide_2_.jpg",
 	"./Slide_3_.jpg": "./storage/app/public/img/Slide_3_.jpg",
 	"./Trending.png": "./storage/app/public/img/Trending.png",
-	"./WorldMap.svg": "./storage/app/public/img/WorldMap.svg",
-	"./bg_advanced.jpg": "./storage/app/public/img/bg_advanced.jpg",
+	"./grecia.jpeg": "./storage/app/public/img/grecia.jpeg",
 	"./jumbo.jpg": "./storage/app/public/img/jumbo.jpg",
 	"./jumbotron.jpg": "./storage/app/public/img/jumbotron.jpg",
-	"./pexels-stein-egil-liland-1933239 (1).jpg": "./storage/app/public/img/pexels-stein-egil-liland-1933239 (1).jpg",
 	"./recensione1.jpg": "./storage/app/public/img/recensione1.jpg",
 	"./slide_1.jpg": "./storage/app/public/img/slide_1.jpg",
 	"./slide_2.jpg": "./storage/app/public/img/slide_2.jpg",
@@ -38998,6 +38969,17 @@ webpackContext.id = "./storage/app/public/img sync recursive ^\\.\\/.*$";
 /***/ (function(module, exports) {
 
 module.exports = "/images/Alessio Napoli.jpg?2e2ec6651e85f68d84f36c4314182d85";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Austria.jpeg":
+/*!*********************************************!*\
+  !*** ./storage/app/public/img/Austria.jpeg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Austria.jpeg?6373f8a9b529f441a40fe146a6a1f0c7";
 
 /***/ }),
 
@@ -39056,28 +39038,6 @@ module.exports = "/images/Comfort_Pink.png?27a14cc3f8f67f38368573c885c87c81";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Cropped_Morocco.jpg":
-/*!****************************************************!*\
-  !*** ./storage/app/public/img/Cropped_Morocco.jpg ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Cropped_Morocco.jpg?8917dd782d64c4766cd22bd5c436d686";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Cropped_Norway.jpg":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/Cropped_Norway.jpg ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Cropped_Norway.jpg?e28b7681d4448c0f1d1e3ca021ff9fae";
-
-/***/ }),
-
 /***/ "./storage/app/public/img/Dario La Tegola.jpeg":
 /*!*****************************************************!*\
   !*** ./storage/app/public/img/Dario La Tegola.jpeg ***!
@@ -39097,6 +39057,17 @@ module.exports = "/images/Dario La Tegola.jpeg?68cd80d29d9420a2cb72d88bb0388ead"
 /***/ (function(module, exports) {
 
 module.exports = "/images/Edoardo Lai.jpeg?f7c963547fa416707a6ad213563b2d29";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Germany-landscape.jpg":
+/*!******************************************************!*\
+  !*** ./storage/app/public/img/Germany-landscape.jpg ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Germany-landscape.jpg?bb41811867e8e1f93723d9d5b3f2845b";
 
 /***/ }),
 
@@ -39166,14 +39137,14 @@ module.exports = "/images/Map_Light.png?c0cd12e153ab1294795af028a0bf56d3";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Marianna Galuppi.jpeg":
+/***/ "./storage/app/public/img/Marianna galuppi.jpeg":
 /*!******************************************************!*\
-  !*** ./storage/app/public/img/Marianna Galuppi.jpeg ***!
+  !*** ./storage/app/public/img/Marianna galuppi.jpeg ***!
   \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Marianna Galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
+module.exports = "/images/Marianna galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
 
 /***/ }),
 
@@ -39254,17 +39225,6 @@ module.exports = "/images/Recensione5.jpg?e9265cf25e70fa253220045d7170d671";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Shiny_Overlay.svg":
-/*!**************************************************!*\
-  !*** ./storage/app/public/img/Shiny_Overlay.svg ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Shiny_Overlay.svg?34e0e71312db00cbe1def27d802e004b";
-
-/***/ }),
-
 /***/ "./storage/app/public/img/Slide_1_.jpg":
 /*!*********************************************!*\
   !*** ./storage/app/public/img/Slide_1_.jpg ***!
@@ -39309,25 +39269,14 @@ module.exports = "/images/Trending.png?1f4b8f428e6fe12f50fd432d0471d7fb";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/WorldMap.svg":
-/*!*********************************************!*\
-  !*** ./storage/app/public/img/WorldMap.svg ***!
-  \*********************************************/
+/***/ "./storage/app/public/img/grecia.jpeg":
+/*!********************************************!*\
+  !*** ./storage/app/public/img/grecia.jpeg ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/WorldMap.svg?adc763b2b2b044bdcb1cd2f122e84fac";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/bg_advanced.jpg":
-/*!************************************************!*\
-  !*** ./storage/app/public/img/bg_advanced.jpg ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/bg_advanced.jpg?4b7b48db597cf0ae3a1502c4a1141828";
+module.exports = "/images/grecia.jpeg?5d8a9b01f94f844aaeb9c22f27745251";
 
 /***/ }),
 
@@ -39350,17 +39299,6 @@ module.exports = "/images/jumbo.jpg?3374f3360195f6c22c717d50023e2868";
 /***/ (function(module, exports) {
 
 module.exports = "/images/jumbotron.jpg?6e88e6fe4cfaac65d5df4dfe1629693e";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/pexels-stein-egil-liland-1933239 (1).jpg":
-/*!*************************************************************************!*\
-  !*** ./storage/app/public/img/pexels-stein-egil-liland-1933239 (1).jpg ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/pexels-stein-egil-liland-1933239 (1).jpg?7a0bfd6367a45438137c53592d95f66b";
 
 /***/ }),
 
@@ -39481,7 +39419,7 @@ module.exports = "/images/wave1.svg?5145523a05c552d9220b6a8eb9923fe2";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })

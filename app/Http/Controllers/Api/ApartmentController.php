@@ -551,4 +551,30 @@ class ApartmentController extends Controller
         
     }
 
+    public function all()
+    {
+        $apartments = Apartment::all();
+        
+        $apartments->each(function($apartment) {
+            $apartment->image = url('storage/' . $apartment->image);
+        });
+
+        if($apartments) {
+           return response()->json(
+                [
+                    'results' => $apartments,
+                    'success' => true
+                ]
+            );
+        } else {
+            return response()->json(
+                [
+                    'results' => 'No apartment found',
+                    'success' => false
+                ]
+            );
+        }
+        
+    }
+
 }
