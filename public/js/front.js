@@ -38979,6 +38979,7 @@ var map = {
 	"./Germany-landscape.jpg": "./storage/app/public/img/Germany-landscape.jpg",
 	"./Greece.png": "./storage/app/public/img/Greece.png",
 	"./Hos_Light.png": "./storage/app/public/img/Hos_Light.png",
+	"./Host_Light_1.png": "./storage/app/public/img/Host_Light_1.png",
 	"./Italy.jpg": "./storage/app/public/img/Italy.jpg",
 	"./Italy.png": "./storage/app/public/img/Italy.png",
 	"./Landscape-focus.png": "./storage/app/public/img/Landscape-focus.png",
@@ -39167,6 +39168,17 @@ module.exports = "/images/Hos_Light.png?07e039ec344ec22d3b1e9929b09af3a4";
 
 /***/ }),
 
+/***/ "./storage/app/public/img/Host_Light_1.png":
+/*!*************************************************!*\
+  !*** ./storage/app/public/img/Host_Light_1.png ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Host_Light_1.png?5fd36ff0c8216b4e20a0bbc6ed3b73bd";
+
+/***/ }),
+
 /***/ "./storage/app/public/img/Italy.jpg":
 /*!******************************************!*\
   !*** ./storage/app/public/img/Italy.jpg ***!
@@ -39240,7 +39252,7 @@ module.exports = "/images/Marianna galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Morocco.jpg?45b943d31c0421104590017495a496f7";
+module.exports = "/images/Morocco.jpg?99fcd7023cb4b2e026414e1b74742c4b";
 
 /***/ }),
 
