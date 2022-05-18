@@ -17202,6 +17202,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17212,7 +17219,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      radius: '5',
+      more: false,
+      radius: '20',
       apartments: [],
       amenities: [],
       rooms_num: 'All',
@@ -17283,6 +17291,13 @@ __webpack_require__.r(__webpack_exports__);
           _this4.error = false;
         }
       });
+    },
+    viewMore: function viewMore() {
+      if (this.more == false) {
+        this.more = true;
+      } else {
+        this.more = false;
+      }
     }
   }
 });
@@ -17903,29 +17918,38 @@ __webpack_require__.r(__webpack_exports__);
       this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.NavigationControl());
     },
     zoom: function zoom() {
-      switch (this.radius) {
-        case '10':
-          this.myZoom = 13;
-          break;
-
-        case '9':
-          this.myZoom = 14;
-          break;
-
-        case '8':
+      switch (true) {
+        case this.radius <= '3':
           this.myZoom = 15;
           break;
 
-        case '7':
-          this.myZoom = 16;
+        case this.radius <= '7':
+          this.myZoom = 14;
           break;
 
-        case '6':
-          this.myZoom = 17;
+        case this.radius <= '10':
+          this.myZoom = 13;
           break;
 
-        default:
-          this.myZoom = 20;
+        case this.radius <= '13':
+          this.myZoom = 12;
+          break;
+
+        case this.radius <= '18':
+          this.myZoom = 11;
+          break;
+
+        case this.radius <= '23':
+          this.myZoom = 10;
+          break;
+
+        case this.radius <= '27':
+          this.myZoom = 9;
+          break;
+
+        case this.radius <= '30':
+          this.myZoom = 8;
+          break;
       }
     }
   }
@@ -18243,7 +18267,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "section[data-v-0312e533] {\n  background-color: #EF9273;\n}\nsection .card-body[data-v-0312e533] {\n  background-color: #A5C7D8;\n}\nsection label[data-v-0312e533] {\n  font-size: 20px;\n  font-weight: bold;\n}\nsection select[data-v-0312e533] {\n  width: 150px;\n  margin: 0 15px;\n}\nsection #map[data-v-0312e533] {\n  border: 3px solid #FFCEAF;\n  padding: 10px;\n  border-radius: 10px;\n}\n#radius[data-v-0312e533] {\n  width: 300px;\n}\n.my_text[data-v-0312e533] {\n  font-size: 40px;\n}\ninput[type=range][data-v-0312e533] {\n  accent-color: #FFCEAF;\n}", ""]);
+exports.push([module.i, "section[data-v-0312e533] {\n  background-color: #EF9273;\n}\nsection .card-body[data-v-0312e533] {\n  background-color: #A5C7D8;\n}\nsection label[data-v-0312e533] {\n  font-size: 20px;\n  font-weight: bold;\n}\nsection select[data-v-0312e533] {\n  width: 150px;\n  margin: 0 15px;\n}\nsection #map[data-v-0312e533] {\n  border: 3px solid #FFCEAF;\n  padding: 10px;\n  border-radius: 10px;\n}\n#radius[data-v-0312e533] {\n  width: 300px;\n}\n.my_text[data-v-0312e533] {\n  font-size: 40px;\n}\ninput[type=range][data-v-0312e533] {\n  accent-color: #FFCEAF;\n}\n.label[data-v-0312e533] {\n  font-size: 20px;\n  font-weight: bold;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -20415,7 +20439,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("div", { staticClass: "container " }, [
+    _c("div", { staticClass: "container py-5" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12 my-3" }, [
           _c("h1", { staticClass: "text-center" }, [_vm._v("Advanced Search")]),
@@ -20439,7 +20463,7 @@ var render = function () {
               attrs: {
                 type: "range",
                 min: "1",
-                max: "10",
+                max: "30",
                 id: "radius",
                 name: "radius",
               },
@@ -20455,10 +20479,24 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "col-12 d-flex justify-content-around my-3" },
+          {
+            staticClass:
+              "col-12 d-flex justify-content-around my-3 align-items-center",
+          },
           [
             _c("div", [
-              _c("label", { attrs: { for: "rooms" } }, [_vm._v("Rooms")]),
+              _c(
+                "label",
+                { attrs: { for: "rooms" } },
+                [
+                  _c("font-awesome-icon", {
+                    staticClass: "mr-2",
+                    attrs: { icon: "fa-solid fa-people-roof" },
+                  }),
+                  _vm._v(" Rooms"),
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "select",
@@ -20505,7 +20543,18 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", [
-              _c("label", { attrs: { for: "beds" } }, [_vm._v("Beds")]),
+              _c(
+                "label",
+                { attrs: { for: "beds" } },
+                [
+                  _c("font-awesome-icon", {
+                    staticClass: "mr-2",
+                    attrs: { icon: "fa-solid fa-bed" },
+                  }),
+                  _vm._v(" Beds"),
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "select",
@@ -20552,9 +20601,18 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", [
-              _c("label", { attrs: { for: "bathrooms" } }, [
-                _vm._v("Bathrooms"),
-              ]),
+              _c(
+                "label",
+                { attrs: { for: "bathrooms" } },
+                [
+                  _c("font-awesome-icon", {
+                    staticClass: "mr-2",
+                    attrs: { icon: "fa-solid fa-toilet" },
+                  }),
+                  _vm._v(" Bathrooms"),
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "select",
@@ -20599,60 +20657,87 @@ var render = function () {
                 2
               ),
             ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "more-search",
+                on: {
+                  click: function ($event) {
+                    return _vm.viewMore()
+                  },
+                },
+              },
+              [
+                _c("span", { staticClass: "label" }, [
+                  _vm._v("More \n                        "),
+                  !_vm.more
+                    ? _c("i", { staticClass: "ml-1 fas fa-chevron-down" })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.more
+                    ? _c("i", { staticClass: "ml-1 fas fa-chevron-up" })
+                    : _vm._e(),
+                ]),
+              ]
+            ),
           ]
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-12 d-flex justify-content-around my-3" },
-          _vm._l(_vm.amenities, function (amenity) {
-            return _c("div", { key: amenity.id }, [
-              _c("label", { attrs: { for: amenity.name } }, [
-                _vm._v(_vm._s(amenity.name)),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.checked_amenities,
-                    expression: "checked_amenities",
-                  },
-                ],
-                attrs: { type: "checkbox", id: amenity.name },
-                domProps: {
-                  value: amenity.id,
-                  checked: Array.isArray(_vm.checked_amenities)
-                    ? _vm._i(_vm.checked_amenities, amenity.id) > -1
-                    : _vm.checked_amenities,
-                },
-                on: {
-                  change: function ($event) {
-                    var $$a = _vm.checked_amenities,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = amenity.id,
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 && (_vm.checked_amenities = $$a.concat([$$v]))
-                      } else {
-                        $$i > -1 &&
-                          (_vm.checked_amenities = $$a
-                            .slice(0, $$i)
-                            .concat($$a.slice($$i + 1)))
-                      }
-                    } else {
-                      _vm.checked_amenities = $$c
-                    }
-                  },
-                },
+        _vm.more
+          ? _c(
+              "div",
+              { staticClass: "col-12 d-flex justify-content-around my-3" },
+              _vm._l(_vm.amenities, function (amenity) {
+                return _c("div", { key: amenity.id }, [
+                  _c("label", { attrs: { for: amenity.name } }, [
+                    _vm._v(_vm._s(amenity.name)),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.checked_amenities,
+                        expression: "checked_amenities",
+                      },
+                    ],
+                    attrs: { type: "checkbox", id: amenity.name },
+                    domProps: {
+                      value: amenity.id,
+                      checked: Array.isArray(_vm.checked_amenities)
+                        ? _vm._i(_vm.checked_amenities, amenity.id) > -1
+                        : _vm.checked_amenities,
+                    },
+                    on: {
+                      change: function ($event) {
+                        var $$a = _vm.checked_amenities,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = amenity.id,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              (_vm.checked_amenities = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.checked_amenities = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.checked_amenities = $$c
+                        }
+                      },
+                    },
+                  }),
+                ])
               }),
-            ])
-          }),
-          0
-        ),
+              0
+            )
+          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 text-center" }, [
           _c(

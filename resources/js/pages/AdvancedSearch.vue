@@ -1,18 +1,18 @@
 <template>
     <section>
-        <div class="container ">
+        <div class="container py-5">
             <div class="row">
                 <div class="col-12 my-3">
                     <h1 class="text-center">Advanced Search</h1>
                     <div class="text-center">
                         <label for="radius" class="d-block form-label">Radius: {{radius}} km</label>
-                        <input type="range" min="1" max="10" id="radius" name="radius" v-model="radius">
+                        <input type="range" min="1" max="30" id="radius" name="radius" v-model="radius">
                     </div>
                 </div>
 
-                <div class="col-12 d-flex justify-content-around my-3">
+                <div class="col-12 d-flex justify-content-around my-3 align-items-center">
                     <div>
-                        <label for="rooms">Rooms</label>
+                        <label for="rooms"><font-awesome-icon icon="fa-solid fa-people-roof" class="mr-2" /> Rooms</label>
                         <select v-model="rooms_num">
                             <option value="All">All</option>
                             <option v-for="index in 9" :key="index" :value="index" >{{index}}</option>
@@ -21,7 +21,7 @@
                     </div>
 
                     <div>
-                        <label for="beds">Beds</label>
+                        <label for="beds"><font-awesome-icon icon="fa-solid fa-bed" class="mr-2" /> Beds</label>
                         <select v-model="beds_num">
                             <option value="All">All</option>
                             <option v-for="index in 9" :key="index" :value="index">{{index}}</option>
@@ -30,16 +30,23 @@
                     </div>
 
                     <div>
-                        <label for="bathrooms">Bathrooms</label>
+                        <label for="bathrooms"><font-awesome-icon icon="fa-solid fa-toilet" class="mr-2" /> Bathrooms</label>
                         <select v-model="bathrooms_num">
                             <option value="All">All</option>
                             <option v-for="index in 9" :key="index" :value="index">{{index}}</option>
                             <option value="10+">10+</option>
                         </select>
                     </div>
+
+                    <div @click="viewMore()" class="more-search">
+                        <span class="label">More 
+                            <i v-if="!more" class="ml-1 fas fa-chevron-down"></i>
+                            <i v-if="more" class="ml-1 fas fa-chevron-up"></i>
+                        </span>
+                    </div>
                 </div>
 
-                <div class="col-12 d-flex justify-content-around my-3">
+                <div v-if="more" class="col-12 d-flex justify-content-around my-3">
                     <div v-for="amenity in amenities" :key="amenity.id">
                         <label :for="amenity.name">{{amenity.name}}</label>
                         <input type="checkbox" :id="amenity.name" :value="amenity.id" v-model="checked_amenities">
@@ -101,7 +108,8 @@ export default {
 
     data() {
         return {
-            radius: '5',
+            more: false,
+            radius: '20',
             apartments: [],
             amenities: [],
             rooms_num: 'All',
@@ -171,6 +179,14 @@ export default {
                     this.error = false
                 }
             })
+        },
+        viewMore(){
+            if(this.more == false){
+                this.more = true
+            } else{
+                this.more = false
+            }
+        
         }
     }
 }
@@ -210,5 +226,10 @@ export default {
 
     input[type='range'] {
         accent-color: $orange_secondary;
+    }
+    .label{
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
     }
 </style>

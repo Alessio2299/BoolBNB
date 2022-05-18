@@ -62,24 +62,31 @@
         this.map.addControl(new tt.NavigationControl());
       },
       zoom(){
-        switch (this.radius) {
-          case '10':
-            this.myZoom = 13
-            break;
-          case '9':
-            this.myZoom = 14
-            break;
-          case '8':
+        switch (true) {
+          case this.radius <= '3':
             this.myZoom = 15
             break;
-          case '7':
-            this.myZoom = 16
+          case this.radius <= '7':
+            this.myZoom = 14
             break;
-          case '6':
-            this.myZoom = 17
+          case this.radius <= '10':
+            this.myZoom = 13
             break;
-          default:
-            this.myZoom = 20
+          case this.radius <= '13':
+            this.myZoom = 12
+            break;
+          case this.radius <= '18':
+            this.myZoom = 11
+            break;
+          case this.radius <= '23':
+            this.myZoom = 10
+            break;
+          case this.radius <= '27':
+            this.myZoom = 9
+            break;
+          case this.radius <= '30':
+            this.myZoom = 8
+            break;
         }
       }
     }    
