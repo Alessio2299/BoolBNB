@@ -1,6 +1,6 @@
 <template>
-    <section>
-        <div class="container py-5">
+    <section class="mx-auto">
+        <div class="container-fluid px-5 py-5">
             <div class="row">
                 <div class="col-12 my-3">
                     <h1 class="text-center">Advanced Search</h1>
@@ -64,23 +64,28 @@
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col-6">
-                    <p class="text-center my_text" v-if="apartments.length == 0">Sorry, we could not find an apartment matching your requirments!</p>
-                    <Apartment
-                        v-for="apartment in apartments" :key="apartment.id"
-                        :image="apartment.image"
-                        :title="apartment.title"
-                        :description="apartment.description"
-                        :slug="apartment.slug"
-                        :rooms="apartment.rooms"
-                        :bathrooms="apartment.bathrooms"
-                        :beds="apartment.beds"
-                        :address="apartment.address"
-                    />
-                </div>
+            <div class="row results">
+                <div class="col apart_container">
+                    <div class="row">
 
-                <div v-if="flag && flagApartment" class="search-map col-6 d-flex align-items-center justify-content-center">
+                                <!-- <div class="col-4"> -->
+                                    <p class="text-center my_text" v-if="apartments.length == 0">Sorry, we could not find an apartment matching your requirments!</p>
+                                    <Apartment
+                                        v-for="apartment in apartments" :key="apartment.id"
+                                        :image="apartment.image"
+                                        :title="apartment.title"
+                                        :description="apartment.description"
+                                        :slug="apartment.slug"
+                                        :rooms="apartment.rooms"
+                                        :bathrooms="apartment.bathrooms"
+                                        :beds="apartment.beds"
+                                        :address="apartment.address"
+                                    />
+                                <!-- </div> -->
+
+                    </div>
+                </div>
+                <div v-if="flag && flagApartment" class="search-map mt-4 col-lg-6 col-md-12  d-flex  justify-content-center">
                     <MapFeature
                         :lat= 'addressLat'
                         :lon= 'addressLon'
@@ -197,6 +202,16 @@ export default {
     section {
         background-color: $orange_primary;
 
+        .apart_container{
+            overflow-y: auto;
+            height: 500px;
+            padding: 50px;
+            background-color: wheat;
+            border-radius: 10px;
+        }
+
+        
+
         .card-body {
             background-color: $blue_primary;
         }
@@ -232,4 +247,5 @@ export default {
         font-weight: bold;
         cursor: pointer;
     }
+
 </style>
