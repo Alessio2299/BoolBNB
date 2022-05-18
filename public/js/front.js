@@ -17365,6 +17365,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -17390,8 +17407,12 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       success: null,
       listAddress: [],
       errors: {},
-      isSending: false
+      isSending: false,
+      apartments: []
     };
+  },
+  mounted: function mounted() {
+    this.getApartments();
   },
   methods: {
     autoComplete: function autoComplete() {
@@ -17438,6 +17459,15 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
           }
         });
       }
+    },
+    getApartments: function getApartments() {
+      var _this3 = this;
+
+      Axios.get('/api/all/apartments').then(function (resp) {
+        for (var i = 0; i < 4; i++) {
+          _this3.apartments.push(resp.data.results[i]);
+        }
+      });
     }
   }
 });
@@ -17963,67 +17993,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/partials/PopularDestinations.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'PopularDestinations',
-  data: function data() {
-    return {
-      destinations: [{
-        country: 'Morocco',
-        uri: 'Morocco',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Cropped_Morocco.jpg */ "./storage/app/public/img/Cropped_Morocco.jpg")
-      }, {
-        country: 'Italy',
-        uri: 'Italia',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Italy.jpg */ "./storage/app/public/img/Italy.jpg")
-      }, {
-        country: 'Norway',
-        uri: 'Norway',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Cropped_Norway.jpg */ "./storage/app/public/img/Cropped_Norway.jpg")
-      }]
-    };
-  },
-  components: {},
-  methods: {
-    getLatlong: function getLatlong() {
-      var _this = this;
-
-      axios.get('https://api.tomtom.com/search/2/geocode/' + this.$route.params.address + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
-        if (resp.data.results.length == 0) {
-          _this.success = false;
-        } else {
-          _this.addressLat = resp.data.results[0].position.lat;
-          _this.addressLon = resp.data.results[0].position.lon;
-          _this.flag = true;
-        }
-      });
-    }
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/alessionapoli/Desktop/BooBNB/resources/js/pages/partials/PopularDestinations.vue: Unexpected token (28:0)\n\n\u001b[0m \u001b[90m 26 |\u001b[39m     data(){\u001b[0m\n\u001b[0m \u001b[90m 27 |\u001b[39m       \u001b[36mreturn\u001b[39m{\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 29 |\u001b[39m         destinations\u001b[33m:\u001b[39m[\u001b[0m\n\u001b[0m \u001b[90m 30 |\u001b[39m           {\u001b[0m\n\u001b[0m \u001b[90m 31 |\u001b[39m             country\u001b[33m:\u001b[39m \u001b[32m'Morocco'\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n    at instantiate (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:72:32)\n    at constructor (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:358:12)\n    at Parser.raise (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:3335:19)\n    at Parser.unexpected (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:3373:16)\n    at Parser.parsePropertyName (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13748:24)\n    at Parser.parsePropertyDefinition (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13579:22)\n    at Parser.parseObjectLike (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13499:21)\n    at Parser.parseExprAtom (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12890:23)\n    at Parser.parseExprSubscripts (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12540:23)\n    at Parser.parseUpdate (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12519:21)\n    at Parser.parseMaybeUnary (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12490:23)\n    at Parser.parseMaybeUnaryOrPrivate (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12284:61)\n    at Parser.parseExprOps (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12291:23)\n    at Parser.parseMaybeConditional (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12261:23)\n    at Parser.parseMaybeAssign (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12214:21)\n    at Parser.parseExpressionBase (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12150:23)\n    at /Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12144:39\n    at Parser.allowInAnd (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:14236:16)\n    at Parser.parseExpression (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12144:17)\n    at Parser.parseReturnStatement (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:14948:28)\n    at Parser.parseStatementContent (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:14587:21)\n    at Parser.parseStatement (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:14533:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:15176:25)\n    at Parser.parseBlockBody (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:15167:10)\n    at Parser.parseBlock (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:15151:10)\n    at Parser.parseFunctionBody (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13841:24)\n    at Parser.parseFunctionBodyAndFinish (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13825:10)\n    at Parser.parseMethod (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13775:10)\n    at Parser.parseObjectMethod (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13651:19)\n    at Parser.parseObjPropValue (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13692:23)\n    at Parser.parsePropertyDefinition (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13609:10)\n    at Parser.parseObjectLike (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13499:21)\n    at Parser.parseExprAtom (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12890:23)\n    at Parser.parseExprSubscripts (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12540:23)\n    at Parser.parseUpdate (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12519:21)\n    at Parser.parseMaybeUnary (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12490:23)");
 
 /***/ }),
 
@@ -18049,59 +18021,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TrendingNow',
   data: function data() {
     return {};
   },
-  components: {}
+  props: {
+    title: String,
+    image: String,
+    slug: String
+  }
 });
 
 /***/ }),
@@ -18252,7 +18181,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/jumbotron.jpg */ "./storage/app/public/img/jumbotron.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron .img_box[data-v-b3c5cf30] {\n  width: -webkit-min-content;\n  width: -moz-min-content;\n  width: min-content;\n  margin: auto;\n}\n#jumbotron .img_box #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}", ""]);
+exports.push([module.i, ".main_container[data-v-b3c5cf30] {\n  overflow-x: hidden;\n}\n#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/jumbotron.jpg */ "./storage/app/public/img/jumbotron.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron .img_box[data-v-b3c5cf30] {\n  width: -webkit-min-content;\n  width: -moz-min-content;\n  width: min-content;\n  margin: auto;\n}\n#jumbotron .img_box #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}\n#section_01[data-v-b3c5cf30] {\n  background-color: #E7717D;\n}\n#section_01 h2[data-v-b3c5cf30] {\n  color: #FFCEAF;\n}", ""]);
 
 // exports
 
@@ -18423,7 +18352,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#section_01[data-v-5c7f2a86] {\n  background-color: #E7717D;\n}\n#section_01 h2[data-v-5c7f2a86] {\n  color: #FFCEAF;\n}\n#section_01 a[data-v-5c7f2a86] {\n  text-decoration: none;\n}\n#section_01 a .col .card[data-v-5c7f2a86] {\n  background-color: #E7717D;\n  border: 6px solid #FFCEAF;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n}\n#section_01 a .col .card a[data-v-5c7f2a86] {\n  background-color: #EF9273;\n  border: 0;\n}\n#section_01 a .col .card[data-v-5c7f2a86]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
+exports.push([module.i, "a[data-v-5c7f2a86] {\n  text-decoration: none;\n}\na .col .card[data-v-5c7f2a86] {\n  background-color: #E7717D;\n  border: 6px solid #FFCEAF;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n  height: 400px;\n}\na .col .card img[data-v-5c7f2a86] {\n  width: 100%;\n  height: 300px;\n}\na .col .card a[data-v-5c7f2a86] {\n  background-color: #EF9273;\n  border: 0;\n}\na .col .card[data-v-5c7f2a86]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
 
 // exports
 
@@ -20909,7 +20838,29 @@ var render = function () {
       _vm._v(" "),
       _c("AppFeatures"),
       _vm._v(" "),
-      _c("TrendingNow"),
+      _c(
+        "div",
+        { staticClass: "container-fluid py-4", attrs: { id: "section_01" } },
+        [
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row row-cols-lg-4 row-cols-md-1 mx-5" },
+            _vm._l(_vm.apartments, function (apartment) {
+              return _c("TrendingNow", {
+                key: apartment.id,
+                attrs: {
+                  title: apartment.title,
+                  image: apartment.image,
+                  slug: apartment.slug,
+                },
+              })
+            }),
+            1
+          ),
+        ]
+      ),
       _vm._v(" "),
       _c("Carousel"),
       _vm._v(" "),
@@ -20947,6 +20898,22 @@ var staticRenderFns = [
         { staticClass: "btn btn-danger my-4", attrs: { type: "submit" } },
         [_vm._v("Search")]
       ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-center mb-5" }, [
+      _c("div", { staticClass: "col-4" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: {
+            src: __webpack_require__(/*! ../../../storage/app/public/img/Trending.png */ "./storage/app/public/img/Trending.png"),
+            alt: "",
+          },
+        }),
+      ]),
     ])
   },
 ]
@@ -21855,114 +21822,28 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "a",
+    { attrs: { href: "/apartments/single-apartment/" + _vm.slug } },
+    [
+      _c("div", { staticClass: "col text-center" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("img", {
+            staticClass: "card-img-top ",
+            attrs: { src: _vm.image, alt: "Card image cap" },
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title text-white" }, [
+              _vm._v(_vm._s(_vm.title)),
+            ]),
+          ]),
+        ]),
+      ]),
+    ]
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "container-fluid py-4", attrs: { id: "section_01" } },
-      [
-        _c("div", { staticClass: "row justify-content-center mb-5" }, [
-          _c("div", { staticClass: "col-4" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: {
-                src: __webpack_require__(/*! ../../../../storage/app/public/img/Trending.png */ "./storage/app/public/img/Trending.png"),
-                alt: "",
-              },
-            }),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row row-cols-4 mx-5" }, [
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending1.jpg */ "./storage/app/public/img/trending1.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending2.jpg */ "./storage/app/public/img/trending2.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending3.jpg */ "./storage/app/public/img/trending3.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending4.jpg */ "./storage/app/public/img/trending4.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38923,22 +38804,22 @@ __webpack_require__.r(__webpack_exports__);
 
 var map = {
 	"./Alessio Napoli.jpg": "./storage/app/public/img/Alessio Napoli.jpg",
+	"./Austria.jpeg": "./storage/app/public/img/Austria.jpeg",
 	"./BoolBnb.logo.png": "./storage/app/public/img/BoolBnb.logo.png",
 	"./BoolBnb.png": "./storage/app/public/img/BoolBnb.png",
 	"./Christian D'Agostino.jpeg": "./storage/app/public/img/Christian D'Agostino.jpeg",
 	"./Comfort_1.png": "./storage/app/public/img/Comfort_1.png",
 	"./Comfort_Pink.png": "./storage/app/public/img/Comfort_Pink.png",
-	"./Cropped_Morocco.jpg": "./storage/app/public/img/Cropped_Morocco.jpg",
-	"./Cropped_Norway.jpg": "./storage/app/public/img/Cropped_Norway.jpg",
 	"./Dario La Tegola.jpeg": "./storage/app/public/img/Dario La Tegola.jpeg",
 	"./Edoardo Lai.jpeg": "./storage/app/public/img/Edoardo Lai.jpeg",
+	"./Germany.jpeg": "./storage/app/public/img/Germany.jpeg",
 	"./Greece.png": "./storage/app/public/img/Greece.png",
 	"./Hos_Light.png": "./storage/app/public/img/Hos_Light.png",
 	"./Italy.jpg": "./storage/app/public/img/Italy.jpg",
 	"./Italy.png": "./storage/app/public/img/Italy.png",
 	"./Map.png": "./storage/app/public/img/Map.png",
 	"./Map_Light.png": "./storage/app/public/img/Map_Light.png",
-	"./Marianna Galuppi.jpeg": "./storage/app/public/img/Marianna Galuppi.jpeg",
+	"./Marianna galuppi.jpeg": "./storage/app/public/img/Marianna galuppi.jpeg",
 	"./Morocco.jpg": "./storage/app/public/img/Morocco.jpg",
 	"./Norway.jpg": "./storage/app/public/img/Norway.jpg",
 	"./Paris.png": "./storage/app/public/img/Paris.png",
@@ -38946,16 +38827,13 @@ var map = {
 	"./Recensione2.jpg": "./storage/app/public/img/Recensione2.jpg",
 	"./Recensione3.jpg": "./storage/app/public/img/Recensione3.jpg",
 	"./Recensione5.jpg": "./storage/app/public/img/Recensione5.jpg",
-	"./Shiny_Overlay.svg": "./storage/app/public/img/Shiny_Overlay.svg",
 	"./Slide_1_.jpg": "./storage/app/public/img/Slide_1_.jpg",
 	"./Slide_2_.jpg": "./storage/app/public/img/Slide_2_.jpg",
 	"./Slide_3_.jpg": "./storage/app/public/img/Slide_3_.jpg",
 	"./Trending.png": "./storage/app/public/img/Trending.png",
-	"./WorldMap.svg": "./storage/app/public/img/WorldMap.svg",
-	"./bg_advanced.jpg": "./storage/app/public/img/bg_advanced.jpg",
+	"./grecia.jpeg": "./storage/app/public/img/grecia.jpeg",
 	"./jumbo.jpg": "./storage/app/public/img/jumbo.jpg",
 	"./jumbotron.jpg": "./storage/app/public/img/jumbotron.jpg",
-	"./pexels-stein-egil-liland-1933239 (1).jpg": "./storage/app/public/img/pexels-stein-egil-liland-1933239 (1).jpg",
 	"./recensione1.jpg": "./storage/app/public/img/recensione1.jpg",
 	"./slide_1.jpg": "./storage/app/public/img/slide_1.jpg",
 	"./slide_2.jpg": "./storage/app/public/img/slide_2.jpg",
@@ -38998,6 +38876,17 @@ webpackContext.id = "./storage/app/public/img sync recursive ^\\.\\/.*$";
 /***/ (function(module, exports) {
 
 module.exports = "/images/Alessio Napoli.jpg?2e2ec6651e85f68d84f36c4314182d85";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Austria.jpeg":
+/*!*********************************************!*\
+  !*** ./storage/app/public/img/Austria.jpeg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Austria.jpeg?6373f8a9b529f441a40fe146a6a1f0c7";
 
 /***/ }),
 
@@ -39056,28 +38945,6 @@ module.exports = "/images/Comfort_Pink.png?27a14cc3f8f67f38368573c885c87c81";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Cropped_Morocco.jpg":
-/*!****************************************************!*\
-  !*** ./storage/app/public/img/Cropped_Morocco.jpg ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Cropped_Morocco.jpg?8917dd782d64c4766cd22bd5c436d686";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Cropped_Norway.jpg":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/Cropped_Norway.jpg ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Cropped_Norway.jpg?e28b7681d4448c0f1d1e3ca021ff9fae";
-
-/***/ }),
-
 /***/ "./storage/app/public/img/Dario La Tegola.jpeg":
 /*!*****************************************************!*\
   !*** ./storage/app/public/img/Dario La Tegola.jpeg ***!
@@ -39097,6 +38964,17 @@ module.exports = "/images/Dario La Tegola.jpeg?68cd80d29d9420a2cb72d88bb0388ead"
 /***/ (function(module, exports) {
 
 module.exports = "/images/Edoardo Lai.jpeg?f7c963547fa416707a6ad213563b2d29";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Germany.jpeg":
+/*!*********************************************!*\
+  !*** ./storage/app/public/img/Germany.jpeg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Germany.jpeg?e23ba8967b401675d6a4aa6623c11faa";
 
 /***/ }),
 
@@ -39166,14 +39044,14 @@ module.exports = "/images/Map_Light.png?c0cd12e153ab1294795af028a0bf56d3";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Marianna Galuppi.jpeg":
+/***/ "./storage/app/public/img/Marianna galuppi.jpeg":
 /*!******************************************************!*\
-  !*** ./storage/app/public/img/Marianna Galuppi.jpeg ***!
+  !*** ./storage/app/public/img/Marianna galuppi.jpeg ***!
   \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Marianna Galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
+module.exports = "/images/Marianna galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
 
 /***/ }),
 
@@ -39254,17 +39132,6 @@ module.exports = "/images/Recensione5.jpg?e9265cf25e70fa253220045d7170d671";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Shiny_Overlay.svg":
-/*!**************************************************!*\
-  !*** ./storage/app/public/img/Shiny_Overlay.svg ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Shiny_Overlay.svg?34e0e71312db00cbe1def27d802e004b";
-
-/***/ }),
-
 /***/ "./storage/app/public/img/Slide_1_.jpg":
 /*!*********************************************!*\
   !*** ./storage/app/public/img/Slide_1_.jpg ***!
@@ -39309,25 +39176,14 @@ module.exports = "/images/Trending.png?1f4b8f428e6fe12f50fd432d0471d7fb";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/WorldMap.svg":
-/*!*********************************************!*\
-  !*** ./storage/app/public/img/WorldMap.svg ***!
-  \*********************************************/
+/***/ "./storage/app/public/img/grecia.jpeg":
+/*!********************************************!*\
+  !*** ./storage/app/public/img/grecia.jpeg ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/WorldMap.svg?adc763b2b2b044bdcb1cd2f122e84fac";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/bg_advanced.jpg":
-/*!************************************************!*\
-  !*** ./storage/app/public/img/bg_advanced.jpg ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/bg_advanced.jpg?4b7b48db597cf0ae3a1502c4a1141828";
+module.exports = "/images/grecia.jpeg?5d8a9b01f94f844aaeb9c22f27745251";
 
 /***/ }),
 
@@ -39350,17 +39206,6 @@ module.exports = "/images/jumbo.jpg?3374f3360195f6c22c717d50023e2868";
 /***/ (function(module, exports) {
 
 module.exports = "/images/jumbotron.jpg?6e88e6fe4cfaac65d5df4dfe1629693e";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/pexels-stein-egil-liland-1933239 (1).jpg":
-/*!*************************************************************************!*\
-  !*** ./storage/app/public/img/pexels-stein-egil-liland-1933239 (1).jpg ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/pexels-stein-egil-liland-1933239 (1).jpg?7a0bfd6367a45438137c53592d95f66b";
 
 /***/ }),
 
@@ -39481,7 +39326,7 @@ module.exports = "/images/wave1.svg?5145523a05c552d9220b6a8eb9923fe2";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })

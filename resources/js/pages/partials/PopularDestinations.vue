@@ -20,11 +20,12 @@
 </template>
 
 <script>
-  
+  const dayjs = require('dayjs')
   export default {
     name: 'PopularDestinations',
     data(){
       return{
+<<<<<<< HEAD
         destinations:[
           {
             country: 'Morocco',
@@ -45,10 +46,14 @@
           },
         ]
 
+=======
+        dateNow: dayjs().format('D-MM-YYYY').split('-').slice(1,2).join(''),
+        destinations: []
+>>>>>>> fix-home
       }
     },
-    components:{
-     
+    mounted(){
+      this.getDestination()
     },
     methods:{
        getLatlong(){
@@ -63,6 +68,49 @@
                 }
             })
         },
+        getDestination(){
+          if(this.dateNow >= '04' && this.dateNow <= '09'){
+            this.destinations = [
+              {
+                country: 'Morocco',
+                uri: 'Morocco',
+                path: require('../../../../storage/app/public/img/Morocco.jpg')
+              },
+              {
+                country: 'Italy',
+                uri: 'Italia',
+                path: require('../../../../storage/app/public/img/Italy.jpg')
+
+              },
+              {
+                country: 'Greece',
+                uri: 'Greece',
+                path: require('../../../../storage/app/public/img/grecia.jpeg')
+
+              },
+            ]
+          } else {
+            this.destinations = [
+              {
+                country: 'Austria',
+                uri: 'Austria',
+                path: require('../../../../storage/app/public/img/Austria.jpeg')
+              },
+              {
+                country: 'Germany',
+                uri: 'Germany',
+                path: require('../../../../storage/app/public/img/Germany.jpeg')
+
+              },
+              {
+                country: 'Norway',
+                uri: 'Norway',
+                path: require('../../../../storage/app/public/img/Norway.jpg')
+
+              },
+            ]
+          }
+        }
     }
   }
 </script>

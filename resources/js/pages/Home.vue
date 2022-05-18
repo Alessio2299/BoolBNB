@@ -48,12 +48,29 @@
 
     <AppFeatures/>
 
-    
-    <TrendingNow/>
+    <div class="container-fluid py-4" id="section_01">
+
+      <div class="row justify-content-center mb-5">
+        <div class="col-4">
+            <img class="img-fluid" src="../../../storage/app/public/img/Trending.png" alt="">
+        </div>
+      </div>
+
+      <div class="row row-cols-lg-4 row-cols-md-1 mx-5">
+        <TrendingNow 
+          v-for="apartment in apartments"
+          :key="apartment.id"
+          :title= "apartment.title"
+          :image= "apartment.image"
+          :slug= "apartment.slug"
+        />
+      </div>
+    </div>
 
     <Carousel/>
 
 
+   
     <PopularDestinations/>
     
 
@@ -86,12 +103,14 @@
       success: null,
       listAddress: [],
       errors: {},
-      isSending: false
-
+      isSending: false,
+      apartments: []
       }
     },
+    mounted(){
+      this.getApartments()
+    },
     methods:{
-
       autoComplete(){
         if(this.addressInput.length > 3){
           Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Geo%2CStr&view=Unified&relatedPois=off&key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA')
@@ -127,46 +146,62 @@
         })
       }
     },
+    getApartments(){
+      Axios.get('/api/all/apartments')
+      .then(resp =>{
+        for(let i = 0; i < 4; i++){
+          this.apartments.push(resp.data.results[i])
+        }
+      })
+    }
     },
   }
 </script>
 
 <style lang="scss" scoped>
-
-#jumbotron{
-  background-image: url("../../../storage/app/public/img/jumbotron.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  .img_box{
-    width: min-content;
-    margin: auto;
-    #logo{
-      transform: scale(0.8);
-      }
-    }
-
-  .overlay{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    background-color: black;
-    opacity: 0.4;
+  .main_container{
+    overflow-x: hidden;
   }
-    #row_jumbo{
-      flex-basis: 100%;
-    }
-    #address{
-      outline: none;
-      border-radius: 10px;
-      border: 0;
-      padding: 0.5rem;
-    }
+  #jumbotron{
+    background-image: url("../../../storage/app/public/img/jumbotron.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .img_box{
+      width: min-content;
+      margin: auto;
+      #logo{
+        transform: scale(0.8);
+        }
+      }
 
-    svg{
-      z-index: 99;
+    .overlay{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      background-color: black;
+      opacity: 0.4;
     }
-}
+      #row_jumbo{
+        flex-basis: 100%;
+      }
+      #address{
+        outline: none;
+        border-radius: 10px;
+        border: 0;
+        padding: 0.5rem;
+      }
+
+      svg{
+        z-index: 99;
+      }
+  }
+  #section_01{
+    background-color: #E7717D;
+    h2{
+      color: #FFCEAF;
+    }
+  }
 
 </style>>
