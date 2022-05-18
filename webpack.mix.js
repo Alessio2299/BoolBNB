@@ -15,4 +15,6 @@ mix.js('resources/js/apartment/create.js', 'public/js/formApartment.js')
     .js('resources/js/front.js', 'public/js')
     .js('resources/js/apartment/index.js', 'public/js')
     .js('resources/js/messages/index.js', 'messages/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/register.scss', 'public/css')
+    .sass('resources/sass/login.scss', 'public/css');

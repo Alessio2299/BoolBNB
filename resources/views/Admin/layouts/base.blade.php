@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Styles -->
+    @stack('css')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         .my_hover:hover{
@@ -40,6 +41,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+            @guest
+
+            @else
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -49,7 +53,8 @@
                         <li class="mx-3"><a href="{{route('admin.messages.index')}}">Your Messages</a></li>
 
                     </ul>
-
+            @endguest
+                
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -90,7 +95,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

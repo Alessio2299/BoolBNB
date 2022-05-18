@@ -13074,15 +13074,39 @@ var app = new Vue({
 
 /***/ }),
 
+/***/ "./resources/sass/login.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/login.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/register.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/register.scss ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!**************************************************************************!*\
-  !*** multi ./resources/js/apartment/create.js ./resources/sass/app.scss ***!
-  \**************************************************************************/
+/*!*************************************************************************************************************************************!*\
+  !*** multi ./resources/js/apartment/create.js ./resources/sass/app.scss ./resources/sass/register.scss ./resources/sass/login.scss ***!
+  \*************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/apartment/create.js */"./resources/js/apartment/create.js");
-module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/sass/register.scss */"./resources/sass/register.scss");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/sass/login.scss */"./resources/sass/login.scss");
 
 
 /***/ })
