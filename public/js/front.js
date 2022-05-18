@@ -17995,7 +17995,7 @@ __webpack_require__.r(__webpack_exports__);
       destinations: [{
         country: 'Morocco',
         uri: 'Morocco',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Morocco.jpg */ "./storage/app/public/img/Morocco.jpg")
+        path: __webpack_require__(/*! ../../../../storage/app/public/img/Cropped_Morocco.jpg */ "./storage/app/public/img/Cropped_Morocco.jpg")
       }, {
         country: 'Italy',
         uri: 'Italia',
@@ -18003,7 +18003,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         country: 'Norway',
         uri: 'Norway',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Norway.jpg */ "./storage/app/public/img/Norway.jpg")
+        path: __webpack_require__(/*! ../../../../storage/app/public/img/Cropped_Norway.jpg */ "./storage/app/public/img/Cropped_Norway.jpg")
       }]
     };
   },
@@ -18404,7 +18404,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#section_03[data-v-e938df2c] {\n  background-color: #FFCEAF;\n}\n#section_03 h2[data-v-e938df2c] {\n  color: #FFCEAF;\n}\n#section_03 a[data-v-e938df2c] {\n  text-decoration: none;\n}\n#section_03 a .col .card[data-v-e938df2c] {\n  background-color: #E7717D;\n  border: 6px solid #E7717D;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n  position: relative;\n}\n#section_03 a .col .card h1[data-v-e938df2c] {\n  position: absolute;\n  font-family: Montserrat, sans-serif;\n  text-transform: uppercase;\n}\n#section_03 a .col .card a[data-v-e938df2c] {\n  background-color: #EF9273;\n  border: 0;\n}\n#section_03 a .col .card[data-v-e938df2c]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
+exports.push([module.i, "#section_03[data-v-e938df2c] {\n  background-color: #FFCEAF;\n}\n#section_03 h2[data-v-e938df2c] {\n  color: #FFCEAF;\n}\n#section_03 a[data-v-e938df2c] {\n  text-decoration: none;\n}\n#section_03 a .card[data-v-e938df2c] {\n  background-color: #E7717D;\n  border: 6px solid #E7717D;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n  position: relative;\n}\n#section_03 a .card p.card-title[data-v-e938df2c] {\n  position: absolute;\n  font-family: Montserrat, sans-serif;\n  text-transform: uppercase;\n}\n#section_03 a .card a[data-v-e938df2c] {\n  background-color: #EF9273;\n  border: 0;\n}\n#section_03 a .card[data-v-e938df2c]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
 
 // exports
 
@@ -21778,7 +21778,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row row-cols-3 mx-5 mb-5" },
+        { staticClass: "row row-cols-md-3 row-cols-sm-1  mx-5 mb-5" },
         _vm._l(_vm.destinations, function (destination) {
           return _c(
             "router-link",
@@ -21793,17 +21793,20 @@ var render = function () {
             },
             [
               _c("div", { staticClass: "col text-center " }, [
-                _c("div", { staticClass: "card d-flex align-items-center" }, [
-                  _c("h1", { staticClass: "card-title text-white" }, [
-                    _vm._v(_vm._s(destination.country)),
-                  ]),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass: "card-img-top ",
-                    staticStyle: { height: "21rem" },
-                    attrs: { src: destination.path, alt: "Card image cap" },
-                  }),
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "card d-flex align-items-center my-4" },
+                  [
+                    _c("p", { staticClass: "card-title text-white h2 mt-2" }, [
+                      _vm._v(_vm._s(destination.country)),
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "card-img-top ",
+                      attrs: { src: destination.path, alt: "Card image cap" },
+                    }),
+                  ]
+                ),
               ]),
             ]
           )
@@ -21819,7 +21822,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row justify-content-center mb-5" }, [
-      _c("div", { staticClass: "col-4" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
         _c("img", {
           staticClass: "img-fluid",
           attrs: {
@@ -38925,6 +38928,8 @@ var map = {
 	"./Christian D'Agostino.jpeg": "./storage/app/public/img/Christian D'Agostino.jpeg",
 	"./Comfort_1.png": "./storage/app/public/img/Comfort_1.png",
 	"./Comfort_Pink.png": "./storage/app/public/img/Comfort_Pink.png",
+	"./Cropped_Morocco.jpg": "./storage/app/public/img/Cropped_Morocco.jpg",
+	"./Cropped_Norway.jpg": "./storage/app/public/img/Cropped_Norway.jpg",
 	"./Dario La Tegola.jpeg": "./storage/app/public/img/Dario La Tegola.jpeg",
 	"./Edoardo Lai.jpeg": "./storage/app/public/img/Edoardo Lai.jpeg",
 	"./Greece.png": "./storage/app/public/img/Greece.png",
@@ -38933,7 +38938,7 @@ var map = {
 	"./Italy.png": "./storage/app/public/img/Italy.png",
 	"./Map.png": "./storage/app/public/img/Map.png",
 	"./Map_Light.png": "./storage/app/public/img/Map_Light.png",
-	"./Marianna galuppi.jpeg": "./storage/app/public/img/Marianna galuppi.jpeg",
+	"./Marianna Galuppi.jpeg": "./storage/app/public/img/Marianna Galuppi.jpeg",
 	"./Morocco.jpg": "./storage/app/public/img/Morocco.jpg",
 	"./Norway.jpg": "./storage/app/public/img/Norway.jpg",
 	"./Paris.png": "./storage/app/public/img/Paris.png",
@@ -38941,12 +38946,16 @@ var map = {
 	"./Recensione2.jpg": "./storage/app/public/img/Recensione2.jpg",
 	"./Recensione3.jpg": "./storage/app/public/img/Recensione3.jpg",
 	"./Recensione5.jpg": "./storage/app/public/img/Recensione5.jpg",
+	"./Shiny_Overlay.svg": "./storage/app/public/img/Shiny_Overlay.svg",
 	"./Slide_1_.jpg": "./storage/app/public/img/Slide_1_.jpg",
 	"./Slide_2_.jpg": "./storage/app/public/img/Slide_2_.jpg",
 	"./Slide_3_.jpg": "./storage/app/public/img/Slide_3_.jpg",
 	"./Trending.png": "./storage/app/public/img/Trending.png",
+	"./WorldMap.svg": "./storage/app/public/img/WorldMap.svg",
+	"./bg_advanced.jpg": "./storage/app/public/img/bg_advanced.jpg",
 	"./jumbo.jpg": "./storage/app/public/img/jumbo.jpg",
 	"./jumbotron.jpg": "./storage/app/public/img/jumbotron.jpg",
+	"./pexels-stein-egil-liland-1933239 (1).jpg": "./storage/app/public/img/pexels-stein-egil-liland-1933239 (1).jpg",
 	"./recensione1.jpg": "./storage/app/public/img/recensione1.jpg",
 	"./slide_1.jpg": "./storage/app/public/img/slide_1.jpg",
 	"./slide_2.jpg": "./storage/app/public/img/slide_2.jpg",
@@ -39047,6 +39056,28 @@ module.exports = "/images/Comfort_Pink.png?27a14cc3f8f67f38368573c885c87c81";
 
 /***/ }),
 
+/***/ "./storage/app/public/img/Cropped_Morocco.jpg":
+/*!****************************************************!*\
+  !*** ./storage/app/public/img/Cropped_Morocco.jpg ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Cropped_Morocco.jpg?8917dd782d64c4766cd22bd5c436d686";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Cropped_Norway.jpg":
+/*!***************************************************!*\
+  !*** ./storage/app/public/img/Cropped_Norway.jpg ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Cropped_Norway.jpg?e28b7681d4448c0f1d1e3ca021ff9fae";
+
+/***/ }),
+
 /***/ "./storage/app/public/img/Dario La Tegola.jpeg":
 /*!*****************************************************!*\
   !*** ./storage/app/public/img/Dario La Tegola.jpeg ***!
@@ -39135,14 +39166,14 @@ module.exports = "/images/Map_Light.png?c0cd12e153ab1294795af028a0bf56d3";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Marianna galuppi.jpeg":
+/***/ "./storage/app/public/img/Marianna Galuppi.jpeg":
 /*!******************************************************!*\
-  !*** ./storage/app/public/img/Marianna galuppi.jpeg ***!
+  !*** ./storage/app/public/img/Marianna Galuppi.jpeg ***!
   \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Marianna galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
+module.exports = "/images/Marianna Galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
 
 /***/ }),
 
@@ -39223,6 +39254,17 @@ module.exports = "/images/Recensione5.jpg?e9265cf25e70fa253220045d7170d671";
 
 /***/ }),
 
+/***/ "./storage/app/public/img/Shiny_Overlay.svg":
+/*!**************************************************!*\
+  !*** ./storage/app/public/img/Shiny_Overlay.svg ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Shiny_Overlay.svg?34e0e71312db00cbe1def27d802e004b";
+
+/***/ }),
+
 /***/ "./storage/app/public/img/Slide_1_.jpg":
 /*!*********************************************!*\
   !*** ./storage/app/public/img/Slide_1_.jpg ***!
@@ -39267,6 +39309,28 @@ module.exports = "/images/Trending.png?1f4b8f428e6fe12f50fd432d0471d7fb";
 
 /***/ }),
 
+/***/ "./storage/app/public/img/WorldMap.svg":
+/*!*********************************************!*\
+  !*** ./storage/app/public/img/WorldMap.svg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/WorldMap.svg?adc763b2b2b044bdcb1cd2f122e84fac";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/bg_advanced.jpg":
+/*!************************************************!*\
+  !*** ./storage/app/public/img/bg_advanced.jpg ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/bg_advanced.jpg?4b7b48db597cf0ae3a1502c4a1141828";
+
+/***/ }),
+
 /***/ "./storage/app/public/img/jumbo.jpg":
 /*!******************************************!*\
   !*** ./storage/app/public/img/jumbo.jpg ***!
@@ -39286,6 +39350,17 @@ module.exports = "/images/jumbo.jpg?3374f3360195f6c22c717d50023e2868";
 /***/ (function(module, exports) {
 
 module.exports = "/images/jumbotron.jpg?6e88e6fe4cfaac65d5df4dfe1629693e";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/pexels-stein-egil-liland-1933239 (1).jpg":
+/*!*************************************************************************!*\
+  !*** ./storage/app/public/img/pexels-stein-egil-liland-1933239 (1).jpg ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/pexels-stein-egil-liland-1933239 (1).jpg?7a0bfd6367a45438137c53592d95f66b";
 
 /***/ }),
 
@@ -39406,7 +39481,7 @@ module.exports = "/images/wave1.svg?5145523a05c552d9220b6a8eb9923fe2";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
