@@ -21666,7 +21666,7 @@ var staticRenderFns = [
           _c("img", {
             staticClass: "img-fluid",
             attrs: {
-              src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../storage/app/public/img/Hos_Light1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+              src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../storage/app/public/img/Host_Light1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
               id: "host_icon",
               alt: "Host",
             },
