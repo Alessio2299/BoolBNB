@@ -46,7 +46,7 @@
             })
         },
         getDestination(){
-          if(this.dateNow >= '07' && this.dateNow <= '09'){
+          if(this.dateNow >= '04' && this.dateNow <= '09'){
             this.destinations = [
               {
                 country: 'Morocco',

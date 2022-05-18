@@ -18046,7 +18046,7 @@ var dayjs = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js"
       });
     },
     getDestination: function getDestination() {
-      if (this.dateNow >= '07' && this.dateNow <= '09') {
+      if (this.dateNow >= '04' && this.dateNow <= '09') {
         this.destinations = [{
           country: 'Morocco',
           uri: 'Morocco',
@@ -38897,7 +38897,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var map = {
 	"./Alessio Napoli.jpg": "./storage/app/public/img/Alessio Napoli.jpg",
-	"./Austria.jpeg": "./storage/app/public/img/Austria.jpeg",
 	"./BoolBnb.logo.png": "./storage/app/public/img/BoolBnb.logo.png",
 	"./BoolBnb.png": "./storage/app/public/img/BoolBnb.png",
 	"./Christian D'Agostino.jpeg": "./storage/app/public/img/Christian D'Agostino.jpeg",
@@ -38979,7 +38978,7 @@ module.exports = "/images/Alessio Napoli.jpg?2e2ec6651e85f68d84f36c4314182d85";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Austria.jpeg?6373f8a9b529f441a40fe146a6a1f0c7";
+throw new Error("Module build failed (from ./node_modules/img-loader/index.js):\nError: ENOENT: no such file or directory, open '/Users/alessionapoli/Desktop/BooBNB/storage/app/public/img/Austria.jpeg'");
 
 /***/ }),
 
