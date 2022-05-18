@@ -26,6 +26,8 @@ Route::get('/amenities', 'Api\AmenityController@index');
 
 Route::post('/apartments/filter', 'Api\ApartmentController@filterApartments');
 
+Route::get('/all/apartments', 'Api\ApartmentController@all');
+
 Route::get('/apartments/single-apartment/{slug}', 'Api\ApartmentController@show');
 
 Route::post('/messages/apartment/{slug}', 'Api\MessageController@store')->name('messages.apartment');
