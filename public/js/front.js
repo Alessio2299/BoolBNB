@@ -17628,6 +17628,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SingleApartment',
@@ -18322,7 +18325,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container .row-img[data-v-4fd40851] {\n  justify-content: center;\n}\n.container .section[data-v-4fd40851]:after {\n  content: \"\";\n  width: 100%;\n  height: 1px;\n  background-color: #ddd;\n}\n.container img[data-v-4fd40851] {\n  width: 100%;\n  height: auto;\n  border-radius: 20px;\n  border: 2px solid #FFCEAF;\n}\n.container .facilities[data-v-4fd40851] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.container .facilities li[data-v-4fd40851] {\n  display: inline-block;\n  border: 1px solid #FFCEAF;\n  border-radius: 10%;\n  padding: 20px;\n  margin: 5px;\n}\n.container .amenities[data-v-4fd40851] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.container .amenities li[data-v-4fd40851] {\n  margin: 0 10px;\n}\n.container .map-container[data-v-4fd40851] {\n  border: 1px solid #FFCEAF;\n  padding: 15px;\n}\n.container form .form-group .required-field[data-v-4fd40851]::before {\n  content: \"* \";\n  color: #e3342f;\n}", ""]);
+exports.push([module.i, "section[data-v-4fd40851] {\n  background-color: #fff;\n}\n.container[data-v-4fd40851] {\n  background-color: #fff;\n  font-family: Montserrat, sans-serif;\n}\n.container .row-img[data-v-4fd40851] {\n  justify-content: center;\n}\n.container .section[data-v-4fd40851]:after {\n  content: \"\";\n  width: 100%;\n  height: 1px;\n  background-color: #ffe0cc;\n  margin-left: 1rem;\n}\n.container img[data-v-4fd40851] {\n  width: 100%;\n  height: auto;\n  border-radius: 20px;\n  border: 5px solid #FFCEAF;\n}\n.container .facilities[data-v-4fd40851] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.container .facilities li[data-v-4fd40851] {\n  display: inline-block;\n  border: 1px solid #FFCEAF;\n  border-radius: 10%;\n  padding: 20px;\n  margin: 5px;\n}\n.container .amenities[data-v-4fd40851] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.container .amenities li[data-v-4fd40851] {\n  margin: 0 10px;\n}\n.container .map-container[data-v-4fd40851] {\n  border: 1px solid #FFCEAF;\n  padding: 15px;\n  border-radius: 10px;\n}\n.container form[data-v-4fd40851] {\n  background-color: #ffe0cc;\n  border-radius: 10px;\n  padding: 1rem;\n  box-shadow: 10px 10px #E7717D;\n}\n.container form .form-group .required-field[data-v-4fd40851]::before {\n  content: \"* \";\n  color: #e3342f;\n}", ""]);
 
 // exports
 
@@ -21169,312 +21172,314 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.apartment
-    ? _c("section", { staticClass: "container" }, [
-        _c("div", { staticClass: "row row-cols-1" }, [
-          _c("div", { staticClass: "col py-3" }, [
-            _c("h1", { staticClass: "text-center" }, [
-              _vm._v(_vm._s(_vm.apartment.title)),
-            ]),
-            _vm._v(" "),
-            _c("h2", { staticClass: "text-center" }, [
-              _vm._v(_vm._s(_vm.apartment.address)),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row row-cols-1 row-img" }, [
-          _c("div", { staticClass: "col py-3" }, [
-            _c("img", {
-              staticClass: "img-fluid text-center",
-              attrs: { src: _vm.apartment.image, alt: _vm.apartment.title },
-            }),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-8" }, [
-            _c("div", { staticClass: "row section" }, [
-              _c("div", { staticClass: "col-12 py-3" }, [
-                _c("ul", { staticClass: "facilities" }, [
-                  _c(
-                    "li",
-                    { staticClass: "text-center" },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: "fa-solid fa-people-roof" },
-                      }),
-                      _c("br"),
-                      _vm._v(_vm._s(_vm.apartment.rooms) + " rooms"),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "text-center" },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: "fa-solid fa-bed" },
-                      }),
-                      _c("br"),
-                      _vm._v(_vm._s(_vm.apartment.beds) + " beds"),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "text-center" },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: "fa-solid fa-toilet" },
-                      }),
-                      _c("br"),
-                      _vm._v(_vm._s(_vm.apartment.bathrooms) + " bathrooms"),
-                    ],
-                    1
-                  ),
-                ]),
+  return _c("section", [
+    _vm.apartment
+      ? _c("div", { staticClass: "container " }, [
+          _c("div", { staticClass: "row row-cols-1" }, [
+            _c("div", { staticClass: "col py-3" }, [
+              _c("h1", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(_vm.apartment.title)),
+              ]),
+              _vm._v(" "),
+              _c("h2", { staticClass: "text-center" }, [
+                _vm._v(_vm._s(_vm.apartment.address)),
               ]),
             ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row section" }, [
-              _c("div", { staticClass: "col-12 py-3" }, [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.apartment.description) +
-                    "\n                "
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row section" }, [
-              _c("div", { staticClass: "col-12 py-3" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass:
-                      "amenities d-flex justify-content-center flex-wrap",
-                  },
-                  _vm._l(_vm.apartment.amenities, function (amenity) {
-                    return _c(
-                      "li",
-                      { key: amenity.id, staticClass: "btn btn-primary m-1" },
-                      [
-                        amenity.id == 1
-                          ? _c("font-awesome-icon", {
-                              attrs: { icon: "fa-solid fa-wifi" },
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        amenity.id == 2
-                          ? _c("font-awesome-icon", {
-                              attrs: { icon: "fa-solid fa-square-parking" },
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        amenity.id == 3
-                          ? _c("font-awesome-icon", {
-                              attrs: { icon: "fa-solid fa-bell-concierge" },
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        amenity.id == 4
-                          ? _c("font-awesome-icon", {
-                              attrs: { icon: "fa-solid fa-hot-tub-person" },
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        amenity.id == 5
-                          ? _c("font-awesome-icon", {
-                              attrs: { icon: "fa-solid fa-water" },
-                            })
-                          : _vm._e(),
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(amenity.name) +
-                            "\n                        "
-                        ),
-                      ],
-                      1
-                    )
-                  }),
-                  0
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "row mb-3 map-container" },
-              [
-                _c("MiniMap", {
-                  attrs: {
-                    lat: _vm.apartment.lat,
-                    lon: _vm.apartment.lon,
-                    apartment: _vm.apartment,
-                  },
-                }),
-              ],
-              1
-            ),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4 pb-3" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12 py-3" }, [
-                _c("h4", { staticClass: "text-center" }, [
-                  _vm._v("Contact the host"),
-                ]),
-                _vm._v(" "),
-                _vm.success == true
-                  ? _c("div", { staticClass: "text-success" }, [
-                      _vm._v("Your message has been successfully submitted"),
-                    ])
-                  : _vm._e(),
-              ]),
+          _c("div", { staticClass: "row row-cols-1 row-img" }, [
+            _c("div", { staticClass: "col-8 py-3" }, [
+              _c("img", {
+                staticClass: "img-fluid text-center",
+                attrs: { src: _vm.apartment.image, alt: _vm.apartment.title },
+              }),
             ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c(
-                  "form",
-                  {
-                    attrs: { id: "message-form" },
-                    on: {
-                      submit: function ($event) {
-                        $event.preventDefault()
-                        return _vm.sendMessage.apply(null, arguments)
-                      },
-                    },
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { staticClass: "required-field" }, [
-                        _vm._v("Name"),
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.name,
-                            expression: "form.name",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "name",
-                          placeholder: "name",
-                          required: "",
-                        },
-                        domProps: { value: _vm.form.name },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "name", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { staticClass: "required-field" }, [
-                        _vm._v("Email address"),
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.email,
-                            expression: "form.email",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "email",
-                          id: "email",
-                          placeholder: "name@example.com",
-                          required: "",
-                        },
-                        domProps: { value: _vm.form.email },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "email", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { staticClass: "required-field" }, [
-                        _vm._v("Your message"),
-                      ]),
-                      _vm._v(" "),
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.message,
-                            expression: "form.message",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: { id: "message", rows: "5" },
-                        domProps: { value: _vm.form.message },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "message", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-lg-8" }, [
+              _c("div", { staticClass: "row section" }, [
+                _c("div", { staticClass: "col-12 py-3" }, [
+                  _c("ul", { staticClass: "facilities" }, [
+                    _c(
+                      "li",
+                      { staticClass: "text-center" },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: "fa-solid fa-people-roof" },
+                        }),
+                        _c("br"),
+                        _vm._v(_vm._s(_vm.apartment.rooms) + " rooms"),
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
                     _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-dark",
-                        attrs: { type: "submit" },
-                      },
+                      "li",
+                      { staticClass: "text-center" },
                       [
-                        _vm.success == null || _vm.success == true
-                          ? _c("span", [_vm._v("Send")])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.success == false
-                          ? _c("div", {
-                              staticClass: "spinner-border",
-                              attrs: { role: "status" },
-                            })
-                          : _vm._e(),
-                      ]
+                        _c("font-awesome-icon", {
+                          attrs: { icon: "fa-solid fa-bed" },
+                        }),
+                        _c("br"),
+                        _vm._v(_vm._s(_vm.apartment.beds) + " beds"),
+                      ],
+                      1
                     ),
-                  ]
-                ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      { staticClass: "text-center" },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: "fa-solid fa-toilet" },
+                        }),
+                        _c("br"),
+                        _vm._v(_vm._s(_vm.apartment.bathrooms) + " bathrooms"),
+                      ],
+                      1
+                    ),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row section" }, [
+                _c("div", { staticClass: "col-12 py-3" }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.apartment.description) +
+                      "\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row section" }, [
+                _c("div", { staticClass: "col-12 py-3" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass:
+                        "amenities d-flex justify-content-center flex-wrap",
+                    },
+                    _vm._l(_vm.apartment.amenities, function (amenity) {
+                      return _c(
+                        "li",
+                        { key: amenity.id, staticClass: "btn btn-primary m-1" },
+                        [
+                          amenity.id == 1
+                            ? _c("font-awesome-icon", {
+                                attrs: { icon: "fa-solid fa-wifi" },
+                              })
+                            : _vm._e(),
+                          _vm._v(" "),
+                          amenity.id == 2
+                            ? _c("font-awesome-icon", {
+                                attrs: { icon: "fa-solid fa-square-parking" },
+                              })
+                            : _vm._e(),
+                          _vm._v(" "),
+                          amenity.id == 3
+                            ? _c("font-awesome-icon", {
+                                attrs: { icon: "fa-solid fa-bell-concierge" },
+                              })
+                            : _vm._e(),
+                          _vm._v(" "),
+                          amenity.id == 4
+                            ? _c("font-awesome-icon", {
+                                attrs: { icon: "fa-solid fa-hot-tub-person" },
+                              })
+                            : _vm._e(),
+                          _vm._v(" "),
+                          amenity.id == 5
+                            ? _c("font-awesome-icon", {
+                                attrs: { icon: "fa-solid fa-water" },
+                              })
+                            : _vm._e(),
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(amenity.name) +
+                              "\n                            "
+                          ),
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row mb-3 map-container" },
+                [
+                  _c("MiniMap", {
+                    attrs: {
+                      lat: _vm.apartment.lat,
+                      lon: _vm.apartment.lon,
+                      apartment: _vm.apartment,
+                    },
+                  }),
+                ],
+                1
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4 pb-3" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12 py-3" }, [
+                  _c("h4", { staticClass: "text-center" }, [
+                    _vm._v("Contact the host"),
+                  ]),
+                  _vm._v(" "),
+                  _vm.success == true
+                    ? _c("div", { staticClass: "text-success" }, [
+                        _vm._v("Your message has been successfully submitted"),
+                      ])
+                    : _vm._e(),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c(
+                    "form",
+                    {
+                      attrs: { id: "message-form" },
+                      on: {
+                        submit: function ($event) {
+                          $event.preventDefault()
+                          return _vm.sendMessage.apply(null, arguments)
+                        },
+                      },
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { staticClass: "required-field" }, [
+                          _vm._v("Name"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.name,
+                              expression: "form.name",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "name",
+                            placeholder: "name",
+                            required: "",
+                          },
+                          domProps: { value: _vm.form.name },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "name", $event.target.value)
+                            },
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { staticClass: "required-field" }, [
+                          _vm._v("Email address"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.email,
+                              expression: "form.email",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "email",
+                            id: "email",
+                            placeholder: "name@example.com",
+                            required: "",
+                          },
+                          domProps: { value: _vm.form.email },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "email", $event.target.value)
+                            },
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { staticClass: "required-field" }, [
+                          _vm._v("Your message"),
+                        ]),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.message,
+                              expression: "form.message",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { id: "message", rows: "5" },
+                          domProps: { value: _vm.form.message },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "message", $event.target.value)
+                            },
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-dark",
+                          attrs: { type: "submit" },
+                        },
+                        [
+                          _vm.success == null || _vm.success == true
+                            ? _c("span", [_vm._v("Send")])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.success == false
+                            ? _c("div", {
+                                staticClass: "spinner-border",
+                                attrs: { role: "status" },
+                              })
+                            : _vm._e(),
+                        ]
+                      ),
+                    ]
+                  ),
+                ]),
               ]),
             ]),
           ]),
-        ]),
-      ])
-    : _vm._e()
+        ])
+      : _vm._e(),
+  ])
 }
 var staticRenderFns = [
   function () {
@@ -38989,6 +38994,7 @@ var map = {
 	"./Greece.png": "./storage/app/public/img/Greece.png",
 	"./Hos_Light.png": "./storage/app/public/img/Hos_Light.png",
 	"./Host_Light_1.png": "./storage/app/public/img/Host_Light_1.png",
+	"./Icon_Grid.svg": "./storage/app/public/img/Icon_Grid.svg",
 	"./Italy.jpg": "./storage/app/public/img/Italy.jpg",
 	"./Italy.png": "./storage/app/public/img/Italy.png",
 	"./Map.png": "./storage/app/public/img/Map.png",
@@ -39208,6 +39214,17 @@ module.exports = "/images/Hos_Light.png?07e039ec344ec22d3b1e9929b09af3a4";
 /***/ (function(module, exports) {
 
 module.exports = "/images/Host_Light_1.png?5fd36ff0c8216b4e20a0bbc6ed3b73bd";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Icon_Grid.svg":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/Icon_Grid.svg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Icon_Grid.svg?13ad8f60276aed46c6c4f0e646eae249";
 
 /***/ }),
 

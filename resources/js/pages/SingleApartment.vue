@@ -1,6 +1,8 @@
 <template>
-    <section class="container" v-if="apartment">
+<section>
 
+
+    <div class="container " v-if="apartment">
         <div class="row row-cols-1">
             <div class="col py-3">
                 <h1 class="text-center">{{apartment.title}}</h1>
@@ -9,7 +11,7 @@
         </div>
 
         <div class="row row-cols-1 row-img">
-            <div class="col py-3">
+            <div class="col-8 py-3">
                 <img class="img-fluid text-center" :src="apartment.image" :alt="apartment.title">
             </div>
         </div>
@@ -88,7 +90,8 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 </template>
 
 <script>
@@ -155,9 +158,15 @@
 
 <style lang="scss" scoped>
     @import "../../sass/variables.scss";
-
+section{
+//     background-image: url('../../../storage/app/public/img/Icon_Grid.svg');
+//     background-repeat: no-repeat;
+//     background-size: cover;
+background-color: #fff;
+}
     .container {
-
+        background-color: #fff;
+        font-family: Montserrat, sans-serif;
         .row-img {
             justify-content: center;
         }
@@ -166,14 +175,15 @@
             content: "";
             width: 100%;
             height: 1px;
-            background-color: #ddd;
+            background-color: #ffe0cc;
+            margin-left: 1rem;
         }
 
         img {
             width: 100%;
             height: auto;
             border-radius: 20px;
-            border: 2px solid $orange_secondary;
+            border: 5px solid $orange_secondary;
         }
 
         .facilities {
@@ -208,9 +218,14 @@
         .map-container {
             border: 1px solid $orange_secondary;
             padding: 15px;
+            border-radius: 10px;
         }
 
         form {
+            background-color: #ffe0cc;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 10px 10px #E7717D;
             .form-group {
                 .required-field::before {
                     content: '* ';
