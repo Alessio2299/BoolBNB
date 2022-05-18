@@ -4,14 +4,12 @@
     <div class="container-fluid pt-4 px-0" id="jumbotron">
     <div class="overlay"></div>
     <div class="row justify-content-center mx-0">
-      <div class="col-6">
-        <div class="img_box">
-          <img src="../../../storage/app/public/img/BoolBnb.png" alt="Logo" id="logo">
-        </div>
+      <div class="col-6 text-center ">
+          <img class="img-fluid" src="../../../storage/app/public/img/BoolBnb.png" alt="Logo" id="logo">
       </div>
     </div>
-      <div class="row align-items-end justify-content-center mx-0" id="row_jumbo">
-        <div class="col-8">
+      <div class="row align-items-end justify-content-center mx-0 mt-3" id="row_jumbo">
+        <div class="col-12">
 
           <form id="searchForm" @submit.prevent="getLongLat">
             <div class="row mx-5 justify-content-center ">
@@ -51,12 +49,12 @@
     <div class="container-fluid py-4" id="section_01">
 
       <div class="row justify-content-center mb-5">
-        <div class="col-4">
+        <div class="col-md-7">
             <img class="img-fluid" src="../../../storage/app/public/img/Trending.png" alt="">
         </div>
       </div>
 
-      <div class="row row-cols-lg-4 row-cols-md-1 mx-5">
+      <div class="row  mx-5">
         <TrendingNow 
           v-for="apartment in apartments"
           :key="apartment.id"
@@ -167,13 +165,10 @@
     background-size: cover;
     background-position: center;
     position: relative;
-    .img_box{
-      width: min-content;
-      margin: auto;
+   
       #logo{
         transform: scale(0.8);
         }
-      }
 
     .overlay{
       position: absolute;

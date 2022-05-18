@@ -17395,8 +17395,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -17693,14 +17691,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -18287,7 +18277,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".main_container[data-v-b3c5cf30] {\n  overflow-x: hidden;\n}\n#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/jumbotron.jpg */ "./storage/app/public/img/jumbotron.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron .img_box[data-v-b3c5cf30] {\n  width: -webkit-min-content;\n  width: -moz-min-content;\n  width: min-content;\n  margin: auto;\n}\n#jumbotron .img_box #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}\n#section_01[data-v-b3c5cf30] {\n  background-color: #E7717D;\n}\n#section_01 h2[data-v-b3c5cf30] {\n  color: #FFCEAF;\n}", ""]);
+exports.push([module.i, ".main_container[data-v-b3c5cf30] {\n  overflow-x: hidden;\n}\n#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/jumbotron.jpg */ "./storage/app/public/img/jumbotron.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}\n#section_01[data-v-b3c5cf30] {\n  background-color: #E7717D;\n}\n#section_01 h2[data-v-b3c5cf30] {\n  color: #FFCEAF;\n}", ""]);
 
 // exports
 
@@ -18344,7 +18334,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#app_features[data-v-43286bac] {\n  background-color: #E7717D;\n}\n.row.odd .col-7.odd h1[data-v-43286bac] {\n  color: #FFCEAF;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 5rem;\n  padding-right: 1rem;\n}\n.row.even[data-v-43286bac] {\n  background-color: #FFCEAF;\n}\n.row.even h1[data-v-43286bac] {\n  color: #E7717D;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 6rem;\n  padding-right: 1rem;\n}\n#comfort_icon[data-v-43286bac] {\n  height: 350px;\n  box-shadow: 10px 10px #E7717D;\n}\n#map_icon[data-v-43286bac], #host_icon[data-v-43286bac] {\n  height: 350px;\n  box-shadow: -10px 10px #FFCEAF;\n}", ""]);
+exports.push([module.i, "#app_features[data-v-43286bac] {\n  background-color: #E7717D;\n}\n.row.odd .text_box.odd h1[data-v-43286bac] {\n  color: #FFCEAF;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 5rem;\n  padding-right: 1rem;\n}\n.row.even[data-v-43286bac] {\n  background-color: #FFCEAF;\n}\n.row.even h1[data-v-43286bac] {\n  color: #E7717D;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 6rem;\n  padding-right: 1rem;\n}\n#comfort_icon[data-v-43286bac] {\n  transform: scale(0.85);\n}\n#host_icon[data-v-43286bac] {\n  transform: scale(0.85);\n}\n@media only screen and (min-width: 992px) {\n#map_icon[data-v-43286bac], #host_icon[data-v-43286bac] {\n    box-shadow: -10px 10px #FFCEAF;\n}\n#comfort_icon[data-v-43286bac] {\n    box-shadow: 10px 10px #E7717D;\n}\n}", ""]);
 
 // exports
 
@@ -18382,7 +18372,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#carousel[data-v-54527178] {\n  background-color: #E7717D;\n}\n#carousel ul[data-v-54527178] {\n  visibility: hidden;\n}\n#carousel .carousel-control-prev-icon[data-v-54527178], #carousel .carousel-control-next-icon[data-v-54527178] {\n  filter: invert(100%);\n}\n#carousel .carousel-inner[data-v-54527178] {\n  border: 6px solid #FFCEAF;\n}\n#carousel .carousel-item[data-v-54527178] {\n  height: 500px;\n}\n#carousel .carousel-item img[data-v-54527178] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n}", ""]);
+exports.push([module.i, "#carousel[data-v-54527178] {\n  background-color: #E7717D;\n}\n#carousel ul[data-v-54527178] {\n  visibility: hidden;\n}\n#carousel .carousel-control-prev-icon[data-v-54527178], #carousel .carousel-control-next-icon[data-v-54527178] {\n  filter: invert(100%);\n}\n#carousel .carousel-inner[data-v-54527178] {\n  border: 6px solid #FFCEAF;\n}\n#carousel .carousel-item img[data-v-54527178] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n}\n@media only screen and (max-width: 576px) {\n.carousel-control-prev[data-v-54527178], .carousel-control-next[data-v-54527178] {\n    display: none;\n}\n.carousel-item[data-v-54527178] {\n    max-height: 300px;\n}\n}\n@media only screen and (max-width: 992px) and (min-width: 576px) {\n.carousel-control-prev[data-v-54527178], .carousel-control-next[data-v-54527178] {\n    display: none;\n}\n.carousel-item[data-v-54527178] {\n    max-height: 400px;\n}\n}\n@media only screen and (min-width: 993px) {\n.carousel-item[data-v-54527178] {\n    height: 500px;\n}\n}", ""]);
 
 // exports
 
@@ -18458,7 +18448,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "a[data-v-5c7f2a86] {\n  text-decoration: none;\n}\na .col .card[data-v-5c7f2a86] {\n  background-color: #E7717D;\n  border: 6px solid #FFCEAF;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n  height: 400px;\n}\na .col .card img[data-v-5c7f2a86] {\n  width: 100%;\n  height: 300px;\n}\na .col .card a[data-v-5c7f2a86] {\n  background-color: #EF9273;\n  border: 0;\n}\na .col .card[data-v-5c7f2a86]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
+exports.push([module.i, ".card[data-v-5c7f2a86] {\n  background-color: #E7717D;\n  border: 6px solid #FFCEAF;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n}\n.card .card-body[data-v-5c7f2a86] {\n  background-color: #FFCEAF;\n}\n.card a[data-v-5c7f2a86] {\n  text-decoration: none;\n}\n.card a .card-title[data-v-5c7f2a86] {\n  color: #EF9273;\n  font-family: Montserrat, sans-serif;\n}\n.card a img[data-v-5c7f2a86] {\n  width: 100%;\n}\n.card[data-v-5c7f2a86]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
 
 // exports
 
@@ -20214,51 +20204,58 @@ var render = function () {
               attrs: { id: "navbarSupportedContent" },
             },
             [
-              _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-                _c(
-                  "li",
-                  { staticClass: "nav-item active" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link nav_text",
-                        attrs: { to: { name: "home" } },
-                      },
-                      [
-                        _vm._v("Home "),
-                        _c("span", { staticClass: "sr-only" }, [
-                          _vm._v("(current)"),
-                        ]),
-                      ]
-                    ),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item active" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link nav_text",
-                        attrs: { to: { name: "about" } },
-                      },
-                      [
-                        _vm._v("About "),
-                        _c("span", { staticClass: "sr-only" }, [
-                          _vm._v("(current)"),
-                        ]),
-                      ]
-                    ),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(1),
-              ]),
+              _c(
+                "ul",
+                {
+                  staticClass:
+                    "navbar-nav ml-auto d-flex flex-row justify-content-center",
+                },
+                [
+                  _c(
+                    "li",
+                    { staticClass: "nav-item active" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link nav_text",
+                          attrs: { to: { name: "home" } },
+                        },
+                        [
+                          _vm._v("Home "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("(current)"),
+                          ]),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item active" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link nav_text",
+                          attrs: { to: { name: "about" } },
+                        },
+                        [
+                          _vm._v("About "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("(current)"),
+                          ]),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm._m(1),
+                ]
+              ),
             ]
           ),
         ],
@@ -20862,11 +20859,12 @@ var render = function () {
           _c(
             "div",
             {
-              staticClass: "row align-items-end justify-content-center mx-0",
+              staticClass:
+                "row align-items-end justify-content-center mx-0 mt-3",
               attrs: { id: "row_jumbo" },
             },
             [
-              _c("div", { staticClass: "col-8" }, [
+              _c("div", { staticClass: "col-12" }, [
                 _c(
                   "form",
                   {
@@ -21026,7 +21024,7 @@ var render = function () {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "row row-cols-lg-4 row-cols-md-1 mx-5" },
+            { staticClass: "row  mx-5" },
             _vm._l(_vm.apartments, function (apartment) {
               return _c("TrendingNow", {
                 key: apartment.id,
@@ -21055,16 +21053,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row justify-content-center mx-0" }, [
-      _c("div", { staticClass: "col-6" }, [
-        _c("div", { staticClass: "img_box" }, [
-          _c("img", {
-            attrs: {
-              src: __webpack_require__(/*! ../../../storage/app/public/img/BoolBnb.png */ "./storage/app/public/img/BoolBnb.png"),
-              alt: "Logo",
-              id: "logo",
-            },
-          }),
-        ]),
+      _c("div", { staticClass: "col-6 text-center " }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: {
+            src: __webpack_require__(/*! ../../../storage/app/public/img/BoolBnb.png */ "./storage/app/public/img/BoolBnb.png"),
+            alt: "Logo",
+            id: "logo",
+          },
+        }),
       ]),
     ])
   },
@@ -21085,7 +21082,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row justify-content-center mb-5" }, [
-      _c("div", { staticClass: "col-4" }, [
+      _c("div", { staticClass: "col-md-7" }, [
         _c("img", {
           staticClass: "img-fluid",
           attrs: {
@@ -21513,53 +21510,52 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container-fluid  py-4", attrs: { id: "app_features" } },
+    {
+      staticClass: "container-fluid  py-4 px-0",
+      attrs: { id: "app_features" },
+    },
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "svg",
-          {
-            attrs: {
-              xmlns: "http://www.w3.org/2000/svg",
-              viewBox: "0 0 1440 320",
-            },
+      _c(
+        "svg",
+        {
+          attrs: {
+            xmlns: "http://www.w3.org/2000/svg",
+            viewBox: "0 0 1440 320",
           },
-          [
-            _c("path", {
-              attrs: {
-                fill: "#FFCEAF",
-                "fill-opacity": "1",
-                d: "M0,64L120,85.3C240,107,480,149,720,181.3C960,213,1200,235,1320,245.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z",
-              },
-            }),
-          ]
-        ),
-      ]),
+        },
+        [
+          _c("path", {
+            attrs: {
+              fill: "#FFCEAF",
+              "fill-opacity": "1",
+              d: "M0,64L120,85.3C240,107,480,149,720,181.3C960,213,1200,235,1320,245.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z",
+            },
+          }),
+        ]
+      ),
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "svg",
-          {
-            attrs: {
-              xmlns: "http://www.w3.org/2000/svg",
-              viewBox: "0 0 1440 320",
-            },
+      _c(
+        "svg",
+        {
+          attrs: {
+            xmlns: "http://www.w3.org/2000/svg",
+            viewBox: "0 0 1440 320",
           },
-          [
-            _c("path", {
-              attrs: {
-                fill: "#FFCEAF",
-                "fill-opacity": "1",
-                d: "M0,320L120,293.3C240,267,480,213,720,192C960,171,1200,181,1320,186.7L1440,192L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z",
-              },
-            }),
-          ]
-        ),
-      ]),
+        },
+        [
+          _c("path", {
+            attrs: {
+              fill: "#FFCEAF",
+              "fill-opacity": "1",
+              d: "M0,320L120,293.3C240,267,480,213,720,192C960,171,1200,181,1320,186.7L1440,192L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z",
+            },
+          }),
+        ]
+      ),
       _vm._v(" "),
       _vm._m(2),
     ]
@@ -21570,15 +21566,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row odd row-cols-2 px-5" }, [
+    return _c("div", { staticClass: "row odd flex  px-5" }, [
       _c(
         "div",
         {
           staticClass:
-            "col-7 odd text-center d-flex flex-column justify-content-center text-white",
+            " col-xl-8 col-lg-7  col-md-12 col-sm-12  text_box odd text-center d-flex flex-column justify-content-center text-white",
         },
         [
-          _c("h1", { staticClass: "text-left display-4 " }, [
+          _c("h1", { staticClass: "text-left display-4 pl-4" }, [
             _vm._v("Find your next adventure between thousand of destinations"),
           ]),
         ]
@@ -21588,19 +21584,17 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "col-5  text-center d-flex flex-column justify-content-end",
+            "col-xl-4 col-lg-5 col-md-12 col-sm-12 text-center d-flex flex-column justify-content-end",
         },
         [
-          _c("div", { staticClass: "img_box" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: {
-                src: __webpack_require__(/*! ../../../../storage/app/public/img/Map_Light.png */ "./storage/app/public/img/Map_Light.png"),
-                id: "map_icon",
-                alt: "Map",
-              },
-            }),
-          ]),
+          _c("img", {
+            staticClass: "img-fluid",
+            attrs: {
+              src: __webpack_require__(/*! ../../../../storage/app/public/img/Map_Light.png */ "./storage/app/public/img/Map_Light.png"),
+              id: "map_icon",
+              alt: "Map",
+            },
+          }),
         ]
       ),
     ])
@@ -21609,24 +21603,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row even row-cols-2 px-5" }, [
+    return _c("div", { staticClass: "row even  px-5" }, [
       _c(
         "div",
         {
           staticClass:
-            "col text-center d-flex flex-column justify-content-around",
+            "col-xl-4 col-lg-5 col-md-12 text-center d-flex flex-column justify-content-around",
         },
         [
-          _c("div", { staticClass: "img_box" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: {
-                src: __webpack_require__(/*! ../../../../storage/app/public/img/Comfort_Pink.png */ "./storage/app/public/img/Comfort_Pink.png"),
-                id: "comfort_icon",
-                alt: "Map",
-              },
-            }),
-          ]),
+          _c("img", {
+            staticClass: "img-fluid",
+            attrs: {
+              src: __webpack_require__(/*! ../../../../storage/app/public/img/Comfort_Pink.png */ "./storage/app/public/img/Comfort_Pink.png"),
+              id: "comfort_icon",
+              alt: "Heart",
+            },
+          }),
         ]
       ),
       _vm._v(" "),
@@ -21634,10 +21626,10 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "col even text-center d-flex flex-column justify-content-around text-white",
+            "col-xl-8 col-lg-7  col-md-12  even text-center d-flex flex-column justify-content-around text-white",
         },
         [
-          _c("h1", { staticClass: "text-left display-4" }, [
+          _c("h1", { staticClass: "text-center display-4 " }, [
             _vm._v(
               "Check off your apartment preferences and get all the comfort you deserve"
             ),
@@ -21650,15 +21642,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row odd row-cols-2 px-5" }, [
+    return _c("div", { staticClass: "row odd  px-5" }, [
       _c(
         "div",
         {
           staticClass:
-            "col-7 odd text-center d-flex flex-column justify-content-around text-white",
+            " col-xl-8 col-lg-7  col-md-12 col-md-12 col-xs-12 text_box odd text-center d-flex flex-column justify-content-around text-white",
         },
         [
-          _c("h1", { staticClass: "text-left display-4" }, [
+          _c("h1", { staticClass: "text-left display-4 pl-5" }, [
             _vm._v("Get in touch with our friendly hosts: it's super easy!"),
           ]),
         ]
@@ -21668,19 +21660,17 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "col-5  text-center d-flex flex-column justify-content-around",
+            "col-xl-4 col-lg-5 col-md-12 col-md-12 col-xs-12 text-center d-flex flex-column justify-content-end mb-5",
         },
         [
-          _c("div", { staticClass: "img_box" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: {
-                src: __webpack_require__(/*! ../../../../storage/app/public/img/Hos_Light.png */ "./storage/app/public/img/Hos_Light.png"),
-                id: "host_icon",
-                alt: "Map",
-              },
-            }),
-          ]),
+          _c("img", {
+            staticClass: "img-fluid",
+            attrs: {
+              src: __webpack_require__(/*! ../../../../storage/app/public/img/Hos_Light1.png */ "./storage/app/public/img/Hos_Light1.png"),
+              id: "host_icon",
+              alt: "Host",
+            },
+          }),
         ]
       ),
     ])
@@ -21925,7 +21915,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row row-cols-md-3 row-cols-sm-1  mx-5 mb-5" },
+        { staticClass: "row row-cols-lg-3 row-cols-md-1  mx-5 mb-5" },
         _vm._l(_vm.destinations, function (destination) {
           return _c(
             "router-link",
@@ -22002,26 +21992,20 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "a",
-    { attrs: { href: "/apartments/single-apartment/" + _vm.slug } },
-    [
-      _c("div", { staticClass: "col text-center" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("img", {
-            staticClass: "card-img-top ",
-            attrs: { src: _vm.image, alt: "Card image cap" },
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title text-white" }, [
-              _vm._v(_vm._s(_vm.title)),
-            ]),
-          ]),
+  return _c("div", { staticClass: "col-md-6 col-lg-3 text-center pb-5" }, [
+    _c("div", { staticClass: "card" }, [
+      _c("a", { attrs: { href: "/apartments/single-apartment/" + _vm.slug } }, [
+        _c("img", {
+          staticClass: "card-img-top img-fluid",
+          attrs: { src: _vm.image, alt: "Card image cap" },
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title " }, [_vm._v(_vm._s(_vm.title))]),
         ]),
       ]),
-    ]
-  )
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
