@@ -25,31 +25,7 @@
     name: 'PopularDestinations',
     data(){
       return{
-<<<<<<< HEAD
-        destinations:[
-          {
-            country: 'Morocco',
-            uri: 'Morocco',
-            path: require('../../../../storage/app/public/img/Cropped_Morocco.jpg')
-          },
-          {
-            country: 'Italy',
-            uri: 'Italia',
-            path: require('../../../../storage/app/public/img/Italy.jpg')
-
-          },
-          {
-            country: 'Norway',
-            uri: 'Norway',
-            path: require('../../../../storage/app/public/img/Cropped_Norway.jpg')
-
-          },
-        ]
-
-=======
-        dateNow: dayjs().format('D-MM-YYYY').split('-').slice(1,2).join(''),
-        destinations: []
->>>>>>> fix-home
+        destinations:[]
       }
     },
     mounted(){
