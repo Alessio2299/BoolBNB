@@ -39266,7 +39266,7 @@ module.exports = "/images/Marianna Galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Morocco.jpg?45b943d31c0421104590017495a496f7";
+module.exports = "/images/Morocco.jpg?8917dd782d64c4766cd22bd5c436d686";
 
 /***/ }),
 
