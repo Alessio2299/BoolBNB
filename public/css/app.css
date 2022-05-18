@@ -10980,7 +10980,6 @@ a.text-dark:focus {
 
 html body {
   overflow-x: hidden;
-  width: 100vw;
 }
 
 .row.debug {

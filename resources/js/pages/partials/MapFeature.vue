@@ -30,9 +30,16 @@
     },
     methods:{
       initializeMap() { 
-        var latlon = {
-          lat: this.lat,
-          lon: this.lon
+        if(this.apartments.length == 1){
+          var latlon = {
+            lat: this.apartments[0].lat,
+            lon: this.apartments[0].lon
+          }
+        }else{
+          var latlon = {
+            lat: this.lat,
+            lon: this.lon
+          }
         }
         this.map = tt.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
@@ -54,6 +61,34 @@
         this.map.addControl(new tt.FullscreenControl());
         this.map.addControl(new tt.NavigationControl());
       },
+      zoom(){
+        switch (true) {
+          case this.radius <= '3':
+            this.myZoom = 15
+            break;
+          case this.radius <= '7':
+            this.myZoom = 14
+            break;
+          case this.radius <= '10':
+            this.myZoom = 13
+            break;
+          case this.radius <= '13':
+            this.myZoom = 12
+            break;
+          case this.radius <= '18':
+            this.myZoom = 11
+            break;
+          case this.radius <= '23':
+            this.myZoom = 10
+            break;
+          case this.radius <= '27':
+            this.myZoom = 9
+            break;
+          case this.radius <= '30':
+            this.myZoom = 8
+            break;
+        }
+      }
     }    
   }
 </script>
@@ -61,7 +96,13 @@
 <style lang="scss" scoped>
   #map{
     width: 60vw;
-    height: 60vh;
+    height: 40vh;
     overflow: hidden;
+  }
+
+  @media only screen and (min-width: 992px) {
+  #map {
+  height: 60vh;
+  }
   }
 </style>>

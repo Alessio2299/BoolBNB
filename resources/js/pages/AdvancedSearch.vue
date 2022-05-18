@@ -1,18 +1,18 @@
 <template>
-    <section>
-        <div class="container ">
+    <section class="mx-auto">
+        <div class="container-fluid px-5 py-5">
             <div class="row">
                 <div class="col-12 my-3">
                     <h1 class="text-center">Advanced Search</h1>
                     <div class="text-center">
                         <label for="radius" class="d-block form-label">Radius: {{radius}} km</label>
-                        <input type="range" min="0" max="30" value="10" id="radius" name="radius" v-model="radius">
+                        <input type="range" min="1" max="30" id="radius" name="radius" v-model="radius">
                     </div>
                 </div>
 
-                <div class="col-12 d-flex justify-content-around my-3">
+                <div class="col-12 d-flex justify-content-around my-3 align-items-center">
                     <div>
-                        <label for="rooms">Rooms</label>
+                        <label for="rooms"><font-awesome-icon icon="fa-solid fa-people-roof" class="mr-2" /> Rooms</label>
                         <select v-model="rooms_num">
                             <option value="All">All</option>
                             <option v-for="index in 9" :key="index" :value="index" >{{index}}</option>
@@ -21,7 +21,7 @@
                     </div>
 
                     <div>
-                        <label for="beds">Beds</label>
+                        <label for="beds"><font-awesome-icon icon="fa-solid fa-bed" class="mr-2" /> Beds</label>
                         <select v-model="beds_num">
                             <option value="All">All</option>
                             <option v-for="index in 9" :key="index" :value="index">{{index}}</option>
@@ -30,16 +30,23 @@
                     </div>
 
                     <div>
-                        <label for="bathrooms">Bathrooms</label>
+                        <label for="bathrooms"><font-awesome-icon icon="fa-solid fa-toilet" class="mr-2" /> Bathrooms</label>
                         <select v-model="bathrooms_num">
                             <option value="All">All</option>
                             <option v-for="index in 9" :key="index" :value="index">{{index}}</option>
                             <option value="10+">10+</option>
                         </select>
                     </div>
+
+                    <div @click="viewMore()" class="more-search">
+                        <span class="label">More 
+                            <i v-if="!more" class="ml-1 fas fa-chevron-down"></i>
+                            <i v-if="more" class="ml-1 fas fa-chevron-up"></i>
+                        </span>
+                    </div>
                 </div>
 
-                <div class="col-12 d-flex justify-content-around my-3">
+                <div v-if="more" class="col-12 d-flex justify-content-around my-3">
                     <div v-for="amenity in amenities" :key="amenity.id">
                         <label :for="amenity.name">{{amenity.name}}</label>
                         <input type="checkbox" :id="amenity.name" :value="amenity.id" v-model="checked_amenities">
@@ -47,7 +54,7 @@
                 </div>
 
                 <div class="col-12 text-center">
-                    <button class="btn btn-dark" @click="sendParams()">Cerca</button>
+                    <button class="btn btn-dark" @click="sendParams()">Search now!</button>
                 </div>
             </div>
 
@@ -57,23 +64,28 @@
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col-6">
-                    <p class="my_text" v-if="apartments.length == 0">No apartment was found</p>
-                    <Apartment
-                        v-for="apartment in apartments" :key="apartment.id"
-                        :image="apartment.image"
-                        :title="apartment.title"
-                        :description="apartment.description"
-                        :slug="apartment.slug"
-                        :rooms="apartment.rooms"
-                        :bathrooms="apartment.bathrooms"
-                        :beds="apartment.beds"
-                        :address="apartment.address"
-                    />
-                </div>
+            <div class="row results">
+                <div class="col apart_container">
+                    <div class="row">
 
-                <div v-if="flag && flagApartment" class="col-6 d-flex align-items-center justify-content-center">
+                                <!-- <div class="col-4"> -->
+                                    <p class="text-center my_text" v-if="apartments.length == 0">Sorry, we could not find an apartment matching your requirments!</p>
+                                    <Apartment
+                                        v-for="apartment in apartments" :key="apartment.id"
+                                        :image="apartment.image"
+                                        :title="apartment.title"
+                                        :description="apartment.description"
+                                        :slug="apartment.slug"
+                                        :rooms="apartment.rooms"
+                                        :bathrooms="apartment.bathrooms"
+                                        :beds="apartment.beds"
+                                        :address="apartment.address"
+                                    />
+                                <!-- </div> -->
+
+                    </div>
+                </div>
+                <div v-if="flag && flagApartment" class="search-map mt-4 col-lg-6 col-md-12  d-flex  justify-content-center">
                     <MapFeature
                         :lat= 'addressLat'
                         :lon= 'addressLon'
@@ -101,6 +113,7 @@ export default {
 
     data() {
         return {
+            more: false,
             radius: '20',
             apartments: [],
             amenities: [],
@@ -171,16 +184,68 @@ export default {
                     this.error = false
                 }
             })
+        },
+        viewMore(){
+            if(this.more == false){
+                this.more = true
+            } else{
+                this.more = false
+            }
+        
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+    @import "../../sass/variables.scss";
+    section {
+        background-color: $orange_primary;
+
+        .apart_container{
+            overflow-y: auto;
+            height: 500px;
+            padding: 50px;
+            background-color: wheat;
+            border-radius: 10px;
+        }
+
+        
+
+        .card-body {
+            background-color: $blue_primary;
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 150px;
+            margin: 0 15px;
+        }
+
+        #map {
+            border: 3px solid $orange_secondary;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    }
     #radius{
         width: 300px;
     }
     .my_text{
         font-size: 40px;
     }
+
+    input[type='range'] {
+        accent-color: $orange_secondary;
+    }
+    .label{
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
 </style>

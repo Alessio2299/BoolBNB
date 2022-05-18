@@ -1,16 +1,16 @@
 <template>
    <div class="container-fluid py-4" id="section_03" >
      <div class="row justify-content-center mb-5">
-        <div class="col-4">
+        <div class="col-sm-6">
             <img class="img-fluid" src="../../../../storage/app/public/img/Popular_Destinations.png" alt="">
         </div>
       </div>
-      <div class="row row-cols-3 mx-5 mb-5">
+      <div class="row row-cols-lg-3 row-cols-md-1  mx-5 mb-5">
         <router-link :to="{name: 'advancedSearch', params :{address: destination.uri}}" v-for="destination in destinations" :key="destination.name">
         <div class="col text-center ">
-          <div class="card d-flex align-items-center" >
-            <h1 class="card-title text-white">{{destination.country}}</h1>
-            <img class="card-img-top "  style="height: 21rem;" :src="destination.path" alt="Card image cap">
+          <div class="card d-flex align-items-center my-4" >
+            <p class="card-title text-white h2 mt-2">{{destination.country}}</p>
+            <img class="card-img-top "  :src="destination.path" alt="Card image cap">
           </div>
         </div>
         </router-link>
@@ -20,35 +20,17 @@
 </template>
 
 <script>
-  
+  const dayjs = require('dayjs')
   export default {
     name: 'PopularDestinations',
     data(){
       return{
-        destinations:[
-          {
-            country: 'Morocco',
-            uri: 'Morocco',
-            path: require('../../../../storage/app/public/img/Morocco.jpg')
-          },
-          {
-            country: 'Italy',
-            uri: 'Italia',
-            path: require('../../../../storage/app/public/img/Italy.jpg')
-
-          },
-          {
-            country: 'Norway',
-            uri: 'Norway',
-            path: require('../../../../storage/app/public/img/Norway.jpg')
-
-          },
-        ]
-
+        dateNow: dayjs().format('D-MM-YYYY').split('-').slice(1,2).join(''),
+        destinations:[]
       }
     },
-    components:{
-     
+    mounted(){
+      this.getDestination()
     },
     methods:{
        getLatlong(){
@@ -63,6 +45,49 @@
                 }
             })
         },
+        getDestination(){
+          if(this.dateNow >= '04' && this.dateNow <= '09'){
+            this.destinations = [
+              {
+                country: 'Morocco',
+                uri: 'Morocco',
+                path: require('../../../../storage/app/public/img/Morocco.jpg')
+              },
+              {
+                country: 'Italy',
+                uri: 'Italia',
+                path: require('../../../../storage/app/public/img/Italy.jpg')
+
+              },
+              {
+                country: 'Greece',
+                uri: 'Greece',
+                path: require('../../../../storage/app/public/img/grecia.jpeg')
+
+              },
+            ]
+          } else {
+            this.destinations = [
+              {
+                country: 'Austria',
+                uri: 'Austria',
+                path: require('../../../../storage/app/public/img/Austria.jpeg')
+              },
+              {
+                country: 'Germany',
+                uri: 'Germany',
+                path: require('../../../../storage/app/public/img/Germany-landscape.jpg')
+
+              },
+              {
+                country: 'Norway',
+                uri: 'Norway',
+                path: require('../../../../storage/app/public/img/Norway.jpg')
+
+              },
+            ]
+          }
+        }
     }
   }
 </script>
@@ -77,7 +102,7 @@
     
       a{
         text-decoration: none;
-        .col .card{
+        .card{
           background-color: #E7717D;
           border: 6px solid #E7717D;
           box-shadow: 15px 15px #EF9273;
@@ -85,7 +110,7 @@
           transition: 0.3s;
           position: relative;
 
-          h1{
+          p.card-title{
             position: absolute;
             font-family: Montserrat, sans-serif;
             text-transform: uppercase;

@@ -16904,12 +16904,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Apartment',
   props: ['image', 'title', 'description', 'slug', 'rooms', 'bathrooms', 'beds', 'address'],
   methods: {
     truncateText: function truncateText(text) {
-      var maxLength = 100;
+      var maxLength = 20;
 
       if (text.length > maxLength) {
         return text.substring(0, maxLength) + '...';
@@ -17047,7 +17049,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _partials_CardTeam_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/CardTeam.vue */ "./resources/js/pages/partials/CardTeam.vue");
 //
 //
 //
@@ -17160,42 +17161,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home',
-  components: {
-    CardTeam: _partials_CardTeam_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  name: 'About'
 });
 
 /***/ }),
@@ -17299,6 +17266,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17309,6 +17288,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      more: false,
       radius: '20',
       apartments: [],
       amenities: [],
@@ -17380,6 +17360,13 @@ __webpack_require__.r(__webpack_exports__);
           _this4.error = false;
         }
       });
+    },
+    viewMore: function viewMore() {
+      if (this.more == false) {
+        this.more = true;
+      } else {
+        this.more = false;
+      }
     }
   }
 });
@@ -17399,6 +17386,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_TrendingNow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/TrendingNow */ "./resources/js/pages/partials/TrendingNow.vue");
 /* harmony import */ var _partials_Appfeatures__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/Appfeatures */ "./resources/js/pages/partials/Appfeatures.vue");
 /* harmony import */ var _partials_PopularDestinations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/PopularDestinations */ "./resources/js/pages/partials/PopularDestinations.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -17488,8 +17489,12 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
       success: null,
       listAddress: [],
       errors: {},
-      isSending: false
+      isSending: false,
+      apartments: []
     };
+  },
+  mounted: function mounted() {
+    this.getApartments();
   },
   methods: {
     autoComplete: function autoComplete() {
@@ -17536,6 +17541,15 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
           }
         });
       }
+    },
+    getApartments: function getApartments() {
+      var _this3 = this;
+
+      Axios.get('/api/all/apartments').then(function (resp) {
+        for (var i = 0; i < 4; i++) {
+          _this3.apartments.push(resp.data.results[i]);
+        }
+      });
     }
   }
 });
@@ -17786,56 +17800,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AppFeatures',
   data: function data() {
     return {};
   },
   components: {}
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/partials/CardTeam.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/partials/CardTeam.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'CardTeam',
-  props: {
-    name: String,
-    image: String,
-    job: String,
-    linkGitHub: String
-  }
 });
 
 /***/ }),
@@ -17933,10 +17903,18 @@ __webpack_require__.r(__webpack_exports__);
     initializeMap: function initializeMap() {
       var _this = this;
 
-      var latlon = {
-        lat: this.lat,
-        lon: this.lon
-      };
+      if (this.apartments.length == 1) {
+        var latlon = {
+          lat: this.apartments[0].lat,
+          lon: this.apartments[0].lon
+        };
+      } else {
+        var latlon = {
+          lat: this.lat,
+          lon: this.lon
+        };
+      }
+
       this.map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
         container: 'map',
@@ -17961,6 +17939,41 @@ __webpack_require__.r(__webpack_exports__);
 
       this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.FullscreenControl());
       this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.NavigationControl());
+    },
+    zoom: function zoom() {
+      switch (true) {
+        case this.radius <= '3':
+          this.myZoom = 15;
+          break;
+
+        case this.radius <= '7':
+          this.myZoom = 14;
+          break;
+
+        case this.radius <= '10':
+          this.myZoom = 13;
+          break;
+
+        case this.radius <= '13':
+          this.myZoom = 12;
+          break;
+
+        case this.radius <= '18':
+          this.myZoom = 11;
+          break;
+
+        case this.radius <= '23':
+          this.myZoom = 10;
+          break;
+
+        case this.radius <= '27':
+          this.myZoom = 9;
+          break;
+
+        case this.radius <= '30':
+          this.myZoom = 8;
+          break;
+      }
     }
   }
 });
@@ -18052,26 +18065,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+var dayjs = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'dayjs'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PopularDestinations',
   data: function data() {
     return {
-      destinations: [{
-        country: 'Morocco',
-        uri: 'Morocco',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Morocco.jpg */ "./storage/app/public/img/Morocco.jpg")
-      }, {
-        country: 'Italy',
-        uri: 'Italia',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Italy.jpg */ "./storage/app/public/img/Italy.jpg")
-      }, {
-        country: 'Norway',
-        uri: 'Norway',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Norway.jpg */ "./storage/app/public/img/Norway.jpg")
-      }]
+      dateNow: dayjs().format('D-MM-YYYY').split('-').slice(1, 2).join(''),
+      destinations: []
     };
   },
-  components: {},
+  mounted: function mounted() {
+    this.getDestination();
+  },
   methods: {
     getLatlong: function getLatlong() {
       var _this = this;
@@ -18085,6 +18091,37 @@ __webpack_require__.r(__webpack_exports__);
           _this.flag = true;
         }
       });
+    },
+    getDestination: function getDestination() {
+      if (this.dateNow >= '04' && this.dateNow <= '09') {
+        this.destinations = [{
+          country: 'Morocco',
+          uri: 'Morocco',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Morocco.jpg */ "./storage/app/public/img/Morocco.jpg")
+        }, {
+          country: 'Italy',
+          uri: 'Italia',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Italy.jpg */ "./storage/app/public/img/Italy.jpg")
+        }, {
+          country: 'Greece',
+          uri: 'Greece',
+          path: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../storage/app/public/img/grecia.jpeg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+        }];
+      } else {
+        this.destinations = [{
+          country: 'Austria',
+          uri: 'Austria',
+          path: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../storage/app/public/img/Austria.jpeg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+        }, {
+          country: 'Germany',
+          uri: 'Germany',
+          path: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../storage/app/public/img/Germany-landscape.jpg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+        }, {
+          country: 'Norway',
+          uri: 'Norway',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Norway.jpg */ "./storage/app/public/img/Norway.jpg")
+        }];
+      }
     }
   }
 });
@@ -18113,59 +18150,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TrendingNow',
   data: function data() {
     return {};
   },
-  components: {}
+  props: {
+    title: String,
+    image: String,
+    slug: String
+  }
 });
 
 /***/ }),
@@ -18219,7 +18213,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#apartment_card[data-v-296c1857] {\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, "#apartment_card[data-v-296c1857] {\n  cursor: pointer;\n  background-color: #FFCEAF;\n  border: 6px solid #FFCEAF;\n  box-shadow: 15px 15px #E7717D;\n}\n#apartment_card .card-title[data-v-296c1857] {\n  color: #EF9273;\n  text-shadow: 1px 1px #E7717D;\n}\n#apartment_card .card-text[data-v-296c1857] {\n  color: #5f2e1d;\n}", ""]);
 
 // exports
 
@@ -18277,7 +18271,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".title[data-v-520b5d54] {\n  margin: 0;\n  font-weight: 600;\n  text-transform: uppercase;\n}\n#head[data-v-520b5d54] {\n  height: 770px;\n  text-align: center;\n  background-color: #EF9273;\n  display: flex;\n  align-items: center;\n  position: relative;\n}\n#head .title.up[data-v-520b5d54] {\n  color: #0D0D0D;\n}\n#head .title.down[data-v-520b5d54] {\n  font-family: \"Brush Script MT\", cursive;\n  font-size: 4rem;\n  font-weight: 400;\n  color: #FEF9F8;\n  text-transform: lowercase;\n}\n#head .go-to-wrap[data-v-520b5d54] {\n  position: absolute;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 50px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#head .go-to-wrap span[data-v-520b5d54] {\n  text-transform: uppercase;\n  margin-bottom: 10px;\n}\n#head .go-to-wrap .go-to-mission[data-v-520b5d54] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  border: 1px solid #0D0D0D;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 1.2rem;\n  text-decoration: none;\n  color: #0D0D0D;\n}\n#head .go-to-wrap .go-to-mission[data-v-520b5d54]:hover {\n  color: #FFCEAF;\n}\n#mission[data-v-520b5d54] {\n  padding-top: 120px;\n  padding-bottom: 90px;\n  background-color: #FEF9F8;\n}\n#mission .col-4[data-v-520b5d54] {\n  padding: 0px 25px;\n}\n#mission .col-4 .img-wrap[data-v-520b5d54] {\n  width: 100%;\n  height: 250px;\n  background-color: #EF9273;\n  border-radius: 20px;\n  overflow: hidden;\n}\n#mission .col-4 .img-wrap img[data-v-520b5d54] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#mission .col-4 .text-wrap[data-v-520b5d54] {\n  color: #0D0D0D;\n}\n#mission .col-4 .text-wrap h3[data-v-520b5d54] {\n  margin-top: 40px;\n  font-weight: 600;\n}\n#mission .col-4 .text-wrap p[data-v-520b5d54] {\n  margin-top: 30px;\n}\n#story[data-v-520b5d54] {\n  background-color: #A5C7D8;\n  color: #FEF9F8;\n  position: relative;\n}\n#story .background-wrap[data-v-520b5d54] {\n  width: 50%;\n  height: 100%;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/waterfall.jpg */ "./storage/app/public/img/waterfall.jpg")) + ");\n  background-position: right bottom;\n  background-size: cover;\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n#story .background-wrap[data-v-520b5d54]:before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 100%, rgb(0, 212, 255) 100%);\n  opacity: 0.6;\n}\n#story .container[data-v-520b5d54] {\n  padding: 80px 0px;\n  height: 100%;\n}\n#story .container .row[data-v-520b5d54] {\n  display: flex;\n  justify-content: center;\n  text-align: center;\n  text-shadow: 1px 1px #0D0D0D;\n}\n#story .container .row p[data-v-520b5d54] {\n  margin-top: 50px;\n}\n#founders[data-v-520b5d54] {\n  padding-top: 120px;\n  padding-bottom: 90px;\n  background-color: #FEF9F8;\n}\n#founders .row[data-v-520b5d54] {\n  display: flex;\n  justify-content: center;\n}\n#founders .row .col-5[data-v-520b5d54] {\n  display: flex;\n  flex-direction: column;\n  padding: 0px 40px;\n}\n#founders .row .img-wrap[data-v-520b5d54] {\n  height: 150px;\n  width: 150px;\n  border-radius: 50%;\n  background-color: #E2E4E3;\n  align-self: center;\n  overflow: hidden;\n}\n#founders .row .img-wrap img[data-v-520b5d54] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#founders .row .text-wrap h3[data-v-520b5d54] {\n  margin-top: 30px;\n  font-weight: 600;\n  text-align: center;\n}\n#founders .row .text-wrap p[data-v-520b5d54] {\n  margin-top: 20px;\n}", ""]);
+exports.push([module.i, ".title[data-v-520b5d54] {\n  margin: 0;\n  font-weight: 600;\n  text-transform: uppercase;\n}\n#head[data-v-520b5d54] {\n  height: 770px;\n  position: relative;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/head-santorini.jpg */ "./storage/app/public/img/head-santorini.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n}\n#head .titles-wrap[data-v-520b5d54] {\n  text-align: center;\n  position: absolute;\n  top: 170px;\n  left: 50%;\n  transform: translateX(-50%);\n}\n#head .titles-wrap[data-v-520b5d54]:hover {\n  cursor: default;\n}\n#head .titles-wrap .title.up[data-v-520b5d54] {\n  color: #0D0D0D;\n}\n#head .titles-wrap .title.down[data-v-520b5d54] {\n  font-family: \"Brush Script MT\", cursive;\n  font-size: 4rem;\n  font-weight: 400;\n  color: #FEF9F8;\n  text-transform: lowercase;\n}\n#head .titles-wrap .title.down[data-v-520b5d54]:hover {\n  color: #0D0D0D;\n}\n#head .go-to-wrap[data-v-520b5d54] {\n  position: absolute;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 50px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  color: #FEF9F8;\n}\n#head .go-to-wrap span[data-v-520b5d54] {\n  text-transform: uppercase;\n  margin-bottom: 10px;\n  font-weight: 800;\n}\n#head .go-to-wrap .go-to-mission[data-v-520b5d54] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  border: 2px solid #FEF9F8;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 1.2rem;\n  text-decoration: none;\n  color: inherit;\n}\n#head .go-to-wrap .go-to-mission[data-v-520b5d54]:hover {\n  color: #0D0D0D;\n}\n#mission[data-v-520b5d54] {\n  padding-top: 120px;\n  padding-bottom: 90px;\n  background-color: #FEF9F8;\n}\n#mission .col[data-v-520b5d54] {\n  padding: 0px 25px;\n}\n#mission .col .img-wrap[data-v-520b5d54] {\n  width: 100%;\n  height: 250px;\n  border-radius: 20px;\n  overflow: hidden;\n  transition: 0.3s;\n}\n#mission .col .img-wrap img[data-v-520b5d54] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: 50% 50%;\n     object-position: 50% 50%;\n  overflow: hidden;\n}\n#mission .col .img-wrap[data-v-520b5d54]:hover {\n  transition: 0.4s;\n  transform: translateY(15px);\n}\n#mission .col .text-wrap[data-v-520b5d54] {\n  color: #0D0D0D;\n}\n#mission .col .text-wrap h3[data-v-520b5d54] {\n  margin-top: 40px;\n  font-weight: 600;\n}\n#mission .col .text-wrap p[data-v-520b5d54] {\n  margin-top: 30px;\n}\n#journey[data-v-520b5d54] {\n  display: flex;\n  height: 540px;\n}\n#journey .left[data-v-520b5d54] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/journey-2.jpg */ "./storage/app/public/img/journey-2.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  width: 50%;\n}\n#journey .right[data-v-520b5d54] {\n  width: 50%;\n  height: 100%;\n  background-color: #E2E4E3;\n  padding: 0px 30px;\n  display: flex;\n  align-items: center;\n}\n#journey .right .text-wrap[data-v-520b5d54] {\n  text-align: center;\n}\n#journey .right .text-wrap p[data-v-520b5d54] {\n  margin-top: 30px;\n}\n#founders[data-v-520b5d54] {\n  padding-top: 120px;\n  padding-bottom: 90px;\n  background-color: #FEF9F8;\n}\n#founders h1[data-v-520b5d54] {\n  text-align: center;\n  margin-bottom: 50px;\n  font-family: \"Brush Script MT\", cursive;\n  font-size: 4rem;\n  font-weight: 400;\n}\n#founders .row[data-v-520b5d54] {\n  display: flex;\n  justify-content: center;\n}\n#founders .row .col[data-v-520b5d54] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n#founders .row .col .img-wrap[data-v-520b5d54] {\n  height: 150px;\n  width: 150px;\n  border-radius: 50%;\n  background-color: #E2E4E3;\n  align-self: center;\n  overflow: hidden;\n  transition: 0.3s;\n}\n#founders .row .col .img-wrap[data-v-520b5d54]:hover {\n  box-shadow: 12px -1px #E2E4E3;\n  transition: 0.5s;\n}\n#founders .row .col img[data-v-520b5d54] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#founders .row .col h3[data-v-520b5d54] {\n  margin-top: 15px;\n  font-weight: 600;\n  text-align: center;\n  font-family: \"Brush Script MT\", cursive;\n  font-size: 2rem;\n}\n#founders .row .col p[data-v-520b5d54] {\n  margin-top: 20px;\n  text-align: center;\n}\n#social[data-v-520b5d54] {\n  background-color: #E2E4E3;\n  padding: 80px 0px;\n}\n#social .col-12[data-v-520b5d54] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n#social .col-12 h3[data-v-520b5d54] {\n  font-weight: 600;\n  padding: 0 20px;\n}\n#social .col-12 h3[data-v-520b5d54]:after {\n  content: \"\";\n  display: block;\n  width: 100%;\n  border-bottom: 0.5px solid #0D0D0D;\n  color: #0D0D0D;\n  margin: 20px 0px;\n}\n#social .col-12 .social-icons[data-v-520b5d54] {\n  font-size: 1.7rem;\n}\n#social .col-12 .social-icons a[data-v-520b5d54] {\n  margin-right: 15px;\n  text-decoration: none;\n  color: inherit;\n}\n@media (max-width: 768px) {\n#journey[data-v-520b5d54] {\n    flex-direction: column;\n    height: 800px;\n}\n#journey .left[data-v-520b5d54] {\n    height: 50%;\n    width: 100%;\n    background-position: center;\n}\n#journey .right[data-v-520b5d54] {\n    height: 50%;\n    width: 100%;\n}\n}\n@media (max-width: 576px) {\n#journey[data-v-520b5d54] {\n    height: 1000px;\n}\n}", ""]);
 
 // exports
 
@@ -18296,7 +18290,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#radius[data-v-0312e533] {\n  width: 300px;\n}\n.my_text[data-v-0312e533] {\n  font-size: 40px;\n}", ""]);
+exports.push([module.i, "section[data-v-0312e533] {\n  background-color: #EF9273;\n}\nsection .apart_container[data-v-0312e533] {\n  overflow-y: auto;\n  height: 500px;\n  padding: 50px;\n  background-color: wheat;\n  border-radius: 10px;\n}\nsection .card-body[data-v-0312e533] {\n  background-color: #A5C7D8;\n}\nsection label[data-v-0312e533] {\n  font-size: 20px;\n  font-weight: bold;\n}\nsection select[data-v-0312e533] {\n  width: 150px;\n  margin: 0 15px;\n}\nsection #map[data-v-0312e533] {\n  border: 3px solid #FFCEAF;\n  padding: 10px;\n  border-radius: 10px;\n}\n#radius[data-v-0312e533] {\n  width: 300px;\n}\n.my_text[data-v-0312e533] {\n  font-size: 40px;\n}\ninput[type=range][data-v-0312e533] {\n  accent-color: #FFCEAF;\n}\n.label[data-v-0312e533] {\n  font-size: 20px;\n  font-weight: bold;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -18316,7 +18310,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/jumbotron.jpg */ "./storage/app/public/img/jumbotron.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron .img_box[data-v-b3c5cf30] {\n  width: -webkit-min-content;\n  width: -moz-min-content;\n  width: min-content;\n  margin: auto;\n}\n#jumbotron .img_box #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}", ""]);
+exports.push([module.i, ".main_container[data-v-b3c5cf30] {\n  overflow-x: hidden;\n}\n#jumbotron[data-v-b3c5cf30] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../storage/app/public/img/jumbotron.jpg */ "./storage/app/public/img/jumbotron.jpg")) + ");\n  background-size: cover;\n  background-position: center;\n  position: relative;\n}\n#jumbotron #logo[data-v-b3c5cf30] {\n  transform: scale(0.8);\n}\n#jumbotron .overlay[data-v-b3c5cf30] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  background-color: black;\n  opacity: 0.4;\n}\n#jumbotron #row_jumbo[data-v-b3c5cf30] {\n  flex-basis: 100%;\n}\n#jumbotron #address[data-v-b3c5cf30] {\n  outline: none;\n  border-radius: 10px;\n  border: 0;\n  padding: 0.5rem;\n}\n#jumbotron svg[data-v-b3c5cf30] {\n  z-index: 99;\n}\n#section_01[data-v-b3c5cf30] {\n  background-color: #E7717D;\n}\n#section_01 h2[data-v-b3c5cf30] {\n  color: #FFCEAF;\n}", ""]);
 
 // exports
 
@@ -18373,26 +18367,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#app_features[data-v-43286bac] {\n  background-color: #E7717D;\n}\n.row.odd .col-7.odd h1[data-v-43286bac] {\n  color: #FFCEAF;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 5rem;\n  padding-right: 1rem;\n}\n.row.even[data-v-43286bac] {\n  background-color: #FFCEAF;\n}\n.row.even h1[data-v-43286bac] {\n  color: #E7717D;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 6rem;\n  padding-right: 1rem;\n}\n#comfort_icon[data-v-43286bac] {\n  height: 350px;\n  box-shadow: 10px 10px #E7717D;\n}\n#map_icon[data-v-43286bac], #host_icon[data-v-43286bac] {\n  height: 350px;\n  box-shadow: -10px 10px #FFCEAF;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/partials/CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/partials/CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".team-box[data-v-2782b0f1] {\n  position: relative;\n}\n.team-box .team-box-image img[data-v-2782b0f1] {\n  width: 100%;\n  height: 420px;\n  -o-object-position: center;\n     object-position: center;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.team-box .team-box-caption[data-v-2782b0f1] {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #0D0D0D;\n  color: #fff;\n  padding: 10px;\n  visibility: hidden;\n}\n.team-box .team-box-caption .social[data-v-2782b0f1] {\n  font-size: 20px;\n  color: #fff;\n}\n.team-box .team-box-caption .social[data-v-2782b0f1]:hover {\n  color: gray;\n}\n.team-box:hover .team-box-caption[data-v-2782b0f1] {\n  visibility: visible;\n}", ""]);
+exports.push([module.i, "#app_features[data-v-43286bac] {\n  background-color: #E7717D;\n}\n.row.odd .text_box.odd h1[data-v-43286bac] {\n  color: #FFCEAF;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 5rem;\n  padding-right: 1rem;\n}\n.row.even[data-v-43286bac] {\n  background-color: #FFCEAF;\n}\n.row.even h1[data-v-43286bac] {\n  color: #E7717D;\n  font-weight: bolder;\n  text-shadow: 3px 3px #EF9273;\n  line-height: 6rem;\n  padding-right: 1rem;\n}\n#comfort_icon[data-v-43286bac] {\n  transform: scale(0.85);\n}\n#host_icon[data-v-43286bac] {\n  transform: scale(0.85);\n}\n@media only screen and (min-width: 992px) {\n#map_icon[data-v-43286bac], #host_icon[data-v-43286bac] {\n    box-shadow: -10px 10px #FFCEAF;\n}\n#comfort_icon[data-v-43286bac] {\n    box-shadow: 10px 10px #E7717D;\n}\n}", ""]);
 
 // exports
 
@@ -18411,7 +18386,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#carousel[data-v-54527178] {\n  background-color: #E7717D;\n}\n#carousel ul[data-v-54527178] {\n  visibility: hidden;\n}\n#carousel .carousel-control-prev-icon[data-v-54527178], #carousel .carousel-control-next-icon[data-v-54527178] {\n  filter: invert(100%);\n}\n#carousel .carousel-inner[data-v-54527178] {\n  border: 6px solid #FFCEAF;\n}\n#carousel .carousel-item[data-v-54527178] {\n  height: 500px;\n}\n#carousel .carousel-item img[data-v-54527178] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n}", ""]);
+exports.push([module.i, "#carousel[data-v-54527178] {\n  background-color: #E7717D;\n}\n#carousel ul[data-v-54527178] {\n  visibility: hidden;\n}\n#carousel .carousel-control-prev-icon[data-v-54527178], #carousel .carousel-control-next-icon[data-v-54527178] {\n  filter: invert(100%);\n}\n#carousel .carousel-inner[data-v-54527178] {\n  border: 6px solid #FFCEAF;\n}\n#carousel .carousel-item img[data-v-54527178] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  height: 100%;\n}\n@media only screen and (max-width: 576px) {\n.carousel-control-prev[data-v-54527178], .carousel-control-next[data-v-54527178] {\n    display: none;\n}\n.carousel-item[data-v-54527178] {\n    max-height: 300px;\n}\n}\n@media only screen and (max-width: 992px) and (min-width: 576px) {\n.carousel-control-prev[data-v-54527178], .carousel-control-next[data-v-54527178] {\n    display: none;\n}\n.carousel-item[data-v-54527178] {\n    max-height: 400px;\n}\n}\n@media only screen and (min-width: 993px) {\n.carousel-item[data-v-54527178] {\n    height: 500px;\n}\n}", ""]);
 
 // exports
 
@@ -18430,7 +18405,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#map[data-v-59c4d3de] {\n  width: 60vw;\n  height: 60vh;\n  overflow: hidden;\n}", ""]);
+exports.push([module.i, "#map[data-v-59c4d3de] {\n  width: 60vw;\n  height: 40vh;\n  overflow: hidden;\n}\n@media only screen and (min-width: 992px) {\n#map[data-v-59c4d3de] {\n    height: 60vh;\n}\n}", ""]);
 
 // exports
 
@@ -18468,7 +18443,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#section_03[data-v-e938df2c] {\n  background-color: #FFCEAF;\n}\n#section_03 h2[data-v-e938df2c] {\n  color: #FFCEAF;\n}\n#section_03 a[data-v-e938df2c] {\n  text-decoration: none;\n}\n#section_03 a .col .card[data-v-e938df2c] {\n  background-color: #E7717D;\n  border: 6px solid #E7717D;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n  position: relative;\n}\n#section_03 a .col .card h1[data-v-e938df2c] {\n  position: absolute;\n  font-family: Montserrat, sans-serif;\n  text-transform: uppercase;\n}\n#section_03 a .col .card a[data-v-e938df2c] {\n  background-color: #EF9273;\n  border: 0;\n}\n#section_03 a .col .card[data-v-e938df2c]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
+exports.push([module.i, "#section_03[data-v-e938df2c] {\n  background-color: #FFCEAF;\n}\n#section_03 h2[data-v-e938df2c] {\n  color: #FFCEAF;\n}\n#section_03 a[data-v-e938df2c] {\n  text-decoration: none;\n}\n#section_03 a .card[data-v-e938df2c] {\n  background-color: #E7717D;\n  border: 6px solid #E7717D;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n  position: relative;\n}\n#section_03 a .card p.card-title[data-v-e938df2c] {\n  position: absolute;\n  font-family: Montserrat, sans-serif;\n  text-transform: uppercase;\n}\n#section_03 a .card a[data-v-e938df2c] {\n  background-color: #EF9273;\n  border: 0;\n}\n#section_03 a .card[data-v-e938df2c]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
 
 // exports
 
@@ -18487,7 +18462,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#section_01[data-v-5c7f2a86] {\n  background-color: #E7717D;\n}\n#section_01 h2[data-v-5c7f2a86] {\n  color: #FFCEAF;\n}\n#section_01 a[data-v-5c7f2a86] {\n  text-decoration: none;\n}\n#section_01 a .col .card[data-v-5c7f2a86] {\n  background-color: #E7717D;\n  border: 6px solid #FFCEAF;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n}\n#section_01 a .col .card a[data-v-5c7f2a86] {\n  background-color: #EF9273;\n  border: 0;\n}\n#section_01 a .col .card[data-v-5c7f2a86]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
+exports.push([module.i, ".card[data-v-5c7f2a86] {\n  background-color: #E7717D;\n  border: 6px solid #FFCEAF;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n}\n.card .card-body[data-v-5c7f2a86] {\n  background-color: #FFCEAF;\n}\n.card a[data-v-5c7f2a86] {\n  text-decoration: none;\n}\n.card a .card-title[data-v-5c7f2a86] {\n  color: #EF9273;\n  font-family: Montserrat, sans-serif;\n}\n.card a img[data-v-5c7f2a86] {\n  width: 100%;\n}\n.card[data-v-5c7f2a86]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
 
 // exports
 
@@ -19271,36 +19246,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/partials/CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/partials/CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/partials/CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/partials/Carousel.vue?vue&type=style&index=0&id=54527178&scoped=true&lang=scss&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/partials/Carousel.vue?vue&type=style&index=0&id=54527178&scoped=true&lang=scss& ***!
@@ -20050,73 +19995,71 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "card my-3",
-      attrs: { id: "apartment_card" },
-      on: { click: _vm.push },
-    },
-    [
-      _c("div", { staticClass: "card-body text-center" }, [
-        _c("img", {
-          staticClass: "card-img-top",
-          attrs: { src: _vm.image, alt: _vm.title },
-        }),
-        _vm._v(" "),
-        _c("h5", { staticClass: "card-title my-3" }, [
-          _c("strong", [_vm._v(_vm._s(_vm.title))]),
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "card-text my-3" }, [
-          _vm._v(_vm._s(_vm.truncateText(_vm.description))),
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "card-text my-3" }, [
-          _vm._v(_vm._s(_vm.address)),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "d-flex justify-content-around" }, [
-          _c(
-            "span",
-            { staticClass: "card-text" },
-            [
-              _c("font-awesome-icon", {
-                attrs: { icon: "fa-solid fa-people-roof" },
-              }),
-              _c("br"),
-              _vm._v(_vm._s(_vm.rooms)),
-            ],
-            1
-          ),
+  return _c("div", { staticClass: "col-6 mb-4" }, [
+    _c(
+      "div",
+      {
+        staticClass: "card h-100 mb-3",
+        attrs: { id: "apartment_card" },
+        on: { click: _vm.push },
+      },
+      [
+        _c("div", { staticClass: "card-body text-center p-1" }, [
+          _c("img", {
+            staticClass: "card-img-top",
+            attrs: { src: _vm.image, alt: _vm.title },
+          }),
           _vm._v(" "),
-          _c(
-            "span",
-            { staticClass: "card-text" },
-            [
-              _c("font-awesome-icon", { attrs: { icon: "fa-solid fa-bed" } }),
-              _c("br"),
-              _vm._v(_vm._s(_vm.beds)),
-            ],
-            1
-          ),
+          _c("h5", { staticClass: "card-title mt-2" }, [
+            _c("strong", [_vm._v(_vm._s(_vm.title))]),
+          ]),
           _vm._v(" "),
-          _c(
-            "span",
-            { staticClass: "card-text" },
-            [
-              _c("font-awesome-icon", {
-                attrs: { icon: "fa-solid fa-toilet" },
-              }),
-              _c("br"),
-              _vm._v(_vm._s(_vm.bathrooms)),
-            ],
-            1
-          ),
+          _c("p", { staticClass: "card-text my-1 description" }, [
+            _vm._v(_vm._s(_vm.truncateText(_vm.description))),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "d-flex justify-content-around" }, [
+            _c(
+              "span",
+              { staticClass: "card-text" },
+              [
+                _c("font-awesome-icon", {
+                  attrs: { icon: "fa-solid fa-people-roof" },
+                }),
+                _c("br"),
+                _vm._v(_vm._s(_vm.rooms)),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "span",
+              { staticClass: "card-text" },
+              [
+                _c("font-awesome-icon", { attrs: { icon: "fa-solid fa-bed" } }),
+                _c("br"),
+                _vm._v(_vm._s(_vm.beds)),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "span",
+              { staticClass: "card-text" },
+              [
+                _c("font-awesome-icon", {
+                  attrs: { icon: "fa-solid fa-toilet" },
+                }),
+                _c("br"),
+                _vm._v(_vm._s(_vm.bathrooms)),
+              ],
+              1
+            ),
+          ]),
         ]),
-      ]),
-    ]
-  )
+      ]
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20232,51 +20175,58 @@ var render = function () {
               attrs: { id: "navbarSupportedContent" },
             },
             [
-              _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-                _c(
-                  "li",
-                  { staticClass: "nav-item active" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link nav_text",
-                        attrs: { to: { name: "home" } },
-                      },
-                      [
-                        _vm._v("Home "),
-                        _c("span", { staticClass: "sr-only" }, [
-                          _vm._v("(current)"),
-                        ]),
-                      ]
-                    ),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item active" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link nav_text",
-                        attrs: { to: { name: "about" } },
-                      },
-                      [
-                        _vm._v("About "),
-                        _c("span", { staticClass: "sr-only" }, [
-                          _vm._v("(current)"),
-                        ]),
-                      ]
-                    ),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(1),
-              ]),
+              _c(
+                "ul",
+                {
+                  staticClass:
+                    "navbar-nav ml-auto d-flex flex-row justify-content-center",
+                },
+                [
+                  _c(
+                    "li",
+                    { staticClass: "nav-item active" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link nav_text",
+                          attrs: { to: { name: "home" } },
+                        },
+                        [
+                          _vm._v("Home "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("(current)"),
+                          ]),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "nav-item active" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link nav_text",
+                          attrs: { to: { name: "about" } },
+                        },
+                        [
+                          _vm._v("About "),
+                          _c("span", { staticClass: "sr-only" }, [
+                            _vm._v("(current)"),
+                          ]),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm._m(1),
+                ]
+              ),
             ]
           ),
         ],
@@ -20373,9 +20323,13 @@ var staticRenderFns = [
     return _c("div", [
       _c("section", { attrs: { id: "head" } }, [
         _c("div", { staticClass: "container" }, [
-          _c("h1", { staticClass: "title up" }, [_vm._v("made by travellers")]),
-          _vm._v(" "),
-          _c("h1", { staticClass: "title down" }, [_vm._v("for travellers")]),
+          _c("div", { staticClass: "titles-wrap" }, [
+            _c("h1", { staticClass: "title up" }, [
+              _vm._v("made by travellers"),
+            ]),
+            _vm._v(" "),
+            _c("h1", { staticClass: "title down" }, [_vm._v("for travellers")]),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "go-to-wrap" }, [
             _c("span", [_vm._v("about us")]),
@@ -20391,86 +20345,88 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("section", { attrs: { id: "mission" } }, [
         _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-4" }, [
-              _c("div", { staticClass: "img-wrap" }, [
-                _c("img", {
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../storage/app/public/img/time.jpg */ "./storage/app/public/img/time.jpg"),
-                    alt: "time illustration",
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-wrap" }, [
-                _c("h3", [_vm._v("It's about time.")]),
+          _c(
+            "div",
+            { staticClass: "row row-cols-1 row-cols-sm-2 row-cols-md-3 " },
+            [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "img-wrap" }, [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../storage/app/public/img/time-2.jpg */ "./storage/app/public/img/time-2.jpg"),
+                      alt: "time picture",
+                    },
+                  }),
+                ]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Time is our most precious, non-renewable resource. By helping you to handle bookings, we are giving you the time and headspace to be their greatest self in the greatest spots."
-                  ),
+                _c("div", { staticClass: "text-wrap" }, [
+                  _c("h3", [_vm._v("It's about time.")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "Time is our most precious, non-renewable resource. By helping you to handle bookings, we are giving you the time and headspace to be your greatest self in the greatest spots."
+                    ),
+                  ]),
                 ]),
               ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
-              _c("div", { staticClass: "img-wrap" }, [
-                _c("img", {
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../storage/app/public/img/choices.jpg */ "./storage/app/public/img/choices.jpg"),
-                    alt: "choices illustration",
-                  },
-                }),
-              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "text-wrap" }, [
-                _c("h3", [_vm._v("It’s about choice.")]),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "img-wrap" }, [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../storage/app/public/img/choices-2.jpeg */ "./storage/app/public/img/choices-2.jpeg"),
+                      alt: "choices picture",
+                    },
+                  }),
+                ]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "We give you our best choices, you choose the place that suits you the most. We all need help to live meaningful experiences: whether it is for work or for fun, we are here for you."
-                  ),
+                _c("div", { staticClass: "text-wrap" }, [
+                  _c("h3", [_vm._v("It’s about choice.")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "We give you our best choices, you choose the place that suits you the most. We all need help to live meaningful experiences: whether it is for work or for fun, we are here for you."
+                    ),
+                  ]),
                 ]),
               ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-4" }, [
-              _c("div", { staticClass: "img-wrap" }, [
-                _c("img", {
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../storage/app/public/img/connectivity.jpg */ "./storage/app/public/img/connectivity.jpg"),
-                    alt: "connectivity illustration",
-                  },
-                }),
-              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "text-wrap" }, [
-                _c("h3", [_vm._v("It’s about connectivity.")]),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "img-wrap" }, [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../storage/app/public/img/connection-2.jpeg */ "./storage/app/public/img/connection-2.jpeg"),
+                      alt: "connectivity picture",
+                    },
+                  }),
+                ]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Hospitality is about building relationships of trust. Relationships are the foundation for community, which gives meaning to the places we call home."
-                  ),
+                _c("div", { staticClass: "text-wrap" }, [
+                  _c("h3", [_vm._v("It’s about connection.")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "Hospitality is about building relationships of trust. Relationships are the foundation for community, which gives meaning to the places we call home."
+                    ),
+                  ]),
                 ]),
               ]),
-            ]),
-          ]),
+            ]
+          ),
         ]),
       ]),
       _vm._v(" "),
-      _c("section", { attrs: { id: "story" } }, [
-        _c("div", { staticClass: "background-wrap" }),
+      _c("section", { attrs: { id: "journey" } }, [
+        _c("div", { staticClass: "left" }),
         _vm._v(" "),
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-7" }, [
-              _c("h2", { staticClass: "title" }, [_vm._v("our story")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non sodales neque sodales ut etiam. Eleifend donec pretium vulputate sapien nec. Arcu risus quis varius quam quisque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Vehicula ipsum a arcu cursus vitae congue mauris. Duis tristique sollicitudin nibh sit amet commodo nulla. Facilisis volutpat est velit egestas dui id ornare arcu odio. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Sapien eget mi proin sed libero enim. Euismod lacinia at quis risus sed vulputate odio. Tempus egestas sed sed risus pretium quam vulputate. Id diam vel quam elementum. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Fermentum et sollicitudin ac orci phasellus. Justo donec enim diam vulputate ut. Sagittis purus sit amet volutpat consequat. Et egestas quis ipsum suspendisse. Bibendum neque egestas congue quisque egestas diam in arcu. Nibh sit amet commodo nulla facilisi nullam. Nulla facilisi etiam dignissim diam quis enim lobortis. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Vel pretium lectus quam id leo in vitae."
-                ),
-              ]),
+        _c("div", { staticClass: "right" }, [
+          _c("div", { staticClass: "text-wrap" }, [
+            _c("h2", { staticClass: "title" }, [_vm._v("our journey")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non sodales neque sodales ut etiam. Eleifend donec pretium vulputate sapien nec. Arcu risus quis varius quam quisque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Vehicula ipsum a arcu cursus vitae congue mauris. Duis tristique sollicitudin nibh sit amet commodo nulla. Facilisis volutpat est velit egestas dui id ornare arcu odio. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Sapien eget mi proin sed libero enim. Euismod lacinia at quis risus sed vulputate odio. Tempus egestas sed sed risus pretium quam vulputate. Id diam vel quam elementum. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur."
+              ),
             ]),
           ]),
         ]),
@@ -20479,44 +20435,72 @@ var staticRenderFns = [
       _c("section", { attrs: { id: "founders" } }, [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-5" }, [
-              _c("div", { staticClass: "img-wrap" }, [
-                _c("img", {
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../storage/app/public/img/founder-m.jpg */ "./storage/app/public/img/founder-m.jpg"),
-                    alt: "founder",
-                  },
-                }),
+            _c("div", { staticClass: "col-12" }, [
+              _c("h1", [_vm._v("Meet the founders")]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row row-cols-1 row-cols-sm-2 row-cols-lg-3" },
+            [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "img-wrap" }, [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../storage/app/public/img/founder-m.jpg */ "./storage/app/public/img/founder-m.jpg"),
+                      alt: "founder",
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Mark Pills")]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "text-wrap" }, [
-                _c("h3", [_vm._v("Founder A")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non sodales neque sodales ut etiam. Eleifend donec pretium vulputate sapien nec. Arcu risus quis varius quam quisque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Vehicula ipsum a arcu cursus vitae congue mauris. Duis tristique sollicitudin nibh sit amet commodo nulla. Facilisis volutpat est velit egestas dui id ornare arcu odio. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Sapien eget mi proin sed libero enim. Euismod lacinia at quis risus sed vulputate odio. Tempus egestas sed sed risus pretium quam vulputate. Id diam vel quam elementum. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur."
-                  ),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "img-wrap" }, [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../storage/app/public/img/founder-f.jpg */ "./storage/app/public/img/founder-f.jpg"),
+                      alt: "founder",
+                    },
+                  }),
                 ]),
+                _vm._v(" "),
+                _c("h3", [_vm._v("Erin Kristoff")]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("p", [
+                _vm._v(
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non sodales neque sodales ut etiam. Eleifend donec pretium vulputate sapien nec. Arcu risus quis varius quam quisque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Vehicula ipsum a arcu cursus vitae congue mauris. Duis tristique sollicitudin nibh sit amet commodo nulla. Facilisis volutpat est velit egestas dui id ornare arcu odio."
+                ),
               ]),
             ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-5" }, [
-              _c("div", { staticClass: "img-wrap" }, [
-                _c("img", {
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../storage/app/public/img/founder-f.jpg */ "./storage/app/public/img/founder-f.jpg"),
-                    alt: "founder",
-                  },
-                }),
-              ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("section", { attrs: { id: "social" } }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-12" }, [
+              _c("h3", [_vm._v("Follow Along")]),
               _vm._v(" "),
-              _c("div", { staticClass: "text-wrap" }, [
-                _c("h3", [_vm._v("Founder B")]),
+              _c("div", { staticClass: "social-icons" }, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fa-facebook" }),
+                ]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non sodales neque sodales ut etiam. Eleifend donec pretium vulputate sapien nec. Arcu risus quis varius quam quisque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Vehicula ipsum a arcu cursus vitae congue mauris. Duis tristique sollicitudin nibh sit amet commodo nulla. Facilisis volutpat est velit egestas dui id ornare arcu odio. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Sapien eget mi proin sed libero enim. Euismod lacinia at quis risus sed vulputate odio. Tempus egestas sed sed risus pretium quam vulputate. Id diam vel quam elementum. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur."
-                  ),
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fa-instagram" }),
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "fab fa-twitter" }),
                 ]),
               ]),
             ]),
@@ -20547,8 +20531,8 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
-    _c("div", { staticClass: "container " }, [
+  return _c("section", { staticClass: "mx-auto" }, [
+    _c("div", { staticClass: "container-fluid px-5 py-5" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12 my-3" }, [
           _c("h1", { staticClass: "text-center" }, [_vm._v("Advanced Search")]),
@@ -20571,9 +20555,8 @@ var render = function () {
               ],
               attrs: {
                 type: "range",
-                min: "0",
+                min: "1",
                 max: "30",
-                value: "10",
                 id: "radius",
                 name: "radius",
               },
@@ -20589,10 +20572,24 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "col-12 d-flex justify-content-around my-3" },
+          {
+            staticClass:
+              "col-12 d-flex justify-content-around my-3 align-items-center",
+          },
           [
             _c("div", [
-              _c("label", { attrs: { for: "rooms" } }, [_vm._v("Rooms")]),
+              _c(
+                "label",
+                { attrs: { for: "rooms" } },
+                [
+                  _c("font-awesome-icon", {
+                    staticClass: "mr-2",
+                    attrs: { icon: "fa-solid fa-people-roof" },
+                  }),
+                  _vm._v(" Rooms"),
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "select",
@@ -20639,7 +20636,18 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", [
-              _c("label", { attrs: { for: "beds" } }, [_vm._v("Beds")]),
+              _c(
+                "label",
+                { attrs: { for: "beds" } },
+                [
+                  _c("font-awesome-icon", {
+                    staticClass: "mr-2",
+                    attrs: { icon: "fa-solid fa-bed" },
+                  }),
+                  _vm._v(" Beds"),
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "select",
@@ -20686,9 +20694,18 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", [
-              _c("label", { attrs: { for: "bathrooms" } }, [
-                _vm._v("Bathrooms"),
-              ]),
+              _c(
+                "label",
+                { attrs: { for: "bathrooms" } },
+                [
+                  _c("font-awesome-icon", {
+                    staticClass: "mr-2",
+                    attrs: { icon: "fa-solid fa-toilet" },
+                  }),
+                  _vm._v(" Bathrooms"),
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "select",
@@ -20733,60 +20750,87 @@ var render = function () {
                 2
               ),
             ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "more-search",
+                on: {
+                  click: function ($event) {
+                    return _vm.viewMore()
+                  },
+                },
+              },
+              [
+                _c("span", { staticClass: "label" }, [
+                  _vm._v("More \n                        "),
+                  !_vm.more
+                    ? _c("i", { staticClass: "ml-1 fas fa-chevron-down" })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.more
+                    ? _c("i", { staticClass: "ml-1 fas fa-chevron-up" })
+                    : _vm._e(),
+                ]),
+              ]
+            ),
           ]
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-12 d-flex justify-content-around my-3" },
-          _vm._l(_vm.amenities, function (amenity) {
-            return _c("div", { key: amenity.id }, [
-              _c("label", { attrs: { for: amenity.name } }, [
-                _vm._v(_vm._s(amenity.name)),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.checked_amenities,
-                    expression: "checked_amenities",
-                  },
-                ],
-                attrs: { type: "checkbox", id: amenity.name },
-                domProps: {
-                  value: amenity.id,
-                  checked: Array.isArray(_vm.checked_amenities)
-                    ? _vm._i(_vm.checked_amenities, amenity.id) > -1
-                    : _vm.checked_amenities,
-                },
-                on: {
-                  change: function ($event) {
-                    var $$a = _vm.checked_amenities,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = amenity.id,
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 && (_vm.checked_amenities = $$a.concat([$$v]))
-                      } else {
-                        $$i > -1 &&
-                          (_vm.checked_amenities = $$a
-                            .slice(0, $$i)
-                            .concat($$a.slice($$i + 1)))
-                      }
-                    } else {
-                      _vm.checked_amenities = $$c
-                    }
-                  },
-                },
+        _vm.more
+          ? _c(
+              "div",
+              { staticClass: "col-12 d-flex justify-content-around my-3" },
+              _vm._l(_vm.amenities, function (amenity) {
+                return _c("div", { key: amenity.id }, [
+                  _c("label", { attrs: { for: amenity.name } }, [
+                    _vm._v(_vm._s(amenity.name)),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.checked_amenities,
+                        expression: "checked_amenities",
+                      },
+                    ],
+                    attrs: { type: "checkbox", id: amenity.name },
+                    domProps: {
+                      value: amenity.id,
+                      checked: Array.isArray(_vm.checked_amenities)
+                        ? _vm._i(_vm.checked_amenities, amenity.id) > -1
+                        : _vm.checked_amenities,
+                    },
+                    on: {
+                      change: function ($event) {
+                        var $$a = _vm.checked_amenities,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = amenity.id,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              (_vm.checked_amenities = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.checked_amenities = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.checked_amenities = $$c
+                        }
+                      },
+                    },
+                  }),
+                ])
               }),
-            ])
-          }),
-          0
-        ),
+              0
+            )
+          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 text-center" }, [
           _c(
@@ -20799,49 +20843,53 @@ var render = function () {
                 },
               },
             },
-            [_vm._v("Cerca")]
+            [_vm._v("Search now!")]
           ),
         ]),
       ]),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "col-6" },
-          [
-            _vm.apartments.length == 0
-              ? _c("p", { staticClass: "my_text" }, [
-                  _vm._v("No apartment was found"),
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm._l(_vm.apartments, function (apartment) {
-              return _c("Apartment", {
-                key: apartment.id,
-                attrs: {
-                  image: apartment.image,
-                  title: apartment.title,
-                  description: apartment.description,
-                  slug: apartment.slug,
-                  rooms: apartment.rooms,
-                  bathrooms: apartment.bathrooms,
-                  beds: apartment.beds,
-                  address: apartment.address,
-                },
-              })
-            }),
-          ],
-          2
-        ),
+      _c("div", { staticClass: "row results" }, [
+        _c("div", { staticClass: "col apart_container" }, [
+          _c(
+            "div",
+            { staticClass: "row" },
+            [
+              _vm.apartments.length == 0
+                ? _c("p", { staticClass: "text-center my_text" }, [
+                    _vm._v(
+                      "Sorry, we could not find an apartment matching your requirments!"
+                    ),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._l(_vm.apartments, function (apartment) {
+                return _c("Apartment", {
+                  key: apartment.id,
+                  attrs: {
+                    image: apartment.image,
+                    title: apartment.title,
+                    description: apartment.description,
+                    slug: apartment.slug,
+                    rooms: apartment.rooms,
+                    bathrooms: apartment.bathrooms,
+                    beds: apartment.beds,
+                    address: apartment.address,
+                  },
+                })
+              }),
+            ],
+            2
+          ),
+        ]),
         _vm._v(" "),
         _vm.flag && _vm.flagApartment
           ? _c(
               "div",
               {
                 staticClass:
-                  "col-6 d-flex align-items-center justify-content-center",
+                  "search-map mt-4 col-lg-6 col-md-12  d-flex  justify-content-center",
               },
               [
                 _c("MapFeature", {
@@ -20909,11 +20957,12 @@ var render = function () {
           _c(
             "div",
             {
-              staticClass: "row align-items-end justify-content-center mx-0",
+              staticClass:
+                "row align-items-end justify-content-center mx-0 mt-3",
               attrs: { id: "row_jumbo" },
             },
             [
-              _c("div", { staticClass: "col-8" }, [
+              _c("div", { staticClass: "col-12" }, [
                 _c(
                   "form",
                   {
@@ -21065,7 +21114,29 @@ var render = function () {
       _vm._v(" "),
       _c("AppFeatures"),
       _vm._v(" "),
-      _c("TrendingNow"),
+      _c(
+        "div",
+        { staticClass: "container-fluid py-4", attrs: { id: "section_01" } },
+        [
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row  mx-5" },
+            _vm._l(_vm.apartments, function (apartment) {
+              return _c("TrendingNow", {
+                key: apartment.id,
+                attrs: {
+                  title: apartment.title,
+                  image: apartment.image,
+                  slug: apartment.slug,
+                },
+              })
+            }),
+            1
+          ),
+        ]
+      ),
       _vm._v(" "),
       _c("Carousel"),
       _vm._v(" "),
@@ -21080,16 +21151,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row justify-content-center mx-0" }, [
-      _c("div", { staticClass: "col-6" }, [
-        _c("div", { staticClass: "img_box" }, [
-          _c("img", {
-            attrs: {
-              src: __webpack_require__(/*! ../../../storage/app/public/img/BoolBnb.png */ "./storage/app/public/img/BoolBnb.png"),
-              alt: "Logo",
-              id: "logo",
-            },
-          }),
-        ]),
+      _c("div", { staticClass: "col-6 text-center " }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: {
+            src: __webpack_require__(/*! ../../../storage/app/public/img/BoolBnb.png */ "./storage/app/public/img/BoolBnb.png"),
+            alt: "Logo",
+            id: "logo",
+          },
+        }),
       ]),
     ])
   },
@@ -21103,6 +21173,22 @@ var staticRenderFns = [
         { staticClass: "btn btn-danger my-4", attrs: { type: "submit" } },
         [_vm._v("Search")]
       ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-center mb-5" }, [
+      _c("div", { staticClass: "col-md-7" }, [
+        _c("img", {
+          staticClass: "img-fluid",
+          attrs: {
+            src: __webpack_require__(/*! ../../../storage/app/public/img/Trending.png */ "./storage/app/public/img/Trending.png"),
+            alt: "",
+          },
+        }),
+      ]),
     ])
   },
 ]
@@ -21522,53 +21608,52 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container-fluid  py-4", attrs: { id: "app_features" } },
+    {
+      staticClass: "container-fluid  py-4 px-0",
+      attrs: { id: "app_features" },
+    },
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "svg",
-          {
-            attrs: {
-              xmlns: "http://www.w3.org/2000/svg",
-              viewBox: "0 0 1440 320",
-            },
+      _c(
+        "svg",
+        {
+          attrs: {
+            xmlns: "http://www.w3.org/2000/svg",
+            viewBox: "0 0 1440 320",
           },
-          [
-            _c("path", {
-              attrs: {
-                fill: "#FFCEAF",
-                "fill-opacity": "1",
-                d: "M0,64L120,85.3C240,107,480,149,720,181.3C960,213,1200,235,1320,245.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z",
-              },
-            }),
-          ]
-        ),
-      ]),
+        },
+        [
+          _c("path", {
+            attrs: {
+              fill: "#FFCEAF",
+              "fill-opacity": "1",
+              d: "M0,64L120,85.3C240,107,480,149,720,181.3C960,213,1200,235,1320,245.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z",
+            },
+          }),
+        ]
+      ),
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "svg",
-          {
-            attrs: {
-              xmlns: "http://www.w3.org/2000/svg",
-              viewBox: "0 0 1440 320",
-            },
+      _c(
+        "svg",
+        {
+          attrs: {
+            xmlns: "http://www.w3.org/2000/svg",
+            viewBox: "0 0 1440 320",
           },
-          [
-            _c("path", {
-              attrs: {
-                fill: "#FFCEAF",
-                "fill-opacity": "1",
-                d: "M0,320L120,293.3C240,267,480,213,720,192C960,171,1200,181,1320,186.7L1440,192L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z",
-              },
-            }),
-          ]
-        ),
-      ]),
+        },
+        [
+          _c("path", {
+            attrs: {
+              fill: "#FFCEAF",
+              "fill-opacity": "1",
+              d: "M0,320L120,293.3C240,267,480,213,720,192C960,171,1200,181,1320,186.7L1440,192L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z",
+            },
+          }),
+        ]
+      ),
       _vm._v(" "),
       _vm._m(2),
     ]
@@ -21579,15 +21664,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row odd row-cols-2 px-5" }, [
+    return _c("div", { staticClass: "row odd flex  px-5" }, [
       _c(
         "div",
         {
           staticClass:
-            "col-7 odd text-center d-flex flex-column justify-content-center text-white",
+            " col-xl-8 col-lg-7  col-md-12 col-sm-12  text_box odd text-center d-flex flex-column justify-content-center text-white",
         },
         [
-          _c("h1", { staticClass: "text-left display-4 " }, [
+          _c("h1", { staticClass: "text-left display-4 pl-4" }, [
             _vm._v("Find your next adventure between thousand of destinations"),
           ]),
         ]
@@ -21597,19 +21682,17 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "col-5  text-center d-flex flex-column justify-content-end",
+            "col-xl-4 col-lg-5 col-md-12 col-sm-12 text-center d-flex flex-column justify-content-end",
         },
         [
-          _c("div", { staticClass: "img_box" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: {
-                src: __webpack_require__(/*! ../../../../storage/app/public/img/Map_Light.png */ "./storage/app/public/img/Map_Light.png"),
-                id: "map_icon",
-                alt: "Map",
-              },
-            }),
-          ]),
+          _c("img", {
+            staticClass: "img-fluid",
+            attrs: {
+              src: __webpack_require__(/*! ../../../../storage/app/public/img/Map_Light.png */ "./storage/app/public/img/Map_Light.png"),
+              id: "map_icon",
+              alt: "Map",
+            },
+          }),
         ]
       ),
     ])
@@ -21618,24 +21701,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row even row-cols-2 px-5" }, [
+    return _c("div", { staticClass: "row even  px-5" }, [
       _c(
         "div",
         {
           staticClass:
-            "col text-center d-flex flex-column justify-content-around",
+            "col-xl-4 col-lg-5 col-md-12 text-center d-flex flex-column justify-content-around",
         },
         [
-          _c("div", { staticClass: "img_box" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: {
-                src: __webpack_require__(/*! ../../../../storage/app/public/img/Comfort_Pink.png */ "./storage/app/public/img/Comfort_Pink.png"),
-                id: "comfort_icon",
-                alt: "Map",
-              },
-            }),
-          ]),
+          _c("img", {
+            staticClass: "img-fluid",
+            attrs: {
+              src: __webpack_require__(/*! ../../../../storage/app/public/img/Comfort_Pink.png */ "./storage/app/public/img/Comfort_Pink.png"),
+              id: "comfort_icon",
+              alt: "Heart",
+            },
+          }),
         ]
       ),
       _vm._v(" "),
@@ -21643,10 +21724,10 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "col even text-center d-flex flex-column justify-content-around text-white",
+            "col-xl-8 col-lg-7  col-md-12  even text-center d-flex flex-column justify-content-around text-white",
         },
         [
-          _c("h1", { staticClass: "text-left display-4" }, [
+          _c("h1", { staticClass: "text-center display-4 " }, [
             _vm._v(
               "Check off your apartment preferences and get all the comfort you deserve"
             ),
@@ -21659,15 +21740,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row odd row-cols-2 px-5" }, [
+    return _c("div", { staticClass: "row odd  px-5" }, [
       _c(
         "div",
         {
           staticClass:
-            "col-7 odd text-center d-flex flex-column justify-content-around text-white",
+            " col-xl-8 col-lg-7  col-md-12 col-md-12 col-xs-12 text_box odd text-center d-flex flex-column justify-content-around text-white",
         },
         [
-          _c("h1", { staticClass: "text-left display-4" }, [
+          _c("h1", { staticClass: "text-left display-4 pl-5" }, [
             _vm._v("Get in touch with our friendly hosts: it's super easy!"),
           ]),
         ]
@@ -21677,74 +21758,22 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "col-5  text-center d-flex flex-column justify-content-around",
+            "col-xl-4 col-lg-5 col-md-12 col-md-12 col-xs-12 text-center d-flex flex-column justify-content-end mb-5",
         },
         [
-          _c("div", { staticClass: "img_box" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: {
-                src: __webpack_require__(/*! ../../../../storage/app/public/img/Hos_Light.png */ "./storage/app/public/img/Hos_Light.png"),
-                id: "host_icon",
-                alt: "Map",
-              },
-            }),
-          ]),
+          _c("img", {
+            staticClass: "img-fluid",
+            attrs: {
+              src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../../storage/app/public/img/Host_Light_1.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
+              id: "host_icon",
+              alt: "Host",
+            },
+          }),
         ]
       ),
     ])
   },
 ]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/partials/CardTeam.vue?vue&type=template&id=2782b0f1&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/partials/CardTeam.vue?vue&type=template&id=2782b0f1&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-lg-4 col-sm-6" }, [
-    _c("div", { staticClass: "team-box mb-3" }, [
-      _c("div", { staticClass: "team-box-image" }, [
-        _c("img", {
-          attrs: {
-            src: __webpack_require__("./storage/app/public/img sync recursive ^\\.\\/.*$")("./" + _vm.image),
-            alt: _vm.name,
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "team-box-caption text-center" }, [
-        _c("h4", [_vm._v(_vm._s(_vm.name))]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.job))]),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "social",
-            attrs: { target: "_blank", href: _vm.linkGitHub },
-          },
-          [_c("i", { staticClass: "fab fa-github" })]
-        ),
-      ]),
-    ]),
-  ])
-}
-var staticRenderFns = []
 render._withStripped = true
 
 
@@ -21934,7 +21963,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row row-cols-3 mx-5 mb-5" },
+        { staticClass: "row row-cols-lg-3 row-cols-md-1  mx-5 mb-5" },
         _vm._l(_vm.destinations, function (destination) {
           return _c(
             "router-link",
@@ -21949,17 +21978,20 @@ var render = function () {
             },
             [
               _c("div", { staticClass: "col text-center " }, [
-                _c("div", { staticClass: "card d-flex align-items-center" }, [
-                  _c("h1", { staticClass: "card-title text-white" }, [
-                    _vm._v(_vm._s(destination.country)),
-                  ]),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass: "card-img-top ",
-                    staticStyle: { height: "21rem" },
-                    attrs: { src: destination.path, alt: "Card image cap" },
-                  }),
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "card d-flex align-items-center my-4" },
+                  [
+                    _c("p", { staticClass: "card-title text-white h2 mt-2" }, [
+                      _vm._v(_vm._s(destination.country)),
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "card-img-top ",
+                      attrs: { src: destination.path, alt: "Card image cap" },
+                    }),
+                  ]
+                ),
               ]),
             ]
           )
@@ -21975,7 +22007,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row justify-content-center mb-5" }, [
-      _c("div", { staticClass: "col-4" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
         _c("img", {
           staticClass: "img-fluid",
           attrs: {
@@ -22008,114 +22040,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "container-fluid py-4", attrs: { id: "section_01" } },
-      [
-        _c("div", { staticClass: "row justify-content-center mb-5" }, [
-          _c("div", { staticClass: "col-4" }, [
-            _c("img", {
-              staticClass: "img-fluid",
-              attrs: {
-                src: __webpack_require__(/*! ../../../../storage/app/public/img/Trending.png */ "./storage/app/public/img/Trending.png"),
-                alt: "",
-              },
-            }),
-          ]),
-        ]),
+  return _c("div", { staticClass: "col-md-6 col-lg-3 text-center pb-5" }, [
+    _c("div", { staticClass: "card" }, [
+      _c("a", { attrs: { href: "/apartments/single-apartment/" + _vm.slug } }, [
+        _c("img", {
+          staticClass: "card-img-top img-fluid",
+          attrs: { src: _vm.image, alt: "Card image cap" },
+        }),
         _vm._v(" "),
-        _c("div", { staticClass: "row row-cols-4 mx-5" }, [
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending1.jpg */ "./storage/app/public/img/trending1.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending2.jpg */ "./storage/app/public/img/trending2.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending3.jpg */ "./storage/app/public/img/trending3.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "" } }, [
-            _c("div", { staticClass: "col text-center" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("img", {
-                  staticClass: "card-img-top ",
-                  attrs: {
-                    src: __webpack_require__(/*! ../../../../storage/app/public/img/trending4.jpg */ "./storage/app/public/img/trending4.jpg"),
-                    alt: "Card image cap",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title text-white" }, [
-                    _vm._v("Apartment Title"),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title " }, [_vm._v(_vm._s(_vm.title))]),
         ]),
-      ]
-    )
-  },
-]
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38406,93 +38346,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/partials/CardTeam.vue":
-/*!**************************************************!*\
-  !*** ./resources/js/pages/partials/CardTeam.vue ***!
-  \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CardTeam_vue_vue_type_template_id_2782b0f1_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardTeam.vue?vue&type=template&id=2782b0f1&scoped=true& */ "./resources/js/pages/partials/CardTeam.vue?vue&type=template&id=2782b0f1&scoped=true&");
-/* harmony import */ var _CardTeam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardTeam.vue?vue&type=script&lang=js& */ "./resources/js/pages/partials/CardTeam.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _CardTeam_vue_vue_type_style_index_0_id_2782b0f1_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true& */ "./resources/js/pages/partials/CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _CardTeam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CardTeam_vue_vue_type_template_id_2782b0f1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CardTeam_vue_vue_type_template_id_2782b0f1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "2782b0f1",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/pages/partials/CardTeam.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/pages/partials/CardTeam.vue?vue&type=script&lang=js&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/pages/partials/CardTeam.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardTeam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CardTeam.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/partials/CardTeam.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardTeam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/pages/partials/CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true&":
-/*!************************************************************************************************************!*\
-  !*** ./resources/js/pages/partials/CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true& ***!
-  \************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardTeam_vue_vue_type_style_index_0_id_2782b0f1_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/partials/CardTeam.vue?vue&type=style&index=0&id=2782b0f1&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardTeam_vue_vue_type_style_index_0_id_2782b0f1_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardTeam_vue_vue_type_style_index_0_id_2782b0f1_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardTeam_vue_vue_type_style_index_0_id_2782b0f1_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardTeam_vue_vue_type_style_index_0_id_2782b0f1_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./resources/js/pages/partials/CardTeam.vue?vue&type=template&id=2782b0f1&scoped=true&":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/pages/partials/CardTeam.vue?vue&type=template&id=2782b0f1&scoped=true& ***!
-  \*********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardTeam_vue_vue_type_template_id_2782b0f1_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CardTeam.vue?vue&type=template&id=2782b0f1&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/partials/CardTeam.vue?vue&type=template&id=2782b0f1&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardTeam_vue_vue_type_template_id_2782b0f1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardTeam_vue_vue_type_template_id_2782b0f1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/pages/partials/Carousel.vue":
 /*!**************************************************!*\
   !*** ./resources/js/pages/partials/Carousel.vue ***!
@@ -38949,6 +38802,7 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
+ // import AboutSecond from './pages/AboutSecond';
 
 
 
@@ -38965,7 +38819,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/about',
     name: 'about',
     component: _pages_About__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }, {
+  }, // {
+  //   path: '/about',
+  //   name: 'about',
+  //   component: AboutSecond
+  // },
+  {
     path: '/apartments/search/:address',
     name: 'advancedSearch',
     component: _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -39067,104 +38926,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./storage/app/public/img sync recursive ^\\.\\/.*$":
-/*!**********************************************!*\
-  !*** ./storage/app/public/img sync ^\.\/.*$ ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./Alessio Napoli.jpg": "./storage/app/public/img/Alessio Napoli.jpg",
-	"./BoolBnb.logo.png": "./storage/app/public/img/BoolBnb.logo.png",
-	"./BoolBnb.png": "./storage/app/public/img/BoolBnb.png",
-	"./Christian D'Agostino.jpeg": "./storage/app/public/img/Christian D'Agostino.jpeg",
-	"./Comfort_1.png": "./storage/app/public/img/Comfort_1.png",
-	"./Comfort_Pink.png": "./storage/app/public/img/Comfort_Pink.png",
-	"./Dario La Tegola.jpeg": "./storage/app/public/img/Dario La Tegola.jpeg",
-	"./Edoardo Lai.jpeg": "./storage/app/public/img/Edoardo Lai.jpeg",
-	"./Greece.png": "./storage/app/public/img/Greece.png",
-	"./Hos_Light.png": "./storage/app/public/img/Hos_Light.png",
-	"./Italy.jpg": "./storage/app/public/img/Italy.jpg",
-	"./Italy.png": "./storage/app/public/img/Italy.png",
-	"./Map.png": "./storage/app/public/img/Map.png",
-	"./Map_Light.png": "./storage/app/public/img/Map_Light.png",
-	"./Marianna galuppi.jpeg": "./storage/app/public/img/Marianna galuppi.jpeg",
-	"./Morocco.jpg": "./storage/app/public/img/Morocco.jpg",
-	"./Norway.jpg": "./storage/app/public/img/Norway.jpg",
-	"./Paris.png": "./storage/app/public/img/Paris.png",
-	"./Popular_Destinations.png": "./storage/app/public/img/Popular_Destinations.png",
-	"./Recensione2.jpg": "./storage/app/public/img/Recensione2.jpg",
-	"./Recensione3.jpg": "./storage/app/public/img/Recensione3.jpg",
-	"./Recensione5.jpg": "./storage/app/public/img/Recensione5.jpg",
-	"./Slide_1_.jpg": "./storage/app/public/img/Slide_1_.jpg",
-	"./Slide_2_.jpg": "./storage/app/public/img/Slide_2_.jpg",
-	"./Slide_3_.jpg": "./storage/app/public/img/Slide_3_.jpg",
-	"./Trending.png": "./storage/app/public/img/Trending.png",
-	"./choices.jpg": "./storage/app/public/img/choices.jpg",
-	"./connectivity.jpg": "./storage/app/public/img/connectivity.jpg",
-	"./founder-f.jpg": "./storage/app/public/img/founder-f.jpg",
-	"./founder-m.jpg": "./storage/app/public/img/founder-m.jpg",
-	"./jumbo.jpg": "./storage/app/public/img/jumbo.jpg",
-	"./jumbotron.jpg": "./storage/app/public/img/jumbotron.jpg",
-	"./recensione1.jpg": "./storage/app/public/img/recensione1.jpg",
-	"./slide_1.jpg": "./storage/app/public/img/slide_1.jpg",
-	"./slide_2.jpg": "./storage/app/public/img/slide_2.jpg",
-	"./slide_3.jpg": "./storage/app/public/img/slide_3.jpg",
-	"./slider.jpg": "./storage/app/public/img/slider.jpg",
-	"./time.jpg": "./storage/app/public/img/time.jpg",
-	"./trending1.jpg": "./storage/app/public/img/trending1.jpg",
-	"./trending2.jpg": "./storage/app/public/img/trending2.jpg",
-	"./trending3.jpg": "./storage/app/public/img/trending3.jpg",
-	"./trending4.jpg": "./storage/app/public/img/trending4.jpg",
-	"./waterfall.jpg": "./storage/app/public/img/waterfall.jpg",
-	"./wave1.svg": "./storage/app/public/img/wave1.svg"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./storage/app/public/img sync recursive ^\\.\\/.*$";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Alessio Napoli.jpg":
-/*!***************************************************!*\
-  !*** ./storage/app/public/img/Alessio Napoli.jpg ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Alessio Napoli.jpg?2e2ec6651e85f68d84f36c4314182d85";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/BoolBnb.logo.png":
-/*!*************************************************!*\
-  !*** ./storage/app/public/img/BoolBnb.logo.png ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/BoolBnb.logo.png?33e8e756d7f31737bc5f540158e41b93";
-
-/***/ }),
-
 /***/ "./storage/app/public/img/BoolBnb.png":
 /*!********************************************!*\
   !*** ./storage/app/public/img/BoolBnb.png ***!
@@ -39173,28 +38934,6 @@ module.exports = "/images/BoolBnb.logo.png?33e8e756d7f31737bc5f540158e41b93";
 /***/ (function(module, exports) {
 
 module.exports = "/images/BoolBnb.png?984981497bb09ace02bc91c45e14aadc";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Christian D'Agostino.jpeg":
-/*!**********************************************************!*\
-  !*** ./storage/app/public/img/Christian D'Agostino.jpeg ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Christian D'Agostino.jpeg?bc778a62522c4022e0a6bb0965d5e862";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Comfort_1.png":
-/*!**********************************************!*\
-  !*** ./storage/app/public/img/Comfort_1.png ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Comfort_1.png?7aa73ae6d621025ece0f750eb03ea717";
 
 /***/ }),
 
@@ -39209,50 +38948,6 @@ module.exports = "/images/Comfort_Pink.png?27a14cc3f8f67f38368573c885c87c81";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Dario La Tegola.jpeg":
-/*!*****************************************************!*\
-  !*** ./storage/app/public/img/Dario La Tegola.jpeg ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Dario La Tegola.jpeg?68cd80d29d9420a2cb72d88bb0388ead";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Edoardo Lai.jpeg":
-/*!*************************************************!*\
-  !*** ./storage/app/public/img/Edoardo Lai.jpeg ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Edoardo Lai.jpeg?f7c963547fa416707a6ad213563b2d29";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Greece.png":
-/*!*******************************************!*\
-  !*** ./storage/app/public/img/Greece.png ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Greece.png?a8356c80c8038b70b249a6d4641c1ad6";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Hos_Light.png":
-/*!**********************************************!*\
-  !*** ./storage/app/public/img/Hos_Light.png ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Hos_Light.png?07e039ec344ec22d3b1e9929b09af3a4";
-
-/***/ }),
-
 /***/ "./storage/app/public/img/Italy.jpg":
 /*!******************************************!*\
   !*** ./storage/app/public/img/Italy.jpg ***!
@@ -39264,28 +38959,6 @@ module.exports = "/images/Italy.jpg?04b44d89be58b6c94ff8ac3bf65ee7f2";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Italy.png":
-/*!******************************************!*\
-  !*** ./storage/app/public/img/Italy.png ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Italy.png?e6db75b6c6bc92083ffa3217a6d9f033";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Map.png":
-/*!****************************************!*\
-  !*** ./storage/app/public/img/Map.png ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Map.png?2c9ae2e9138cdb3abc8ee73ad34eb49e";
-
-/***/ }),
-
 /***/ "./storage/app/public/img/Map_Light.png":
 /*!**********************************************!*\
   !*** ./storage/app/public/img/Map_Light.png ***!
@@ -39294,17 +38967,6 @@ module.exports = "/images/Map.png?2c9ae2e9138cdb3abc8ee73ad34eb49e";
 /***/ (function(module, exports) {
 
 module.exports = "/images/Map_Light.png?c0cd12e153ab1294795af028a0bf56d3";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Marianna galuppi.jpeg":
-/*!******************************************************!*\
-  !*** ./storage/app/public/img/Marianna galuppi.jpeg ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Marianna galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
 
 /***/ }),
 
@@ -39330,17 +38992,6 @@ module.exports = "/images/Norway.jpg?61594923ca294f717da4d522ff196d5d";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Paris.png":
-/*!******************************************!*\
-  !*** ./storage/app/public/img/Paris.png ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Paris.png?581992aa765cc0fb9bf332fd19ab8f8c";
-
-/***/ }),
-
 /***/ "./storage/app/public/img/Popular_Destinations.png":
 /*!*********************************************************!*\
   !*** ./storage/app/public/img/Popular_Destinations.png ***!
@@ -39349,39 +39000,6 @@ module.exports = "/images/Paris.png?581992aa765cc0fb9bf332fd19ab8f8c";
 /***/ (function(module, exports) {
 
 module.exports = "/images/Popular_Destinations.png?7092be59456c84172c3696538bb34726";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Recensione2.jpg":
-/*!************************************************!*\
-  !*** ./storage/app/public/img/Recensione2.jpg ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Recensione2.jpg?3c6e6efd29e3cb76d8915980cd6dc99b";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Recensione3.jpg":
-/*!************************************************!*\
-  !*** ./storage/app/public/img/Recensione3.jpg ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Recensione3.jpg?1e85df0c6bd3634b4a64c5339987a08f";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/Recensione5.jpg":
-/*!************************************************!*\
-  !*** ./storage/app/public/img/Recensione5.jpg ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Recensione5.jpg?e9265cf25e70fa253220045d7170d671";
 
 /***/ }),
 
@@ -39429,25 +39047,25 @@ module.exports = "/images/Trending.png?1f4b8f428e6fe12f50fd432d0471d7fb";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/choices.jpg":
-/*!********************************************!*\
-  !*** ./storage/app/public/img/choices.jpg ***!
-  \********************************************/
+/***/ "./storage/app/public/img/choices-2.jpeg":
+/*!***********************************************!*\
+  !*** ./storage/app/public/img/choices-2.jpeg ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/choices.jpg?7615bb8453664952724ce0ce24235d5a";
+module.exports = "/images/choices-2.jpeg?d085901ce6719f798fa3dc8db1070e77";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/connectivity.jpg":
-/*!*************************************************!*\
-  !*** ./storage/app/public/img/connectivity.jpg ***!
-  \*************************************************/
+/***/ "./storage/app/public/img/connection-2.jpeg":
+/*!**************************************************!*\
+  !*** ./storage/app/public/img/connection-2.jpeg ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/connectivity.jpg?45306b13d2946110d23cb533ae16f27c";
+module.exports = "/images/connection-2.jpeg?e665adb0d19380917bbba46c2d45ea1b";
 
 /***/ }),
 
@@ -39473,14 +39091,25 @@ module.exports = "/images/founder-m.jpg?4ea50a4a0fdb1b6fcf945b0c2967688c";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/jumbo.jpg":
-/*!******************************************!*\
-  !*** ./storage/app/public/img/jumbo.jpg ***!
-  \******************************************/
+/***/ "./storage/app/public/img/head-santorini.jpg":
+/*!***************************************************!*\
+  !*** ./storage/app/public/img/head-santorini.jpg ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/jumbo.jpg?3374f3360195f6c22c717d50023e2868";
+module.exports = "/images/head-santorini.jpg?550317fd6a9b1d91d0fa8fb9634d2c23";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/journey-2.jpg":
+/*!**********************************************!*\
+  !*** ./storage/app/public/img/journey-2.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/journey-2.jpg?8ce039772b24282d64cdce3aa1a6ec62";
 
 /***/ }),
 
@@ -39495,135 +39124,14 @@ module.exports = "/images/jumbotron.jpg?6e88e6fe4cfaac65d5df4dfe1629693e";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/recensione1.jpg":
-/*!************************************************!*\
-  !*** ./storage/app/public/img/recensione1.jpg ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/recensione1.jpg?a47b87b50a961270ca228230c33252df";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/slide_1.jpg":
-/*!********************************************!*\
-  !*** ./storage/app/public/img/slide_1.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/slide_1.jpg?7887a85f7b94daabd9475d04e947ae53";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/slide_2.jpg":
-/*!********************************************!*\
-  !*** ./storage/app/public/img/slide_2.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/slide_2.jpg?a748f592b12ed11241e3679daa438478";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/slide_3.jpg":
-/*!********************************************!*\
-  !*** ./storage/app/public/img/slide_3.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/slide_3.jpg?8ab4cd63c4f8c004d271b69c94afda1b";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/slider.jpg":
+/***/ "./storage/app/public/img/time-2.jpg":
 /*!*******************************************!*\
-  !*** ./storage/app/public/img/slider.jpg ***!
+  !*** ./storage/app/public/img/time-2.jpg ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/slider.jpg?bce8b3205e1104ccc1bc7e7fe795de94";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/time.jpg":
-/*!*****************************************!*\
-  !*** ./storage/app/public/img/time.jpg ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/time.jpg?4a2722fd3ddc3e99d514b7d2aaf09634";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/trending1.jpg":
-/*!**********************************************!*\
-  !*** ./storage/app/public/img/trending1.jpg ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/trending1.jpg?7106926c30bda651b5df134cb71a0757";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/trending2.jpg":
-/*!**********************************************!*\
-  !*** ./storage/app/public/img/trending2.jpg ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/trending2.jpg?be5b7e236e81a0ea140219489e2eb57f";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/trending3.jpg":
-/*!**********************************************!*\
-  !*** ./storage/app/public/img/trending3.jpg ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/trending3.jpg?e0e09ab6e216209db2964cac4762fa97";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/trending4.jpg":
-/*!**********************************************!*\
-  !*** ./storage/app/public/img/trending4.jpg ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/trending4.jpg?5e7e397a86b0dbbf972489d57f0aa4a8";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/waterfall.jpg":
-/*!**********************************************!*\
-  !*** ./storage/app/public/img/waterfall.jpg ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/waterfall.jpg?6fbc91f4a72d966677c420f6bb9fb4d0";
-
-/***/ }),
-
-/***/ "./storage/app/public/img/wave1.svg":
-/*!******************************************!*\
-  !*** ./storage/app/public/img/wave1.svg ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/wave1.svg?5145523a05c552d9220b6a8eb9923fe2";
+module.exports = "/images/time-2.jpg?6954f5d052daa7ca12b090d2e25af55d";
 
 /***/ }),
 

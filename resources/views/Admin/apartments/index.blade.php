@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container">
+    <div class="container py-4">
         
         
         <div class="d-flex align-items-center mb-5 justify-content-between">
