@@ -30,7 +30,7 @@
           <h1 class="text-left display-4 pl-5">Get in touch with our friendly hosts: it's super easy!</h1>
         </div>
         <div class="col-xl-4 col-lg-5 col-md-12 col-md-12 col-xs-12 text-center d-flex flex-column justify-content-end mb-5">
-            <img class="img-fluid" src="../../../../storage/app/public/img/Host_Light1.png" id="host_icon" alt="Host">
+            <img class="img-fluid" src="../../../../storage/app/public/img/Host_Light_1.png" id="host_icon" alt="Host">
         </div>
       </div>
 
