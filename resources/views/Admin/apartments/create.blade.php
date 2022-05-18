@@ -1,4 +1,4 @@
-@extends('admin.layouts.base')
+@extends('admin.layouts.login')
 
 @section('pageTitle', 'Create Apartment')
 
@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container" id="app">
+    <div class="container py-4" id="app">
 
         <h1>Add new apartment</h1>
 

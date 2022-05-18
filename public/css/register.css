@@ -1,0 +1,96 @@
+.container-fluid {
+  background-image: url(/images/jumbotron-focus.png?f725057963c5769947f05cecd4bd72e2);
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.container-fluid .my_text {
+  color: #fff;
+}
+
+.container-fluid .logo-home {
+  height: 100vh;
+  padding-top: 30px;
+  padding-left: 20px;
+}
+
+.container-fluid .logo-home .home {
+  width: 90px;
+  text-align: start;
+}
+
+.container-fluid .container-card {
+  position: relative;
+}
+
+.container-fluid .container-card .logo {
+  position: absolute;
+  bottom: 83%;
+  left: 50%;
+  transform: translateX(-50%) rotate(10deg);
+  opacity: 0.5;
+}
+
+.container-fluid .container-card .my_card {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  border-radius: 15px;
+  background-image: url(/images/Landscape-focus.png?d06febb2d20951d5b6bce3a29c0c7c75);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 5px 5px 30px black;
+}
+
+.container-fluid .container-card .my_card .img-left {
+  position: relative;
+  width: 35%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.container-fluid .container-card .my_card .img-left img {
+  position: absolute;
+  width: 120%;
+  bottom: -13px;
+  left: -70px;
+  transform: rotate(-2deg);
+}
+
+.container-fluid .container-card .my_card .form-right {
+  width: 65%;
+  position: relative;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.container-fluid .container-card .my_card .form-right .overlay {
+  background-color: #E7717D;
+  opacity: 0.3;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.container-fluid .container-card .my_card .form-right .card-body {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+}
+
+.container-fluid .container-card .my_card .form-right .card-body .my_btn {
+  background-color: #EF9273;
+  border: none;
+}
+
+.container-fluid .container-card .my_card .form-right .card-body .my_link {
+  color: #EF9273;
+}
+

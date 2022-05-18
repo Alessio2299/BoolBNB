@@ -41,6 +41,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+            @guest
+
+            @else
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -50,7 +53,8 @@
                         <li class="mx-3"><a href="{{route('admin.messages.index')}}">Your Messages</a></li>
 
                     </ul>
-
+            @endguest
+                
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -91,7 +95,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

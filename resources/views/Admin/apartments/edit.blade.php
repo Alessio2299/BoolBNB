@@ -8,7 +8,7 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="container py-4">
         <h1>Edit apartment</h1>
 
         <form id="form" method="POST" action="{{ route('admin.apartments.update', $apartment->id) }}" enctype="multipart/form-data">
