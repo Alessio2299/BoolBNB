@@ -17212,7 +17212,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      radius: '20',
+      radius: '5',
       apartments: [],
       amenities: [],
       rooms_num: 'All',
@@ -17302,7 +17302,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_TrendingNow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/TrendingNow */ "./resources/js/pages/partials/TrendingNow.vue");
 /* harmony import */ var _partials_Appfeatures__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/Appfeatures */ "./resources/js/pages/partials/Appfeatures.vue");
 /* harmony import */ var _partials_PopularDestinations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/PopularDestinations */ "./resources/js/pages/partials/PopularDestinations.vue");
-//
 //
 //
 //
@@ -17836,10 +17835,18 @@ __webpack_require__.r(__webpack_exports__);
     initializeMap: function initializeMap() {
       var _this = this;
 
-      var latlon = {
-        lat: this.lat,
-        lon: this.lon
-      };
+      if (this.apartments.length == 1) {
+        var latlon = {
+          lat: this.apartments[0].lat,
+          lon: this.apartments[0].lon
+        };
+      } else {
+        var latlon = {
+          lat: this.lat,
+          lon: this.lon
+        };
+      }
+
       this.map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
         key: 'TounQy5Lqgw3CSCowM1qIL48LHEGF6WA',
         container: 'map',
@@ -17864,6 +17871,32 @@ __webpack_require__.r(__webpack_exports__);
 
       this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.FullscreenControl());
       this.map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.NavigationControl());
+    },
+    zoom: function zoom() {
+      switch (this.radius) {
+        case '10':
+          this.myZoom = 13;
+          break;
+
+        case '9':
+          this.myZoom = 14;
+          break;
+
+        case '8':
+          this.myZoom = 15;
+          break;
+
+        case '7':
+          this.myZoom = 16;
+          break;
+
+        case '6':
+          this.myZoom = 17;
+          break;
+
+        default:
+          this.myZoom = 20;
+      }
     }
   }
 });
@@ -20383,9 +20416,8 @@ var render = function () {
               ],
               attrs: {
                 type: "range",
-                min: "0",
-                max: "30",
-                value: "10",
+                min: "1",
+                max: "10",
                 id: "radius",
                 name: "radius",
               },
@@ -38901,7 +38933,7 @@ var map = {
 	"./Italy.png": "./storage/app/public/img/Italy.png",
 	"./Map.png": "./storage/app/public/img/Map.png",
 	"./Map_Light.png": "./storage/app/public/img/Map_Light.png",
-	"./Marianna Galuppi.jpeg": "./storage/app/public/img/Marianna Galuppi.jpeg",
+	"./Marianna galuppi.jpeg": "./storage/app/public/img/Marianna galuppi.jpeg",
 	"./Morocco.jpg": "./storage/app/public/img/Morocco.jpg",
 	"./Norway.jpg": "./storage/app/public/img/Norway.jpg",
 	"./Paris.png": "./storage/app/public/img/Paris.png",
@@ -39103,14 +39135,14 @@ module.exports = "/images/Map_Light.png?c0cd12e153ab1294795af028a0bf56d3";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Marianna Galuppi.jpeg":
+/***/ "./storage/app/public/img/Marianna galuppi.jpeg":
 /*!******************************************************!*\
-  !*** ./storage/app/public/img/Marianna Galuppi.jpeg ***!
+  !*** ./storage/app/public/img/Marianna galuppi.jpeg ***!
   \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Marianna Galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
+module.exports = "/images/Marianna galuppi.jpeg?7929cb9f9217acc3798e08522c2e46f9";
 
 /***/ }),
 
@@ -39374,7 +39406,7 @@ module.exports = "/images/wave1.svg?5145523a05c552d9220b6a8eb9923fe2";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/edoardo/Desktop/progetto_finale_boolean/BoolBnb/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })

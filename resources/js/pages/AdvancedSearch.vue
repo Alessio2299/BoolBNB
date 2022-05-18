@@ -6,7 +6,7 @@
                     <h1 class="text-center">Advanced Search</h1>
                     <div class="text-center">
                         <label for="radius" class="d-block form-label">Radius: {{radius}} km</label>
-                        <input type="range" min="0" max="30" value="10" id="radius" name="radius" v-model="radius">
+                        <input type="range" min="1" max="10" id="radius" name="radius" v-model="radius">
                     </div>
                 </div>
 
@@ -101,7 +101,7 @@ export default {
 
     data() {
         return {
-            radius: '20',
+            radius: '5',
             apartments: [],
             amenities: [],
             rooms_num: 'All',

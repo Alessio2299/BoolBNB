@@ -15,8 +15,7 @@
 
           <form id="searchForm" @submit.prevent="getLongLat">
             <div class="row mx-5 justify-content-center ">
-
-          
+              
             <div class="col-8 text-center d-flex flex-column form-group align-content-center">
                 <label for="address"></label>
                 <input @keyup="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput" placeholder="Where to?">
