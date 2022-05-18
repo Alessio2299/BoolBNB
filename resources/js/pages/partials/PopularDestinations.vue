@@ -1,16 +1,16 @@
 <template>
    <div class="container-fluid py-4" id="section_03" >
      <div class="row justify-content-center mb-5">
-        <div class="col-4">
+        <div class="col-sm-6">
             <img class="img-fluid" src="../../../../storage/app/public/img/Popular_Destinations.png" alt="">
         </div>
       </div>
-      <div class="row row-cols-3 mx-5 mb-5">
+      <div class="row row-cols-md-3 row-cols-sm-1  mx-5 mb-5">
         <router-link :to="{name: 'advancedSearch', params :{address: destination.uri}}" v-for="destination in destinations" :key="destination.name">
         <div class="col text-center ">
-          <div class="card d-flex align-items-center" >
-            <h1 class="card-title text-white">{{destination.country}}</h1>
-            <img class="card-img-top "  style="height: 21rem;" :src="destination.path" alt="Card image cap">
+          <div class="card d-flex align-items-center my-4" >
+            <p class="card-title text-white h2 mt-2">{{destination.country}}</p>
+            <img class="card-img-top "  :src="destination.path" alt="Card image cap">
           </div>
         </div>
         </router-link>
@@ -29,7 +29,7 @@
           {
             country: 'Morocco',
             uri: 'Morocco',
-            path: require('../../../../storage/app/public/img/Morocco.jpg')
+            path: require('../../../../storage/app/public/img/Cropped_Morocco.jpg')
           },
           {
             country: 'Italy',
@@ -40,7 +40,7 @@
           {
             country: 'Norway',
             uri: 'Norway',
-            path: require('../../../../storage/app/public/img/Norway.jpg')
+            path: require('../../../../storage/app/public/img/Cropped_Norway.jpg')
 
           },
         ]
@@ -77,7 +77,7 @@
     
       a{
         text-decoration: none;
-        .col .card{
+        .card{
           background-color: #E7717D;
           border: 6px solid #E7717D;
           box-shadow: 15px 15px #EF9273;
@@ -85,7 +85,7 @@
           transition: 0.3s;
           position: relative;
 
-          h1{
+          p.card-title{
             position: absolute;
             font-family: Montserrat, sans-serif;
             text-transform: uppercase;
