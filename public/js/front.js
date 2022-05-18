@@ -17993,9 +17993,91 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/partials/PopularDestinations.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/alessionapoli/Desktop/BooBNB/resources/js/pages/partials/PopularDestinations.vue: Unexpected token (28:0)\n\n\u001b[0m \u001b[90m 26 |\u001b[39m     data(){\u001b[0m\n\u001b[0m \u001b[90m 27 |\u001b[39m       \u001b[36mreturn\u001b[39m{\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 29 |\u001b[39m         destinations\u001b[33m:\u001b[39m[\u001b[0m\n\u001b[0m \u001b[90m 30 |\u001b[39m           {\u001b[0m\n\u001b[0m \u001b[90m 31 |\u001b[39m             country\u001b[33m:\u001b[39m \u001b[32m'Morocco'\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n    at instantiate (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:72:32)\n    at constructor (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:358:12)\n    at Parser.raise (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:3335:19)\n    at Parser.unexpected (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:3373:16)\n    at Parser.parsePropertyName (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13748:24)\n    at Parser.parsePropertyDefinition (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13579:22)\n    at Parser.parseObjectLike (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13499:21)\n    at Parser.parseExprAtom (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12890:23)\n    at Parser.parseExprSubscripts (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12540:23)\n    at Parser.parseUpdate (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12519:21)\n    at Parser.parseMaybeUnary (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12490:23)\n    at Parser.parseMaybeUnaryOrPrivate (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12284:61)\n    at Parser.parseExprOps (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12291:23)\n    at Parser.parseMaybeConditional (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12261:23)\n    at Parser.parseMaybeAssign (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12214:21)\n    at Parser.parseExpressionBase (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12150:23)\n    at /Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12144:39\n    at Parser.allowInAnd (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:14236:16)\n    at Parser.parseExpression (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12144:17)\n    at Parser.parseReturnStatement (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:14948:28)\n    at Parser.parseStatementContent (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:14587:21)\n    at Parser.parseStatement (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:14533:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:15176:25)\n    at Parser.parseBlockBody (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:15167:10)\n    at Parser.parseBlock (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:15151:10)\n    at Parser.parseFunctionBody (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13841:24)\n    at Parser.parseFunctionBodyAndFinish (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13825:10)\n    at Parser.parseMethod (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13775:10)\n    at Parser.parseObjectMethod (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13651:19)\n    at Parser.parseObjPropValue (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13692:23)\n    at Parser.parsePropertyDefinition (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13609:10)\n    at Parser.parseObjectLike (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:13499:21)\n    at Parser.parseExprAtom (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12890:23)\n    at Parser.parseExprSubscripts (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12540:23)\n    at Parser.parseUpdate (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12519:21)\n    at Parser.parseMaybeUnary (/Users/alessionapoli/Desktop/BooBNB/node_modules/@babel/parser/lib/index.js:12490:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var dayjs = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'PopularDestinations',
+  data: function data() {
+    return {
+      dateNow: dayjs().format('D-MM-YYYY').split('-').slice(1, 2).join(''),
+      destinations: []
+    };
+  },
+  mounted: function mounted() {
+    this.getDestination();
+  },
+  methods: {
+    getLatlong: function getLatlong() {
+      var _this = this;
+
+      axios.get('https://api.tomtom.com/search/2/geocode/' + this.$route.params.address + '.json?key=TounQy5Lqgw3CSCowM1qIL48LHEGF6WA&limit=1').then(function (resp) {
+        if (resp.data.results.length == 0) {
+          _this.success = false;
+        } else {
+          _this.addressLat = resp.data.results[0].position.lat;
+          _this.addressLon = resp.data.results[0].position.lon;
+          _this.flag = true;
+        }
+      });
+    },
+    getDestination: function getDestination() {
+      if (this.dateNow >= '07' && this.dateNow <= '09') {
+        this.destinations = [{
+          country: 'Morocco',
+          uri: 'Morocco',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Morocco.jpg */ "./storage/app/public/img/Morocco.jpg")
+        }, {
+          country: 'Italy',
+          uri: 'Italia',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Italy.jpg */ "./storage/app/public/img/Italy.jpg")
+        }, {
+          country: 'Greece',
+          uri: 'Greece',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/grecia.jpeg */ "./storage/app/public/img/grecia.jpeg")
+        }];
+      } else {
+        this.destinations = [{
+          country: 'Austria',
+          uri: 'Austria',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Austria.jpeg */ "./storage/app/public/img/Austria.jpeg")
+        }, {
+          country: 'Germany',
+          uri: 'Germany',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Germany-landscape.jpg */ "./storage/app/public/img/Germany-landscape.jpg")
+        }, {
+          country: 'Norway',
+          uri: 'Norway',
+          path: __webpack_require__(/*! ../../../../storage/app/public/img/Norway.jpg */ "./storage/app/public/img/Norway.jpg")
+        }];
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -18470,6 +18552,17 @@ module.exports = function escape(url) {
     return url
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/dayjs/dayjs.min.js":
+/*!*****************************************!*\
+  !*** ./node_modules/dayjs/dayjs.min.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():undefined}(this,(function(){"use strict";var t=1e3,e=6e4,n=36e5,r="millisecond",i="second",s="minute",u="hour",a="day",o="week",f="month",h="quarter",c="year",d="date",$="Invalid Date",l=/^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,y=/\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,M={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_")},m=function(t,e,n){var r=String(t);return!r||r.length>=e?t:""+Array(e+1-r.length).join(n)+t},g={s:m,z:function(t){var e=-t.utcOffset(),n=Math.abs(e),r=Math.floor(n/60),i=n%60;return(e<=0?"+":"-")+m(r,2,"0")+":"+m(i,2,"0")},m:function t(e,n){if(e.date()<n.date())return-t(n,e);var r=12*(n.year()-e.year())+(n.month()-e.month()),i=e.clone().add(r,f),s=n-i<0,u=e.clone().add(r+(s?-1:1),f);return+(-(r+(n-i)/(s?i-u:u-i))||0)},a:function(t){return t<0?Math.ceil(t)||0:Math.floor(t)},p:function(t){return{M:f,y:c,w:o,d:a,D:d,h:u,m:s,s:i,ms:r,Q:h}[t]||String(t||"").toLowerCase().replace(/s$/,"")},u:function(t){return void 0===t}},v="en",D={};D[v]=M;var p=function(t){return t instanceof _},S=function t(e,n,r){var i;if(!e)return v;if("string"==typeof e){var s=e.toLowerCase();D[s]&&(i=s),n&&(D[s]=n,i=s);var u=e.split("-");if(!i&&u.length>1)return t(u[0])}else{var a=e.name;D[a]=e,i=a}return!r&&i&&(v=i),i||!r&&v},w=function(t,e){if(p(t))return t.clone();var n="object"==typeof e?e:{};return n.date=t,n.args=arguments,new _(n)},O=g;O.l=S,O.i=p,O.w=function(t,e){return w(t,{locale:e.$L,utc:e.$u,x:e.$x,$offset:e.$offset})};var _=function(){function M(t){this.$L=S(t.locale,null,!0),this.parse(t)}var m=M.prototype;return m.parse=function(t){this.$d=function(t){var e=t.date,n=t.utc;if(null===e)return new Date(NaN);if(O.u(e))return new Date;if(e instanceof Date)return new Date(e);if("string"==typeof e&&!/Z$/i.test(e)){var r=e.match(l);if(r){var i=r[2]-1||0,s=(r[7]||"0").substring(0,3);return n?new Date(Date.UTC(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)):new Date(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)}}return new Date(e)}(t),this.$x=t.x||{},this.init()},m.init=function(){var t=this.$d;this.$y=t.getFullYear(),this.$M=t.getMonth(),this.$D=t.getDate(),this.$W=t.getDay(),this.$H=t.getHours(),this.$m=t.getMinutes(),this.$s=t.getSeconds(),this.$ms=t.getMilliseconds()},m.$utils=function(){return O},m.isValid=function(){return!(this.$d.toString()===$)},m.isSame=function(t,e){var n=w(t);return this.startOf(e)<=n&&n<=this.endOf(e)},m.isAfter=function(t,e){return w(t)<this.startOf(e)},m.isBefore=function(t,e){return this.endOf(e)<w(t)},m.$g=function(t,e,n){return O.u(t)?this[e]:this.set(n,t)},m.unix=function(){return Math.floor(this.valueOf()/1e3)},m.valueOf=function(){return this.$d.getTime()},m.startOf=function(t,e){var n=this,r=!!O.u(e)||e,h=O.p(t),$=function(t,e){var i=O.w(n.$u?Date.UTC(n.$y,e,t):new Date(n.$y,e,t),n);return r?i:i.endOf(a)},l=function(t,e){return O.w(n.toDate()[t].apply(n.toDate("s"),(r?[0,0,0,0]:[23,59,59,999]).slice(e)),n)},y=this.$W,M=this.$M,m=this.$D,g="set"+(this.$u?"UTC":"");switch(h){case c:return r?$(1,0):$(31,11);case f:return r?$(1,M):$(0,M+1);case o:var v=this.$locale().weekStart||0,D=(y<v?y+7:y)-v;return $(r?m-D:m+(6-D),M);case a:case d:return l(g+"Hours",0);case u:return l(g+"Minutes",1);case s:return l(g+"Seconds",2);case i:return l(g+"Milliseconds",3);default:return this.clone()}},m.endOf=function(t){return this.startOf(t,!1)},m.$set=function(t,e){var n,o=O.p(t),h="set"+(this.$u?"UTC":""),$=(n={},n[a]=h+"Date",n[d]=h+"Date",n[f]=h+"Month",n[c]=h+"FullYear",n[u]=h+"Hours",n[s]=h+"Minutes",n[i]=h+"Seconds",n[r]=h+"Milliseconds",n)[o],l=o===a?this.$D+(e-this.$W):e;if(o===f||o===c){var y=this.clone().set(d,1);y.$d[$](l),y.init(),this.$d=y.set(d,Math.min(this.$D,y.daysInMonth())).$d}else $&&this.$d[$](l);return this.init(),this},m.set=function(t,e){return this.clone().$set(t,e)},m.get=function(t){return this[O.p(t)]()},m.add=function(r,h){var d,$=this;r=Number(r);var l=O.p(h),y=function(t){var e=w($);return O.w(e.date(e.date()+Math.round(t*r)),$)};if(l===f)return this.set(f,this.$M+r);if(l===c)return this.set(c,this.$y+r);if(l===a)return y(1);if(l===o)return y(7);var M=(d={},d[s]=e,d[u]=n,d[i]=t,d)[l]||1,m=this.$d.getTime()+r*M;return O.w(m,this)},m.subtract=function(t,e){return this.add(-1*t,e)},m.format=function(t){var e=this,n=this.$locale();if(!this.isValid())return n.invalidDate||$;var r=t||"YYYY-MM-DDTHH:mm:ssZ",i=O.z(this),s=this.$H,u=this.$m,a=this.$M,o=n.weekdays,f=n.months,h=function(t,n,i,s){return t&&(t[n]||t(e,r))||i[n].slice(0,s)},c=function(t){return O.s(s%12||12,t,"0")},d=n.meridiem||function(t,e,n){var r=t<12?"AM":"PM";return n?r.toLowerCase():r},l={YY:String(this.$y).slice(-2),YYYY:this.$y,M:a+1,MM:O.s(a+1,2,"0"),MMM:h(n.monthsShort,a,f,3),MMMM:h(f,a),D:this.$D,DD:O.s(this.$D,2,"0"),d:String(this.$W),dd:h(n.weekdaysMin,this.$W,o,2),ddd:h(n.weekdaysShort,this.$W,o,3),dddd:o[this.$W],H:String(s),HH:O.s(s,2,"0"),h:c(1),hh:c(2),a:d(s,u,!0),A:d(s,u,!1),m:String(u),mm:O.s(u,2,"0"),s:String(this.$s),ss:O.s(this.$s,2,"0"),SSS:O.s(this.$ms,3,"0"),Z:i};return r.replace(y,(function(t,e){return e||l[t]||i.replace(":","")}))},m.utcOffset=function(){return 15*-Math.round(this.$d.getTimezoneOffset()/15)},m.diff=function(r,d,$){var l,y=O.p(d),M=w(r),m=(M.utcOffset()-this.utcOffset())*e,g=this-M,v=O.m(this,M);return v=(l={},l[c]=v/12,l[f]=v,l[h]=v/3,l[o]=(g-m)/6048e5,l[a]=(g-m)/864e5,l[u]=g/n,l[s]=g/e,l[i]=g/t,l)[y]||g,$?v:O.a(v)},m.daysInMonth=function(){return this.endOf(f).$D},m.$locale=function(){return D[this.$L]},m.locale=function(t,e){if(!t)return this.$L;var n=this.clone(),r=S(t,e,!0);return r&&(n.$L=r),n},m.clone=function(){return O.w(this.$d,this)},m.toDate=function(){return new Date(this.valueOf())},m.toJSON=function(){return this.isValid()?this.toISOString():null},m.toISOString=function(){return this.$d.toISOString()},m.toString=function(){return this.$d.toUTCString()},M}(),T=_.prototype;return w.prototype=T,[["$ms",r],["$s",i],["$m",s],["$H",u],["$W",a],["$M",f],["$y",c],["$D",d]].forEach((function(t){T[t[1]]=function(e){return this.$g(e,t[0],t[1])}})),w.extend=function(t,e){return t.$i||(t(e,_,w),t.$i=!0),w},w.locale=S,w.isDayjs=p,w.unix=function(t){return w(1e3*t)},w.en=D[v],w.Ls=D,w.p={},w}));
 
 /***/ }),
 
@@ -38812,7 +38905,7 @@ var map = {
 	"./Comfort_Pink.png": "./storage/app/public/img/Comfort_Pink.png",
 	"./Dario La Tegola.jpeg": "./storage/app/public/img/Dario La Tegola.jpeg",
 	"./Edoardo Lai.jpeg": "./storage/app/public/img/Edoardo Lai.jpeg",
-	"./Germany.jpeg": "./storage/app/public/img/Germany.jpeg",
+	"./Germany-landscape.jpg": "./storage/app/public/img/Germany-landscape.jpg",
 	"./Greece.png": "./storage/app/public/img/Greece.png",
 	"./Hos_Light.png": "./storage/app/public/img/Hos_Light.png",
 	"./Italy.jpg": "./storage/app/public/img/Italy.jpg",
@@ -38967,14 +39060,14 @@ module.exports = "/images/Edoardo Lai.jpeg?f7c963547fa416707a6ad213563b2d29";
 
 /***/ }),
 
-/***/ "./storage/app/public/img/Germany.jpeg":
-/*!*********************************************!*\
-  !*** ./storage/app/public/img/Germany.jpeg ***!
-  \*********************************************/
+/***/ "./storage/app/public/img/Germany-landscape.jpg":
+/*!******************************************************!*\
+  !*** ./storage/app/public/img/Germany-landscape.jpg ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Germany.jpeg?e23ba8967b401675d6a4aa6623c11faa";
+module.exports = "/images/Germany-landscape.jpg?bb41811867e8e1f93723d9d5b3f2845b";
 
 /***/ }),
 

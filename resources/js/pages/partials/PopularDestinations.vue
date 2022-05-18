@@ -25,6 +25,7 @@
     name: 'PopularDestinations',
     data(){
       return{
+        dateNow: dayjs().format('D-MM-YYYY').split('-').slice(1,2).join(''),
         destinations:[]
       }
     },
@@ -45,7 +46,7 @@
             })
         },
         getDestination(){
-          if(this.dateNow >= '04' && this.dateNow <= '09'){
+          if(this.dateNow >= '07' && this.dateNow <= '09'){
             this.destinations = [
               {
                 country: 'Morocco',
@@ -75,7 +76,7 @@
               {
                 country: 'Germany',
                 uri: 'Germany',
-                path: require('../../../../storage/app/public/img/Germany.jpeg')
+                path: require('../../../../storage/app/public/img/Germany-landscape.jpg')
 
               },
               {
