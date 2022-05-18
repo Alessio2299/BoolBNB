@@ -17995,7 +17995,7 @@ __webpack_require__.r(__webpack_exports__);
       destinations: [{
         country: 'Morocco',
         uri: 'Morocco',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Morocco.jpg */ "./storage/app/public/img/Morocco.jpg")
+        path: __webpack_require__(/*! ../../../../storage/app/public/img/Cropped_Morocco.jpg */ "./storage/app/public/img/Cropped_Morocco.jpg")
       }, {
         country: 'Italy',
         uri: 'Italia',
@@ -18003,7 +18003,7 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         country: 'Norway',
         uri: 'Norway',
-        path: __webpack_require__(/*! ../../../../storage/app/public/img/Norway.jpg */ "./storage/app/public/img/Norway.jpg")
+        path: __webpack_require__(/*! ../../../../storage/app/public/img/Cropped_Norway.jpg */ "./storage/app/public/img/Cropped_Norway.jpg")
       }]
     };
   },
@@ -18404,7 +18404,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#section_03[data-v-e938df2c] {\n  background-color: #FFCEAF;\n}\n#section_03 h2[data-v-e938df2c] {\n  color: #FFCEAF;\n}\n#section_03 a[data-v-e938df2c] {\n  text-decoration: none;\n}\n#section_03 a .col .card[data-v-e938df2c] {\n  background-color: #E7717D;\n  border: 6px solid #E7717D;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n  position: relative;\n}\n#section_03 a .col .card h1[data-v-e938df2c] {\n  position: absolute;\n  font-family: Montserrat, sans-serif;\n  text-transform: uppercase;\n}\n#section_03 a .col .card a[data-v-e938df2c] {\n  background-color: #EF9273;\n  border: 0;\n}\n#section_03 a .col .card[data-v-e938df2c]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
+exports.push([module.i, "#section_03[data-v-e938df2c] {\n  background-color: #FFCEAF;\n}\n#section_03 h2[data-v-e938df2c] {\n  color: #FFCEAF;\n}\n#section_03 a[data-v-e938df2c] {\n  text-decoration: none;\n}\n#section_03 a .card[data-v-e938df2c] {\n  background-color: #E7717D;\n  border: 6px solid #E7717D;\n  box-shadow: 15px 15px #EF9273;\n  cursor: pointer;\n  transition: 0.3s;\n  position: relative;\n}\n#section_03 a .card p.card-title[data-v-e938df2c] {\n  position: absolute;\n  font-family: Montserrat, sans-serif;\n  text-transform: uppercase;\n}\n#section_03 a .card a[data-v-e938df2c] {\n  background-color: #EF9273;\n  border: 0;\n}\n#section_03 a .card[data-v-e938df2c]:hover {\n  box-shadow: 20px 25px #EF9273;\n  transition: 0.4s;\n  transform: translateY(-15px);\n}", ""]);
 
 // exports
 
@@ -21778,7 +21778,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row row-cols-3 mx-5 mb-5" },
+        { staticClass: "row row-cols-md-3 row-cols-sm-1  mx-5 mb-5" },
         _vm._l(_vm.destinations, function (destination) {
           return _c(
             "router-link",
@@ -21793,17 +21793,20 @@ var render = function () {
             },
             [
               _c("div", { staticClass: "col text-center " }, [
-                _c("div", { staticClass: "card d-flex align-items-center" }, [
-                  _c("h1", { staticClass: "card-title text-white" }, [
-                    _vm._v(_vm._s(destination.country)),
-                  ]),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass: "card-img-top ",
-                    staticStyle: { height: "21rem" },
-                    attrs: { src: destination.path, alt: "Card image cap" },
-                  }),
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "card d-flex align-items-center my-4" },
+                  [
+                    _c("p", { staticClass: "card-title text-white h2 mt-2" }, [
+                      _vm._v(_vm._s(destination.country)),
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "card-img-top ",
+                      attrs: { src: destination.path, alt: "Card image cap" },
+                    }),
+                  ]
+                ),
               ]),
             ]
           )
@@ -21819,7 +21822,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row justify-content-center mb-5" }, [
-      _c("div", { staticClass: "col-4" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
         _c("img", {
           staticClass: "img-fluid",
           attrs: {
