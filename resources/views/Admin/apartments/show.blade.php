@@ -3,7 +3,7 @@
 @section('pageTitle', $apartment->title)
 
 @section('content')
-    <div class="container">
+    <div class="container py-4">
         <div class="row">
             <div class="col">
                 <div class="text-right"> 
