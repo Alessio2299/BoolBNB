@@ -17177,6 +17177,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'About',
@@ -20534,6 +20539,14 @@ var render = function () {
                 name: "Marianna Galuppi",
                 image: "Marianna Galuppi.jpeg",
                 linkedin: "marianna-galuppi-13a469239/",
+              },
+            }),
+            _vm._v(" "),
+            _c("CardTeam", {
+              attrs: {
+                name: "Christian D'Agostino",
+                image: "Christian D'Agostino.png",
+                linkedin: "christiandagostino/",
               },
             }),
           ],
@@ -39357,6 +39370,7 @@ var map = {
 	"./Austria.jpeg": "./storage/app/public/img/Austria.jpeg",
 	"./BoolBnb.logo.png": "./storage/app/public/img/BoolBnb.logo.png",
 	"./BoolBnb.png": "./storage/app/public/img/BoolBnb.png",
+	"./Christian D'Agostino.png": "./storage/app/public/img/Christian D'Agostino.png",
 	"./Comfort_1.png": "./storage/app/public/img/Comfort_1.png",
 	"./Comfort_Pink.png": "./storage/app/public/img/Comfort_Pink.png",
 	"./Dario La Tegola.jpeg": "./storage/app/public/img/Dario La Tegola.jpeg",
@@ -39474,6 +39488,17 @@ module.exports = "/images/BoolBnb.logo.png?33e8e756d7f31737bc5f540158e41b93";
 /***/ (function(module, exports) {
 
 module.exports = "/images/BoolBnb.png?984981497bb09ace02bc91c45e14aadc";
+
+/***/ }),
+
+/***/ "./storage/app/public/img/Christian D'Agostino.png":
+/*!*********************************************************!*\
+  !*** ./storage/app/public/img/Christian D'Agostino.png ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Christian D'Agostino.png?ca59b388c3ae60cf5a65a97c1f61dc01";
 
 /***/ }),
 

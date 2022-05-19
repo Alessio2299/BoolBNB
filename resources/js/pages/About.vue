@@ -95,6 +95,11 @@
             image="Marianna Galuppi.jpeg"
             linkedin="marianna-galuppi-13a469239/"
           />
+          <CardTeam 
+            name="Christian D'Agostino"
+            image="Christian D'Agostino.png"
+            linkedin="christiandagostino/"
+          />
 
         </div>
 
