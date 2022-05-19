@@ -50,8 +50,8 @@
             this.destinations = [
               {
                 country: 'Morocco',
-                uri: 'Morocco',
-                path: require('../../../../storage/app/public/img/Morocco.jpg')
+                uri: 'Maroc',
+                path: require('../../../../storage/app/public/img/Morocco_cropped.jpg')
               },
               {
                 country: 'Italy',

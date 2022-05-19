@@ -20,17 +20,15 @@ var app = new Vue({
       this.addressInput = old;
     },
     autoComplete(){
-      this.interval = setInterval(() => {
-        if(this.addressInput.length > 3){
-          Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap')
-          .then(resp => {
-            this.listAddress = resp.data.results;
-          })
-        }
-        if(this.addressInput.length <= 2){
-          this.listAddress = []
-        }
-      },1000)
+      if(this.addressInput.length > 3){
+        Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap')
+        .then(resp => {
+          this.listAddress = resp.data.results;
+        })
+      }
+      if(this.addressInput.length <= 2){
+        this.listAddress = []
+      }
     },
     clickAddress(index){
       this.addressInput = this.listAddress[index].address.freeformAddress + ' ' + this.listAddress[index].address.country + ' ' + this.listAddress[index].address.countryCode;

@@ -214,7 +214,7 @@ export default {
         width: 20%;
     }
     section {
-        background-color: #feceaf;
+        background-color: #f4e2d6;
         font-family: Montserrat, sans-serif;
 
 

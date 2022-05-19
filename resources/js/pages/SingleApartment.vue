@@ -2,11 +2,11 @@
 <section>
 
 
-    <div class="container " v-if="apartment">
+    <div class="container pt-4" v-if="apartment">
         <div class="row row-cols-1">
             <div class="col py-3">
                 <h1 class="text-center">{{apartment.title}}</h1>
-                <h2 class="text-center">{{apartment.address}}</h2>
+                <a class="street" href="#miniMap"><h2 class="text-center">{{apartment.address}}</h2></a>
             </div>
         </div>
 
@@ -29,13 +29,6 @@
                 </div>
                 <div class="row section">
                     <div class="col-12 py-3">
-                        {{apartment.description}}
-                    </div>
-                </div>
-
-                <div class="row section">
-                    <div class="col-12 py-3">
-                        <h5 class="p-3 text-center"><strong>Here you will find these additional services</strong></h5>
                         <ul class="amenities d-flex justify-content-center flex-wrap">
                             <li class="btn btn-primary m-1" v-for="amenity in apartment.amenities" :key="amenity.id">
                                 <font-awesome-icon icon="fa-solid fa-wifi" v-if="amenity.id == 1" />
@@ -48,8 +41,14 @@
                         </ul>
                     </div>
                 </div>
+                <div class="row section">
+                    <div class="col-12 py-3">
+                        {{apartment.description}}
+                    </div>
+                </div>
+
                 <h5 class="p-3 text-center"><strong>This is where you will find your apartment</strong></h5>
-                <div class="row mb-3 map-container">
+                <div id="miniMap" class="row mb-3 map-container justify-content-center">
                     <MiniMap 
                         :lat= 'apartment.lat'
                         :lon= 'apartment.lon'
@@ -70,15 +69,15 @@
                         <form id="message-form" @submit.prevent="sendMessage">
                             <div class="form-group">
                                 <label class="required-field">Name</label>
-                                <input type="text" class="form-control" id="name" v-model="form.name" placeholder="name" required>
+                                <input type="text" class="form-control my_form" id="name" v-model="form.name" placeholder="Name" required>
                             </div>
                             <div class="form-group">
                                 <label class="required-field">Email address</label>
-                                <input type="email" class="form-control" id="email" v-model="form.email" placeholder="name@example.com" required>
+                                <input type="email" class="form-control my_form" id="email" v-model="form.email" placeholder="Name@example.com" required>
                             </div>
                             <div class="form-group">
                                 <label class="required-field">Your message</label>
-                                <textarea class="form-control" id="message" v-model="form.message" rows="5"></textarea>
+                                <textarea class="form-control my_form" placeholder="Enter your message for this apartment" id="message" v-model="form.message" rows="5"></textarea>
                             </div>
                             <button class="btn btn-dark" type="submit">
                                     <span v-if="success == null || success == true">Send</span>
@@ -159,14 +158,15 @@
 <style lang="scss" scoped>
     @import "../../sass/variables.scss";
 section{
-//     background-image: url('../../../storage/app/public/img/Icon_Grid.svg');
-//     background-repeat: no-repeat;
-//     background-size: cover;
-background-color: #fff;
+background-color: #f4e2d6;
 }
     .container {
-        background-color: #fff;
+        background-color: #f4e2d6;
         font-family: Montserrat, sans-serif;
+        .street{
+            text-decoration: none;
+            color: #212529;
+        }
         .row-img {
             justify-content: center;
         }
@@ -188,20 +188,17 @@ background-color: #fff;
 
         .facilities {
             list-style: none;
+            text-align: center;
+            width: max-content;
+            margin: auto;
             padding: 0;
-            margin: 0;
 
             li {
                 display: inline-block;
-                border: 1px solid $orange_secondary;
+                border: 1px solid #e7707d;
                 border-radius: 10%;
                 padding: 20px;
                 margin: 5px;
-
-                // &:not(:last-child):after {
-                //     content: '\2219';
-                //     padding-left: 5px;
-                // }
             }
         }
 
@@ -216,7 +213,7 @@ background-color: #fff;
         }
 
         .map-container {
-            border: 1px solid $orange_secondary;
+            border: 1px solid #e7707d;
             padding: 15px;
             border-radius: 10px;
         }
@@ -231,6 +228,9 @@ background-color: #fff;
                     content: '* ';
                     color: $red;
                 }
+            }
+            .my_form{
+                background-color: #fff1e8 !important;
             }
         }
     }

@@ -43,7 +43,7 @@
 
 <style lang="scss" scoped>
   #map{
-    width: 60vw;
+    width: 100%;
     height: 60vh;
     overflow: hidden;
   }

@@ -37,7 +37,7 @@
       background-image: url('../../storage/app/public/img/Landscape-focus.png');
       background-position: center;
       background-size: cover;
-      box-shadow: 5px 5px 30px black;
+      box-shadow: 10px 10px 1px $orange_primary ;
       .img-left {
         position: relative;
         width: 35%;
@@ -67,7 +67,7 @@
         }
         .card-body {
           position: absolute;
-          top: 10%;
+          top: 0%;
           left: 0;
           right: 0;
           .my_btn{

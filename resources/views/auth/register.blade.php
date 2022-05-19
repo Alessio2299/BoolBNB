@@ -53,7 +53,20 @@
                                             </div>
                                         </div>
 
-
+                                        <div class="form-group row">
+                                            <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('Birth_date') }}</label>
+                
+                                            <div class="col-md-6">
+                                                <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" autocomplete="name" autofocus>
+                
+                                                @error('birth_date')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        
                                         <div class="form-group row">
                                             <label for="email" class="col-md-4 col-form-label text-md-right my_text">{{ __('E-Mail Address') }}*</label>
 

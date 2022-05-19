@@ -25,7 +25,7 @@
                   <h5 class="card-title">{{$apartment->title}}</h5>
                   <p class="card-text text-truncate">{{$apartment->description}}</p>
 
-                <div>
+                <div class="text-center pb-3">
                     @foreach ($apartment->amenities as $amenity)
                         <span class="badge badge-primary">{{$amenity->name}}</span>
                     @endforeach
