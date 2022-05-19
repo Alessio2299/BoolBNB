@@ -93,14 +93,15 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var delete_btn = document.getElementById("delete-btn");
-delete_btn.addEventListener("click", function (event) {
-  if (confirm('Are you sure you want to delete this apartment?')) {
-    return true;
-  } else {
-    event.preventDefault();
-  }
-});
+var delete_buttons = document.getElementsByClassName("delete-btn");
+
+for (var i = 0; i < delete_buttons.length; i++) {
+  delete_buttons[i].addEventListener("click", function (event) {
+    if (!confirm('Are you sure you want to delete this apartment?')) {
+      event.preventDefault();
+    }
+  });
+}
 
 /***/ }),
 

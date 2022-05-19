@@ -12,6 +12,13 @@
   color: #fff;
 }
 
+.container-fluid .my_error {
+  color: #fff;
+  background-color: #c52c28;
+  padding: 6px;
+  border-radius: 5px;
+}
+
 .container-fluid .logo-home {
   height: 100vh;
   padding-top: 30px;
