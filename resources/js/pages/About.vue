@@ -1,8 +1,11 @@
 <template>
   <div>
     <section id="head">
+      <div class="text-center pt-4 mb-3">
+          <img class="img-fluid" src="../../../storage/app/public/img/BoolBnb.png" alt="Logo" id="logo">
+      </div>
       <div class="container">
-        <div class="titles-wrap">
+        <div class="titles-wrap pt-5">
           <h1 class="title up">made by travellers</h1>
           <h1 class="title down">for travellers</h1>
         </div>
@@ -12,8 +15,8 @@
         </div>
       </div>
     </section>
-
     <section id="mission">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#FEF9F8" fill-opacity="1" d="M0,224L80,213.3C160,203,320,181,480,192C640,203,800,245,960,245.3C1120,245,1280,203,1360,181.3L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 ">
           <div class="col">
@@ -51,6 +54,7 @@
     </section>
 
     <section id="journey">
+      <svg class="wave-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffceaf" fill-opacity="1" d="M0,32L80,32C160,32,320,32,480,42.7C640,53,800,75,960,90.7C1120,107,1280,117,1360,122.7L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
       <div class="left"></div>
 
       <div class="right">
@@ -59,35 +63,46 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non sodales neque sodales ut etiam. Eleifend donec pretium vulputate sapien nec. Arcu risus quis varius quam quisque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Vehicula ipsum a arcu cursus vitae congue mauris. Duis tristique sollicitudin nibh sit amet commodo nulla. Facilisis volutpat est velit egestas dui id ornare arcu odio. Vitae aliquet nec ullamcorper sit amet risus nullam eget. Sapien eget mi proin sed libero enim. Euismod lacinia at quis risus sed vulputate odio. Tempus egestas sed sed risus pretium quam vulputate. Id diam vel quam elementum. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.</p>
         </div>
       </div>
+      <svg class="wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffceaf" fill-opacity="1" d="M0,32L80,32C160,32,320,32,480,42.7C640,53,800,75,960,90.7C1120,107,1280,117,1360,122.7L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
     </section>
 
     <section id="founders">
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h1>Meet the founders</h1>
+            <h1>Meet Us</h1>
           </div>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
-          <div class="col">
-            <div class="img-wrap">
-                <img src="../../../storage/app/public/img/founder-m.jpg" alt="founder">
-            </div>
-            <h3>Mark Pills</h3>
-          </div>
-          <div class="col">
-            <div class="img-wrap">
-              <img src="../../../storage/app/public/img/founder-f.jpg" alt="founder">
-            </div>
-            <h3>Erin Kristoff</h3>
-          </div>
+          
+          <CardTeam 
+            name="Alessio Napoli"
+            image="Alessio_Napoli.jpg"
+            linkedin="alessionapoli/"
+          />
+          <CardTeam 
+            name="Dario La Tegola"
+            image="Dario La Tegola.jpeg"
+            linkedin="dario-la-tegola-121356160/"
+          />
+          <CardTeam 
+            name="Edoardo Lai"
+            image="Edoardo Lai.jpeg"
+            linkedin="edoardo-lai/"
+          />
+          <CardTeam 
+            name="Marianna Galuppi"
+            image="Marianna Galuppi.jpeg"
+            linkedin="marianna-galuppi-13a469239/"
+          />
+
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non sodales neque sodales ut etiam. Eleifend donec pretium vulputate sapien nec. Arcu risus quis varius quam quisque id. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Vehicula ipsum a arcu cursus vitae congue mauris. Duis tristique sollicitudin nibh sit amet commodo nulla. Facilisis volutpat est velit egestas dui id ornare arcu odio.</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -111,8 +126,12 @@
 </template>
 
 <script>
+  import CardTeam from './partials/CardTeam.vue'
   export default {
     name : 'About',
+    components:{
+      CardTeam
+    }
   }
 </script>
 
@@ -164,11 +183,13 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: 50px;
+      bottom: -25px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: $ms-light;
+      color: #000;
+      z-index: 999;
+
 
       span {
         text-transform: uppercase;
@@ -180,7 +201,7 @@
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        border: 2px solid $ms_light;
+        border: 2px solid #000;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -199,9 +220,14 @@
     padding-top: 120px;
     padding-bottom: 90px;
     background-color: $ms_light;
-
+    position: relative;
+    svg{
+      position: absolute;
+      bottom: 100%;
+    }
     .col {
       padding: 0px 25px;
+      z-index: 99;
 
       .img-wrap {
         width: 100%;
@@ -240,9 +266,19 @@
   }
 
   #journey {
+    margin-top: 30px;
     display: flex;
     height: 540px;
-
+    position: relative;
+    .wave-top{
+      position: absolute;
+      bottom: 99%;
+      transform: rotate(180deg);
+    }
+    .wave-bottom{
+      position: absolute;
+      top: 100%;
+    }
     .left {
       background-image: url('../../../storage/app/public/img/journey-2.jpg');
       background-size: cover;
@@ -253,7 +289,7 @@
     .right {
       width: 50%;
       height: 100%;
-      background-color: $blue_secondary;
+      background-color: #FFCEAF;
       padding: 0px 30px;
       display: flex;
       align-items: center;
@@ -284,51 +320,11 @@
     .row {
       display: flex;
       justify-content: center;
-
-      .col {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        
-        .img-wrap {
-          height: 150px;
-          width: 150px;
-          border-radius: 50%;
-          background-color: $blue_secondary;
-          align-self: center;
-          overflow: hidden;
-          transition: 0.3s;
-
-          &:hover {
-            box-shadow: 12px -1px #E2E4E3;
-            transition: 0.5s;
-          }
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        h3 {
-          margin-top: 15px;
-          font-weight: 600;
-          text-align: center;
-          font-family: 'Brush Script MT', cursive;
-          font-size: 2rem;
-        }
-
-        p {
-          margin-top: 20px;
-          text-align: center;
-        }
-      }
     }
   }
 
   #social {
-    background-color: $blue_secondary;
+    background-color: #FFCEAF;
     padding: 80px 0px;
 
     .col-12 {

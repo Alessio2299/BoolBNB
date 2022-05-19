@@ -43,7 +43,7 @@
   background-image: url(/images/Landscape-focus.png?d06febb2d20951d5b6bce3a29c0c7c75);
   background-position: center;
   background-size: cover;
-  box-shadow: 5px 5px 30px black;
+  box-shadow: 10px 10px 1px #EF9273;
 }
 
 .container-fluid .container-card .my_card .img-left {
@@ -80,7 +80,7 @@
 
 .container-fluid .container-card .my_card .form-right .card-body {
   position: absolute;
-  top: 10%;
+  top: 0%;
   left: 0;
   right: 0;
 }

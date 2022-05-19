@@ -111,7 +111,7 @@ delete_btn.addEventListener("click", function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/mari/Desktop/Boolean/BoolBnb/resources/js/apartment/index.js */"./resources/js/apartment/index.js");
+module.exports = __webpack_require__(/*! /Users/alessionapoli/Desktop/BooBNB/resources/js/apartment/index.js */"./resources/js/apartment/index.js");
 
 
 /***/ })

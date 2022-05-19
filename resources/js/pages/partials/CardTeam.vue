@@ -1,15 +1,9 @@
 <template>
-  <div class="col-lg-4 col-sm-6">
-    <div class="team-box mb-3">
-      <div class="team-box-image">
-        <img :src="require (`../../../../storage/app/public/img/${image}`)" :alt="name">
-      </div>
-      <div class="team-box-caption text-center">
-        <h4>{{name}}</h4>
-        <p>{{job}}</p>
-        <a class="social" target="_blank" :href="linkGitHub"><i class="fab fa-github"></i></a>
-      </div>
+  <div class="col">
+    <div class="img-wrap">
+        <a :href="'https://www.linkedin.com/in/' + linkedin" target="_blank" rel="noopener noreferrer"><img :src="require('../../../../storage/app/public/img/' + image)" :alt="name"></a>
     </div>
+    <h3>{{name}}</h3>
   </div>
 </template>
 
@@ -19,42 +13,51 @@
     props:{
       name: String,
       image: String,
-      job: String,
-      linkGitHub: String
+      linkedin: String
     }
   }
 </script>
 
 <style lang="scss" scoped>
   @import '../../../sass/variables.scss';
+        .col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        .img-wrap {
+          height: 150px;
+          width: 150px;
+          border-radius: 50%;
+          background-color: $blue_secondary;
+          align-self: center;
+          overflow: hidden;
+          transition: 0.3s;
 
-  .team-box{
-    position: relative;
-    .team-box-image img{
-      width: 100%;
-      height: 420px;
-      object-position: center;
-      object-fit: cover;
-    }
-    .team-box-caption{
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: $nav_bg;
-      color: $nav_text;
-      padding: 10px;
-      visibility: hidden;
-      .social{
-        font-size: 20px;
-        color: $nav_text;
-        &:hover{
-          color: gray;
+          &:hover {
+            cursor: pointer;
+            box-shadow: 12px -1px #FFCEAF;
+            transition: 0.5s;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        h3 {
+          margin-top: 15px;
+          font-weight: 600;
+          text-align: center;
+          font-family: 'Brush Script MT', cursive;
+          font-size: 2rem;
+        }
+
+        p {
+          margin-top: 20px;
+          text-align: center;
         }
       }
-    }
-    &:hover .team-box-caption{
-      visibility: visible;
-    }
-  }
 </style>

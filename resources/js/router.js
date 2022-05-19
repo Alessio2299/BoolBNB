@@ -5,7 +5,6 @@ Vue.use(VueRouter);
 
 import Home from './pages/Home';
 import About from './pages/About';
-// import AboutSecond from './pages/AboutSecond';
 import AdvancedSearch from './pages/AdvancedSearch.vue';
 import SingleApartment from './pages/SingleApartment.vue';
 import PageNotFound from './pages/PageNotFound.vue';
@@ -26,11 +25,6 @@ const router = new VueRouter({
       name: 'about',
       component: About
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: AboutSecond
-    // },
     {
       path: '/apartments/search/:address',
       name: 'advancedSearch',
