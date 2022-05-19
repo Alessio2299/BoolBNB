@@ -66,13 +66,9 @@
     </div>
 
     <Carousel/>
-
-
-   
+ 
     <PopularDestinations/>
     
-
-
   </div>
 </template>
 
