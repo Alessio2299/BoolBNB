@@ -78,7 +78,7 @@
 
             <div class="form-group">
                 <label for="address">Address</label>
-                <input @focus="autoComplete" type="text" class="form-control {{ $errors->first('address') ? 'border-danger' : ''}}" v-model="addressInput" id="address" name="address" value="{{old('address')}}">
+                <input @keyup="autoComplete" type="text" class="form-control {{ $errors->first('address') ? 'border-danger' : ''}}" v-model="addressInput" id="address" name="address" value="{{old('address')}}">
                 <div v-if="success == false" class="text-danger">This street address is not valid</div>
                 @error('address')
                     <div class="text-danger">{{ $message }}</div>

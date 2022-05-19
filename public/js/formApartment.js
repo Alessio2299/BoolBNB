@@ -13020,17 +13020,15 @@ var app = new Vue({
     autoComplete: function autoComplete() {
       var _this = this;
 
-      this.interval = setInterval(function () {
-        if (_this.addressInput.length > 3) {
-          Axios.get('https://api.tomtom.com/search/2/search/' + _this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap').then(function (resp) {
-            _this.listAddress = resp.data.results;
-          });
-        }
+      if (this.addressInput.length > 3) {
+        Axios.get('https://api.tomtom.com/search/2/search/' + this.addressInput + '.json?limit=5&minFuzzyLevel=1&maxFuzzyLevel=2&idxSet=Str&view=Unified&relatedPois=off&key=dE9bHqujdqyvRaNJuN6VZY7LZmSuidap').then(function (resp) {
+          _this.listAddress = resp.data.results;
+        });
+      }
 
-        if (_this.addressInput.length <= 2) {
-          _this.listAddress = [];
-        }
-      }, 1000);
+      if (this.addressInput.length <= 2) {
+        this.listAddress = [];
+      }
     },
     clickAddress: function clickAddress(index) {
       this.addressInput = this.listAddress[index].address.freeformAddress + ' ' + this.listAddress[index].address.country + ' ' + this.listAddress[index].address.countryCode;

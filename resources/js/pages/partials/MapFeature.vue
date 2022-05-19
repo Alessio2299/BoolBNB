@@ -9,7 +9,7 @@
     name : 'MapFueture',
     data() {
       return {
-        myZoom : 20
+        myZoom : 10
       }
     },props:{
       lat: Number,
