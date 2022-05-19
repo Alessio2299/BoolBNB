@@ -2,35 +2,35 @@
   <div class="main main_container">
     <!-- Barra per la ricerca -->
     <div class="container-fluid pt-4 px-0" id="jumbotron">
-    <div class="overlay"></div>
-    <div class="row justify-content-center mx-0">
-      <div class="col-6 text-center ">
-          <img class="img-fluid" src="../../../storage/app/public/img/BoolBnb.png" alt="Logo" id="logo">
+      <div class="overlay"></div>
+      <div class="row justify-content-center mx-0">
+        <div class="col-6 text-center ">
+            <img class="img-fluid" src="../../../storage/app/public/img/BoolBnb.png" alt="Logo" id="logo">
+        </div>
       </div>
-    </div>
-      <div class="row align-items-end justify-content-center mx-0 mt-3" id="row_jumbo">
-        <div class="col-12">
+      <div id="row_jumbo" class="row mx-0 mt-3 d-flex justify-content-center">
+        <div class="col-10">
 
-          <form id="searchForm" @submit.prevent="getLongLat">
-            <div class="row mx-5 justify-content-center ">
+          <form id="searchForm" class="" @submit.prevent="getLongLat">
               
-            <div class="col-8 text-center d-flex flex-column form-group align-content-center">
-                <label for="address"></label>
-                <input @keyup="autoComplete" class="d-block" type="text" name="address" id="address" v-model="addressInput" placeholder="Where to?">
+              <div class="wrap">
+                <input @keyup="autoComplete" type="text" name="address" id="address" v-model="addressInput" placeholder="Where to?">
                 <p v-for="(error, index) in errors.name" :key="'error_name'+index" class="invalid-feedback">
                   {{error}}
-                </p>                    
+                </p>
+                <button class="btn my-4" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
 
-                  <div class="mt-1">
-                    <div @click="clickAddress(index)" class="text-left bg-white my_hover p-3" v-for="(address,index) in listAddress" :key="index">
-                      <i class="mr-2 fas fa-map-marker-alt"></i> {{address.address.freeformAddress}} {{address.address.country}} {{address.address.countryCode}}  
-                    </div>
-                  </div>
+              <div class="mt-1">
+                <div @click="clickAddress(index)" class="text-left bg-white my_hover p-3" v-for="(address,index) in listAddress" :key="index">
+                  <i class="mr-2 fas fa-map-marker-alt"></i> {{address.address.freeformAddress}} {{address.address.country}} {{address.address.countryCode}}  
+                </div>
               </div>
-              <div class="text-center col-12">
-                <button class="btn btn-danger my-4" type="submit">Search</button>
-              </div>
-            </div>
+                
+              
+              
           </form>
 
         </div>
@@ -179,14 +179,35 @@
       opacity: 0.4;
     }
       #row_jumbo{
-        flex-basis: 100%;
+        form {
+          // position: relative;
+
+          .wrap {
+              position: relative;
+
+              #address{
+              outline: none;
+              width: 100%;
+              border-radius: 10px;
+              border: 0;
+              padding: 0.5rem;
+            }
+
+            button {
+              height: 100%;
+              position: absolute;
+              right: 0;
+              top: -55%;
+
+              &:focus {
+                box-shadow: none;
+              }
+            }
+          }
+          
+        }
       }
-      #address{
-        outline: none;
-        border-radius: 10px;
-        border: 0;
-        padding: 0.5rem;
-      }
+      
 
       svg{
         z-index: 99;
