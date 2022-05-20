@@ -37,7 +37,7 @@
                       <form class="d-inline-block" method="POST" action="{{route('admin.apartments.destroy', $apartment->id)}}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" id="delete-btn">
+                        <button type="submit" class="btn btn-danger delete-btn">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </form>
